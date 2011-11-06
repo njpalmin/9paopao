@@ -3,6 +3,7 @@
 //  9PaoPao
 //
 //  Created by 金 里麟 on 11-11-5.
+//  Modify by TJH on 11-11-6.
 //  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
 //
 
