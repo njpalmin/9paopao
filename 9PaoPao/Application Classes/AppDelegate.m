@@ -7,14 +7,41 @@
 //
 
 #import "AppDelegate.h"
+#import "GatewayViewController.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize window = mWindow;
+
+- (void)dealloc
+{
+    [mWindow release];
+    mWindow = nil;
+    
+    [mGatewayViewController release];
+    mGatewayViewController = nil;
+    
+    [super dealloc];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UIView      *view = nil;
+    
+    mWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [mWindow setAutoresizesSubviews:YES];
+    [mWindow setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    
+    mGatewayViewController = [[GatewayViewController alloc] init];
+    
+    view = [mGatewayViewController view];
+    assert(view);
+    
+    [view setFrame:[[UIScreen mainScreen] applicationFrame]];
+    
+    [mWindow addSubview:view];
+    [mWindow makeKeyAndVisible];
+    
     return YES;
 }
 							
