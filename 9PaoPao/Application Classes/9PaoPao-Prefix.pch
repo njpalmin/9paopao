@@ -12,3 +12,19 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#ifdef __i386__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define printf(...) printf(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#define printf(...) {}
+#endif
+
+#if 1
+#define break_if(x)                                                 \
+if ((x))                                                            \
+{                                                                   \
+break;                                                              \
+}
+#endif

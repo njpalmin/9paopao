@@ -11,8 +11,9 @@
 
 @interface GatewayViewController : UIViewController {
     
-    UIButton    *mMostLoveBtn;
-    UIButton    *mSearchBtn;
+    UINavigationController  *mNavigationController;
+    UIButton                *mMostLoveBtn;
+    UIButton                *mSearchBtn;
 }
 
 @end

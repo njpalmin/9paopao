@@ -7,7 +7,7 @@
 //
 
 #import "SearchNearbyViewController.h"
-
+#import "PaoPaoCommon.h"
 
 @implementation SearchNearbyViewController
 
@@ -47,14 +47,12 @@
 {
     [super viewDidLoad];
     
-    UIImageView     *naviBackground = nil;
-    
-    naviBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-    
-    self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
-    //[self.navigationController.navigationBar insertSubview: atIndex:0];
-}
-
+    do{
+        break_if(![self prepareNavigationBar]);
+        
+    }while (0);
+}                                                                                      
+                                                                                                                       
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -67,5 +65,51 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark -
+#pragma mark Private
+
+- (BOOL)prepareNavigationBar
+{
+    UIBarButtonItem     *rightItem = nil;
+    UIBarButtonItem     *leftItem = nil;
+    UIButton            *leftButton = nil;
+    UIButton            *rightButton = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"" highlightedImageName:@"" action:@selector(procReturn:) target:self];
+    rightButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"" highlightedImageName:@"" action:@selector(procChooseRange:) target:self];
+    
+    //leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    //rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
+    rightItem = [[UIBarButtonItem alloc] initWithTitle:@"2公里" style:UIBarButtonItemStylePlain target:self action:@selector(procChooseRange:)];
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
+    
+    [leftItem release];
+    leftItem = nil;
+    
+    [rightItem release];
+    rightItem = nil;
+    
+    return YES;
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    
+}
+
+- (void)procChooseRange:(id)sender
+{
+    
+}                             
 
 @end

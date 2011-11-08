@@ -7,7 +7,7 @@
 //
 
 #import "GatewayViewController.h"
-
+#import "SearchNearbyViewController.h"
 
 @implementation GatewayViewController
 
@@ -91,6 +91,9 @@
     
     [self.view addSubview:mMostLoveBtn];
     [self.view addSubview:mSearchBtn];
+    
+    mNavigationController = [[UINavigationController alloc] init];
+    mNavigationController.view.frame = CGRectMake(0, 0, 320, 460);
 }
 
 - (void)viewDidUnload
@@ -116,7 +119,12 @@
 
 - (void)searchMostLove:(id)sender
 {
+    SearchNearbyViewController  *searchNearbyViewController = nil;
     
+    searchNearbyViewController = [[SearchNearbyViewController alloc] init];
+    [mNavigationController pushViewController:searchNearbyViewController animated:NO];
+    
+    [self presentModalViewController:mNavigationController animated:YES];
 }
 
 @end
