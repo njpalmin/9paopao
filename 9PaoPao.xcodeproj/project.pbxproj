@@ -18,6 +18,7 @@
 		18A004C11464CF110015EC68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A004941464CF100015EC68 /* Foundation.framework */; };
 		18A004C91464CF110015EC68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18A004C71464CF110015EC68 /* InfoPlist.strings */; };
 		18A004CC1464CF110015EC68 /* _PaoPaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A004CB1464CF110015EC68 /* _PaoPaoTests.m */; };
+		337081581469068A004B2645 /* SearchNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 337081571469068A004B2645 /* SearchNearbyViewController.m */; };
 		339E66DF1467DA260097747E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339E66DE1467DA260097747E /* Localizable.strings */; };
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
@@ -52,6 +53,8 @@
 		18A004C81464CF110015EC68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18A004CA1464CF110015EC68 /* _PaoPaoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _PaoPaoTests.h; sourceTree = "<group>"; };
 		18A004CB1464CF110015EC68 /* _PaoPaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _PaoPaoTests.m; sourceTree = "<group>"; };
+		337081561469068A004B2645 /* SearchNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNearbyViewController.h; sourceTree = "<group>"; };
+		337081571469068A004B2645 /* SearchNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNearbyViewController.m; sourceTree = "<group>"; };
 		339E66DE1467DA260097747E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		33D4DF651467CD0D00CFE105 /* 9PaoPao-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "9PaoPao-Prefix.pch"; path = "Application Classes/9PaoPao-Prefix.pch"; sourceTree = "<group>"; };
 		33D4DF661467CD0D00CFE105 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Application Classes/main.m"; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				337081561469068A004B2645 /* SearchNearbyViewController.h */,
+				337081571469068A004B2645 /* SearchNearbyViewController.m */,
 				33D4DF811467D24100CFE105 /* GatewayViewController.h */,
 				33D4DF821467D24100CFE105 /* GatewayViewController.m */,
 			);
@@ -332,6 +337,7 @@
 				33D4DF681467CD0D00CFE105 /* main.m in Sources */,
 				33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */,
 				33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */,
+				337081581469068A004B2645 /* SearchNearbyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
