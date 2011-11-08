@@ -25,7 +25,6 @@
 		33D4DF7C1467CD5900CFE105 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF761467CD5900CFE105 /* first@2x.png */; };
 		33D4DF7D1467CD5900CFE105 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF771467CD5900CFE105 /* second.png */; };
 		33D4DF7E1467CD5900CFE105 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF781467CD5900CFE105 /* second@2x.png */; };
-		33D4DF801467CE4100CFE105 /* 9PaoPao-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF7F1467CE4100CFE105 /* 9PaoPao-Info.plist */; };
 		33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF821467D24100CFE105 /* GatewayViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -295,7 +294,6 @@
 				33D4DF7C1467CD5900CFE105 /* first@2x.png in Resources */,
 				33D4DF7D1467CD5900CFE105 /* second.png in Resources */,
 				33D4DF7E1467CD5900CFE105 /* second@2x.png in Resources */,
-				33D4DF801467CE4100CFE105 /* 9PaoPao-Info.plist in Resources */,
 				339E66DF1467DA260097747E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
