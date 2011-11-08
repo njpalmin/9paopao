@@ -22,6 +22,8 @@
 
 - (void)dealloc
 {
+    [mMostLoveBtn release];
+    [mSearchBtn release];
     [super dealloc];
 }
 
@@ -49,11 +51,31 @@
 
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
+    UILabel *topText = [[UILabel alloc] initWithFrame:CGRectMake(44, 30, 120, 20)];
+    topText.text = NSLocalizedString(@"Now, let's go...",nil);
+    [topText sizeToFit];
+    [self.view addSubview:topText];
+    [topText release];
+    
+    UITextView *midText = [[UITextView alloc] initWithFrame:CGRectMake(38, 74, 220, 70)];
+    midText.text = NSLocalizedString(@"Here, in 9paopao, you can find red wine, beer, cocktail, bar and so on which is most suitable for you...but, firstly, let me know what's your favorite!",nil);
+    [self.view addSubview:midText];
+    midText.font = [UIFont systemFontOfSize:14.0];
+    midText.editable = NO;
+    midText.scrollEnabled = NO;
+    [midText release];
+    
+    UILabel *buttomText = [[UILabel alloc] initWithFrame:CGRectMake(44, 220, 220, 20)];
+    buttomText.text =NSLocalizedString(@"All I want is that you will search your favorite",nil);
+    [buttomText sizeToFit];
+    [self.view addSubview:buttomText];
+    [buttomText release];
+    
     mMostLoveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     assert(mMostLoveBtn);
     
-    [mMostLoveBtn addTarget:self action:@selector(procMostLoveBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [mMostLoveBtn setFrame:CGRectMake(100, 50, 150, 30)];
+    [mMostLoveBtn addTarget:self action:@selector(findMostLove:) forControlEvents:UIControlEventTouchUpInside];
+    [mMostLoveBtn setFrame:CGRectMake(90, 170, 128, 28)];
     [mMostLoveBtn setTitle:NSLocalizedString(@"MostLoveDrinkWine", nil) forState:UIControlStateNormal];
     [mMostLoveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [mMostLoveBtn setBackgroundColor:[UIColor redColor]];
@@ -61,8 +83,8 @@
     mSearchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     assert(mSearchBtn);
     
-    [mSearchBtn addTarget:self action:@selector(procSearchBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [mSearchBtn setFrame:CGRectMake(100, 150, 100, 30)];
+    [mSearchBtn addTarget:self action:@selector(searchMostLove:) forControlEvents:UIControlEventTouchUpInside];
+    [mSearchBtn setFrame:CGRectMake(112, 268, 90, 28)];
     [mSearchBtn setTitle:NSLocalizedString(@"ImmediatelySearch", nil) forState:UIControlStateNormal];
     [mSearchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [mSearchBtn setBackgroundColor:[UIColor redColor]];
@@ -87,12 +109,12 @@
 #pragma mark -
 #pragma mark Action
 
-- (void)procMostLoveBtn:(id)sender
+- (void)findMostLove:(id)sender
 {
     
 }
 
-- (void)procSearchBtn:(id)sender
+- (void)searchMostLove:(id)sender
 {
     
 }
