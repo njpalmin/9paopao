@@ -49,4 +49,18 @@
     return [button autorelease];
 }
 
++ (UIButton *)getImageButtonWithName:(NSString *)imageName highlightName:(NSString *)highlightedImageName action:(SEL)action target:(id)target
+{
+    UIButton    *button = [[UIButton alloc] init];
+	UIImage		*image = [UIImage imageNamed:imageName];
+	CGRect		buttonFrame = CGRectZero;
+	
+	buttonFrame.size = image.size;
+    button.frame = buttonFrame;
+    [button setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:highlightedImageName] forState:UIControlStateHighlighted];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    return [button autorelease];
+}
 @end

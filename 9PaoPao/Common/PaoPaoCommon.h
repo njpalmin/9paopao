@@ -15,5 +15,6 @@
 
 + (CGRect)buttonFrameForText:(NSString *)text font:(UIFont *)font;
 + (UIButton *)getBarButtonWithTitle:(NSString *)title imageName:(NSString *)imageName highlightedImageName:(NSString *)highlightedImageName action:(SEL)action target:(id)target;
++ (UIButton *)getImageButtonWithName:(NSString *)imageName highlightName:(NSString *)highlightedImageName action:(SEL)action target:(id)target;
 
 @end
