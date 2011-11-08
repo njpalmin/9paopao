@@ -8,16 +8,11 @@
 
 
 // gateway page
-<<<<<<< HEAD
 "MostLoveDrinkWine"="我最喜欢喝的酒";
 "ImmediatelySearch"="立刻搜索";
 "Now, let's go..."="现在开始吧";
 "Here, in 9paopao, you can find red wine, beer, cocktail, bar and so on which is most suitable for you...but, firstly, let me know what's your favorite!"="在9泡泡你可以找到最适合你的红酒，啤酒，鸡尾酒，酒吧，等...先让我们知道你的喜好吧！";
 "All I want is that you will search your favorite"="只希望能马上搜索我喜欢";
-=======
-"MostLoveDrinkWine" = "我最喜欢喝的酒";
-"ImmediatelySearch" = "立刻搜索";
 
 // search nearby
 "SearchNearby Page Title" = "高级搜索";
->>>>>>> 添加高级检索画面
