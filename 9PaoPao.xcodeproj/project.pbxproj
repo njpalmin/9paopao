@@ -51,6 +51,7 @@
 		33D4DF7D1467CD5900CFE105 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF771467CD5900CFE105 /* second.png */; };
 		33D4DF7E1467CD5900CFE105 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF781467CD5900CFE105 /* second@2x.png */; };
 		33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF821467D24100CFE105 /* GatewayViewController.m */; };
+		930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930EC52F146A8526000A675D /* TellFavoriteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		33D4DF7F1467CE4100CFE105 /* 9PaoPao-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "9PaoPao-Info.plist"; path = "Application Classes/9PaoPao-Info.plist"; sourceTree = "<group>"; };
 		33D4DF811467D24100CFE105 /* GatewayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatewayViewController.h; sourceTree = "<group>"; };
 		33D4DF821467D24100CFE105 /* GatewayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GatewayViewController.m; sourceTree = "<group>"; };
+		930EC52E146A8526000A675D /* TellFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellFavoriteViewController.h; sourceTree = "<group>"; };
+		930EC52F146A8526000A675D /* TellFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellFavoriteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +294,8 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				930EC52E146A8526000A675D /* TellFavoriteViewController.h */,
+				930EC52F146A8526000A675D /* TellFavoriteViewController.m */,
 				3395E6BF146A68F100733469 /* MainViewController.h */,
 				3395E6C0146A68F100733469 /* MainViewController.m */,
 				3395E66D146A0FED00733469 /* MainSegmentViewController.h */,
@@ -452,6 +457,7 @@
 				3395E66F146A0FED00733469 /* MainSegmentViewController.m in Sources */,
 				3395E6C1146A68F300733469 /* MainViewController.m in Sources */,
 				3395E6C5146A690B00733469 /* MainViewCell.m in Sources */,
+				930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
