@@ -86,11 +86,13 @@
     [backgroundOfSearchBar release];
     [searchBar release];
     
-    [_table setFrame:CGRectMake(0, 44, 320, 322+44)];
+    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 320, 400) style:UITableViewStylePlain];
     _table.delegate = self;
     _table.dataSource = self;
     _table.separatorStyle = UITableViewCellSeparatorStyleNone;
     _table.scrollEnabled = NO;
+    
+    [self.view addSubview:_table];
     imageNames = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:@"first.png",
                                                                           @"first.png",
                                                                           @"first.png",

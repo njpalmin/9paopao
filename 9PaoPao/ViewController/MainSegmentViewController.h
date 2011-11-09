@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SearchNearbyViewController.h"
+#import "MainViewController.h"
 
 @interface MainSegmentViewController : UIViewController {
 
@@ -19,6 +20,7 @@
     
     UINavigationController      *mNavigationController;
     SearchNearbyViewController  *mSearchNearbyViewController;
+    MainViewController          *mMainViewController;
 }
 
 @property(nonatomic, assign)NSInteger choosePageIndex;

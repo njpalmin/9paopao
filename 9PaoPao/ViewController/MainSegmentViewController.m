@@ -111,7 +111,8 @@
         // -----segement---------
         
 		self.view = container;
-		
+		[self actionFirstCome];
+        
 	} while (0);
 	
 	[pool release];
@@ -178,12 +179,14 @@
 	if ((button.tag >= 0) && (button.tag < BottomButtonCount)) {
 		self.choosePageIndex = button.tag;
 	}
-            
-    [mNavigationController popViewControllerAnimated:NO];
-        
+                    
     switch (button.tag) {
         case 0:
-            
+            if (mMainViewController == nil) {
+                mMainViewController = [[MainViewController alloc] init];
+            }
+            [mNavigationController popViewControllerAnimated:NO];
+            [mNavigationController pushViewController:mMainViewController animated:NO];
             break;
         case 1:
             
@@ -192,19 +195,18 @@
             
             break;
         case 3:
-            
             break;
         case 4:
             
             if (mSearchNearbyViewController == nil) {
                 mSearchNearbyViewController = [[SearchNearbyViewController alloc] init];
             }
+            [mNavigationController popViewControllerAnimated:NO];
             [mNavigationController pushViewController:mSearchNearbyViewController animated:NO];
             break;
         default:
             break;
     }
-
 }
 
 - (void)setChoosePageIndex:(int)index
@@ -223,6 +225,23 @@
         [[mButtonArray objectAtIndex:i] setBackgroundImage:image forState:UIControlStateNormal];
 	}
     
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)actionFirstCome
+{
+    UIViewController    *rootViewController = nil;
+    
+    rootViewController = [[[UIViewController alloc] init] autorelease];
+    rootViewController.view.backgroundColor = [UIColor whiteColor];
+    
+    if (mMainViewController == nil) {
+        mMainViewController = [[MainViewController alloc] init];
+    }
+    [mNavigationController pushViewController:rootViewController animated:NO];
+    [mNavigationController pushViewController:mMainViewController animated:NO];
 }
 
 @end
