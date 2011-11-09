@@ -17,3 +17,5 @@
 // search nearby
 "SearchNearby Page Title" = "高级搜索";
 "SearchNearby SearchBar Placeholder" = "输入葡萄酒、酒吧名称、地址等";
+"SearchPlace Page Title" = "酒吧搜索";
+"SearchUser Page Title" = "用户搜索";
