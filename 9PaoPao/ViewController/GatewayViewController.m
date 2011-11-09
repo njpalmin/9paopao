@@ -7,7 +7,7 @@
 //
 
 #import "GatewayViewController.h"
-#import "SearchNearbyViewController.h"
+#import "MainSegmentViewController.h"
 
 @implementation GatewayViewController
 
@@ -119,9 +119,9 @@
 
 - (void)searchMostLove:(id)sender
 {
-    SearchNearbyViewController  *searchNearbyViewController = nil;
+    MainSegmentViewController  *searchNearbyViewController = nil;
     
-    searchNearbyViewController = [[SearchNearbyViewController alloc] init];
+    searchNearbyViewController = [[MainSegmentViewController alloc] init];
     [mNavigationController pushViewController:searchNearbyViewController animated:NO];
     
     [self presentModalViewController:mNavigationController animated:YES];

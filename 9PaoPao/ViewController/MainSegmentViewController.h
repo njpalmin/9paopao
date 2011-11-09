@@ -15,6 +15,7 @@
 	NSArray			*chooseButtonImage;
 	NSMutableArray	*mButtonArray;
 	NSInteger		mChoosePageIndex;
+    UIView          *mSegementView;
 }
 
 @property(nonatomic, assign)NSInteger choosePageIndex;
