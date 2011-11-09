@@ -9,6 +9,8 @@
 #import "GatewayViewController.h"
 #import "MainSegmentViewController.h"
 
+
+
 @implementation GatewayViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,7 +29,6 @@
     
     [mMainSegmentViewController release];
     mMainSegmentViewController = nil;
-    
     [super dealloc];
 }
 
@@ -115,7 +116,12 @@
 
 - (void)findMostLove:(id)sender
 {
+    if (mMainSegmentViewController == nil) {
+        mMainSegmentViewController = [[MainSegmentViewController alloc] init];
+    }
+    mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
     
+    [self presentModalViewController:mMainSegmentViewController animated:YES];   
 }
 
 - (void)searchMostLove:(id)sender

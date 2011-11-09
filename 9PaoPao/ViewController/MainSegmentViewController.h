@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SearchNearbyViewController.h"
 #import "MainViewController.h"
-
+//add by mqh begin 2011-11-9
+#import "TellFavoriteViewController.h"
+//add by mqh end   2011-11-9
 @interface MainSegmentViewController : UIViewController {
 
 	NSArray                 *normalButtonImage;
@@ -21,6 +23,9 @@
     UINavigationController      *mNavigationController;
     SearchNearbyViewController  *mSearchNearbyViewController;
     MainViewController          *mMainViewController;
+    //add by mqh begin 2011-11-9
+    TellFavoriteViewController *tFVC;
+    //add by mqh end   2011-11-9
 }
 
 @property(nonatomic, assign)NSInteger choosePageIndex;

@@ -57,16 +57,18 @@
 - (void)loadView
 {
     float width = [[UIScreen  mainScreen] bounds].size.width;
-    float height = [[UIScreen mainScreen] bounds].size.height;
+    float height = [[UIScreen mainScreen] bounds].size.height - 20-44;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     self.view = view;
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 20)];
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
     titleLabel.text = navTitle;
+    self.title = @"9paopao";
     [self.view addSubview:titleLabel];
-    favoriteTable = [[UITableView alloc] initWithFrame:CGRectMake(0, titleLabel.frame.size.height, width, height - titleLabel.frame.size.height - 44)];
+    favoriteTable = [[UITableView alloc] initWithFrame:CGRectMake(0, titleLabel.frame.size.height, width, height - titleLabel.frame.size.height)];
     favoriteTable.delegate = self;
     favoriteTable.dataSource = self;
     [self.view addSubview:favoriteTable];
+    self.titleLabel.text =  @"告诉9泡泡，我最喜欢...";
 }
 
 
@@ -75,6 +77,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [finishBtn setFrame:CGRectMake(5, 9, 60, 26)];
+    [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [finishBtn addTarget:self action:@selector(finish:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
+    self.navigationItem.rightBarButtonItem = rItem;
+    [rItem release];
     self.titleLabel = titleLabel;
     self.favoriteTable = favoriteTable;
 }
@@ -105,9 +114,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSDictionary *dic = [contentArray objectAtIndex:section];
-    NSArray *keyArray = [dic allKeys];
-    return [keyArray objectAtIndex:0];
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -125,12 +132,51 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     NSDictionary *dic = [contentArray objectAtIndex:[indexPath section]];
     NSArray *keyArray = [dic allKeys];
     NSString *key = [keyArray objectAtIndex:0];
     NSArray *array = [dic objectForKey:key];
+    if ([indexPath section] == 0) {
+        UIImage *beerImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"beer" ofType:@"png"]];
+        cell.imageView.image = beerImage;
+        [beerImage release];
+    }else if([indexPath section] == 1)
+    {
+        UIImage *cocktailImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cocktail" ofType:@"png"]];
+        cell.imageView.image = cocktailImage;
+        [cocktailImage release];
+    }else if([indexPath section] == 2)
+    {
+        UIImage *beerImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"beer" ofType:@"png"]];
+        cell.imageView.image = beerImage;
+        [beerImage release];
+    }
+    
+    if ([indexPath row] %2 == 0) {
+        UIImage *bgImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pink-bg" ofType:@"png"]];
+        UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, bgImage.size.width, bgImage.size.height)];
+        bgImageView.image = bgImage;
+        cell.backgroundView = bgImageView;
+        [bgImage release];
+        [bgImageView release];
+    }else
+    {
+        UIImage *bgImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gray-bg" ofType:@"png"]];
+        UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, bgImage.size.width, bgImage.size.height)];
+        bgImageView.image = bgImage;
+        cell.backgroundView = bgImageView;
+        [bgImage release];
+        [bgImageView release];
+    }
+    UIImage *accessImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"right-arrow" ofType:@"png"]];
+    UIImageView *accessView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, accessImage.size.width, accessImage.size.height)];
+    accessView.image = accessImage;
+    cell.accessoryView = accessView;
+    [accessImage release];
+    [accessView release];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = [array objectAtIndex:[indexPath row]];
     return cell;
 }
@@ -140,6 +186,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    UIImage *bgImage =  [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"header-bg" ofType:@"png"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:view.frame];
+    imageView.image = bgImage;
+    [view addSubview:imageView];
+    [bgImage release];
+    [imageView release];
+    
+    NSDictionary *dic = [contentArray objectAtIndex:section];
+    NSArray *keyArray = [dic allKeys];
+    UILabel *tabel = [[UILabel alloc] initWithFrame:view.frame];
+    tabel.backgroundColor = [UIColor clearColor];
+    tabel.text = [keyArray objectAtIndex:0];
+    [view addSubview:tabel];
+    [tabel release];
+    return [view autorelease];
 }
 
 
