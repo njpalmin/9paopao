@@ -11,6 +11,12 @@
 
 @interface SearchNearbyViewController : UIViewController {
     
+    UISearchBar     *mSearchBar;
+    UITextField     *mTextField;
+    
+    UIButton        *mSearchWineBtn;
+    UIButton        *mSearchPlaceBtn;
+    UIButton        *mSearchUserBtn;
 }
 
 @end
