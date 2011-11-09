@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SearchNearbyViewController.h"
 
 @interface MainSegmentViewController : UIViewController {
 
-	NSArray			*normalButtonImage;
-	NSArray			*chooseButtonImage;
-	NSMutableArray	*mButtonArray;
-	NSInteger		mChoosePageIndex;
-    UIView          *mSegementView;
+	NSArray                 *normalButtonImage;
+	NSArray                 *chooseButtonImage;
+	NSMutableArray          *mButtonArray;
+	NSInteger               mChoosePageIndex;
+    UIView                  *mSegementView;
+    
+    UINavigationController      *mNavigationController;
+    SearchNearbyViewController  *mSearchNearbyViewController;
 }
 
 @property(nonatomic, assign)NSInteger choosePageIndex;

@@ -46,7 +46,10 @@
 		container.backgroundColor = [UIColor whiteColor];
 		container.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		
-        self.navigationController.navigationBarHidden = YES;
+        mNavigationController = [[UINavigationController alloc] init];
+        mNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+        
+        [container addSubview:mNavigationController.view];
 		// -----bottom button-----
 		
 		normalButtonImage = [[NSArray arrayWithObjects:@"home.png", @"live-feed.png", @"my-profile.png", 
@@ -104,6 +107,7 @@
 		self.choosePageIndex = 0;
         
         [container addSubview:mSegementView];
+        
         // -----segement---------
         
 		self.view = container;
@@ -174,6 +178,33 @@
 	if ((button.tag >= 0) && (button.tag < BottomButtonCount)) {
 		self.choosePageIndex = button.tag;
 	}
+            
+    [mNavigationController popViewControllerAnimated:NO];
+        
+    switch (button.tag) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            if (mSearchNearbyViewController == nil) {
+                mSearchNearbyViewController = [[SearchNearbyViewController alloc] init];
+            }
+            [mNavigationController pushViewController:mSearchNearbyViewController animated:NO];
+            break;
+        default:
+            break;
+    }
+
 }
 
 - (void)setChoosePageIndex:(int)index
@@ -191,6 +222,7 @@
 		}
         [[mButtonArray objectAtIndex:i] setBackgroundImage:image forState:UIControlStateNormal];
 	}
+    
 }
 
 @end

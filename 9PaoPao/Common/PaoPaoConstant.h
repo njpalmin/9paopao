@@ -6,3 +6,4 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#define PageWithoutSegementHeight   410
