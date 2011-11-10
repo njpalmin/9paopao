@@ -63,6 +63,7 @@
         containerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
         containerView.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1.0];
                 
+        mSearchRange = 2;
         break_if(![self prepareNavigationBar]);
         
         // ---------------searchbar-------------
@@ -124,6 +125,8 @@
         self.view = containerView;
         
         mWineResult = [[NSMutableArray alloc] initWithCapacity:0];
+        mRangeArray = [[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], 
+                       [NSNumber numberWithInt:5], [NSNumber numberWithInt:10], [NSNumber numberWithInt:20], nil] retain];
         
     }while (0);
 
@@ -249,6 +252,31 @@
 }
 
 #pragma mark -
+#pragma mark DeviceISCSIPortPropertyViewControllerDelegate
+
+- (void)popoverPickerViewControllerDidSelect:(PopoverPickerViewController *)controller
+{     
+    NSNumber    *number = nil;
+    
+    if ((controller.chooseIndex < 0) || (controller.chooseIndex >= [mRangeArray count])) {
+        return;
+    }   
+    number = [mRangeArray objectAtIndex:controller.chooseIndex];
+    mSearchRange = [number intValue];
+    
+    UIBarButtonItem     *rightItem;
+    
+    rightItem = self.navigationItem.rightBarButtonItem;
+    [rightItem setTitle:[NSString stringWithFormat:NSLocalizedString(@"SearchRange", nil), mSearchRange]];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)popoverPickerViewControllerDismiss:(PopoverPickerViewController *)controller
+{
+    [mPickerViewController.view removeFromSuperview];
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar
@@ -265,7 +293,7 @@
     //rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     
     leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
-    rightItem = [[UIBarButtonItem alloc] initWithTitle:@"2公里" style:UIBarButtonItemStylePlain target:self action:@selector(procChooseRange:)];
+    rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"SearchRange", nil), mSearchRange] style:UIBarButtonItemStylePlain target:self action:@selector(procChooseRange:)];
     
     self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -292,7 +320,35 @@
 
 - (void)procChooseRange:(id)sender
 {
+    NSString                        *pickerString = nil;
+    NSMutableArray                  *pickerContents = nil;
+    NSNumber                        *number = nil;
     
+    pickerContents = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    for (int i = 0; i < [mRangeArray count]; i++) {
+        
+        number = [mRangeArray objectAtIndex:i];
+        pickerString = [NSString stringWithFormat:NSLocalizedString(@"SearchRange", nil), [number intValue]];
+        if (pickerString) {
+            [pickerContents addObject:pickerString];
+        }
+    }
+    
+    if (mPickerViewController) {
+        [mPickerViewController.view removeFromSuperview];
+        [mPickerViewController release];
+        mPickerViewController = nil;
+    }
+    mPickerViewController = [[PopoverPickerViewController alloc] init];
+    mPickerViewController.chooseIndex = mSearchRange;
+    mPickerViewController.pickerContent = pickerContents;
+    mPickerViewController.delegate = self;
+    
+    [self.view addSubview:mPickerViewController.view];
+    
+    [pickerContents release];
+    pickerContents = nil;
 }                             
 
 - (void)procSearchKindBtn:(id)sender

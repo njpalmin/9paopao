@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PopoverPickerViewController.h"
 
 @interface SearchNearbyViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate, 
-UITableViewDataSource> {
+UITableViewDataSource, PopoverPickerViewControllerDelegate> {
     
     UISearchBar     *mSearchBar;
     UITextField     *mTextField;
@@ -23,6 +23,10 @@ UITableViewDataSource> {
     
     NSMutableArray  *mWineResult;
     NSInteger       mCurSearchKind;
+    
+    PopoverPickerViewController     *mPickerViewController;
+    NSInteger               mSearchRange;
+    NSArray         *mRangeArray;
 }
 
 #pragma mark -

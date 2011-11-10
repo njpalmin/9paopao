@@ -44,6 +44,7 @@
 		3395E6C1146A68F300733469 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395E6C0146A68F100733469 /* MainViewController.m */; };
 		3395E6C5146A690B00733469 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395E6C4146A690B00733469 /* MainViewCell.m */; };
 		339E66DF1467DA260097747E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339E66DE1467DA260097747E /* Localizable.strings */; };
+		33A9F29F146BA928004F55DE /* PopoverPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9F29E146BA926004F55DE /* PopoverPickerViewController.m */; };
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
 		33D4DF7B1467CD5900CFE105 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D4DF751467CD5900CFE105 /* first.png */; };
@@ -114,6 +115,8 @@
 		3395E6C3146A690B00733469 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		3395E6C4146A690B00733469 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 		339E66DE1467DA260097747E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		33A9F29D146BA925004F55DE /* PopoverPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverPickerViewController.h; sourceTree = "<group>"; };
+		33A9F29E146BA926004F55DE /* PopoverPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverPickerViewController.m; sourceTree = "<group>"; };
 		33D4DF651467CD0D00CFE105 /* 9PaoPao-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "9PaoPao-Prefix.pch"; path = "Application Classes/9PaoPao-Prefix.pch"; sourceTree = "<group>"; };
 		33D4DF661467CD0D00CFE105 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Application Classes/main.m"; sourceTree = "<group>"; };
 		33D4DF6C1467CD3400CFE105 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				337081571469068A004B2645 /* SearchNearbyViewController.m */,
 				33D4DF811467D24100CFE105 /* GatewayViewController.h */,
 				33D4DF821467D24100CFE105 /* GatewayViewController.m */,
+				33A9F29D146BA925004F55DE /* PopoverPickerViewController.h */,
+				33A9F29E146BA926004F55DE /* PopoverPickerViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				3395E6C1146A68F300733469 /* MainViewController.m in Sources */,
 				3395E6C5146A690B00733469 /* MainViewCell.m in Sources */,
 				930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */,
+				33A9F29F146BA928004F55DE /* PopoverPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
