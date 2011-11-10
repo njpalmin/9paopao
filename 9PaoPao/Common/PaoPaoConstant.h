@@ -7,3 +7,8 @@
 //
 
 #define PageWithoutSegementHeight   434
+
+#define SearchBarHeight             40
+#define SearchKindAndTablePadding   4
+#define TableViewRowHeight          90
+#define TableViewSectionPadding     3

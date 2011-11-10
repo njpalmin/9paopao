@@ -9,16 +9,16 @@
 #import "SearchNearbyViewController.h"
 #import "PaoPaoCommon.h"
 
-#define SearchBarHeight         40
-#define SearchKindBtnWidth      89
-#define SearchKindBtnHeight     29
-#define SearchKindBtnPadding    2
-#define SearchBarAndKindPadding 10
-#define TableViewRowHeight      100
+#define SearchKindBtnWidth          89
+#define SearchKindBtnHeight         29
+#define SearchKindBtnPadding        2
+#define SearchBarAndKindPadding     10
 
-#define SearchKindWine          0
-#define SearchKindPlace         1
-#define SearchKindUser          2
+#define SearchKindWine              0
+#define SearchKindPlace             1
+#define SearchKindUser              2
+
+#define CellLeftImageTag            1000
 
 @implementation SearchNearbyViewController
 
@@ -52,6 +52,7 @@
 {
     CGRect          searchBarframe, bounds, tableviewFrame;
     UIView          *containerView = nil;
+    UIImageView     *backgroundView = nil;
 
     do{
         bounds = [[UIScreen mainScreen] bounds];
@@ -61,8 +62,12 @@
         
         containerView.autoresizesSubviews = YES;
         containerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-        containerView.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1.0];
                 
+        backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search-bg.png"]] autorelease];
+        backgroundView.frame = CGRectMake(0, SearchBarHeight, bounds.size.width, 385);
+        
+        [containerView addSubview:backgroundView];
+        
         mSearchRange = 2;
         break_if(![self prepareNavigationBar]);
         
@@ -108,9 +113,9 @@
         
         // ---------------tableView-------------
         tableviewFrame.origin.x = bounds.origin.x;
-		tableviewFrame.origin.y = bounds.origin.y + SearchBarHeight + SearchBarAndKindPadding + SearchKindBtnHeight;
+		tableviewFrame.origin.y = bounds.origin.y + SearchBarHeight + SearchBarAndKindPadding + SearchKindBtnHeight + SearchKindAndTablePadding;
 		tableviewFrame.size.width = bounds.size.width;
-		tableviewFrame.size.height = bounds.size.height - (SearchBarHeight + SearchBarAndKindPadding + SearchKindBtnHeight);
+		tableviewFrame.size.height = bounds.size.height - (SearchBarHeight + SearchBarAndKindPadding + SearchKindBtnHeight + SearchKindAndTablePadding);
 		
         mTableView = [[UITableView alloc] initWithFrame:tableviewFrame style:UITableViewStyleGrouped];       
         mTableView.autoresizesSubviews = YES;
@@ -149,17 +154,17 @@
     
     xPos = (bounds.size.width - 3*SearchKindBtnWidth - 2*SearchKindBtnPadding)/2;
 
-    mSearchWineBtn = [PaoPaoCommon getImageButtonWithName:@"register.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchWineBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
     mSearchWineBtn.tag = SearchKindWine;
     mSearchWineBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
     
-    mSearchPlaceBtn = [PaoPaoCommon getImageButtonWithName:@"login.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchPlaceBtn = [PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
     mSearchPlaceBtn.tag = SearchKindPlace;
     mSearchPlaceBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 
-    mSearchUserBtn = [PaoPaoCommon getImageButtonWithName:@"login.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchUserBtn = [PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
     mSearchUserBtn.tag = SearchKindUser;
     mSearchUserBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
@@ -189,6 +194,18 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return YES;
 }
 
 #pragma mark -
@@ -230,6 +247,21 @@
 		//[label setTextColor:[UIColor blackColor]];
 		//[label setFont:[UIFont fontWithName:@"Arial" size:17]];
         //[label setText:NSLocalizedString(@"AD No Group Info To Display", nil)];
+        
+        [[cell.contentView viewWithTag:CellLeftImageTag] removeFromSuperview];
+        
+        UIImage     *image = nil;
+        UIImageView *leftImageView = nil;
+        
+        image = [UIImage imageNamed:@"bar-icon-bg.png"];
+        leftImageView = [[UIImageView alloc] initWithImage:image];
+        leftImageView.frame = CGRectMake(8, 10, image.size.width, image.size.height);
+        leftImageView.tag = CellLeftImageTag;
+        
+        [cell.contentView addSubview:leftImageView];
+        
+        [leftImageView release];
+        leftImageView = nil;
 		
 	} while (0);
     
@@ -249,6 +281,30 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return TableViewRowHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return TableViewSectionPadding;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return TableViewSectionPadding;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
+    sectionPaddingView.backgroundColor = [UIColor clearColor];
+    return [sectionPaddingView autorelease];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
+    sectionPaddingView.backgroundColor = [UIColor clearColor];
+    return [sectionPaddingView autorelease];
 }
 
 #pragma mark -
@@ -366,31 +422,31 @@
     switch (button.tag) {
         case SearchKindWine:
 
-            searchWineImage = [UIImage imageNamed:@""];
-            searchPlaceImage = [UIImage imageNamed:@""];;
-            searchUserImage = [UIImage imageNamed:@""];;
+            searchWineImage = [UIImage imageNamed:@"search-alcohol-selected.png"];
+            searchPlaceImage = [UIImage imageNamed:@"search-place.png"];;
+            searchUserImage = [UIImage imageNamed:@"search-friends.png"];;
             self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
             break;
         case SearchKindPlace:
             
-            searchWineImage = [UIImage imageNamed:@""];
-            searchPlaceImage = [UIImage imageNamed:@""];;
-            searchUserImage = [UIImage imageNamed:@""];;
+            searchWineImage = [UIImage imageNamed:@"search-alcohol.png"];
+            searchPlaceImage = [UIImage imageNamed:@"search-place-selected.png"];;
+            searchUserImage = [UIImage imageNamed:@"search-friends.png"];;
             self.navigationItem.title = NSLocalizedString(@"SearchPlace Page Title", nil);
             break;
         case SearchKindUser:
             
-            searchWineImage = [UIImage imageNamed:@""];
-            searchPlaceImage = [UIImage imageNamed:@""];;
-            searchUserImage = [UIImage imageNamed:@""];;
+            searchWineImage = [UIImage imageNamed:@"search-alcohol.png"];
+            searchPlaceImage = [UIImage imageNamed:@"search-place.png"];;
+            searchUserImage = [UIImage imageNamed:@"search-friends-selected.png"];;
             self.navigationItem.title = NSLocalizedString(@"SearchUser Page Title", nil);
             break;
         default:
             break;
     }
-//    [mSearchWineBtn setBackgroundImage:searchWineImage forState:UIControlStateNormal];
-//    [mSearchPlaceBtn setBackgroundImage:searchPlaceImage forState:UIControlStateNormal];
-//    [mSearchUserBtn setBackgroundImage:searchUserImage forState:UIControlStateNormal];
+    [mSearchWineBtn setBackgroundImage:searchWineImage forState:UIControlStateNormal];
+    [mSearchPlaceBtn setBackgroundImage:searchPlaceImage forState:UIControlStateNormal];
+    [mSearchUserBtn setBackgroundImage:searchUserImage forState:UIControlStateNormal];
 
 }
 @end
