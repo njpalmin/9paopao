@@ -16,12 +16,30 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
 
+- (id)initControllerWithArray:(NSArray *)array
+{
+    self = [super init];
+    if (self) {
+        barArray = [[NSArray alloc] initWithArray:array];
+        
+    }
+}
+
 - (void)dealloc
 {
+    if (barArray) {
+        [barArray release];
+        barArray = nil;
+    }
+    if (barTable) {
+        [barTable release];
+        barTable = nil;
+    }
     [super dealloc];
 }
 

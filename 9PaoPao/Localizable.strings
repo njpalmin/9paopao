@@ -20,3 +20,9 @@
 "SearchPlace Page Title" = "酒吧搜索";
 "SearchUser Page Title" = "用户搜索";
 "SearchRange" = "%d公里";
+
+//barDetail
+"barName:" = "酒吧名称：";
+"commentTime:" = "评论时间：";
+"userNickname:" = "用户昵称：";
+"commentMark:" = "评论分数：";

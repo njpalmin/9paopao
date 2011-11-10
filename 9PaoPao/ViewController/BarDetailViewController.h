@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BarDetailViewController : UIViewController {
+@interface BarDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource> {
     
+    UITableView *barTable;
+    NSArray *barArray;
 }
+
+- (id)initControllerWithArray:(NSArray *)array;
 
 @end
