@@ -52,10 +52,9 @@
         [container addSubview:mNavigationController.view];
 		// -----bottom button-----
 		
-		normalButtonImage = [[NSArray arrayWithObjects:@"home.png", @"live-feed.png", @"my-profile.png", 
-									  @"friends.png", @"search.png", nil] retain];
-		chooseButtonImage = [[NSArray arrayWithObjects:@"home-selected.png", @"live-feed-selected.png", @"my-profile-selected.png", 
-									  @"friend-selected.png", @"search-selected.png", nil] retain];
+		normalButtonImage = [[NSArray arrayWithObjects:@"tab-home.png", @"tab-live-feed.png", @"tab-my-profile.png", 
+									  @"tab-friend.png", @"tab-search.png", nil] retain];
+		chooseButtonImage = [[NSArray arrayWithObjects:@"tab-home-selected.png", @"tab-live-feed-selected.png", @"tab-my-profile-selected.png", @"tab-friend-selected.png", @"tab-search-selected.png", nil] retain];
 		
 		mButtonArray = [[NSMutableArray alloc] initWithCapacity:BottomButtonCount];
 		break_if(mButtonArray == nil);
