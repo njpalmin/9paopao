@@ -71,6 +71,7 @@
 		33A9F382146BD3A2004F55DE /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F375146BD3A2004F55DE /* right-arrow.png */; };
 		33A9F383146BD3A2004F55DE /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F376146BD3A2004F55DE /* send.png */; };
 		33A9F384146BD3A2004F55DE /* white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F377146BD3A2004F55DE /* white-bg.png */; };
+		33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C4BC41146CB2ED00A09952 /* StarMarkView.m */; };
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
 		33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF821467D24100CFE105 /* GatewayViewController.m */; };
@@ -164,6 +165,8 @@
 		33A9F375146BD3A2004F55DE /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		33A9F376146BD3A2004F55DE /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send.png; sourceTree = "<group>"; };
 		33A9F377146BD3A2004F55DE /* white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-bg.png"; sourceTree = "<group>"; };
+		33C4BC40146CB2ED00A09952 /* StarMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarMarkView.h; sourceTree = "<group>"; };
+		33C4BC41146CB2ED00A09952 /* StarMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarMarkView.m; sourceTree = "<group>"; };
 		33D4DF651467CD0D00CFE105 /* 9PaoPao-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "9PaoPao-Prefix.pch"; path = "Application Classes/9PaoPao-Prefix.pch"; sourceTree = "<group>"; };
 		33D4DF661467CD0D00CFE105 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Application Classes/main.m"; sourceTree = "<group>"; };
 		33D4DF6C1467CD3400CFE105 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				3395E6C4146A690B00733469 /* MainViewCell.m */,
 				93B35136146BEF1400B25A0C /* BarDetailCell.h */,
 				93B35137146BEF1500B25A0C /* BarDetailCell.m */,
+				33C4BC40146CB2ED00A09952 /* StarMarkView.h */,
+				33C4BC41146CB2ED00A09952 /* StarMarkView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -586,6 +591,7 @@
 				93B35129146BE79300B25A0C /* BarDetail.m in Sources */,
 				93B35135146BEEF500B25A0C /* BarDetailViewController.m in Sources */,
 				93B35138146BEF1500B25A0C /* BarDetailCell.m in Sources */,
+				33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

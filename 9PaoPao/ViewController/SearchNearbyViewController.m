@@ -7,6 +7,7 @@
 //
 
 #import "SearchNearbyViewController.h"
+#import "StarMarkView.h"
 #import "PaoPaoCommon.h"
 
 #define SearchKindBtnWidth          89
@@ -262,6 +263,10 @@
         
         [leftImageView release];
         leftImageView = nil;
+        
+        StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(90, 70, 0, 0) withStarNum:3];
+        [cell.contentView addSubview:markView];
+        
 		
 	} while (0);
     
