@@ -20,7 +20,12 @@
 	NSInteger               mChoosePageIndex;
     UIView                  *mSegementView;
     
-    UINavigationController      *mNavigationController;
+	UINavigationController		*mHomeNavigationController;
+	UINavigationController		*mLiveNavigationController;
+	UINavigationController		*mProfileNavigationController;
+	UINavigationController		*mFriendNavigationController;
+    UINavigationController      *mSearchNavigationController;
+
     SearchNearbyViewController  *mSearchNearbyViewController;
     MainViewController          *mMainViewController;
     //add by mqh begin 2011-11-9
@@ -29,4 +34,10 @@
 }
 
 @property(nonatomic, assign)NSInteger choosePageIndex;
+
+#pragma mark -
+#pragma mark Public
+
+- (void)displayViewControllerWithIndex:(NSInteger)index;
+
 @end

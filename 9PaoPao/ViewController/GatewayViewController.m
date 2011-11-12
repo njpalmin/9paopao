@@ -118,9 +118,10 @@
 {
     if (mMainSegmentViewController == nil) {
         mMainSegmentViewController = [[MainSegmentViewController alloc] init];
+		mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
     }
-    mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
     
+	[mMainSegmentViewController displayViewControllerWithIndex:1];
     [self presentModalViewController:mMainSegmentViewController animated:YES];   
 }
 
@@ -128,10 +129,13 @@
 {
     if (mMainSegmentViewController == nil) {
         mMainSegmentViewController = [[MainSegmentViewController alloc] init];
+		mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
     }
     mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
 
     [self presentModalViewController:mMainSegmentViewController animated:YES];
+	[mMainSegmentViewController displayViewControllerWithIndex:4];
+
 }
 
 @end

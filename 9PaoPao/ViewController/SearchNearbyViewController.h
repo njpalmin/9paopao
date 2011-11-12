@@ -25,14 +25,15 @@ UITableViewDataSource, PopoverPickerViewControllerDelegate> {
     NSInteger       mCurSearchKind;
     
     PopoverPickerViewController     *mPickerViewController;
-    NSInteger               mSearchRange;
-    NSArray         *mRangeArray;
+    NSInteger						mSearchRange;
+    NSArray							*mRangeArray;
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar;
+- (BOOL)prepareSearchKindView;
 
 #pragma mark -
 #pragma mark Action

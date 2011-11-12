@@ -9,8 +9,14 @@
 #import "MainSegmentViewController.h"
 #import "PaoPaoCommon.h"
 
-#define BottomButtonCount		5
-#define	BottomButtonOriginY		412
+#define BottomButtonCount			5
+#define	BottomButtonOriginY			412
+
+#define HomeViewControllerTag		101
+#define LiveViewControllerTag		102
+#define ProfileViewControllerTag	103
+#define FriendViewControllerTag		104
+#define SearchViewControllerTag		105
 
 @implementation MainSegmentViewController
 
@@ -46,10 +52,28 @@
 		container.backgroundColor = [UIColor whiteColor];
 		container.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		
-        mNavigationController = [[UINavigationController alloc] init];
-        mNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
-        
-        [container addSubview:mNavigationController.view];
+		// -----init navigationController------
+        mHomeNavigationController = [[UINavigationController alloc] init];
+        mHomeNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+		mHomeNavigationController.view.tag = 100;
+		
+		mLiveNavigationController = [[UINavigationController alloc] init];
+        mLiveNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+		mLiveNavigationController.view.tag = 101;
+		
+		mProfileNavigationController = [[UINavigationController alloc] init];
+        mProfileNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+		mProfileNavigationController.view.tag = 102;
+		
+		mFriendNavigationController = [[UINavigationController alloc] init];
+        mFriendNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+		mFriendNavigationController.view.tag = 103;
+		
+		mSearchNavigationController = [[UINavigationController alloc] init];
+        mSearchNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+        mSearchNavigationController.view.tag = 104;
+		// ------init navigationController------
+		
 		// -----bottom button-----
 		
 		normalButtonImage = [[NSArray arrayWithObjects:@"tab-home.png", @"tab-live-feed.png", @"tab-my-profile.png", 
@@ -103,7 +127,7 @@
             [imageView release];
             imageView = nil;
 		}
-		self.choosePageIndex = 0;
+		self.choosePageIndex = -1;
         
         [container addSubview:mSegementView];
         
@@ -111,7 +135,6 @@
         // -----segement---------
         
 		self.view = container;
-		[self actionFirstCome];
         
 	} while (0);
 	
@@ -165,6 +188,42 @@
 		[chooseButtonImage release];
 		chooseButtonImage = nil;
 	}
+
+	if (mHomeNavigationController) {
+		[mHomeNavigationController release];
+		mHomeNavigationController = nil;
+	}
+	
+	if (mLiveNavigationController) {
+		[mLiveNavigationController release];
+		mLiveNavigationController = nil;
+	}
+	
+	if (mProfileNavigationController) {
+		[mProfileNavigationController release];
+		mProfileNavigationController = nil;
+	}
+	
+	if (mFriendNavigationController) {
+		[mFriendNavigationController release];
+		mFriendNavigationController = nil;
+	}
+	
+	if (mSearchNavigationController) {
+		[mSearchNavigationController release];
+		mSearchNavigationController = nil;
+	}
+	
+	if (mSearchNearbyViewController) {
+		[mSearchNearbyViewController release];
+		mSearchNearbyViewController = nil;
+	}
+	
+	if (mMainViewController) {
+		[mMainViewController release];
+		mMainViewController = nil;
+	}
+	
     //add by mqh begin 2011-11-9
     if (tFVC) {
         [tFVC release];
@@ -183,16 +242,28 @@
 	UIButton *button = (UIButton *)sender;
 	
 	if ((button.tag >= 0) && (button.tag < BottomButtonCount)) {
+		
+		//if ((button.tag == 2) || (button.tag == 3)) { // for test
+		//	return;
+		//}else {
+			[[self.view viewWithTag:(mChoosePageIndex+100)] removeFromSuperview];
+		//}
+		
 		self.choosePageIndex = button.tag;
+	}else {
+		return;
 	}
-                    
+
+
+
     switch (button.tag) {
         case 0:
             if (mMainViewController == nil) {
                 mMainViewController = [[MainViewController alloc] init];
+				[mHomeNavigationController pushViewController:mMainViewController animated:NO];
             }
-            [mNavigationController popViewControllerAnimated:NO];
-            [mNavigationController pushViewController:mMainViewController animated:NO];
+			
+			[self.view addSubview:mHomeNavigationController.view];
             break;
         case 1:
         {
@@ -215,15 +286,11 @@
                 [beardDic release];
                 [readWineDic release];
                 [wine2 release];
+				
+				[mLiveNavigationController pushViewController:tFVC animated:NO];
             }
-            
-            [mNavigationController popViewControllerAnimated:NO];
-            [mNavigationController pushViewController:tFVC animated:NO];
-           
-                        
+            [self.view addSubview:mLiveNavigationController.view];           
             //add by mqh end 2011-11-6
-
-            
             break;
         }
         case 2:
@@ -235,10 +302,11 @@
             
             if (mSearchNearbyViewController == nil) {
                 mSearchNearbyViewController = [[SearchNearbyViewController alloc] init];
+				[mSearchNavigationController pushViewController:mSearchNearbyViewController animated:NO];
             }
-            [mNavigationController popViewControllerAnimated:NO];
-            [mNavigationController pushViewController:mSearchNearbyViewController animated:NO];
+            [self.view addSubview:mSearchNavigationController.view];
             break;
+			
         default:
             break;
     }
@@ -259,24 +327,52 @@
 		}
         [[mButtonArray objectAtIndex:i] setBackgroundImage:image forState:UIControlStateNormal];
 	}
-    
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
-- (void)actionFirstCome
+- (void)displayViewControllerWithIndex:(NSInteger)index
 {
-    UIViewController    *rootViewController = nil;
-    
-    rootViewController = [[[UIViewController alloc] init] autorelease];
-    rootViewController.view.backgroundColor = [UIColor whiteColor];
-    
-    if (mMainViewController == nil) {
-        mMainViewController = [[MainViewController alloc] init];
-    }
-    [mNavigationController pushViewController:rootViewController animated:NO];
-    [mNavigationController pushViewController:mMainViewController animated:NO];
+	[[self.view viewWithTag:(mChoosePageIndex+100)] removeFromSuperview];
+	self.choosePageIndex = index;
+	
+	if (index == 4) {
+		if (mSearchNearbyViewController == nil) {
+			mSearchNearbyViewController = [[SearchNearbyViewController alloc] init];
+			[mSearchNavigationController pushViewController:mSearchNearbyViewController animated:NO];
+		}
+		[self.view addSubview:mSearchNavigationController.view];
+	}
+	if (index == 1) {
+		//add by mqh begin 2011-11-9
+		if (tFVC == nil) {
+			NSMutableDictionary *beardDic = [[NSMutableDictionary alloc] init];
+			NSMutableDictionary *readWineDic = [[NSMutableDictionary alloc] init];
+			NSMutableDictionary *wine2dDic = [[NSMutableDictionary alloc] init];
+			NSMutableArray *dicArray = [[NSMutableArray alloc] init];
+			NSArray *bear = [[NSArray alloc] initWithObjects:@"啤酒1", @"啤酒2",nil];
+			[beardDic setObject:bear forKey:@"啤酒"];
+			NSArray *blaceWine = [[NSArray alloc] initWithObjects:@"红酒1", @"红酒2",nil];
+			[readWineDic setObject:blaceWine forKey:@"红酒"];
+			NSArray *wine2 = [[NSArray alloc] initWithObjects:@"鸡尾酒1", @"鸡尾酒2",nil];
+			[wine2dDic setObject:wine2 forKey:@"鸡尾酒"];
+			[dicArray addObject:beardDic];
+			[dicArray addObject:readWineDic];
+			[dicArray addObject:wine2dDic];
+			tFVC = [[TellFavoriteViewController alloc] initWithContentDic:dicArray];
+			[beardDic release];
+			[readWineDic release];
+			[wine2 release];
+			
+			[mLiveNavigationController pushViewController:tFVC animated:NO];
+		}
+		[self.view addSubview:mLiveNavigationController.view];           
+		//add by mqh end 2011-11-6		
+	}
 }
+	
+#pragma mark -
+#pragma mark Private
 
 @end

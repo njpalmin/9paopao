@@ -7,6 +7,7 @@
 //
 
 #import "SearchNearbyViewController.h"
+#import "WineDetailViewController.h"
 #import "PaoPaoCommon.h"
 #import "WineDetailView.h"
 
@@ -131,48 +132,9 @@
         mWineResult = [[NSMutableArray alloc] initWithCapacity:0];
         mRangeArray = [[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], 
                        [NSNumber numberWithInt:5], [NSNumber numberWithInt:10], [NSNumber numberWithInt:20], nil] retain];
-        
+                
     }while (0);
 
-}
-
-- (BOOL)prepareSearchKindView
-{
-    CGRect  kindFrame, bounds;
-    CGFloat xPos = 0;
-    
-    bounds = [[UIScreen mainScreen] bounds];
-    
-    kindFrame.origin.x = bounds.origin.x;
-    kindFrame.origin.y = bounds.origin.y + SearchBarHeight + SearchBarAndKindPadding;
-    kindFrame.size.width = bounds.size.width;
-    kindFrame.size.height = SearchKindBtnHeight;
-    
-    mSearchKindView = [[UIView alloc] initWithFrame:kindFrame];
-    mSearchKindView.backgroundColor = [UIColor clearColor];
-    
-    xPos = (bounds.size.width - 3*SearchKindBtnWidth - 2*SearchKindBtnPadding)/2;
-
-    mSearchWineBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
-    mSearchWineBtn.tag = SearchKindWine;
-    mSearchWineBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
-    
-    mSearchPlaceBtn = [PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
-    mSearchPlaceBtn.tag = SearchKindPlace;
-    mSearchPlaceBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
-
-    mSearchUserBtn = [PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
-    mSearchUserBtn.tag = SearchKindUser;
-    mSearchUserBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
-
-    [mSearchKindView addSubview:mSearchWineBtn];
-    [mSearchKindView addSubview:mSearchPlaceBtn];
-    [mSearchKindView addSubview:mSearchUserBtn];
-
-	return YES;
 }
 
 /*
@@ -257,9 +219,19 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
+	WineDetailViewController	*controller = nil;
+	
 	do{
+		controller = [[WineDetailViewController alloc] init];
+		
+		[self.navigationController pushViewController:controller animated:YES];
 		
 	}while (0);
+	
+	if (controller) {
+		[controller release];
+		controller = nil;
+	}
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -348,6 +320,45 @@
     rightItem = nil;
     
     return YES;
+}
+
+- (BOOL)prepareSearchKindView
+{
+    CGRect  kindFrame, bounds;
+    CGFloat xPos = 0;
+    
+    bounds = [[UIScreen mainScreen] bounds];
+    
+    kindFrame.origin.x = bounds.origin.x;
+    kindFrame.origin.y = bounds.origin.y + SearchBarHeight + SearchBarAndKindPadding;
+    kindFrame.size.width = bounds.size.width;
+    kindFrame.size.height = SearchKindBtnHeight;
+    
+    mSearchKindView = [[UIView alloc] initWithFrame:kindFrame];
+    mSearchKindView.backgroundColor = [UIColor clearColor];
+    
+    xPos = (bounds.size.width - 3*SearchKindBtnWidth - 2*SearchKindBtnPadding)/2;
+	
+    mSearchWineBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchWineBtn.tag = SearchKindWine;
+    mSearchWineBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
+    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    
+    mSearchPlaceBtn = [PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchPlaceBtn.tag = SearchKindPlace;
+    mSearchPlaceBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
+    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+	
+    mSearchUserBtn = [PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchUserBtn.tag = SearchKindUser;
+    mSearchUserBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
+    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+	
+    [mSearchKindView addSubview:mSearchWineBtn];
+    [mSearchKindView addSubview:mSearchPlaceBtn];
+    [mSearchKindView addSubview:mSearchUserBtn];
+	
+	return YES;
 }
 
 #pragma mark -

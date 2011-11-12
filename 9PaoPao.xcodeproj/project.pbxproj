@@ -77,6 +77,7 @@
 		33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF821467D24100CFE105 /* GatewayViewController.m */; };
 		4B18FE94146E31A600BCF6AD /* ThumbMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */; };
 		4B18FEBB146E5A0C00BCF6AD /* WineDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */; };
+		4B18FF2A146E953C00BCF6AD /* WineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */; };
 		930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930EC52F146A8526000A675D /* TellFavoriteViewController.m */; };
 		93B35129146BE79300B25A0C /* BarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35128146BE79300B25A0C /* BarDetail.m */; };
 		93B35135146BEEF500B25A0C /* BarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35134146BEEF500B25A0C /* BarDetailViewController.m */; };
@@ -180,6 +181,8 @@
 		4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbMarkView.m; sourceTree = "<group>"; };
 		4B18FEB9146E5A0C00BCF6AD /* WineDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineDetailView.h; sourceTree = "<group>"; };
 		4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailView.m; sourceTree = "<group>"; };
+		4B18FF28146E953C00BCF6AD /* WineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineDetailViewController.h; sourceTree = "<group>"; };
+		4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailViewController.m; sourceTree = "<group>"; };
 		930EC52E146A8526000A675D /* TellFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellFavoriteViewController.h; sourceTree = "<group>"; };
 		930EC52F146A8526000A675D /* TellFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellFavoriteViewController.m; sourceTree = "<group>"; };
 		93B35127146BE79300B25A0C /* BarDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarDetail.h; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 				33A9F29E146BA926004F55DE /* PopoverPickerViewController.m */,
 				93B35133146BEEF500B25A0C /* BarDetailViewController.h */,
 				93B35134146BEEF500B25A0C /* BarDetailViewController.m */,
+				4B18FF28146E953C00BCF6AD /* WineDetailViewController.h */,
+				4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */,
 				4B18FE94146E31A600BCF6AD /* ThumbMarkView.m in Sources */,
 				4B18FEBB146E5A0C00BCF6AD /* WineDetailView.m in Sources */,
+				4B18FF2A146E953C00BCF6AD /* WineDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
