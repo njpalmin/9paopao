@@ -7,9 +7,8 @@
 //
 
 #import "SearchNearbyViewController.h"
-#import "StarMarkView.h"
-#import "ThumbMarkView.h"
 #import "PaoPaoCommon.h"
+#import "WineDetailView.h"
 
 #define SearchKindBtnWidth          89
 #define SearchKindBtnHeight         29
@@ -19,8 +18,6 @@
 #define SearchKindWine              0
 #define SearchKindPlace             1
 #define SearchKindUser              2
-
-#define CellLeftImageTag            1000
 
 @implementation SearchNearbyViewController
 
@@ -227,57 +224,21 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	static NSString *CellIdentifier = @"Cell";
-    UILabel *label = nil;
-    UITableViewCell *cell = nil;
+	static NSString		*CellIdentifier = @"Cell";
+    UILabel				*label = nil;
+    WineDetailView		*cell = nil;
 	
     do {
         // 処理
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil)
         {
-            cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+            cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
             break_if(cell == nil);
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		//cell.layer.cornerRadius = 2;
-		//cell.layer.borderColor = [EMColorWithRGB(129, 129, 129) CGColor];
-		//cell.layer.borderWidth = 1;
-        //cell.backgroundColor = [UIColor redColor];
-        label = [cell textLabel];
-        label.backgroundColor = [UIColor redColor];
-        //[label setTextAlignment:UITextAlignmentCenter];
-		//[label setTextColor:[UIColor blackColor]];
-		//[label setFont:[UIFont fontWithName:@"Arial" size:17]];
-        //[label setText:NSLocalizedString(@"AD No Group Info To Display", nil)];
-        
-        [[cell.contentView viewWithTag:CellLeftImageTag] removeFromSuperview];
-        
-        UIImage     *image = nil;
-        UIImageView *leftImageView = nil;
-        
-        image = [UIImage imageNamed:@"bar-icon-bg.png"];
-        leftImageView = [[UIImageView alloc] initWithImage:image];
-        leftImageView.frame = CGRectMake(8, 10, image.size.width, image.size.height);
-        leftImageView.tag = CellLeftImageTag;
-        
-        [cell.contentView addSubview:leftImageView];
-        
-        [leftImageView release];
-        leftImageView = nil;
-        
-        StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(90, 73, 0, 0) withStarNum:3];
-        [cell.contentView addSubview:markView];
 		
-		ThumbMarkView	*thumbView = [[ThumbMarkView alloc] initWithFrame:CGRectMake(180, 61, 0, 0) withGoodNum:10 withBadNum:0];
-		[cell.contentView addSubview:thumbView];
-		
-		[markView release];
-		markView = nil;
-		
-		[thumbView release];
-		thumbView = nil;
-        
+		[cell setWineDetailRecord];
 		
 	} while (0);
     

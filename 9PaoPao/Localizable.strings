@@ -26,3 +26,9 @@
 "commentTime:" = "评论时间：";
 "userNickname:" = "用户昵称：";
 "commentMark:" = "评论分数：";
+
+// wine detail
+"Product Day" = "参考年份：%@";
+"Product Place" = "生产地：%@";
+"Wine Kind" = "葡萄酒种类：%@";
+"Price" = "价格：%@";

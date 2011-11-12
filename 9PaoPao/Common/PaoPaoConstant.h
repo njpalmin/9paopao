@@ -10,5 +10,5 @@
 
 #define SearchBarHeight             40
 #define SearchKindAndTablePadding   4
-#define TableViewRowHeight          90
+#define TableViewRowHeight          95
 #define TableViewSectionPadding     3
