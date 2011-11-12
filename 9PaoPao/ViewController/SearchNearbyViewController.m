@@ -8,6 +8,7 @@
 
 #import "SearchNearbyViewController.h"
 #import "StarMarkView.h"
+#import "ThumbMarkView.h"
 #import "PaoPaoCommon.h"
 
 #define SearchKindBtnWidth          89
@@ -138,7 +139,7 @@
 
 }
 
-- (void)prepareSearchKindView
+- (BOOL)prepareSearchKindView
 {
     CGRect  kindFrame, bounds;
     CGFloat xPos = 0;
@@ -174,6 +175,7 @@
     [mSearchKindView addSubview:mSearchPlaceBtn];
     [mSearchKindView addSubview:mSearchUserBtn];
 
+	return YES;
 }
 
 /*
@@ -264,8 +266,17 @@
         [leftImageView release];
         leftImageView = nil;
         
-        StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(90, 70, 0, 0) withStarNum:3];
+        StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(90, 73, 0, 0) withStarNum:3];
         [cell.contentView addSubview:markView];
+		
+		ThumbMarkView	*thumbView = [[ThumbMarkView alloc] initWithFrame:CGRectMake(180, 61, 0, 0) withGoodNum:10 withBadNum:0];
+		[cell.contentView addSubview:thumbView];
+		
+		[markView release];
+		markView = nil;
+		
+		[thumbView release];
+		thumbView = nil;
         
 		
 	} while (0);

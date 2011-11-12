@@ -75,6 +75,7 @@
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
 		33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF821467D24100CFE105 /* GatewayViewController.m */; };
+		4B18FE94146E31A600BCF6AD /* ThumbMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */; };
 		930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930EC52F146A8526000A675D /* TellFavoriteViewController.m */; };
 		93B35129146BE79300B25A0C /* BarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35128146BE79300B25A0C /* BarDetail.m */; };
 		93B35135146BEEF500B25A0C /* BarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35134146BEEF500B25A0C /* BarDetailViewController.m */; };
@@ -174,6 +175,8 @@
 		33D4DF7F1467CE4100CFE105 /* 9PaoPao-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "9PaoPao-Info.plist"; path = "Application Classes/9PaoPao-Info.plist"; sourceTree = "<group>"; };
 		33D4DF811467D24100CFE105 /* GatewayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatewayViewController.h; sourceTree = "<group>"; };
 		33D4DF821467D24100CFE105 /* GatewayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GatewayViewController.m; sourceTree = "<group>"; };
+		4B18FE92146E31A600BCF6AD /* ThumbMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbMarkView.h; sourceTree = "<group>"; };
+		4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbMarkView.m; sourceTree = "<group>"; };
 		930EC52E146A8526000A675D /* TellFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellFavoriteViewController.h; sourceTree = "<group>"; };
 		930EC52F146A8526000A675D /* TellFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellFavoriteViewController.m; sourceTree = "<group>"; };
 		93B35127146BE79300B25A0C /* BarDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarDetail.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				93B35137146BEF1500B25A0C /* BarDetailCell.m */,
 				33C4BC40146CB2ED00A09952 /* StarMarkView.h */,
 				33C4BC41146CB2ED00A09952 /* StarMarkView.m */,
+				4B18FE92146E31A600BCF6AD /* ThumbMarkView.h */,
+				4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				93B35135146BEEF500B25A0C /* BarDetailViewController.m in Sources */,
 				93B35138146BEF1500B25A0C /* BarDetailCell.m in Sources */,
 				33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */,
+				4B18FE94146E31A600BCF6AD /* ThumbMarkView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
