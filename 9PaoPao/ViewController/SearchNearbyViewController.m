@@ -225,7 +225,7 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	static NSString		*CellIdentifier = @"Cell";
-    UILabel				*label = nil;
+    UIImageView			*accessView = nil;
     WineDetailView		*cell = nil;
 	
     do {
@@ -237,8 +237,15 @@
             break_if(cell == nil);
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		
+		accessView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-arrow.png"]];
+		cell.accessoryView = accessView;
 		
 		[cell setWineDetailRecord];
+		
+		[accessView release];
+		accessView = nil;
 		
 	} while (0);
     
