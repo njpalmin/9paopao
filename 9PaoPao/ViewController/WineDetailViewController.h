@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface WineDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+@interface WineDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource
+, UIImagePickerControllerDelegate> {
 
 	UITableView		*mTableView;
-	
+	UIView			*mFooterView;
+	CGFloat			mFooterHeight;
+	UIImageView		*mUploadImage;
 }
 
 @end

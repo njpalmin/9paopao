@@ -5,18 +5,15 @@
 //  Created by huang jiejie on 11-11-12.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
+ 
 #import "WineDetailView.h"
 #import "StarMarkView.h"
 #import "ThumbMarkView.h"
+#import "PaoPaoCommon.h"
 
 #define CellLeftImageTag            1000
 #define CellStarMarkViewTag			1001
 #define CellThumbMarkViewTag		1002
-
-#define RightContentXOrigin			90
-#define WineDetailInfoLabelHeight	14
-#define WineDetailInfoLabelWidth	180
 
 @implementation WineDetailView
 

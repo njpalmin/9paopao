@@ -8,10 +8,15 @@
 
 #define PageWithoutSegementHeight   410
 
+#define SearchKindBtnWidth          89
+#define SearchKindBtnHeight         29
+#define SearchKindBtnPadding        2
+
 #define SearchBarHeight             40
 #define SearchKindAndTablePadding   4
 #define TableViewRowHeight          95
 #define TableViewSectionPadding     3
 
-
-
+#define RightContentXOrigin			90
+#define WineDetailInfoLabelHeight	14
+#define WineDetailInfoLabelWidth	180

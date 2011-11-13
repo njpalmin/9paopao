@@ -1,4 +1,4 @@
-//
+// 
 //  SearchNearbyViewController.h
 //  9PaoPao
 //
@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PopoverPickerViewController.h"
+#import "UserResultViewCell.h"
 
 @interface SearchNearbyViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate, 
-UITableViewDataSource, PopoverPickerViewControllerDelegate> {
+UITableViewDataSource, PopoverPickerViewControllerDelegate, UserResultViewCellDelegate, 
+UISearchBarDelegate> {
     
     UISearchBar     *mSearchBar;
     UITextField     *mTextField;
@@ -22,6 +24,8 @@ UITableViewDataSource, PopoverPickerViewControllerDelegate> {
     UIButton        *mSearchUserBtn;
     
     NSMutableArray  *mWineResult;
+	NSMutableArray	*mPlaceResult;
+	NSMutableArray	*mUserResult;
     NSInteger       mCurSearchKind;
     
     PopoverPickerViewController     *mPickerViewController;

@@ -7,15 +7,14 @@
 //
 
 #import "SearchNearbyViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "WineDetailViewController.h"
 #import "PaoPaoCommon.h"
+#import "PaoPaoConstant.h"
 #import "WineDetailView.h"
 #import "BarDetailViewController.h"
 #import "BarDetail.h"
 
-#define SearchKindBtnWidth          89
-#define SearchKindBtnHeight         29
-#define SearchKindBtnPadding        2
 #define SearchBarAndKindPadding     10
 
 #define SearchKindWine              0
@@ -35,6 +34,54 @@
 
 - (void)dealloc
 {
+	if (mSearchBar) {
+		[mSearchBar release];
+		mSearchBar = nil;
+	}
+	if (mTextField) {
+		[mTextField release];
+		mTextField = nil;
+	}
+	if (mTableView) {
+		[mTableView release];
+		mTableView = nil;
+	}
+	if (mSearchKindView) {
+		[mSearchKindView release];
+		mSearchKindView = nil;
+	}
+	if (mSearchWineBtn) {
+		[mSearchWineBtn release];
+		mSearchWineBtn = nil;
+	}
+	if (mSearchPlaceBtn) {
+		[mSearchPlaceBtn release];
+		mSearchPlaceBtn = nil;
+	}
+	if (mSearchUserBtn) {
+		[mSearchUserBtn release];
+		mSearchUserBtn = nil;
+	}
+	if (mWineResult) {
+		[mWineResult release];
+		mWineResult = nil;
+	}
+	if (mPlaceResult) {
+		[mPlaceResult release];
+		mPlaceResult = nil;
+	}
+	if (mUserResult) {
+		[mUserResult release];
+		mUserResult = nil;
+	}
+	if (mPickerViewController) {
+		[mPickerViewController release];
+		mPickerViewController = nil;
+	}
+	if (mRangeArray) {
+		[mRangeArray release];
+		mRangeArray = nil;
+	}
     [super dealloc];
 }
 
@@ -85,8 +132,11 @@
         mSearchBar.showsBookmarkButton = NO;
         mSearchBar.barStyle = UIBarStyleBlackTranslucent;		
         mSearchBar.autoresizesSubviews = YES;
+		mSearchBar.searchResultsButtonSelected = YES;
+		mSearchBar.placeholder = NSLocalizedString(@"SearchNearby SearchBar Placeholder", nil);
         mSearchBar.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin);
-        
+        mSearchBar.delegate = self;
+		
         searchBarframe.origin.x = bounds.origin.x + 32;
         searchBarframe.origin.y = 5;
         searchBarframe.size.width = bounds.size.width - 45;
@@ -102,7 +152,7 @@
 		mTextField.delegate = self;
 		[mTextField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
         
-		[mSearchBar addSubview:mTextField];
+		//[mSearchBar addSubview:mTextField];
         [containerView addSubview:mSearchBar];
         // ---------------searchbar-------------
         
@@ -123,7 +173,9 @@
         mTableView.autoresizesSubviews = YES;
         mTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		mTableView.backgroundColor = [UIColor clearColor];
-        
+		//mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+		mTableView.separatorColor = [UIColor lightGrayColor];
+		
         [containerView addSubview:mTableView];
         mTableView.delegate = self;
 		mTableView.dataSource = self;
@@ -132,6 +184,8 @@
         self.view = containerView;
         
         mWineResult = [[NSMutableArray alloc] initWithCapacity:0];
+		mPlaceResult = [[NSMutableArray alloc] initWithCapacity:0];
+		mUserResult = [[NSMutableArray alloc] initWithCapacity:0];
         mRangeArray = [[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], 
                        [NSNumber numberWithInt:5], [NSNumber numberWithInt:10], [NSNumber numberWithInt:20], nil] retain];
                 
@@ -159,6 +213,15 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark -
+#pragma mark UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[mSearchBar resignFirstResponder];
+}
+
 #pragma mark -
 #pragma mark UITextFieldDelegate
 
@@ -177,8 +240,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-	//return [mWineResult count];
-    return 5;
+	if (mCurSearchKind == SearchKindWine) {
+		//return [mWineResult count];
+		return 5;
+	}
+	else if (mCurSearchKind == SearchKindPlace)
+	{
+		//return [mPlaceResult count];
+		return 4;
+	}
+	else if (mCurSearchKind == SearchKindUser)
+	{
+//		if ([mUserResult count]%4) {
+//			return ([mUserResult count]/4 + 1);
+//		}else {
+//			return ([mUserResult count]/4);
+//		}
+		return 3;
+	}
+	return 0;
 }
 
 - (NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section
@@ -187,20 +267,19 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
-{
-	static NSString		*CellIdentifier = @"Cell";
-    UIImageView			*accessView = nil;
-    WineDetailView		*cell = nil;
-	
-    do {
-        // 処理
-        cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-            break_if(cell == nil);
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+{	
+	if (mCurSearchKind == SearchKindWine) {
+		
+		static NSString		*WineCellIdentifier = @"WineCell";
+		UIImageView			*accessView = nil;
+		WineDetailView		*cell = nil;
+		
+		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:WineCellIdentifier];
+		if (cell == nil)
+		{
+			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:WineCellIdentifier] autorelease];
+		}
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
 		accessView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-arrow.png"]];
@@ -211,9 +290,54 @@
 		[accessView release];
 		accessView = nil;
 		
-	} while (0);
-    
-    return cell;
+		return cell;
+	}
+	else if (mCurSearchKind == SearchKindPlace)
+	{
+		static NSString		*PlaceCellIdentifier = @"PlaceCell";
+		UIImageView			*accessView = nil;
+		// temp test 
+		WineDetailView		*cell = nil;
+		
+		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:PlaceCellIdentifier];
+		if (cell == nil)
+		{
+			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:PlaceCellIdentifier] autorelease];
+		}
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		
+		accessView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-arrow.png"]];
+		cell.accessoryView = accessView;
+		
+		[cell setWineDetailRecord];
+		
+		[accessView release];
+		accessView = nil;
+		
+		return cell;		
+	}
+	else if (mCurSearchKind == SearchKindUser)
+	{
+		UserResultViewCell	*cell = nil;
+		static NSString		*UserCellIdentifier = @"UserCell";
+		NSArray				*tempTest = nil;
+		
+		tempTest = [[[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", nil] autorelease];
+		cell = (UserResultViewCell*)[tableView dequeueReusableCellWithIdentifier:UserCellIdentifier];
+		if (cell == nil)
+		{
+			cell = [[[UserResultViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:UserCellIdentifier] autorelease];
+		}
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		cell.userInfos = tempTest;
+		cell.delegate = self;
+		
+		return cell;
+	}
+
+    return nil;
 }
 
 #pragma mark -
@@ -221,25 +345,39 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	BarDetailViewController	*controller = nil;
-	
-	do{
-        BarDetail *object = [[BarDetail alloc] init];
-        object.barName = @"红酒吧";
-        object.barCommentTime = @"2011.10.12";
-        object.userNickname = @"张三";
-        object.barCommentMark = @"用户评分";
-        NSArray *array = [NSArray arrayWithObjects:object ,object,object,object,object, nil];
-        [object release];
+	if (mCurSearchKind == SearchKindUser) {
+		
+	}
+	else if (mCurSearchKind == SearchKindWine)
+	{
+		WineDetailViewController	*controller = nil;
+		
+		controller = [[WineDetailViewController alloc] init];
+		[self.navigationController pushViewController:controller animated:YES];
+		
+		if (controller) {
+			[controller release];
+			controller = nil;
+		}
+	}
+	else if (mCurSearchKind == SearchKindPlace)
+	{
+		BarDetailViewController	*controller = nil;
+		
+		BarDetail *object = [[BarDetail alloc] init];
+		object.barName = @"红酒吧";
+		object.barCommentTime = @"2011.10.12";
+		object.userNickname = @"张三";
+		object.barCommentMark = @"用户评分";
+		NSArray *array = [NSArray arrayWithObjects:object ,object,object,object,object, nil];
+		[object release];
 		controller = [[BarDetailViewController alloc] initControllerWithArray:array];
 		
 		[self.navigationController pushViewController:controller animated:YES];
-		
-	}while (0);
-	
-	if (controller) {
-		[controller release];
-		controller = nil;
+		if (controller) {
+			[controller release];
+			controller = nil;
+		}
 	}
 }
 
@@ -273,7 +411,7 @@
 }
 
 #pragma mark -
-#pragma mark DeviceISCSIPortPropertyViewControllerDelegate
+#pragma mark PopoverPickerViewControllerDelegate
 
 - (void)popoverPickerViewControllerDidSelect:(PopoverPickerViewController *)controller
 {     
@@ -298,6 +436,14 @@
 }
 
 #pragma mark -
+#pragma mark UserResultViewCellDelegate
+
+- (void)userResultViewCellSelectUser
+{
+	
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar
@@ -316,7 +462,7 @@
     leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
     rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"SearchRange", nil), mSearchRange] style:UIBarButtonItemStylePlain target:self action:@selector(procChooseRange:)];
     
-    self.navigationItem.leftBarButtonItem = leftItem;
+    //self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.rightBarButtonItem = rightItem;
     
     self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
@@ -423,6 +569,7 @@
     UIImage     *searchPlaceImage = nil;
     UIImage     *searchUserImage = nil;
 
+	mCurSearchKind = button.tag;
     switch (button.tag) {
         case SearchKindWine:
 
@@ -430,21 +577,27 @@
             searchPlaceImage = [UIImage imageNamed:@"search-place.png"];;
             searchUserImage = [UIImage imageNamed:@"search-friends.png"];;
             self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
-            break;
+            
+			mTableView.separatorColor = [UIColor lightGrayColor];
+			break;
         case SearchKindPlace:
             
             searchWineImage = [UIImage imageNamed:@"search-alcohol.png"];
             searchPlaceImage = [UIImage imageNamed:@"search-place-selected.png"];;
             searchUserImage = [UIImage imageNamed:@"search-friends.png"];;
             self.navigationItem.title = NSLocalizedString(@"SearchPlace Page Title", nil);
-            break;
+            
+			mTableView.separatorColor = [UIColor lightGrayColor];
+			break;
         case SearchKindUser:
             
             searchWineImage = [UIImage imageNamed:@"search-alcohol.png"];
             searchPlaceImage = [UIImage imageNamed:@"search-place.png"];;
             searchUserImage = [UIImage imageNamed:@"search-friends-selected.png"];;
             self.navigationItem.title = NSLocalizedString(@"SearchUser Page Title", nil);
-            break;
+			mTableView.separatorColor = [UIColor clearColor];
+
+			break;
         default:
             break;
     }
@@ -452,5 +605,8 @@
     [mSearchPlaceBtn setBackgroundImage:searchPlaceImage forState:UIControlStateNormal];
     [mSearchUserBtn setBackgroundImage:searchUserImage forState:UIControlStateNormal];
 
+	[mTableView reloadData];
 }
 @end
+	
+
