@@ -10,6 +10,8 @@
 #import "WineDetailViewController.h"
 #import "PaoPaoCommon.h"
 #import "WineDetailView.h"
+#import "BarDetailViewController.h"
+#import "BarDetail.h"
 
 #define SearchKindBtnWidth          89
 #define SearchKindBtnHeight         29
@@ -219,10 +221,17 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	WineDetailViewController	*controller = nil;
+	BarDetailViewController	*controller = nil;
 	
 	do{
-		controller = [[WineDetailViewController alloc] init];
+        BarDetail *object = [[BarDetail alloc] init];
+        object.barName = @"红酒吧";
+        object.barCommentTime = @"2011.10.12";
+        object.userNickname = @"张三";
+        object.barCommentMark = @"用户评分";
+        NSArray *array = [NSArray arrayWithObjects:object ,object,object,object,object, nil];
+        [object release];
+		controller = [[BarDetailViewController alloc] initControllerWithArray:array];
 		
 		[self.navigationController pushViewController:controller animated:YES];
 		

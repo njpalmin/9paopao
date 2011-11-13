@@ -22,10 +22,10 @@
 "SearchRange" = "%d公里";
 
 //barDetail
-"barName:" = "酒吧名称：";
-"commentTime:" = "评论时间：";
-"userNickname:" = "用户昵称：";
-"commentMark:" = "评论分数：";
+"barName: %@" = "酒吧名称：%@";
+"commentTime: %@" = "评论时间：%@";
+"userNickname: %@" = "用户昵称：%@";
+"commentMark: " = "评论分数：";
 
 // wine detail
 "Product Day" = "参考年份：%@";
