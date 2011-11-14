@@ -71,24 +71,25 @@
     [scrollView addSubview:scoreLabel];
     [scoreLabel release];
     
-    ScoreView *scoreView = [[ScoreView alloc] initWithFrame:CGRectMake(60, 31, 196, 187)];
+    ScoreView *scoreView = [[ScoreView alloc] initWithFrame:CGRectMake(60, 28, 196, 187)];
     [scrollView addSubview:scoreView];
     [scoreView release];
     
-    UILabel *commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 218, 140, 18)];
+    UILabel *commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 221, 140, 18)];
     commentsLabel.text = @"用户评论";
     [scrollView addSubview:commentsLabel];
     [commentsLabel release];
     
-    commentsText = [[UITextView alloc] initWithFrame:CGRectMake(40, 240, 240, 90)];
+    commentsText = [[UITextView alloc] initWithFrame:CGRectMake(40, 243, 240, 90)];
     commentsText.text = @"fhsajfsamflsamflsafmlsafslfmsfmlsmflasmfslmflsmflsamflsmflsf";
     commentsText.scrollEnabled = YES;
     commentsText.delegate = self;
     commentsText.keyboardType = UIReturnKeyDone;
     commentsText.contentInset = UIEdgeInsetsZero;
+    [self addTooBarOnKeyboard];
     [scrollView addSubview:commentsText];
     
-    ToolBarView *toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(0, 330, 320, 30)];
+    ToolBarView *toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(0, 333, 320, 30)];
     toolBarView.delegate = self;
     [scrollView addSubview:toolBarView];
     [toolBarView release];
@@ -100,18 +101,34 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
  }
 
+-(void)addTooBarOnKeyboard
+{
+    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 30)];  
+    [topView setBarStyle:UIBarStyleBlack];  
+    
+    //UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"Hello" style:UIBarButtonItemStyleBordered target:self action:nil];  
+    
+    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];  
+    
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];  
+    
+    
+    NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneButton,nil];  
+    [doneButton release];  
+    [btnSpace release];  
+    
+    [topView setItems:buttonsArray];  
+    [commentsText setInputAccessoryView:topView];  
+}
+
+-(void)dismissKeyBoard  
+{  
+    [commentsText resignFirstResponder];  
+} 
+
 -(void)goBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text; {
-    
-    if ([@"\n" isEqualToString:text] == YES) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    return YES;
 }
 
 - (void)keyboardWillShow:(NSNotification *)noti

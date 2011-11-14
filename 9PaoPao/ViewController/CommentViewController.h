@@ -13,5 +13,5 @@
     UIScrollView  *scrollView;
     UITextView    *commentsText;
 }
-
+-(void)addTooBarOnKeyboard;
 @end
