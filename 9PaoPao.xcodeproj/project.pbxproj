@@ -20,12 +20,12 @@
 		18A004CC1464CF110015EC68 /* _PaoPaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A004CB1464CF110015EC68 /* _PaoPaoTests.m */; };
 		2089E00614700565006581C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E00514700565006581C3 /* CoreLocation.framework */; };
 		2089E009147005A5006581C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E008147005A5006581C3 /* MapKit.framework */; };
-		2089E00D14700A3F006581C3 /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2089E00C14700A3F006581C3 /* CoreLocationService.m */; };
 		310707E31470BD970076C096 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E21470BD970076C096 /* CommentViewController.m */; };
 		310707E91470BDAD0076C096 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E61470BDAD0076C096 /* ScoreView.m */; };
 		310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E81470BDAD0076C096 /* ToolBarView.m */; };
 		333709201470EA210027CE89 /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3337091F1470EA210027CE89 /* UserInfoView.m */; };
 		333709241470EA410027CE89 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709231470EA410027CE89 /* UserDetailViewController.m */; };
+		333709281471099A0027CE89 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709271471099A0027CE89 /* LocationManager.m */; };
 		337081581469068A004B2645 /* SearchNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 337081571469068A004B2645 /* SearchNearbyViewController.m */; };
 		33708193146938CD004B2645 /* PaoPaoCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 33708192146938CD004B2645 /* PaoPaoCommon.m */; };
 		3395E66F146A0FED00733469 /* MainSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395E66E146A0FED00733469 /* MainSegmentViewController.m */; };
@@ -120,8 +120,6 @@
 		18A004CB1464CF110015EC68 /* _PaoPaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _PaoPaoTests.m; sourceTree = "<group>"; };
 		2089E00514700565006581C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2089E008147005A5006581C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2089E00B14700A3F006581C3 /* CoreLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationService.h; sourceTree = "<group>"; };
-		2089E00C14700A3F006581C3 /* CoreLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationService.m; sourceTree = "<group>"; };
 		310707E11470BD970076C096 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		310707E21470BD970076C096 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		310707E51470BDAD0076C096 /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreView.h; sourceTree = "<group>"; };
@@ -132,6 +130,8 @@
 		3337091F1470EA210027CE89 /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		333709221470EA410027CE89 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
 		333709231470EA410027CE89 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
+		333709261471099A0027CE89 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		333709271471099A0027CE89 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		337081561469068A004B2645 /* SearchNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNearbyViewController.h; sourceTree = "<group>"; };
 		337081571469068A004B2645 /* SearchNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNearbyViewController.m; sourceTree = "<group>"; };
 		33708191146938CD004B2645 /* PaoPaoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoCommon.h; sourceTree = "<group>"; };
@@ -283,9 +283,8 @@
 		18A004981464CF100015EC68 /* 9PaoPao */ = {
 			isa = PBXGroup;
 			children = (
-				2089E00A147009E7006581C3 /* Corelocation */,
+				333709251471099A0027CE89 /* Controllers */,
 				33708190146938A0004B2645 /* Common */,
-				33D4DF721467CD5900CFE105 /* Controllers */,
 				33D4DF731467CD5900CFE105 /* Resources */,
 				33D4DF791467CD5900CFE105 /* ViewController */,
 				33D4DF7A1467CD5900CFE105 /* Views */,
@@ -328,13 +327,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2089E00A147009E7006581C3 /* Corelocation */ = {
+		333709251471099A0027CE89 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2089E00B14700A3F006581C3 /* CoreLocationService.h */,
-				2089E00C14700A3F006581C3 /* CoreLocationService.m */,
+				333709261471099A0027CE89 /* LocationManager.h */,
+				333709271471099A0027CE89 /* LocationManager.m */,
 			);
-			path = Corelocation;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		33708190146938A0004B2645 /* Common */ = {
@@ -416,13 +415,6 @@
 				33D4DF6D1467CD3400CFE105 /* AppDelegate.m */,
 			);
 			path = "Application Classes";
-			sourceTree = "<group>";
-		};
-		33D4DF721467CD5900CFE105 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		33D4DF731467CD5900CFE105 /* Resources */ = {
@@ -665,13 +657,13 @@
 				4B18FE94146E31A600BCF6AD /* ThumbMarkView.m in Sources */,
 				4B18FEBB146E5A0C00BCF6AD /* WineDetailView.m in Sources */,
 				4B18FF2A146E953C00BCF6AD /* WineDetailViewController.m in Sources */,
-				2089E00D14700A3F006581C3 /* CoreLocationService.m in Sources */,
 				4BE893571470338E00E351B4 /* UserResultViewCell.m in Sources */,
 				310707E31470BD970076C096 /* CommentViewController.m in Sources */,
 				310707E91470BDAD0076C096 /* ScoreView.m in Sources */,
 				310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */,
 				333709201470EA210027CE89 /* UserInfoView.m in Sources */,
 				333709241470EA410027CE89 /* UserDetailViewController.m in Sources */,
+				333709281471099A0027CE89 /* LocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
