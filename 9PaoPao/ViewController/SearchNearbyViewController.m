@@ -14,6 +14,7 @@
 #import "WineDetailView.h"
 #import "BarDetailViewController.h"
 #import "BarDetail.h"
+#import "UserDetailViewController.h"
 
 #define SearchBarAndKindPadding     10
 
@@ -440,7 +441,15 @@
 
 - (void)userResultViewCellSelectUser
 {
-	
+	UserDetailViewController    *controller = nil;
+    
+    controller = [[UserDetailViewController alloc] init];
+    controller.markRecords = [NSArray arrayWithObjects:@"", @"", @"", nil];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    [controller release];
+    controller = nil;
 }
 
 #pragma mark -
