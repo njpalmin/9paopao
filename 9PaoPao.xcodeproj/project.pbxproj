@@ -21,6 +21,9 @@
 		2089E00614700565006581C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E00514700565006581C3 /* CoreLocation.framework */; };
 		2089E009147005A5006581C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E008147005A5006581C3 /* MapKit.framework */; };
 		2089E00D14700A3F006581C3 /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2089E00C14700A3F006581C3 /* CoreLocationService.m */; };
+		310707E31470BD970076C096 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E21470BD970076C096 /* CommentViewController.m */; };
+		310707E91470BDAD0076C096 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E61470BDAD0076C096 /* ScoreView.m */; };
+		310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E81470BDAD0076C096 /* ToolBarView.m */; };
 		337081581469068A004B2645 /* SearchNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 337081571469068A004B2645 /* SearchNearbyViewController.m */; };
 		33708193146938CD004B2645 /* PaoPaoCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 33708192146938CD004B2645 /* PaoPaoCommon.m */; };
 		3395E66F146A0FED00733469 /* MainSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395E66E146A0FED00733469 /* MainSegmentViewController.m */; };
@@ -117,6 +120,12 @@
 		2089E008147005A5006581C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2089E00B14700A3F006581C3 /* CoreLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationService.h; sourceTree = "<group>"; };
 		2089E00C14700A3F006581C3 /* CoreLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationService.m; sourceTree = "<group>"; };
+		310707E11470BD970076C096 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		310707E21470BD970076C096 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		310707E51470BDAD0076C096 /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreView.h; sourceTree = "<group>"; };
+		310707E61470BDAD0076C096 /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreView.m; sourceTree = "<group>"; };
+		310707E71470BDAD0076C096 /* ToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarView.h; sourceTree = "<group>"; };
+		310707E81470BDAD0076C096 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
 		337081561469068A004B2645 /* SearchNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNearbyViewController.h; sourceTree = "<group>"; };
 		337081571469068A004B2645 /* SearchNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNearbyViewController.m; sourceTree = "<group>"; };
 		33708191146938CD004B2645 /* PaoPaoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoCommon.h; sourceTree = "<group>"; };
@@ -430,6 +439,8 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				310707E11470BD970076C096 /* CommentViewController.h */,
+				310707E21470BD970076C096 /* CommentViewController.m */,
 				930EC52E146A8526000A675D /* TellFavoriteViewController.h */,
 				930EC52F146A8526000A675D /* TellFavoriteViewController.m */,
 				3395E6BF146A68F100733469 /* MainViewController.h */,
@@ -453,6 +464,10 @@
 		33D4DF7A1467CD5900CFE105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				310707E51470BDAD0076C096 /* ScoreView.h */,
+				310707E61470BDAD0076C096 /* ScoreView.m */,
+				310707E71470BDAD0076C096 /* ToolBarView.h */,
+				310707E81470BDAD0076C096 /* ToolBarView.m */,
 				4BE893551470338E00E351B4 /* UserResultViewCell.h */,
 				4BE893561470338E00E351B4 /* UserResultViewCell.m */,
 				3395E6C3146A690B00733469 /* MainViewCell.h */,
@@ -642,6 +657,9 @@
 				4B18FF2A146E953C00BCF6AD /* WineDetailViewController.m in Sources */,
 				2089E00D14700A3F006581C3 /* CoreLocationService.m in Sources */,
 				4BE893571470338E00E351B4 /* UserResultViewCell.m in Sources */,
+				310707E31470BD970076C096 /* CommentViewController.m in Sources */,
+				310707E91470BDAD0076C096 /* ScoreView.m in Sources */,
+				310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

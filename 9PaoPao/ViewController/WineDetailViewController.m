@@ -11,6 +11,7 @@
 #import "PaoPaoCommon.h"
 #import "StarMarkView.h"
 #import "ThumbMarkView.h"
+#import "CommentViewController.h"
 
 #define CellWineImageTag			555
 #define CellWineNameLabelTag		556
@@ -403,23 +404,28 @@
 
 - (void)procUploadBtn:(id)sender
 {
-	UIButton	*button = nil;
-	
-	button = (UIButton *)sender;
-	
-	[button setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateNormal];
-	[button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-	
-	UIImagePickerController	*imagePicker = nil;
-	
-	imagePicker = [[UIImagePickerController alloc] init];
-	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-	imagePicker.delegate = self;
-	
-	[self presentModalViewController:imagePicker animated:YES];
-	
-	[imagePicker release];
-	imagePicker = nil;
+//	UIButton	*button = nil;
+//	
+//	button = (UIButton *)sender;
+//	
+//	[button setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateNormal];
+//	[button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//	
+//	UIImagePickerController	*imagePicker = nil;
+//	
+//	imagePicker = [[UIImagePickerController alloc] init];
+//	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//	imagePicker.delegate = self;
+//	
+//	[self presentModalViewController:imagePicker animated:YES];
+//	
+//	[imagePicker release];
+//	imagePicker = nil;
+    CommentViewController *comm = [[CommentViewController alloc] init];
+    comm.view.frame = CGRectMake(0, 0, 320, 410);
+    [self.navigationController pushViewController:comm animated:YES];
+    //[self presentModalViewController:comm animated:YES];
+    [comm release];
 }
 
 @end
