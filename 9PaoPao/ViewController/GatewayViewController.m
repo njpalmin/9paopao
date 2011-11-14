@@ -125,7 +125,7 @@
 		mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
     }
     
-	[mMainSegmentViewController displayViewControllerWithIndex:1];
+	[mMainSegmentViewController displayViewControllerWithIndex:0];
     [self presentModalViewController:mMainSegmentViewController animated:YES];   
 }
 

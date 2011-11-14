@@ -267,6 +267,7 @@
             break;
         case 1:
         {
+            /*
             //add by mqh begin 2011-11-9
             if (tFVC == nil) {
                 NSMutableDictionary *beardDic = [[NSMutableDictionary alloc] init];
@@ -291,6 +292,7 @@
             }
             [self.view addSubview:mLiveNavigationController.view];           
             //add by mqh end 2011-11-6
+             */
             break;
         }
         case 2:
@@ -344,7 +346,13 @@
 		}
 		[self.view addSubview:mSearchNavigationController.view];
 	}
-	if (index == 1) {
+	if (index == 0) {
+        
+        if (mMainViewController == nil) {
+            mMainViewController = [[MainViewController alloc] init];
+            [mHomeNavigationController pushViewController:mMainViewController animated:NO];
+        }
+        
 		//add by mqh begin 2011-11-9
 		if (tFVC == nil) {
 			NSMutableDictionary *beardDic = [[NSMutableDictionary alloc] init];
@@ -365,9 +373,9 @@
 			[readWineDic release];
 			[wine2 release];
 			
-			[mLiveNavigationController pushViewController:tFVC animated:NO];
+			[mHomeNavigationController pushViewController:tFVC animated:NO];
 		}
-		[self.view addSubview:mLiveNavigationController.view];           
+        [self.view addSubview:mHomeNavigationController.view];
 		//add by mqh end 2011-11-6		
 	}
 }

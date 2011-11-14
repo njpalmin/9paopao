@@ -80,7 +80,7 @@
     UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [finishBtn setFrame:CGRectMake(5, 9, 60, 26)];
     [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
-    [finishBtn addTarget:self action:@selector(finish:) forControlEvents:UIControlEventTouchUpInside];
+    [finishBtn addTarget:self action:@selector(procFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
     self.navigationItem.rightBarButtonItem = rItem;
     [rItem release];
@@ -208,5 +208,12 @@
     return [view autorelease];
 }
 
+#pragma mark －
+#pragma mark Action
+
+- (void)procFinishBtn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 @end
