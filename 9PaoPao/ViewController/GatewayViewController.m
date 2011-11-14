@@ -56,13 +56,13 @@
 
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    UILabel *topText = [[UILabel alloc] initWithFrame:CGRectMake(44, 30, 120, 20)];
+    UILabel *topText = [[UILabel alloc] initWithFrame:CGRectMake(48, 30, 120, 20)];
     topText.text = NSLocalizedString(@"Now, let's go...",nil);
     [topText sizeToFit];
     [self.view addSubview:topText];
     [topText release];
     
-    UITextView *midText = [[UITextView alloc] initWithFrame:CGRectMake(38, 74, 220, 70)];
+    UITextView *midText = [[UITextView alloc] initWithFrame:CGRectMake(40, 74, 240, 60)];
     midText.text = NSLocalizedString(@"Here, in 9paopao, you can find red wine, beer, cocktail, bar and so on which is most suitable for you...but, firstly, let me know what's your favorite!",nil);
     [self.view addSubview:midText];
     midText.font = [UIFont systemFontOfSize:14.0];
@@ -72,7 +72,7 @@
     
     UILabel *buttomText = [[UILabel alloc] initWithFrame:CGRectMake(44, 220, 220, 20)];
     buttomText.text =NSLocalizedString(@"All I want is that you will search your favorite",nil);
-    [buttomText sizeToFit];
+    buttomText.textAlignment = UITextAlignmentLeft;
     [self.view addSubview:buttomText];
     [buttomText release];
     
@@ -80,19 +80,23 @@
     assert(mMostLoveBtn);
     
     [mMostLoveBtn addTarget:self action:@selector(findMostLove:) forControlEvents:UIControlEventTouchUpInside];
-    [mMostLoveBtn setFrame:CGRectMake(90, 170, 128, 28)];
+    [mMostLoveBtn setFrame:CGRectMake(100, 150, 120, 29)];
+    mMostLoveBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    [mMostLoveBtn setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [mMostLoveBtn setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [mMostLoveBtn setTitle:NSLocalizedString(@"MostLoveDrinkWine", nil) forState:UIControlStateNormal];
     [mMostLoveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [mMostLoveBtn setBackgroundColor:[UIColor redColor]];
     
     mSearchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     assert(mSearchBtn);
     
     [mSearchBtn addTarget:self action:@selector(searchMostLove:) forControlEvents:UIControlEventTouchUpInside];
-    [mSearchBtn setFrame:CGRectMake(112, 268, 90, 28)];
+    [mSearchBtn setFrame:CGRectMake(125, 255, 70, 29)];
+    mSearchBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    [mSearchBtn setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [mSearchBtn setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [mSearchBtn setTitle:NSLocalizedString(@"ImmediatelySearch", nil) forState:UIControlStateNormal];
     [mSearchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [mSearchBtn setBackgroundColor:[UIColor redColor]];
     
     [self.view addSubview:mMostLoveBtn];
     [self.view addSubview:mSearchBtn];
