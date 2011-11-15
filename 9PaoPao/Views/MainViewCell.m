@@ -54,7 +54,8 @@
     [self addSubview:tempBtn];
     [tempBtn release];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 86, 55, 16)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 86, 80, 16)];
+    label.font = [UIFont systemFontOfSize:14.0];
     label.text = title;
     label.textAlignment = UITextAlignmentCenter;
     [self addSubview:label];

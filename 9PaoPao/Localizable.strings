@@ -32,3 +32,6 @@
 "Product Place" = "生产地：%@";
 "Wine Kind" = "葡萄酒种类：%@";
 "Price" = "价格：%@";
+
+// red wine area
+"Red Wine Area Title" = "红酒区";

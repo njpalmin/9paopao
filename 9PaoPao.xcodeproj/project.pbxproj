@@ -80,6 +80,12 @@
 		33A9F383146BD3A2004F55DE /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F376146BD3A2004F55DE /* send.png */; };
 		33A9F384146BD3A2004F55DE /* white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F377146BD3A2004F55DE /* white-bg.png */; };
 		33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C4BC41146CB2ED00A09952 /* StarMarkView.m */; };
+		33CA34E9147256A600EDEAD0 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E5147256A600EDEAD0 /* chat.png */; };
+		33CA34EA147256A600EDEAD0 /* follow.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E6147256A600EDEAD0 /* follow.png */; };
+		33CA34EB147256A600EDEAD0 /* people-offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E7147256A600EDEAD0 /* people-offline.png */; };
+		33CA34EC147256A600EDEAD0 /* people-online.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E8147256A600EDEAD0 /* people-online.png */; };
+		33CA34F814726F0F00EDEAD0 /* RedWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CA34F714726F0E00EDEAD0 /* RedWineViewController.m */; };
+		33CA34FB1472807C00EDEAD0 /* RedWineCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CA34FA1472807800EDEAD0 /* RedWineCategoryViewController.m */; };
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
 		33D4DF831467D24100CFE105 /* GatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF821467D24100CFE105 /* GatewayViewController.m */; };
@@ -194,6 +200,14 @@
 		33A9F377146BD3A2004F55DE /* white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-bg.png"; sourceTree = "<group>"; };
 		33C4BC40146CB2ED00A09952 /* StarMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarMarkView.h; sourceTree = "<group>"; };
 		33C4BC41146CB2ED00A09952 /* StarMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarMarkView.m; sourceTree = "<group>"; };
+		33CA34E5147256A600EDEAD0 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
+		33CA34E6147256A600EDEAD0 /* follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = follow.png; sourceTree = "<group>"; };
+		33CA34E7147256A600EDEAD0 /* people-offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "people-offline.png"; sourceTree = "<group>"; };
+		33CA34E8147256A600EDEAD0 /* people-online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "people-online.png"; sourceTree = "<group>"; };
+		33CA34F614726F0E00EDEAD0 /* RedWineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedWineViewController.h; sourceTree = "<group>"; };
+		33CA34F714726F0E00EDEAD0 /* RedWineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedWineViewController.m; sourceTree = "<group>"; };
+		33CA34F91472807500EDEAD0 /* RedWineCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedWineCategoryViewController.h; sourceTree = "<group>"; };
+		33CA34FA1472807800EDEAD0 /* RedWineCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedWineCategoryViewController.m; sourceTree = "<group>"; };
 		33D4DF651467CD0D00CFE105 /* 9PaoPao-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "9PaoPao-Prefix.pch"; path = "Application Classes/9PaoPao-Prefix.pch"; sourceTree = "<group>"; };
 		33D4DF661467CD0D00CFE105 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Application Classes/main.m"; sourceTree = "<group>"; };
 		33D4DF6C1467CD3400CFE105 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -408,6 +422,17 @@
 			path = "search-nearby";
 			sourceTree = "<group>";
 		};
+		33CA34E4147256A600EDEAD0 /* people-nearby */ = {
+			isa = PBXGroup;
+			children = (
+				33CA34E5147256A600EDEAD0 /* chat.png */,
+				33CA34E6147256A600EDEAD0 /* follow.png */,
+				33CA34E7147256A600EDEAD0 /* people-offline.png */,
+				33CA34E8147256A600EDEAD0 /* people-online.png */,
+			);
+			path = "people-nearby";
+			sourceTree = "<group>";
+		};
 		33D4DF691467CD3400CFE105 /* Application Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +453,7 @@
 		33D4DF741467CD5900CFE105 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				33CA34E4147256A600EDEAD0 /* people-nearby */,
 				33A9F327146BD350004F55DE /* icons */,
 				33A9F332146BD350004F55DE /* search-nearby */,
 			);
@@ -457,6 +483,10 @@
 				93B35134146BEEF500B25A0C /* BarDetailViewController.m */,
 				4B18FF28146E953C00BCF6AD /* WineDetailViewController.h */,
 				4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */,
+				33CA34F614726F0E00EDEAD0 /* RedWineViewController.h */,
+				33CA34F714726F0E00EDEAD0 /* RedWineViewController.m */,
+				33CA34F91472807500EDEAD0 /* RedWineCategoryViewController.h */,
+				33CA34FA1472807800EDEAD0 /* RedWineCategoryViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -606,6 +636,10 @@
 				33A9F382146BD3A2004F55DE /* right-arrow.png in Resources */,
 				33A9F383146BD3A2004F55DE /* send.png in Resources */,
 				33A9F384146BD3A2004F55DE /* white-bg.png in Resources */,
+				33CA34E9147256A600EDEAD0 /* chat.png in Resources */,
+				33CA34EA147256A600EDEAD0 /* follow.png in Resources */,
+				33CA34EB147256A600EDEAD0 /* people-offline.png in Resources */,
+				33CA34EC147256A600EDEAD0 /* people-online.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +698,8 @@
 				333709201470EA210027CE89 /* UserInfoView.m in Sources */,
 				333709241470EA410027CE89 /* UserDetailViewController.m in Sources */,
 				333709281471099A0027CE89 /* LocationManager.m in Sources */,
+				33CA34F814726F0F00EDEAD0 /* RedWineViewController.m in Sources */,
+				33CA34FB1472807C00EDEAD0 /* RedWineCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

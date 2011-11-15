@@ -1,23 +1,30 @@
 //
-//  UserDetailViewController.m
+//  RedWineViewController.m
 //  9PaoPao
 //
-//  Created by huangjj on 11-11-14.
+//  Created by huangjj on 11-11-15.
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "UserDetailViewController.h"
-#import "PaoPaoConstant.h"
+#import "RedWineViewController.h"
 #import "PaoPaoCommon.h"
-#import "UserInfoView.h"
-#import "WineDetailView.h"
+#import "RedWineCategoryViewController.h"
 
-@implementation UserDetailViewController
+#define RedWineCategoryRowHeight    30
 
-@synthesize markRecords = mMarkRecords;
+@implementation RedWineViewController
 
 - (void)dealloc
 {
+    if (mTableView) {
+        [mTableView release];
+        mTableView = nil;
+    }
+    
+    if (mCategorys) {
+        [mCategorys release];
+        mCategorys = nil;
+    }
     [super dealloc];
 }
 
@@ -37,49 +44,42 @@
     CGRect          bounds, tableviewFrame;
     UIView          *containerView = nil;
     UIImageView     *backgroundView = nil;
-	
+    
     do{
         bounds = [[UIScreen mainScreen] bounds];
-		
+        
         containerView = [[[UIView alloc] initWithFrame:bounds] autorelease];
         break_if(containerView == nil);
         
         containerView.autoresizesSubviews = YES;
         containerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-		
+        
         backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search-bg.png"]] autorelease];
         backgroundView.frame = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
         
         [containerView addSubview:backgroundView];
         
         break_if(![self prepareNavigationBar]);
-		break_if(![self prepareHeaderView]);
-        
+
         // ---------------tableView-------------
         tableviewFrame = bounds;
-		
+            
         mTableView = [[UITableView alloc] initWithFrame:tableviewFrame style:UITableViewStyleGrouped];       
         mTableView.autoresizesSubviews = YES;
         mTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		mTableView.backgroundColor = [UIColor clearColor];
-        
+		mTableView.separatorColor = [UIColor grayColor];
+		
         [containerView addSubview:mTableView];
         mTableView.delegate = self;
 		mTableView.dataSource = self;
         // ---------------tableView-------------
         
+        mCategorys = [[NSMutableArray alloc] initWithObjects:@"性价比最高", @"评分最高", @"色泽分区", @"葡萄产区", @"产地分区", @"按心情", @"按天气", @"食物搭配", @"按活动分类", @"附近推荐",nil];
         self.view = containerView;
         
-	}while (0);
+    }while (0);
 }
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-*/
 
 - (void)viewDidUnload
 {
@@ -104,26 +104,28 @@
 
 - (NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section
 {
-    return [mMarkRecords count];
+    return [mCategorys count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
-{
-	static NSString		*CellIdentifier = @"Cell";
-    WineDetailView		*cell = nil;
-	
-    do {
-        // 処理
-        cell = (WineDetailView *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-            break_if(cell == nil);
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		[cell setWineDetailRecord];
-
-	} while (0);
+{			
+    static NSString		*WineCellIdentifier = @"WineCell";
+    UITableViewCell		*cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:WineCellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:WineCellIdentifier] autorelease];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.textLabel.text = [mCategorys objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    
+    if (indexPath.row % 2) {
+        cell.backgroundColor = [UIColor lightGrayColor];
+    }else{
+        cell.backgroundColor = [UIColor colorWithRed:190.0 green:190.0 blue:190.0 alpha:1.0];
+    }
     
     return cell;
 }
@@ -131,26 +133,23 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-	do{
-		
-	}while (0);
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return mHeaderView.frame.size.height;
+    return RedWineCategoryRowHeight;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return 105;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-	return mHeaderView;
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    RedWineCategoryViewController   *categoryController = nil;
+    
+    categoryController = [[RedWineCategoryViewController alloc] init];
+    
+    [self.navigationController pushViewController:categoryController animated:YES];
+    
+    [categoryController release];
+    categoryController = nil;
 }
 
 #pragma mark -
@@ -164,69 +163,17 @@
     leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"" highlightedImageName:@"" action:@selector(procReturn:) target:self];
     
     //leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    
     leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
     
-    self.navigationItem.leftBarButtonItem = leftItem;    
-    self.navigationItem.title = NSLocalizedString(@"SearchUser Page Title", nil);
+    //self.navigationItem.leftBarButtonItem = leftItem;
+    
+    self.navigationItem.title = NSLocalizedString(@"Red Wine Area Title", nil);
     
     [leftItem release];
     leftItem = nil;
     
     return YES;
-}
-
-- (BOOL)prepareHeaderView
-{
-	UIView			*headerView = nil;
-	UILabel			*markRecord = nil;
-	CGFloat			xPos = 10;
-	UserInfoView    *userInfoView = nil;
-    
-	headerView = [[UIView alloc] init];
-    
-    userInfoView = [[[UserInfoView alloc] initWithFrame:CGRectMake(10, 0, 320, 0)] autorelease];
-    [userInfoView setUserInfos:nil];
-    [headerView addSubview:userInfoView];
-    
-    mAttentionBtn = [[PaoPaoCommon getImageButtonWithName:@"follow.png" highlightName:nil action:@selector(procAttentionBtn:) target:self] retain];
-    mAttentionBtn.frame = CGRectMake(220, 10, SearchKindBtnWidth, SearchKindBtnHeight);
-    [headerView addSubview:mAttentionBtn];
-    
-    mChatBtn = [[PaoPaoCommon getImageButtonWithName:@"chat.png" highlightName:nil action:@selector(procChatBtn:) target:self] retain];
-    mChatBtn.frame = CGRectMake(220, (10*2+SearchKindBtnHeight), SearchKindBtnWidth, SearchKindBtnHeight);
-	[headerView addSubview:mChatBtn];
-	
-	markRecord = [[[UILabel alloc] initWithFrame:CGRectMake(xPos, userInfoView.frame.size.height+10, 300, WineDetailInfoLabelHeight)] autorelease];
-	[markRecord setTextColor:[UIColor blackColor]];
-    [markRecord setBackgroundColor:[UIColor clearColor]];
-	[markRecord setFont:[UIFont systemFontOfSize:13.0]];
-	[markRecord setText:@"张三的评分记录:"];
-	[headerView addSubview:markRecord];
-	
-    headerView.frame = CGRectMake(0, 0, 320, (userInfoView.frame.size.height + WineDetailInfoLabelHeight + 5));
-
-	mHeaderView = [headerView retain];
-	mHeaderView.backgroundColor = [UIColor clearColor];
-    
-    return YES;
-}
-
-#pragma mark -
-#pragma mark Action
-
-- (void)procReturn:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)procAttentionBtn:(id)sender
-{
-    
-}
-
-- (void)procChatBtn:(id)sender
-{
-    
 }
 
 @end

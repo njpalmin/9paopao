@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "MainViewCell.h"
+#import "RedWineViewController.h"
 
 @implementation MainViewController
 @synthesize  _table;
@@ -171,6 +172,15 @@
 //    Class *aClass = [viewControllers objectAtIndex:pos];
 //    UIViewController *vCForPush = [[aClass alloc] init];
 //    [self.navigationController pushViewController:vCForPush animated:YES];
+    
+    RedWineViewController   *redWineController = nil;
+    
+    redWineController = [[RedWineViewController alloc] init];
+    
+    [self.navigationController pushViewController:redWineController animated:YES];
+    
+    [redWineController release];
+    redWineController = nil;
 }
 
 -(void)goToInvite

@@ -73,11 +73,12 @@
 		wholeInfoButton.backgroundColor = [UIColor clearColor];
 		wholeInfoButton.tag = i;
 		
-		picture = [[UIImageView alloc] initWithFrame:CGRectMake(0, yPos, 60, 60)];
+		picture = [[UIImageView alloc] initWithFrame:CGRectMake(0, yPos, 66, 67)];
+        [picture setImage:[UIImage imageNamed:@"people-offline.png"]];
 		picture.backgroundColor = [UIColor lightGrayColor];
 		picture.layer.cornerRadius = 6;
 		
-		yPos += 60;
+		yPos += 66;
 		
 		nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, yPos, 60, WineDetailInfoLabelHeight)];
         [nameLabel setTextColor:[UIColor blackColor]];
@@ -112,7 +113,7 @@
 		[wholeInfoButton release];
 		wholeInfoButton = nil;
 		
-		xPos += 60+15;
+		xPos += 66+7;
 	}
 }
 
