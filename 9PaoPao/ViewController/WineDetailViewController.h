@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MapIconView.h"
 
 @interface WineDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource
-, UIImagePickerControllerDelegate> {
+, UIImagePickerControllerDelegate, MapIconViewDelegate> {
 
 	UITableView		*mTableView;
 	UIView			*mFooterView;
 	CGFloat			mFooterHeight;
 	UIImageView		*mUploadImage;
 }
+
+#pragma mark -
+#pragma mark Private
+
+- (BOOL)prepareNavigationBar;
+- (BOOL)prepareFooterView;
 
 @end

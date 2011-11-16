@@ -21,6 +21,9 @@
 #define CellWineMarkLabelTag		559
 #define CellWineCommentLabelTag		560
 
+#define WinePlaceViewHeight		80
+#define FooterViewPadding		5
+
 @implementation WineDetailViewController
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -279,6 +282,14 @@
 }
 
 #pragma mark -
+#pragma mark MapIconViewDelegate
+
+- (void)mapIconViewDisplayDetailMap:(MapIconView *)mapView
+{
+	
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar
@@ -300,8 +311,6 @@
     return YES;
 }
 
-#define WinePlaceViewHeight		80
-#define FooterViewPadding		5
 - (BOOL)prepareFooterView
 {
 	UIView			*footView = nil;
@@ -339,12 +348,10 @@
 	//----------place info-----------
 
 	//----------map view-------------
-	UIImageView	*mapView = nil;
-	UIImage		*mapImage = nil;
+	MapIconView		*mapView = nil;
 	
-	mapImage = [UIImage imageNamed:@"bar-map-bg.png"];
-	mapView = [[[UIImageView alloc] initWithImage:mapImage] autorelease];
-	mapView.frame = CGRectMake(210, yPos, WinePlaceViewHeight, WinePlaceViewHeight);
+	mapView = [[[MapIconView alloc] initWithFrame:CGRectMake(210, yPos, WinePlaceViewHeight, WinePlaceViewHeight)] autorelease];
+	mapView.delegate = self;
 	//----------map view-------------
 	
 	yPos += WinePlaceViewHeight + FooterViewPadding;
@@ -369,10 +376,14 @@
 	
 	//----------
 	UIButton	*button = nil;
-	
+	UIButton	*commentBtn = nil;
+
 	button = [PaoPaoCommon getBarButtonWithTitle:@"上传照片1" imageName:@"upload.png" highlightedImageName:nil action:@selector(procUploadBtn:) target:self];
     button.frame = CGRectMake(xPos, yPos, SearchKindBtnWidth, SearchKindBtnHeight);
 	
+	commentBtn = [PaoPaoCommon getBarButtonWithTitle:@"编辑评论" imageName:@"upload.png" highlightedImageName:nil action:@selector(procEditCommentBtn:) target:self];
+    commentBtn.frame = CGRectMake(xPos+SearchKindBtnWidth+10, yPos, SearchKindBtnWidth, SearchKindBtnHeight);
+
 	//----------
 	
 	yPos += 30;
@@ -383,9 +394,11 @@
 	[footView addSubview:winePlaceView];
 	[footView addSubview:userView];
 	[footView addSubview:markView];
+	[footView addSubview:mapView];
     [footView addSubview:userView];
 	[footView addSubview:thumbView];
 	[footView addSubview:button];
+	[footView addSubview:commentBtn];
 	[footView addSubview:mUploadImage];
 	
 	mFooterView = [footView retain];
@@ -406,28 +419,33 @@
 
 - (void)procUploadBtn:(id)sender
 {
-//	UIButton	*button = nil;
-//	
-//	button = (UIButton *)sender;
-//	
-//	[button setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateNormal];
-//	[button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//	
-//	UIImagePickerController	*imagePicker = nil;
-//	
-//	imagePicker = [[UIImagePickerController alloc] init];
-//	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//	imagePicker.delegate = self;
-//	
-//	[self presentModalViewController:imagePicker animated:YES];
-//	
-//	[imagePicker release];
-//	imagePicker = nil;
-    CommentViewController *comm = [[CommentViewController alloc] init];
-    comm.view.frame = CGRectMake(0, 0, 320, 410);
+	UIButton	*button = nil;
+	
+	button = (UIButton *)sender;
+	
+	[button setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateNormal];
+	[button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+	
+	UIImagePickerController	*imagePicker = nil;
+	
+	imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	imagePicker.delegate = self;
+	
+	[self presentModalViewController:imagePicker animated:YES];
+	
+	[imagePicker release];
+	imagePicker = nil;
+}
+
+- (void)procEditCommentBtn:(id)sender
+{
+	CommentViewController *comm = [[CommentViewController alloc] init];
+	
     [self.navigationController pushViewController:comm animated:YES];
-    //[self presentModalViewController:comm animated:YES];
+	
     [comm release];
+	comm = nil;
 }
 
 @end

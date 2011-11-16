@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MapIconViewDelegate <NSObject>
-
-@end
+@protocol MapIconViewDelegate;
 
 @interface MapIconView : UIView {
     
+	id<MapIconViewDelegate>		mDelegate;
 }
+@property(nonatomic, assign)id<MapIconViewDelegate>	delegate;
+@end
+
+@protocol MapIconViewDelegate <NSObject>
+
+- (void)mapIconViewDisplayDetailMap:(MapIconView *)mapView;
 
 @end

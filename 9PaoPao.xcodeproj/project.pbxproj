@@ -395,7 +395,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		313411DA1473FF1A0016EDA9 /* New Group */ = {
+		313411DA1473FF1A0016EDA9 /* emoji */ = {
 			isa = PBXGroup;
 			children = (
 				313411DC1473FF320016EDA9 /* weibo_1.png */,
@@ -423,7 +423,7 @@
 				313411F21473FF320016EDA9 /* weibo_23.png */,
 				313411F31473FF320016EDA9 /* weibo_24.png */,
 			);
-			name = "New Group";
+			name = emoji;
 			sourceTree = "<group>";
 		};
 		333709251471099A0027CE89 /* Controllers */ = {
@@ -538,7 +538,7 @@
 		33D4DF741467CD5900CFE105 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				313411DA1473FF1A0016EDA9 /* New Group */,
+				313411DA1473FF1A0016EDA9 /* emoji */,
 				33CA34E4147256A600EDEAD0 /* people-nearby */,
 				33A9F327146BD350004F55DE /* icons */,
 				33A9F332146BD350004F55DE /* search-nearby */,

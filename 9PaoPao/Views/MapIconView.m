@@ -10,6 +10,8 @@
 
 
 @implementation MapIconView
+ 
+@synthesize delegate = mDelegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -43,7 +45,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    [mDelegate mapIconViewDisplayDetailMap:self];
 }
 
 - (void)dealloc
