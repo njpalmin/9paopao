@@ -473,8 +473,13 @@
     
     //self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.rightBarButtonItem = rightItem;
-    
     self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif 
     mCurSearchKind = SearchKindWine;
     
     [leftItem release];

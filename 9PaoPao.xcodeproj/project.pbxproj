@@ -80,6 +80,7 @@
 		33A9F383146BD3A2004F55DE /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F376146BD3A2004F55DE /* send.png */; };
 		33A9F384146BD3A2004F55DE /* white-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F377146BD3A2004F55DE /* white-bg.png */; };
 		33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C4BC41146CB2ED00A09952 /* StarMarkView.m */; };
+		33C7E7DB1473DF7E00B4DDA4 /* MapIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C7E7DA1473DF7E00B4DDA4 /* MapIconView.m */; };
 		33CA34E9147256A600EDEAD0 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E5147256A600EDEAD0 /* chat.png */; };
 		33CA34EA147256A600EDEAD0 /* follow.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E6147256A600EDEAD0 /* follow.png */; };
 		33CA34EB147256A600EDEAD0 /* people-offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CA34E7147256A600EDEAD0 /* people-offline.png */; };
@@ -200,6 +201,8 @@
 		33A9F377146BD3A2004F55DE /* white-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-bg.png"; sourceTree = "<group>"; };
 		33C4BC40146CB2ED00A09952 /* StarMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarMarkView.h; sourceTree = "<group>"; };
 		33C4BC41146CB2ED00A09952 /* StarMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarMarkView.m; sourceTree = "<group>"; };
+		33C7E7D91473DF7E00B4DDA4 /* MapIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapIconView.h; sourceTree = "<group>"; };
+		33C7E7DA1473DF7E00B4DDA4 /* MapIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapIconView.m; sourceTree = "<group>"; };
 		33CA34E5147256A600EDEAD0 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		33CA34E6147256A600EDEAD0 /* follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = follow.png; sourceTree = "<group>"; };
 		33CA34E7147256A600EDEAD0 /* people-offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "people-offline.png"; sourceTree = "<group>"; };
@@ -512,6 +515,8 @@
 				4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */,
 				4B18FEB9146E5A0C00BCF6AD /* WineDetailView.h */,
 				4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */,
+				33C7E7D91473DF7E00B4DDA4 /* MapIconView.h */,
+				33C7E7DA1473DF7E00B4DDA4 /* MapIconView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				333709281471099A0027CE89 /* LocationManager.m in Sources */,
 				33CA34F814726F0F00EDEAD0 /* RedWineViewController.m in Sources */,
 				33CA34FB1472807C00EDEAD0 /* RedWineCategoryViewController.m in Sources */,
+				33C7E7DB1473DF7E00B4DDA4 /* MapIconView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

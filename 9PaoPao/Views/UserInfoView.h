@@ -16,4 +16,9 @@
 
 @property(nonatomic, retain)NSArray    *userInfos;
 
+#pragma mark -
+#pragma mark Public
+
+- (void)setUserInfos:(NSArray *)userInfos;
+
 @end

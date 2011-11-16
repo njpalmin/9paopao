@@ -12,6 +12,7 @@
 #import "StarMarkView.h"
 #import "ThumbMarkView.h"
 #import "CommentViewController.h"
+#import "UserInfoView.h"
 
 #define CellWineImageTag			555
 #define CellWineNameLabelTag		556
@@ -349,15 +350,15 @@
 	yPos += WinePlaceViewHeight + FooterViewPadding;
 	
 	//----------user view-------------
-	UIImageView *userView = nil;
-	UIImage		*userImage = nil;
+    
+    UserInfoView    *userView = nil;
+    
+    userView = [[[UserInfoView alloc] init] autorelease];
+    userView.frame = CGRectMake(xPos, yPos, 300, 0);
+    [userView setUserInfos:nil];
+    //----------user view-------------
 	
-	userImage = [UIImage imageNamed:@"friends-icon-bg.png"];
-	userView = [[[UIImageView alloc] initWithImage:userImage] autorelease];
-	userView.frame = CGRectMake(xPos, yPos, userImage.size.width, userImage.size.height);
-	//----------user view-------------
-	
-	yPos += userImage.size.height + FooterViewPadding;
+	yPos += userView.frame.size.height + FooterViewPadding;
 	
 	//--------
 	StarMarkView *markView = [[[StarMarkView alloc] initWithFrame:CGRectMake(xPos+30, yPos+12, 0, 0) withStarNum:3] autorelease];
@@ -382,6 +383,7 @@
 	[footView addSubview:winePlaceView];
 	[footView addSubview:userView];
 	[footView addSubview:markView];
+    [footView addSubview:userView];
 	[footView addSubview:thumbView];
 	[footView addSubview:button];
 	[footView addSubview:mUploadImage];
