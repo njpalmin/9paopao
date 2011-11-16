@@ -11,7 +11,8 @@
 #import "EmojiView.h"
 #import "LocationManager.h"
 
-@interface CommentViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,UIScrollViewDelegate,UITextViewDelegate> {
+@interface CommentViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,
+UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate> {
     UIScrollView		*scrollView;
     UITextView			*commentsText;
     

@@ -217,8 +217,22 @@
 	if (mLocationManager == nil) {
 		mLocationManager = [[LocationManager alloc] init];
 	}
-	[mLocationManager stopUpdate];
-	[mLocationManager startUpdate];
+	
+	if (mLocationManager == nil) {
+
+		NSString    *message = @"Location service not Support";
+		NSString    *title = @"Alert";
+		UIAlertView *noCompassAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		
+		[noCompassAlert show];
+		[noCompassAlert release];
+		noCompassAlert = nil;
+		
+	}else{
+		mLocationManager.delegate = self;
+		[mLocationManager stopUpdate];
+		[mLocationManager startUpdate];
+	}	
 }
 
 -(void)takePhoto
