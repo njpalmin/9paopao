@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "ToolBarView.h"
+#import "EmojiView.h"
 
-@interface CommentViewController : UIViewController <ToolBarViewDelegate,UIScrollViewDelegate,UITextViewDelegate> {
+@interface CommentViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,UIScrollViewDelegate,UITextViewDelegate> {
     UIScrollView  *scrollView;
     UITextView    *commentsText;
+    
+    ToolBarView *toolBarView;
+    EmojiView     *emojiView;
+    BOOL          isEmojiPoped;
 }
 -(void)addTooBarOnKeyboard;
+-(void)hideEj;
+-(void)showEj;
+-(void)showKeyBoard;
+-(void)hideKeyBoard;
 @end

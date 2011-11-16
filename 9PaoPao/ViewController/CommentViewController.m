@@ -5,11 +5,13 @@
 //  Created by yi xiaoluo on 11-11-9.
 //  Copyright 2011年 MI2. All rights reserved.
 //
+#define EMOJI_HEIGHT 158
 
 #import "CommentViewController.h"
 #import "PaoPaoCommon.h"
 #import "ScoreView.h"
 #import "ToolBarView.h"
+#import "EmojiView.h"
 
 @implementation CommentViewController
 
@@ -24,6 +26,8 @@
 
 - (void)dealloc
 {
+    [toolBarView release];
+    [emojiView release];
     [commentsText release];
     [scrollView release];
     [super dealloc];
@@ -63,8 +67,10 @@
     scrollView.userInteractionEnabled = YES;
     [self.view addSubview:scrollView];
     
-    UIButton *leftButton = [PaoPaoCommon getImageButtonWithName:@"返回" highlightName:@"返回" action:@selector(goBack:) target:self];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:leftButton] autorelease];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    [leftItem release];
+    leftItem = nil;
     
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 14, 50, 18)];
     scoreLabel.text = @"评分";
@@ -89,10 +95,9 @@
     [self addTooBarOnKeyboard];
     [scrollView addSubview:commentsText];
     
-    ToolBarView *toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(0, 333, 320, 30)];
+    toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(0, 333, 320, 30)];
     toolBarView.delegate = self;
     [scrollView addSubview:toolBarView];
-    [toolBarView release];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -133,12 +138,12 @@
 
 - (void)keyboardWillShow:(NSNotification *)noti
 {
-    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, 136) animated:YES];
+    [self showKeyBoard];
 }
 
 - (void)keyboardWillHide:(NSNotification *)noti
 {
-    [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self hideKeyBoard];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -170,6 +175,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark -  EmojiViewDelegate
+-(void)showEmojiInMessage:(NSString *)text
+{
+    commentsText.text = [commentsText.text stringByAppendingString:text];
+}
+
 #pragma mark -  ToolBarViewDelegate
 -(void)locateMySelf
 {
@@ -179,17 +190,100 @@
 {
 
 }
+
 -(void)inputPoundSign
 {
-
+     commentsText.text = [commentsText.text stringByAppendingString:@"#"];
 }
 
 -(void)follow
 {
-
+    commentsText.text = [commentsText.text stringByAppendingString:@"@"];
 }
+
+-(void)showKeyBoard
+{
+    NSLog(@"keyboard shows");
+    //keybord show
+    scrollView.scrollEnabled = YES;
+    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, 216-20) animated:YES];
+    
+    //emojiview hide if poped
+    if (isEmojiPoped) {
+        NSLog(@"emoji hide in keyboard show ");
+        scrollView.scrollEnabled = NO;
+        
+        [UIView beginAnimations:@"hideEmojiView" context:nil];
+        [UIView setAnimationBeginsFromCurrentState:YES]; 
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.3];
+        [emojiView setFrame:CGRectMake(0, 480-20-44, 320, EMOJI_HEIGHT)];
+        [UIView commitAnimations];
+        
+        isEmojiPoped = NO;
+    }
+    
+    scrollView.scrollEnabled = NO;
+}
+-(void)hideKeyBoard
+{
+    NSLog(@"keyboard hides");
+    //keybord hide
+    scrollView.scrollEnabled = YES;
+    if (!isEmojiPoped){
+        [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
+}
+
+-(void)hideEj
+{
+    scrollView.scrollEnabled = YES;
+    isEmojiPoped = NO;
+    
+    NSLog(@"emoji hides");
+    [UIView beginAnimations:@"hideEmojiView" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES]; 
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.3];
+    [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [emojiView setFrame:CGRectMake(0, 480-20-44, 320, EMOJI_HEIGHT)];
+    [UIView commitAnimations];
+}
+
+-(void)showEj
+{
+   
+    isEmojiPoped = YES;
+    //hide keyborad if keyboard showing
+    [commentsText resignFirstResponder];
+    
+    scrollView.scrollEnabled = YES;
+    
+     NSLog(@"emoji shows");
+    [UIView beginAnimations:@"popEmojiView" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES]; 
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.3];
+    [emojiView setFrame:CGRectMake(0, 480-EMOJI_HEIGHT-44-20, 320, EMOJI_HEIGHT)];
+    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, EMOJI_HEIGHT - 50) animated:YES];
+    [UIView commitAnimations];
+    
+    scrollView.scrollEnabled = NO;
+}
+
+
 -(void)showEmotion
 {
-
+    if (!emojiView) {
+        emojiView = [[EmojiView alloc] initWithFrame:CGRectMake(0, 480-20-44, 320, 134)];
+        emojiView.delegate = self;
+        [self.view addSubview:emojiView];
+    }
+    
+    if (isEmojiPoped) {
+        [self hideEj];
+    }else{
+        [self showEj];
+    }
 }
 @end

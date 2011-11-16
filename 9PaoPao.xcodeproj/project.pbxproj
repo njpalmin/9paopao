@@ -23,6 +23,31 @@
 		310707E31470BD970076C096 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E21470BD970076C096 /* CommentViewController.m */; };
 		310707E91470BDAD0076C096 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E61470BDAD0076C096 /* ScoreView.m */; };
 		310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E81470BDAD0076C096 /* ToolBarView.m */; };
+		313411F41473FF320016EDA9 /* weibo_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411DC1473FF320016EDA9 /* weibo_1.png */; };
+		313411F51473FF320016EDA9 /* weibo_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411DD1473FF320016EDA9 /* weibo_2.png */; };
+		313411F61473FF320016EDA9 /* weibo_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411DE1473FF320016EDA9 /* weibo_3.png */; };
+		313411F71473FF320016EDA9 /* weibo_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411DF1473FF320016EDA9 /* weibo_4.png */; };
+		313411F81473FF320016EDA9 /* weibo_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E01473FF320016EDA9 /* weibo_5.png */; };
+		313411F91473FF320016EDA9 /* weibo_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E11473FF320016EDA9 /* weibo_6.png */; };
+		313411FA1473FF320016EDA9 /* weibo_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E21473FF320016EDA9 /* weibo_7.png */; };
+		313411FB1473FF320016EDA9 /* weibo_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E31473FF320016EDA9 /* weibo_8.png */; };
+		313411FC1473FF320016EDA9 /* weibo_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E41473FF320016EDA9 /* weibo_9.png */; };
+		313411FD1473FF320016EDA9 /* weibo_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E51473FF320016EDA9 /* weibo_10.png */; };
+		313411FE1473FF320016EDA9 /* weibo_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E61473FF320016EDA9 /* weibo_11.png */; };
+		313411FF1473FF320016EDA9 /* weibo_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E71473FF320016EDA9 /* weibo_12.png */; };
+		313412001473FF320016EDA9 /* weibo_13.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E81473FF320016EDA9 /* weibo_13.png */; };
+		313412011473FF320016EDA9 /* weibo_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411E91473FF320016EDA9 /* weibo_14.png */; };
+		313412021473FF320016EDA9 /* weibo_15.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411EA1473FF320016EDA9 /* weibo_15.png */; };
+		313412031473FF320016EDA9 /* weibo_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411EB1473FF320016EDA9 /* weibo_16.png */; };
+		313412041473FF320016EDA9 /* weibo_17.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411EC1473FF320016EDA9 /* weibo_17.png */; };
+		313412051473FF320016EDA9 /* weibo_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411ED1473FF320016EDA9 /* weibo_18.png */; };
+		313412061473FF320016EDA9 /* weibo_19.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411EE1473FF320016EDA9 /* weibo_19.png */; };
+		313412071473FF320016EDA9 /* weibo_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411EF1473FF320016EDA9 /* weibo_20.png */; };
+		313412081473FF320016EDA9 /* weibo_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411F01473FF320016EDA9 /* weibo_21.png */; };
+		313412091473FF320016EDA9 /* weibo_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411F11473FF320016EDA9 /* weibo_22.png */; };
+		3134120A1473FF320016EDA9 /* weibo_23.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411F21473FF320016EDA9 /* weibo_23.png */; };
+		3134120B1473FF320016EDA9 /* weibo_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 313411F31473FF320016EDA9 /* weibo_24.png */; };
+		3134120E1473FF4E0016EDA9 /* EmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3134120D1473FF4E0016EDA9 /* EmojiView.m */; };
 		333709201470EA210027CE89 /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3337091F1470EA210027CE89 /* UserInfoView.m */; };
 		333709241470EA410027CE89 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709231470EA410027CE89 /* UserDetailViewController.m */; };
 		333709281471099A0027CE89 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709271471099A0027CE89 /* LocationManager.m */; };
@@ -133,6 +158,32 @@
 		310707E61470BDAD0076C096 /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreView.m; sourceTree = "<group>"; };
 		310707E71470BDAD0076C096 /* ToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarView.h; sourceTree = "<group>"; };
 		310707E81470BDAD0076C096 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
+		313411DC1473FF320016EDA9 /* weibo_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_1.png; path = emoji/weibo_1.png; sourceTree = "<group>"; };
+		313411DD1473FF320016EDA9 /* weibo_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_2.png; path = emoji/weibo_2.png; sourceTree = "<group>"; };
+		313411DE1473FF320016EDA9 /* weibo_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_3.png; path = emoji/weibo_3.png; sourceTree = "<group>"; };
+		313411DF1473FF320016EDA9 /* weibo_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_4.png; path = emoji/weibo_4.png; sourceTree = "<group>"; };
+		313411E01473FF320016EDA9 /* weibo_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_5.png; path = emoji/weibo_5.png; sourceTree = "<group>"; };
+		313411E11473FF320016EDA9 /* weibo_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_6.png; path = emoji/weibo_6.png; sourceTree = "<group>"; };
+		313411E21473FF320016EDA9 /* weibo_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_7.png; path = emoji/weibo_7.png; sourceTree = "<group>"; };
+		313411E31473FF320016EDA9 /* weibo_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_8.png; path = emoji/weibo_8.png; sourceTree = "<group>"; };
+		313411E41473FF320016EDA9 /* weibo_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_9.png; path = emoji/weibo_9.png; sourceTree = "<group>"; };
+		313411E51473FF320016EDA9 /* weibo_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_10.png; path = emoji/weibo_10.png; sourceTree = "<group>"; };
+		313411E61473FF320016EDA9 /* weibo_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_11.png; path = emoji/weibo_11.png; sourceTree = "<group>"; };
+		313411E71473FF320016EDA9 /* weibo_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_12.png; path = emoji/weibo_12.png; sourceTree = "<group>"; };
+		313411E81473FF320016EDA9 /* weibo_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_13.png; path = emoji/weibo_13.png; sourceTree = "<group>"; };
+		313411E91473FF320016EDA9 /* weibo_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_14.png; path = emoji/weibo_14.png; sourceTree = "<group>"; };
+		313411EA1473FF320016EDA9 /* weibo_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_15.png; path = emoji/weibo_15.png; sourceTree = "<group>"; };
+		313411EB1473FF320016EDA9 /* weibo_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_16.png; path = emoji/weibo_16.png; sourceTree = "<group>"; };
+		313411EC1473FF320016EDA9 /* weibo_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_17.png; path = emoji/weibo_17.png; sourceTree = "<group>"; };
+		313411ED1473FF320016EDA9 /* weibo_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_18.png; path = emoji/weibo_18.png; sourceTree = "<group>"; };
+		313411EE1473FF320016EDA9 /* weibo_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_19.png; path = emoji/weibo_19.png; sourceTree = "<group>"; };
+		313411EF1473FF320016EDA9 /* weibo_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_20.png; path = emoji/weibo_20.png; sourceTree = "<group>"; };
+		313411F01473FF320016EDA9 /* weibo_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_21.png; path = emoji/weibo_21.png; sourceTree = "<group>"; };
+		313411F11473FF320016EDA9 /* weibo_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_22.png; path = emoji/weibo_22.png; sourceTree = "<group>"; };
+		313411F21473FF320016EDA9 /* weibo_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_23.png; path = emoji/weibo_23.png; sourceTree = "<group>"; };
+		313411F31473FF320016EDA9 /* weibo_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weibo_24.png; path = emoji/weibo_24.png; sourceTree = "<group>"; };
+		3134120C1473FF4E0016EDA9 /* EmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiView.h; sourceTree = "<group>"; };
+		3134120D1473FF4E0016EDA9 /* EmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiView.m; sourceTree = "<group>"; };
 		3337091E1470EA210027CE89 /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
 		3337091F1470EA210027CE89 /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		333709221470EA410027CE89 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
@@ -344,6 +395,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		313411DA1473FF1A0016EDA9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				313411DC1473FF320016EDA9 /* weibo_1.png */,
+				313411DD1473FF320016EDA9 /* weibo_2.png */,
+				313411DE1473FF320016EDA9 /* weibo_3.png */,
+				313411DF1473FF320016EDA9 /* weibo_4.png */,
+				313411E01473FF320016EDA9 /* weibo_5.png */,
+				313411E11473FF320016EDA9 /* weibo_6.png */,
+				313411E21473FF320016EDA9 /* weibo_7.png */,
+				313411E31473FF320016EDA9 /* weibo_8.png */,
+				313411E41473FF320016EDA9 /* weibo_9.png */,
+				313411E51473FF320016EDA9 /* weibo_10.png */,
+				313411E61473FF320016EDA9 /* weibo_11.png */,
+				313411E71473FF320016EDA9 /* weibo_12.png */,
+				313411E81473FF320016EDA9 /* weibo_13.png */,
+				313411E91473FF320016EDA9 /* weibo_14.png */,
+				313411EA1473FF320016EDA9 /* weibo_15.png */,
+				313411EB1473FF320016EDA9 /* weibo_16.png */,
+				313411EC1473FF320016EDA9 /* weibo_17.png */,
+				313411ED1473FF320016EDA9 /* weibo_18.png */,
+				313411EE1473FF320016EDA9 /* weibo_19.png */,
+				313411EF1473FF320016EDA9 /* weibo_20.png */,
+				313411F01473FF320016EDA9 /* weibo_21.png */,
+				313411F11473FF320016EDA9 /* weibo_22.png */,
+				313411F21473FF320016EDA9 /* weibo_23.png */,
+				313411F31473FF320016EDA9 /* weibo_24.png */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		333709251471099A0027CE89 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +538,7 @@
 		33D4DF741467CD5900CFE105 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				313411DA1473FF1A0016EDA9 /* New Group */,
 				33CA34E4147256A600EDEAD0 /* people-nearby */,
 				33A9F327146BD350004F55DE /* icons */,
 				33A9F332146BD350004F55DE /* search-nearby */,
@@ -497,6 +580,8 @@
 		33D4DF7A1467CD5900CFE105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3134120C1473FF4E0016EDA9 /* EmojiView.h */,
+				3134120D1473FF4E0016EDA9 /* EmojiView.m */,
 				3337091E1470EA210027CE89 /* UserInfoView.h */,
 				3337091F1470EA210027CE89 /* UserInfoView.m */,
 				310707E51470BDAD0076C096 /* ScoreView.h */,
@@ -645,6 +730,30 @@
 				33CA34EA147256A600EDEAD0 /* follow.png in Resources */,
 				33CA34EB147256A600EDEAD0 /* people-offline.png in Resources */,
 				33CA34EC147256A600EDEAD0 /* people-online.png in Resources */,
+				313411F41473FF320016EDA9 /* weibo_1.png in Resources */,
+				313411F51473FF320016EDA9 /* weibo_2.png in Resources */,
+				313411F61473FF320016EDA9 /* weibo_3.png in Resources */,
+				313411F71473FF320016EDA9 /* weibo_4.png in Resources */,
+				313411F81473FF320016EDA9 /* weibo_5.png in Resources */,
+				313411F91473FF320016EDA9 /* weibo_6.png in Resources */,
+				313411FA1473FF320016EDA9 /* weibo_7.png in Resources */,
+				313411FB1473FF320016EDA9 /* weibo_8.png in Resources */,
+				313411FC1473FF320016EDA9 /* weibo_9.png in Resources */,
+				313411FD1473FF320016EDA9 /* weibo_10.png in Resources */,
+				313411FE1473FF320016EDA9 /* weibo_11.png in Resources */,
+				313411FF1473FF320016EDA9 /* weibo_12.png in Resources */,
+				313412001473FF320016EDA9 /* weibo_13.png in Resources */,
+				313412011473FF320016EDA9 /* weibo_14.png in Resources */,
+				313412021473FF320016EDA9 /* weibo_15.png in Resources */,
+				313412031473FF320016EDA9 /* weibo_16.png in Resources */,
+				313412041473FF320016EDA9 /* weibo_17.png in Resources */,
+				313412051473FF320016EDA9 /* weibo_18.png in Resources */,
+				313412061473FF320016EDA9 /* weibo_19.png in Resources */,
+				313412071473FF320016EDA9 /* weibo_20.png in Resources */,
+				313412081473FF320016EDA9 /* weibo_21.png in Resources */,
+				313412091473FF320016EDA9 /* weibo_22.png in Resources */,
+				3134120A1473FF320016EDA9 /* weibo_23.png in Resources */,
+				3134120B1473FF320016EDA9 /* weibo_24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +815,7 @@
 				33CA34F814726F0F00EDEAD0 /* RedWineViewController.m in Sources */,
 				33CA34FB1472807C00EDEAD0 /* RedWineCategoryViewController.m in Sources */,
 				33C7E7DB1473DF7E00B4DDA4 /* MapIconView.m in Sources */,
+				3134120E1473FF4E0016EDA9 /* EmojiView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
