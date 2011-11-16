@@ -35,7 +35,7 @@
 	{
         locationManager = [[CLLocationManager alloc] init];
 		
-        if ([CLLocationManager headingAvailable] == NO) {
+        if ([CLLocationManager locationServicesEnabled] == NO) {
             
             [self release];
             self = nil;

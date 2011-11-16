@@ -175,6 +175,36 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegat
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+	[self dismissModalViewControllerAnimated:YES];
+	[self.navigationController.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, PageWithoutSegementHeight)];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+	[self dismissModalViewControllerAnimated:YES];
+	[self.navigationController.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, PageWithoutSegementHeight)];
+}
+
+#pragma mark -
+#pragma mark LocationManagerDelegate
+
+- (void)locationManagerUpdateHeading:(LocationManager*)controller
+{
+	CLLocation	*location = nil;
+	
+	location = controller.newLocation;
+}
+
+- (void)locationManager:(LocationManager*)controller didReceiveError:(NSError*)error
+{
+	
+}
+
 #pragma mark -  EmojiViewDelegate
 -(void)showEmojiInMessage:(NSString *)text
 {
@@ -184,11 +214,25 @@
 #pragma mark -  ToolBarViewDelegate
 -(void)locateMySelf
 {
-
+	if (mLocationManager == nil) {
+		mLocationManager = [[LocationManager alloc] init];
+	}
+	[mLocationManager stopUpdate];
+	[mLocationManager startUpdate];
 }
+
 -(void)takePhoto
 {
-
+	UIImagePickerController	*imagePicker = nil;
+	
+	imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	imagePicker.delegate = self;
+	
+	[self presentModalViewController:imagePicker animated:YES];
+	
+	[imagePicker release];
+	imagePicker = nil;	
 }
 
 -(void)inputPoundSign
