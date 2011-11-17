@@ -8,7 +8,7 @@
 
 #import "GatewayViewController.h"
 #import "MainSegmentViewController.h"
-
+#import "PaoPaoCommon.h"
 
 
 @implementation GatewayViewController
@@ -76,27 +76,15 @@
     [self.view addSubview:buttomText];
     [buttomText release];
     
-    mMostLoveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    mMostLoveBtn = [[PaoPaoCommon getImageButtonWithName:@"my-favorite.png" highlightName:nil action:@selector(findMostLove:) target:nil] retain];
     assert(mMostLoveBtn);
     
-    [mMostLoveBtn addTarget:self action:@selector(findMostLove:) forControlEvents:UIControlEventTouchUpInside];
-    [mMostLoveBtn setFrame:CGRectMake(100, 150, 120, 29)];
-    mMostLoveBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [mMostLoveBtn setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
-    [mMostLoveBtn setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
-    [mMostLoveBtn setTitle:NSLocalizedString(@"MostLoveDrinkWine", nil) forState:UIControlStateNormal];
-    [mMostLoveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    mMostLoveBtn.frame = CGRectMake(100, 150, mMostLoveBtn.frame.size.width, mMostLoveBtn.frame.size.height);
     
-    mSearchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    mSearchBtn = [[PaoPaoCommon getImageButtonWithName:@"search-button.png" highlightName:nil action:@selector(searchMostLove:) target:nil] retain];
     assert(mSearchBtn);
     
-    [mSearchBtn addTarget:self action:@selector(searchMostLove:) forControlEvents:UIControlEventTouchUpInside];
-    [mSearchBtn setFrame:CGRectMake(125, 255, 70, 29)];
-    mSearchBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [mSearchBtn setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
-    [mSearchBtn setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
-    [mSearchBtn setTitle:NSLocalizedString(@"ImmediatelySearch", nil) forState:UIControlStateNormal];
-    [mSearchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    mSearchBtn.frame = CGRectMake(125, 255, mSearchBtn.frame.size.width, mSearchBtn.frame.size.height);
     
     [self.view addSubview:mMostLoveBtn];
     [self.view addSubview:mSearchBtn];
