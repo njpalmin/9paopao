@@ -94,15 +94,15 @@
     _table.scrollEnabled = NO;
     
     [self.view addSubview:_table];
-    imageNames = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:@"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",
-                                                                          @"first.png",nil]];
+    imageNames = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:@"grid_locate.png",
+                                                                          @"grid_list.png",
+                                                                          @"grid_friends.png",
+                                                                          @"grid_wine.png",
+                                                                          @"grid_beer.png",
+                                                                          @"grid_cocktail.png",
+                                                                          @"grid_rank.png",
+                                                                          @"grid_activity.png",
+                                                                          @"grid_card.png",nil]];
     
     imageTitles = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:@"热点地点",
                                                                            @"热门酒单",
@@ -159,9 +159,9 @@
 - (CGFloat)tableView:(UITableView *)atableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 2) {
-        return 118;
+        return 114;
     }
-	return 102;
+	return 104;
 	
 }
 

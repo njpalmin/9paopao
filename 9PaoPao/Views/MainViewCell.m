@@ -9,6 +9,9 @@
 #define SECOND 2
 #define THIRD 3
 
+#define BUTTON_WIDTH 70
+#define BUTTON_HEIGHT 60
+
 #import "MainViewCell.h"
 
 @implementation MainViewCell
@@ -35,26 +38,27 @@
     CGFloat x;
     switch (tag) {
         case FIRST:
-            x = 22.5;
+            x = 18;
             break;
         case SECOND:
-            x = 22.5 + 55 + 50;
+            x = 18 + BUTTON_WIDTH + 37;
             break;
         case THIRD:
-            x = 22.5 + 2*(55 + 50);
+            x = 18 + 2*(BUTTON_WIDTH + 37);
             break;
         default:
             break;
     }
     UIButton *tempBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     [tempBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [tempBtn setFrame:CGRectMake(x, 16, 55, 55)];
+    [tempBtn setFrame:CGRectMake(x, 13, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    tempBtn.showsTouchWhenHighlighted = YES;
     tempBtn.tag = position;
     [tempBtn addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:tempBtn];
     [tempBtn release];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 86, 80, 16)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 82, 80, 16)];
     label.font = [UIFont systemFontOfSize:14.0];
     label.text = title;
     label.textAlignment = UITextAlignmentCenter;
