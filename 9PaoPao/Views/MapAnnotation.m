@@ -10,8 +10,7 @@
 
 @implementation MapAnnotation
 @synthesize coordinate;
-@synthesize title;
-@synthesize subtitle;
+
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coord
 {
     self = [super init];
@@ -23,10 +22,20 @@
     return self;
 }
 
+
+- (NSString *)title
+{
+    return @"我";
+}
+
+- (NSString *)subtitle
+{
+    return @"当前位置";
+}
+
+
 - (void)dealloc
 {
-    [title release];
-    [subtitle release];
     [super dealloc];
 }
 @end

@@ -86,6 +86,8 @@
 #pragma mark MKMapViewDelegate
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
     if ([annotation isKindOfClass:[MapAnnotation class]] == YES) {
         MKPinAnnotationView *view;
         view = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
@@ -108,6 +110,11 @@
     {
         return nil;
     }
+}
+
+- (void)showDetail:(id)sender
+{
+    NSLog(@"showDetail");
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
