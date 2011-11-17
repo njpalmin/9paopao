@@ -13,6 +13,7 @@
 #import "ThumbMarkView.h"
 #import "CommentViewController.h"
 #import "UserInfoView.h"
+#import "MapViewController.h"
 
 #define CellWineImageTag			555
 #define CellWineNameLabelTag		556
@@ -286,7 +287,14 @@
 
 - (void)mapIconViewDisplayDetailMap:(MapIconView *)mapView
 {
-	
+    MapViewController   *mapViewController = nil;
+    
+    mapViewController = [[MapViewController alloc] init];
+    
+    [self.navigationController pushViewController:mapViewController animated:YES];
+    
+    [mapViewController release];
+    mapViewController = nil;
 }
 
 #pragma mark -

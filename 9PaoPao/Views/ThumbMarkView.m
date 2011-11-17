@@ -132,7 +132,7 @@
 - (void)setBadThumbNum:(NSInteger)badNum
 {
 	mBadThumbNum = badNum;
-	[mBadThumbNum setText:[NSString stringWithFormat:@"%d", mBadThumbNum]];
+	[mBadMarkLabel setText:[NSString stringWithFormat:@"%d", mBadThumbNum]];
 }
 
 @end

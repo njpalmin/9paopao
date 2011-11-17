@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @protocol MapIconViewDelegate;
+#import <MapKit/MapKit.h>
 
-@interface MapIconView : UIView {
+@interface MapIconView : UIView <MKMapViewDelegate>{
     
 	id<MapIconViewDelegate>		mDelegate;
+    MKMapView                   *locationMapView;
 }
 @property(nonatomic, assign)id<MapIconViewDelegate>	delegate;
 @end

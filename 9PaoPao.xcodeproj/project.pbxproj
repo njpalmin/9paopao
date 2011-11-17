@@ -57,6 +57,9 @@
 		3395E6C1146A68F300733469 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395E6C0146A68F100733469 /* MainViewController.m */; };
 		3395E6C5146A690B00733469 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395E6C4146A690B00733469 /* MainViewCell.m */; };
 		339E66DF1467DA260097747E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339E66DE1467DA260097747E /* Localizable.strings */; };
+		33A0AEDA147507BA00517C11 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0AED9147507BA00517C11 /* MapViewController.m */; };
+		33A0AEDE147507CC00517C11 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0AEDD147507CC00517C11 /* MapAnnotation.m */; };
+		33A0AEE11475082300517C11 /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0AEE01475082300517C11 /* CoreLocationService.m */; };
 		33A9F29F146BA928004F55DE /* PopoverPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9F29E146BA926004F55DE /* PopoverPickerViewController.m */; };
 		33A9F34A146BD350004F55DE /* tab-friend-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F328146BD350004F55DE /* tab-friend-selected.png */; };
 		33A9F34B146BD350004F55DE /* tab-friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9F329146BD350004F55DE /* tab-friend.png */; };
@@ -202,6 +205,12 @@
 		3395E6C3146A690B00733469 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		3395E6C4146A690B00733469 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 		339E66DE1467DA260097747E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		33A0AED8147507BA00517C11 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		33A0AED9147507BA00517C11 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		33A0AEDC147507CB00517C11 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		33A0AEDD147507CC00517C11 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		33A0AEDF1475082300517C11 /* CoreLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationService.h; sourceTree = "<group>"; };
+		33A0AEE01475082300517C11 /* CoreLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationService.m; sourceTree = "<group>"; };
 		33A9F29D146BA925004F55DE /* PopoverPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverPickerViewController.h; sourceTree = "<group>"; };
 		33A9F29E146BA926004F55DE /* PopoverPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverPickerViewController.m; sourceTree = "<group>"; };
 		33A9F328146BD350004F55DE /* tab-friend-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-friend-selected.png"; sourceTree = "<group>"; };
@@ -429,6 +438,8 @@
 		333709251471099A0027CE89 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				33A0AEDF1475082300517C11 /* CoreLocationService.h */,
+				33A0AEE01475082300517C11 /* CoreLocationService.m */,
 				333709261471099A0027CE89 /* LocationManager.h */,
 				333709271471099A0027CE89 /* LocationManager.m */,
 			);
@@ -549,6 +560,8 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				33A0AED8147507BA00517C11 /* MapViewController.h */,
+				33A0AED9147507BA00517C11 /* MapViewController.m */,
 				333709221470EA410027CE89 /* UserDetailViewController.h */,
 				333709231470EA410027CE89 /* UserDetailViewController.m */,
 				310707E11470BD970076C096 /* CommentViewController.h */,
@@ -580,6 +593,8 @@
 		33D4DF7A1467CD5900CFE105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33A0AEDC147507CB00517C11 /* MapAnnotation.h */,
+				33A0AEDD147507CC00517C11 /* MapAnnotation.m */,
 				3134120C1473FF4E0016EDA9 /* EmojiView.h */,
 				3134120D1473FF4E0016EDA9 /* EmojiView.m */,
 				3337091E1470EA210027CE89 /* UserInfoView.h */,
@@ -816,6 +831,9 @@
 				33CA34FB1472807C00EDEAD0 /* RedWineCategoryViewController.m in Sources */,
 				33C7E7DB1473DF7E00B4DDA4 /* MapIconView.m in Sources */,
 				3134120E1473FF4E0016EDA9 /* EmojiView.m in Sources */,
+				33A0AEDA147507BA00517C11 /* MapViewController.m in Sources */,
+				33A0AEDE147507CC00517C11 /* MapAnnotation.m in Sources */,
+				33A0AEE11475082300517C11 /* CoreLocationService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
