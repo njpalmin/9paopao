@@ -114,15 +114,15 @@
                                                                            @"最新活动",
                                                                            @"我的积分", nil] ];
     
-//    viewControllers = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:[XXController class],
-//                                                  @"热门酒单",
-//                                                  @"周围朋友",
-//                                                  @"红酒区",
-//                                                  @"啤酒区",
-//                                                  @"鸡尾酒区",
-//                                                  @"品酒打分器",
-//                                                  @"最新活动",
-//                                                  @"我的积分", nil] ];
+    viewControllers = [[NSArray alloc] initWithArray:[NSArray arrayWithObjects:[RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class],
+                                                  [RedWineViewController class], nil] ];
 
     
     position = 0;
@@ -168,19 +168,13 @@
 -(void)clickButtonWithTag:(NSInteger)pos
 {
     NSLog(@"click the position: %i",pos);
+    
 //    push the controller you need
-//    Class *aClass = [viewControllers objectAtIndex:pos];
-//    UIViewController *vCForPush = [[aClass alloc] init];
-//    [self.navigationController pushViewController:vCForPush animated:YES];
-    
-    RedWineViewController   *redWineController = nil;
-    
-    redWineController = [[RedWineViewController alloc] init];
-    
-    [self.navigationController pushViewController:redWineController animated:YES];
-    
-    [redWineController release];
-    redWineController = nil;
+    id aClass = [viewControllers objectAtIndex:(pos-1)];
+    UIViewController *vCForPush = [[aClass alloc] init];
+    [self.navigationController pushViewController:vCForPush animated:YES];
+    [vCForPush release];
+    vCForPush = nil;
 }
 
 -(void)goToInvite
