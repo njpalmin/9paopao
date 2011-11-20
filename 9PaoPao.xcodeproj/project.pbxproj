@@ -176,6 +176,8 @@
 		4B18FEBB146E5A0C00BCF6AD /* WineDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */; };
 		4B18FF2A146E953C00BCF6AD /* WineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */; };
 		4B3627E11477D80C005D20BF /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3627E01477D80C005D20BF /* default.png */; };
+		4B3627EB1477D962005D20BF /* SearchCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3627EA1477D962005D20BF /* SearchCore.m */; };
+		4B3627EE1477D9D6005D20BF /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3627ED1477D9D6005D20BF /* SearchManager.m */; };
 		4BE893571470338E00E351B4 /* UserResultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE893561470338E00E351B4 /* UserResultViewCell.m */; };
 		4BE89359147033A000E351B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE89358147033A000E351B4 /* QuartzCore.framework */; };
 		930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930EC52F146A8526000A675D /* TellFavoriteViewController.m */; };
@@ -397,6 +399,10 @@
 		4B18FF28146E953C00BCF6AD /* WineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineDetailViewController.h; sourceTree = "<group>"; };
 		4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailViewController.m; sourceTree = "<group>"; };
 		4B3627E01477D80C005D20BF /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		4B3627E91477D962005D20BF /* SearchCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCore.h; sourceTree = "<group>"; };
+		4B3627EA1477D962005D20BF /* SearchCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCore.m; sourceTree = "<group>"; };
+		4B3627EC1477D9D6005D20BF /* SearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchManager.h; sourceTree = "<group>"; };
+		4B3627ED1477D9D6005D20BF /* SearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchManager.m; sourceTree = "<group>"; };
 		4BE893551470338E00E351B4 /* UserResultViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserResultViewCell.h; sourceTree = "<group>"; };
 		4BE893561470338E00E351B4 /* UserResultViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResultViewCell.m; sourceTree = "<group>"; };
 		4BE89358147033A000E351B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -571,6 +577,10 @@
 				33A0AEE01475082300517C11 /* CoreLocationService.m */,
 				333709261471099A0027CE89 /* LocationManager.h */,
 				333709271471099A0027CE89 /* LocationManager.m */,
+				4B3627E91477D962005D20BF /* SearchCore.h */,
+				4B3627EA1477D962005D20BF /* SearchCore.m */,
+				4B3627EC1477D9D6005D20BF /* SearchManager.h */,
+				4B3627ED1477D9D6005D20BF /* SearchManager.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1113,9 +1123,14 @@
 				33A0AEDA147507BA00517C11 /* MapViewController.m in Sources */,
 				33A0AEDE147507CC00517C11 /* MapAnnotation.m in Sources */,
 				33A0AEE11475082300517C11 /* CoreLocationService.m in Sources */,
+<<<<<<< HEAD
 				20D68497147916C10065D1AE /* LatestOfferViewController.m in Sources */,
 				20D6849B147917080065D1AE /* LatestOfferViewCell.m in Sources */,
 				20D6849E147917470065D1AE /* LatestOfferObject.m in Sources */,
+=======
+				4B3627EB1477D962005D20BF /* SearchCore.m in Sources */,
+				4B3627EE1477D9D6005D20BF /* SearchManager.m in Sources */,
+>>>>>>> 增加检索相关类
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

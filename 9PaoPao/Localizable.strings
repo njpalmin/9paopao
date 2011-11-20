@@ -41,3 +41,8 @@
 
 // red wine area
 "Red Wine Area Title" = "红酒区";
+
+// Http Error
+"Http Error Title" = "提示";
+"Http Net Error" = "網路連線錯誤!";
+"Http Other Error" = "系統繁忙中，請稍候再試!";
