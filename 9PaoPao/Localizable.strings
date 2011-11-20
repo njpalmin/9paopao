@@ -27,6 +27,12 @@
 "userNickname: %@" = "用户昵称：%@";
 "commentMark: " = "评论分数：";
 
+//latestoffer
+"latestOfferTitle" = "红酒大促销";
+"latestOfferLocation:%@ " = "促销地点：%@";
+"latestOfferHost:%@" = "主办方／发起人:%@";
+"latestOfferComment:%@" = "备注:%@";
+
 // wine detail
 "Product Day" = "参考年份：%@";
 "Product Place" = "生产地：%@";
