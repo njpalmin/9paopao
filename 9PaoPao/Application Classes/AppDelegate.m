@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GatewayViewController.h"
+#import "MainSegmentViewController.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,9 @@
     
     [mGatewayViewController release];
     mGatewayViewController = nil;
+    
+    [mMainSegmentViewController release];
+    mMainSegmentViewController = nil;
     
     [super dealloc];
 }
@@ -82,6 +86,18 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (MainSegmentViewController *)mainSegmentViewController
+{
+    if (mMainSegmentViewController == nil) {
+        mMainSegmentViewController = [[MainSegmentViewController alloc] init];
+		mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
+    }
+    return mMainSegmentViewController;
 }
 
 @end

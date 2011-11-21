@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PopoverPickerViewController.h"
 #import "UserResultViewCell.h"
+#import "PaoPaoProgressView.h"
 
 @interface SearchNearbyViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate, 
 UITableViewDataSource, PopoverPickerViewControllerDelegate, UserResultViewCellDelegate, 
@@ -31,6 +32,8 @@ UISearchBarDelegate> {
     PopoverPickerViewController     *mPickerViewController;
     NSInteger						mSearchRange;
     NSArray							*mRangeArray;
+    UIView                          *mSearchCancelView;
+    PaoPaoProgressView              *mProgressView;
 }
 
 #pragma mark -

@@ -6,7 +6,9 @@
   Copyright 2011年 __MyCompanyName__. All rights reserved.
 */
 
- 
+"Cancel" = "取消";
+"Ok" = "确定";
+
 // gateway page
 "MostLoveDrinkWine"="我最喜欢喝的酒";
 "ImmediatelySearch"="立刻搜索";
@@ -20,6 +22,7 @@
 "SearchPlace Page Title" = "酒吧搜索";
 "SearchUser Page Title" = "用户搜索";
 "SearchRange" = "%d公里";
+"Searching...,wait a moment" = "检索中...请稍候";
 
 //barDetail
 "barName: %@" = "酒吧名称：%@";

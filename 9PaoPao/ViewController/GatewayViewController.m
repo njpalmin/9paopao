@@ -9,7 +9,7 @@
 #import "GatewayViewController.h"
 #import "MainSegmentViewController.h"
 #import "PaoPaoCommon.h"
-
+#import "AppDelegate.h"
 
 @implementation GatewayViewController
 
@@ -27,8 +27,6 @@
     [mMostLoveBtn release];
     [mSearchBtn release];
     
-    [mMainSegmentViewController release];
-    mMainSegmentViewController = nil;
     [super dealloc];
 }
 
@@ -108,26 +106,30 @@
 
 - (void)findMostLove:(id)sender
 {
-    if (mMainSegmentViewController == nil) {
-        mMainSegmentViewController = [[MainSegmentViewController alloc] init];
-		mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
-    }
+    MainSegmentViewController   *controller = nil;
+    id<AppDelegate>             delegate = nil;
     
-	[mMainSegmentViewController displayViewControllerWithIndex:0];
-    [self presentModalViewController:mMainSegmentViewController animated:YES];   
+    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
+    controller = [delegate mainSegmentViewController];
+    
+    controller.view.frame = CGRectMake(0, 0, 320, 460);
+    
+	[controller displayViewControllerWithIndex:0];
+    [self presentModalViewController:controller animated:YES];   
 }
 
 - (void)searchMostLove:(id)sender
 {
-    if (mMainSegmentViewController == nil) {
-        mMainSegmentViewController = [[MainSegmentViewController alloc] init];
-		mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
-    }
-    mMainSegmentViewController.view.frame = CGRectMake(0, 0, 320, 460);
-
-    [self presentModalViewController:mMainSegmentViewController animated:YES];
-	[mMainSegmentViewController displayViewControllerWithIndex:4];
-
+    MainSegmentViewController   *controller = nil;
+    id<AppDelegate>             delegate = nil;
+    
+    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
+    controller = [delegate mainSegmentViewController];
+    
+    controller.view.frame = CGRectMake(0, 0, 320, 460);
+    
+	[controller displayViewControllerWithIndex:4];
+    [self presentModalViewController:controller animated:YES];  
 }
 
 @end

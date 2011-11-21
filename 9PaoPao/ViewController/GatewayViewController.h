@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class MainSegmentViewController;
-
 @interface GatewayViewController : UIViewController {
     
-    MainSegmentViewController   *mMainSegmentViewController;
     UIButton                    *mMostLoveBtn;
     UIButton                    *mSearchBtn;
 }

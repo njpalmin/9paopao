@@ -109,6 +109,10 @@
 		3316CE8E1479EC4200C3501B /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE891479EC4200C3501B /* MapAnnotation.m */; };
 		3316CE8F1479EC4200C3501B /* MapIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE8B1479EC4200C3501B /* MapIconView.m */; };
 		3316CE931479F1B500C3501B /* LatestOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE921479F1B500C3501B /* LatestOfferObject.m */; };
+		3316CEA0147A103100C3501B /* PaoPaoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE9F147A103100C3501B /* PaoPaoProgressView.m */; };
+		3316CEA3147A116500C3501B /* PaoPaoGraphicsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEA2147A116500C3501B /* PaoPaoGraphicsUtility.m */; };
+		3316CEA6147A147200C3501B /* PaoPaoRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEA5147A147100C3501B /* PaoPaoRoundButton.m */; };
+		3316CEA9147A15FA00C3501B /* PaoPaoTouchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEA8147A15F900C3501B /* PaoPaoTouchPoint.m */; };
 		333709201470EA210027CE89 /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3337091F1470EA210027CE89 /* UserInfoView.m */; };
 		333709241470EA410027CE89 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709231470EA410027CE89 /* UserDetailViewController.m */; };
 		333709281471099A0027CE89 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709271471099A0027CE89 /* LocationManager.m */; };
@@ -314,6 +318,14 @@
 		3316CE8B1479EC4200C3501B /* MapIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapIconView.m; sourceTree = "<group>"; };
 		3316CE911479F1B500C3501B /* LatestOfferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestOfferObject.h; sourceTree = "<group>"; };
 		3316CE921479F1B500C3501B /* LatestOfferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestOfferObject.m; sourceTree = "<group>"; };
+		3316CE9E147A103100C3501B /* PaoPaoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoProgressView.h; sourceTree = "<group>"; };
+		3316CE9F147A103100C3501B /* PaoPaoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoProgressView.m; sourceTree = "<group>"; };
+		3316CEA1147A116500C3501B /* PaoPaoGraphicsUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoGraphicsUtility.h; sourceTree = "<group>"; };
+		3316CEA2147A116500C3501B /* PaoPaoGraphicsUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoGraphicsUtility.m; sourceTree = "<group>"; };
+		3316CEA4147A147100C3501B /* PaoPaoRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoRoundButton.h; sourceTree = "<group>"; };
+		3316CEA5147A147100C3501B /* PaoPaoRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoRoundButton.m; sourceTree = "<group>"; };
+		3316CEA7147A15F900C3501B /* PaoPaoTouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoTouchPoint.h; sourceTree = "<group>"; };
+		3316CEA8147A15F900C3501B /* PaoPaoTouchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoTouchPoint.m; sourceTree = "<group>"; };
 		3337091E1470EA210027CE89 /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
 		3337091F1470EA210027CE89 /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		333709221470EA410027CE89 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
@@ -680,6 +692,14 @@
 				3370819414693997004B2645 /* PaoPaoConstant.h */,
 				93B35127146BE79300B25A0C /* BarDetail.h */,
 				93B35128146BE79300B25A0C /* BarDetail.m */,
+				3316CE9E147A103100C3501B /* PaoPaoProgressView.h */,
+				3316CE9F147A103100C3501B /* PaoPaoProgressView.m */,
+				3316CEA1147A116500C3501B /* PaoPaoGraphicsUtility.h */,
+				3316CEA2147A116500C3501B /* PaoPaoGraphicsUtility.m */,
+				3316CEA4147A147100C3501B /* PaoPaoRoundButton.h */,
+				3316CEA5147A147100C3501B /* PaoPaoRoundButton.m */,
+				3316CEA7147A15F900C3501B /* PaoPaoTouchPoint.h */,
+				3316CEA8147A15F900C3501B /* PaoPaoTouchPoint.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1128,6 +1148,10 @@
 				3316CE8E1479EC4200C3501B /* MapAnnotation.m in Sources */,
 				3316CE8F1479EC4200C3501B /* MapIconView.m in Sources */,
 				3316CE931479F1B500C3501B /* LatestOfferObject.m in Sources */,
+				3316CEA0147A103100C3501B /* PaoPaoProgressView.m in Sources */,
+				3316CEA3147A116500C3501B /* PaoPaoGraphicsUtility.m in Sources */,
+				3316CEA6147A147200C3501B /* PaoPaoRoundButton.m in Sources */,
+				3316CEA9147A15FA00C3501B /* PaoPaoTouchPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

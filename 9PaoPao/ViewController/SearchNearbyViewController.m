@@ -15,6 +15,8 @@
 #import "BarDetailViewController.h"
 #import "BarDetail.h"
 #import "UserDetailViewController.h"
+#import "AppDelegate.h"
+#import "MainSegmentViewController.h"
 
 #define SearchBarAndKindPadding     10
 
@@ -154,7 +156,7 @@
 		[mTextField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
         
 		//[mSearchBar addSubview:mTextField];
-        [containerView addSubview:mSearchBar];
+        //[containerView addSubview:mSearchBar];
         // ---------------searchbar-------------
         
         // ---------------search kind button-------------
@@ -182,6 +184,7 @@
 		mTableView.dataSource = self;
         // ---------------tableView-------------
         
+        [containerView addSubview:mSearchBar];
         self.view = containerView;
         
         mWineResult = [[NSMutableArray alloc] initWithCapacity:0];
@@ -216,11 +219,106 @@
 }
 
 #pragma mark -
+#pragma mark UIRespons
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if ([mSearchBar isFirstResponder])
+    {
+        [mSearchBar resignFirstResponder];
+    }else{
+        [super touchesBegan:touches withEvent:event];
+    }
+}
+
+#pragma mark -
 #pragma mark UISearchBarDelegate
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar*)searchBar
+{
+    CGRect frame;
+    
+    do {
+		
+        if (mSearchCancelView == nil)
+        {
+            frame = CGRectMake(0, SearchBarHeight, self.view.frame.size.width, self.view.frame.size.width);
+            mSearchCancelView = [[UIView alloc] initWithFrame:frame];
+            break_if(mSearchCancelView == nil);
+            
+            mSearchCancelView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+            
+            mSearchCancelView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+            mSearchCancelView.opaque = YES;
+        }
+        
+        mSearchCancelView.alpha = 0.0;
+        
+        [self.view insertSubview:mSearchCancelView belowSubview:mSearchBar];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.1];
+        
+        mSearchCancelView.alpha = 1.0;
+        
+        [UIView commitAnimations];
+        
+    } while (0);
+        
+    return YES;
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    [UIView beginAnimations:nil context:[mSearchCancelView retain]];
+    [UIView setAnimationDuration:0.1];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(removeSearchCancelView:finished:context:)];
+    
+    mSearchCancelView.alpha = 0.0;
+    mSearchCancelView = nil;
+    
+    [UIView commitAnimations];
+    
+    return YES;
+}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
 	[mSearchBar resignFirstResponder];
+    
+    MainSegmentViewController   *controller = nil;
+    id<AppDelegate>             delegate = nil;
+    
+    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
+    controller = [delegate mainSegmentViewController];
+    
+    [self prepareProgressView];
+    mProgressView.alpha = 1.0;
+    mProgressView.label.text = NSLocalizedString(@"Searching...,wait a moment", nil);
+    [mProgressView.indicator startAnimating];
+    
+    [controller.view addSubview:mProgressView];
+    
+    if (mCurSearchKind == SearchKindWine) {
+        
+    }
+    else if (mCurSearchKind == SearchKindPlace)
+    {
+        
+    }
+    else if (mCurSearchKind == SearchKindUser)
+    {
+        
+    }
+}
+
+- (void)removeSearchCancelView:(NSString*)animationID finished:(NSNumber*)finished context:(void*)context
+{
+    UIView *view = (UIView*)context;
+    [view removeFromSuperview];
+    [view release];
+    view = nil;
 }
 
 #pragma mark -
@@ -530,6 +628,22 @@
 	return YES;
 }
 
+- (void)prepareProgressView
+{
+    CGRect  bounds;
+    
+    bounds = [[UIScreen mainScreen] bounds];
+    
+    if (mProgressView == nil)
+    {
+        mProgressView = [[PaoPaoProgressView alloc] initWithFrame:bounds];
+        [mProgressView setCancelTarget:self action:@selector(procProgressViewCancel:)];
+    }
+    if (mProgressView.superview != nil) {
+        [mProgressView removeFromSuperview];
+    }
+}
+
 #pragma mark -
 #pragma mark Action
 
@@ -620,6 +734,11 @@
     [mSearchUserBtn setBackgroundImage:searchUserImage forState:UIControlStateNormal];
 
 	[mTableView reloadData];
+}
+
+- (void)procProgressViewCancel:(id)sender
+{
+    [mProgressView removeFromSuperview];
 }
 @end
 	

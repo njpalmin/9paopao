@@ -9,12 +9,19 @@
 #import <UIKit/UIKit.h>
 
 @class GatewayViewController;
+@class MainSegmentViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     UIWindow                        *mWindow;
     GatewayViewController           *mGatewayViewController;
+    MainSegmentViewController       *mMainSegmentViewController;
+
 }
 @property (retain, nonatomic) UIWindow *window;
 
+@end
+
+@protocol AppDelegate <NSObject>
+- (MainSegmentViewController *)mainSegmentViewController;
 @end
