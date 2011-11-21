@@ -26,6 +26,9 @@
 	
 }
 
+@property(nonatomic, assign)id<SearchCoreDelegate>  delegate;
+@property(nonatomic, retain)NSMutableData           *responseData;
+
 @end
 
 @protocol SearchCoreDelegate

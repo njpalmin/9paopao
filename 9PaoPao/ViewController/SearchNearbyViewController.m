@@ -17,6 +17,7 @@
 #import "UserDetailViewController.h"
 #import "AppDelegate.h"
 #import "MainSegmentViewController.h"
+#import "SearchManager.h"
 
 #define SearchBarAndKindPadding     10
 
@@ -300,17 +301,36 @@
     
     [controller.view addSubview:mProgressView];
     
-    if (mCurSearchKind == SearchKindWine) {
+    [self startSearching];
+}
+
+- (void)startSearching
+{
+    SearchManager   *defaultManager = nil;
+    NSString        *keyWord = nil;
+    
+    do{
+        defaultManager= [SearchManager defaultSearchManager];
+        break_if(defaultManager == nil)
         
-    }
-    else if (mCurSearchKind == SearchKindPlace)
-    {
+        keyWord = mSearchBar.text;
+        break_if(keyWord == nil);
         
-    }
-    else if (mCurSearchKind == SearchKindUser)
-    {
+        if (mCurSearchKind == SearchKindWine) {
+            defaultManager.searchType = SearchType_WineList;
+            [defaultManager startSearchWithKeyword:keyWord withType:SearchType_WineList withPage:2];
+        }
+        else if (mCurSearchKind == SearchKindPlace)
+        {
+            defaultManager.searchType = SearchType_WineryList;
+        }
+        else if (mCurSearchKind == SearchKindUser)
+        {
+            
+        }
         
-    }
+
+    }while(0);
 }
 
 - (void)removeSearchCancelView:(NSString*)animationID finished:(NSNumber*)finished context:(void*)context

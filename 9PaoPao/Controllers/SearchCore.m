@@ -17,6 +17,9 @@
 
 @implementation SearchCore
 
+@synthesize delegate = mDelegate;
+@synthesize responseData;
+
 - (void)dealloc
 {
 	[self cancel];
@@ -67,7 +70,7 @@
 		}
 		else
 		{
-			request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:mTimeoutInterval];  //wangshuo 10/04/26
+			request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:mTimeoutInterval];
 		}
 		mRequest = [request retain];
 		mUrlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -75,6 +78,7 @@
 		
 		iProessSucess = YES;
 	}while(0);
+    
 	return iProessSucess;
 }
 
@@ -189,7 +193,7 @@
 			[mDelegate searchCore:self didFailWithError:nil];
 		}
 		else{
-			[mDelegate searchDidFinish:self];
+			[mDelegate searchCoreDidFinish:self];
 		}
 		
 		binternetWarningShowed = NO;
