@@ -18,6 +18,7 @@ static	SearchManager	*sDefaultManager = nil;
 @synthesize delegate = mDelegate;
 @synthesize searchType = mSearchType;
 @synthesize searchResultDic = mSearchResultDic;
+@synthesize wineListResults = mWineListResults;
 
 + (SearchManager *)defaultSearchManager
 {
@@ -89,7 +90,7 @@ static	SearchManager	*sDefaultManager = nil;
     NSData          *resultData = nil;
     NSString        *jsonReturnStr = nil;
     NSDictionary    *reDic = nil;
-    BOOL            failed = YES;
+    BOOL            failed = NO;
     
     resultData = searchCore.responseData;
     if ((resultData == nil) || ([resultData length] == 0)) {
@@ -120,7 +121,8 @@ static	SearchManager	*sDefaultManager = nil;
     self.searchResultDic = reDic;
     switch (mSearchType) {
         case SearchType_WineList:
-            
+			[self analysisWineResultList:reDic];
+			
             break;
         case SearchType_WineryList:
             
@@ -136,6 +138,15 @@ static	SearchManager	*sDefaultManager = nil;
     }
 }
 	
+- (void)analysisWineResultList:(NSDictionary *)dictionary
+{
+	NSArray	*wineList = (NSArray *)dictionary;
+	
+	for (int i = 0; i < [wineList count]; i++) {
+		
+	}
+}
+
 - (void)searchCore:(SearchCore *)searchCore didFailWithError:(NSError*)error
 {
 	

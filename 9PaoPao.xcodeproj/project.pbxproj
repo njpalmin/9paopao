@@ -108,7 +108,6 @@
 		3316CE8D1479EC4200C3501B /* LatestOfferViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE871479EC4200C3501B /* LatestOfferViewCell.m */; };
 		3316CE8E1479EC4200C3501B /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE891479EC4200C3501B /* MapAnnotation.m */; };
 		3316CE8F1479EC4200C3501B /* MapIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE8B1479EC4200C3501B /* MapIconView.m */; };
-		3316CE931479F1B500C3501B /* LatestOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE921479F1B500C3501B /* LatestOfferObject.m */; };
 		3316CEA0147A103100C3501B /* PaoPaoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CE9F147A103100C3501B /* PaoPaoProgressView.m */; };
 		3316CEA3147A116500C3501B /* PaoPaoGraphicsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEA2147A116500C3501B /* PaoPaoGraphicsUtility.m */; };
 		3316CEA6147A147200C3501B /* PaoPaoRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEA5147A147100C3501B /* PaoPaoRoundButton.m */; };
@@ -188,10 +187,15 @@
 		4B18FE94146E31A600BCF6AD /* ThumbMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FE93146E31A600BCF6AD /* ThumbMarkView.m */; };
 		4B18FEBB146E5A0C00BCF6AD /* WineDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */; };
 		4B18FF2A146E953C00BCF6AD /* WineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */; };
+		4B3932DD147A9331000027CF /* BarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932DA147A9331000027CF /* BarDetail.m */; };
+		4B3932DE147A9331000027CF /* LatestOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932DC147A9331000027CF /* LatestOfferObject.m */; };
+		4B3932E1147A9386000027CF /* WineDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932E0147A9386000027CF /* WineDetailInfo.m */; };
+		4B3932E7147A94C9000027CF /* WineryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932E6147A94C9000027CF /* WineryInfo.m */; };
+		4B3932EA147A94F6000027CF /* RegionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932E9147A94F6000027CF /* RegionInfo.m */; };
+		4B3932ED147A9520000027CF /* CountryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932EC147A9520000027CF /* CountryInfo.m */; };
 		4BE893571470338E00E351B4 /* UserResultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE893561470338E00E351B4 /* UserResultViewCell.m */; };
 		4BE89359147033A000E351B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE89358147033A000E351B4 /* QuartzCore.framework */; };
 		930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930EC52F146A8526000A675D /* TellFavoriteViewController.m */; };
-		93B35129146BE79300B25A0C /* BarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35128146BE79300B25A0C /* BarDetail.m */; };
 		93B35135146BEEF500B25A0C /* BarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35134146BEEF500B25A0C /* BarDetailViewController.m */; };
 		93B35138146BEF1500B25A0C /* BarDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B35137146BEF1500B25A0C /* BarDetailCell.m */; };
 /* End PBXBuildFile section */
@@ -322,8 +326,6 @@
 		3316CE891479EC4200C3501B /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		3316CE8A1479EC4200C3501B /* MapIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapIconView.h; sourceTree = "<group>"; };
 		3316CE8B1479EC4200C3501B /* MapIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapIconView.m; sourceTree = "<group>"; };
-		3316CE911479F1B500C3501B /* LatestOfferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestOfferObject.h; sourceTree = "<group>"; };
-		3316CE921479F1B500C3501B /* LatestOfferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestOfferObject.m; sourceTree = "<group>"; };
 		3316CE9E147A103100C3501B /* PaoPaoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoProgressView.h; sourceTree = "<group>"; };
 		3316CE9F147A103100C3501B /* PaoPaoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoProgressView.m; sourceTree = "<group>"; };
 		3316CEA1147A116500C3501B /* PaoPaoGraphicsUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoGraphicsUtility.h; sourceTree = "<group>"; };
@@ -434,13 +436,23 @@
 		4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailView.m; sourceTree = "<group>"; };
 		4B18FF28146E953C00BCF6AD /* WineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineDetailViewController.h; sourceTree = "<group>"; };
 		4B18FF29146E953C00BCF6AD /* WineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailViewController.m; sourceTree = "<group>"; };
+		4B3932D9147A9331000027CF /* BarDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarDetail.h; sourceTree = "<group>"; };
+		4B3932DA147A9331000027CF /* BarDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarDetail.m; sourceTree = "<group>"; };
+		4B3932DB147A9331000027CF /* LatestOfferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestOfferObject.h; sourceTree = "<group>"; };
+		4B3932DC147A9331000027CF /* LatestOfferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestOfferObject.m; sourceTree = "<group>"; };
+		4B3932DF147A9386000027CF /* WineDetailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineDetailInfo.h; sourceTree = "<group>"; };
+		4B3932E0147A9386000027CF /* WineDetailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailInfo.m; sourceTree = "<group>"; };
+		4B3932E5147A94C9000027CF /* WineryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryInfo.h; sourceTree = "<group>"; };
+		4B3932E6147A94C9000027CF /* WineryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryInfo.m; sourceTree = "<group>"; };
+		4B3932E8147A94F6000027CF /* RegionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionInfo.h; sourceTree = "<group>"; };
+		4B3932E9147A94F6000027CF /* RegionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionInfo.m; sourceTree = "<group>"; };
+		4B3932EB147A9520000027CF /* CountryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryInfo.h; sourceTree = "<group>"; };
+		4B3932EC147A9520000027CF /* CountryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryInfo.m; sourceTree = "<group>"; };
 		4BE893551470338E00E351B4 /* UserResultViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserResultViewCell.h; sourceTree = "<group>"; };
 		4BE893561470338E00E351B4 /* UserResultViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResultViewCell.m; sourceTree = "<group>"; };
 		4BE89358147033A000E351B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		930EC52E146A8526000A675D /* TellFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellFavoriteViewController.h; sourceTree = "<group>"; };
 		930EC52F146A8526000A675D /* TellFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellFavoriteViewController.m; sourceTree = "<group>"; };
-		93B35127146BE79300B25A0C /* BarDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarDetail.h; sourceTree = "<group>"; };
-		93B35128146BE79300B25A0C /* BarDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarDetail.m; sourceTree = "<group>"; };
 		93B35133146BEEF500B25A0C /* BarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarDetailViewController.h; sourceTree = "<group>"; };
 		93B35134146BEEF500B25A0C /* BarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarDetailViewController.m; sourceTree = "<group>"; };
 		93B35136146BEF1400B25A0C /* BarDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarDetailCell.h; sourceTree = "<group>"; };
@@ -510,6 +522,7 @@
 		18A004981464CF100015EC68 /* 9PaoPao */ = {
 			isa = PBXGroup;
 			children = (
+				4B3932D8147A92BB000027CF /* SearchData */,
 				3316CEAA147A306100C3501B /* Engine */,
 				333709251471099A0027CE89 /* Controllers */,
 				33708190146938A0004B2645 /* Common */,
@@ -733,13 +746,9 @@
 		33708190146938A0004B2645 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3316CE911479F1B500C3501B /* LatestOfferObject.h */,
-				3316CE921479F1B500C3501B /* LatestOfferObject.m */,
 				33708191146938CD004B2645 /* PaoPaoCommon.h */,
 				33708192146938CD004B2645 /* PaoPaoCommon.m */,
 				3370819414693997004B2645 /* PaoPaoConstant.h */,
-				93B35127146BE79300B25A0C /* BarDetail.h */,
-				93B35128146BE79300B25A0C /* BarDetail.m */,
 				3316CE9E147A103100C3501B /* PaoPaoProgressView.h */,
 				3316CE9F147A103100C3501B /* PaoPaoProgressView.m */,
 				3316CEA1147A116500C3501B /* PaoPaoGraphicsUtility.h */,
@@ -924,6 +933,25 @@
 				4B18FEBA146E5A0C00BCF6AD /* WineDetailView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4B3932D8147A92BB000027CF /* SearchData */ = {
+			isa = PBXGroup;
+			children = (
+				4B3932D9147A9331000027CF /* BarDetail.h */,
+				4B3932DA147A9331000027CF /* BarDetail.m */,
+				4B3932DB147A9331000027CF /* LatestOfferObject.h */,
+				4B3932DC147A9331000027CF /* LatestOfferObject.m */,
+				4B3932DF147A9386000027CF /* WineDetailInfo.h */,
+				4B3932E0147A9386000027CF /* WineDetailInfo.m */,
+				4B3932E5147A94C9000027CF /* WineryInfo.h */,
+				4B3932E6147A94C9000027CF /* WineryInfo.m */,
+				4B3932E8147A94F6000027CF /* RegionInfo.h */,
+				4B3932E9147A94F6000027CF /* RegionInfo.m */,
+				4B3932EB147A9520000027CF /* CountryInfo.h */,
+				4B3932EC147A9520000027CF /* CountryInfo.m */,
+			);
+			path = SearchData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1170,7 +1198,6 @@
 				3395E6C5146A690B00733469 /* MainViewCell.m in Sources */,
 				930EC530146A8526000A675D /* TellFavoriteViewController.m in Sources */,
 				33A9F29F146BA928004F55DE /* PopoverPickerViewController.m in Sources */,
-				93B35129146BE79300B25A0C /* BarDetail.m in Sources */,
 				93B35135146BEEF500B25A0C /* BarDetailViewController.m in Sources */,
 				93B35138146BEF1500B25A0C /* BarDetailCell.m in Sources */,
 				33C4BC42146CB2ED00A09952 /* StarMarkView.m in Sources */,
@@ -1195,7 +1222,6 @@
 				3316CE8D1479EC4200C3501B /* LatestOfferViewCell.m in Sources */,
 				3316CE8E1479EC4200C3501B /* MapAnnotation.m in Sources */,
 				3316CE8F1479EC4200C3501B /* MapIconView.m in Sources */,
-				3316CE931479F1B500C3501B /* LatestOfferObject.m in Sources */,
 				3316CEA0147A103100C3501B /* PaoPaoProgressView.m in Sources */,
 				3316CEA3147A116500C3501B /* PaoPaoGraphicsUtility.m in Sources */,
 				3316CEA6147A147200C3501B /* PaoPaoRoundButton.m in Sources */,
@@ -1206,6 +1232,12 @@
 				3316CEBC147A306300C3501B /* SBJsonBase.m in Sources */,
 				3316CEBD147A306300C3501B /* SBJsonParser.m in Sources */,
 				3316CEBE147A306300C3501B /* SBJsonWriter.m in Sources */,
+				4B3932DD147A9331000027CF /* BarDetail.m in Sources */,
+				4B3932DE147A9331000027CF /* LatestOfferObject.m in Sources */,
+				4B3932E1147A9386000027CF /* WineDetailInfo.m in Sources */,
+				4B3932E7147A94C9000027CF /* WineryInfo.m in Sources */,
+				4B3932EA147A94F6000027CF /* RegionInfo.m in Sources */,
+				4B3932ED147A9520000027CF /* CountryInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,7 +1353,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos4.2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

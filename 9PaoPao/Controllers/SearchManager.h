@@ -27,10 +27,13 @@ enum SearchType {
     enum SearchType         mSearchType;
     NSInteger               mRequestPage;
     NSDictionary            *mSearchResultDic;
+	
+	NSArray					*mWineListResults;
 }
 @property(nonatomic, assign)id<SearchCoreDelegate>  delegate;
 @property(nonatomic, assign)enum SearchType         searchType;
 @property(nonatomic, retain)NSDictionary            *searchResultDic;
+@property(nonatomic, retain)NSArray					*wineListResults;
 
 + (SearchManager *)defaultSearchManager;
 
