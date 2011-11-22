@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WineDetailInfo.h"
 
 @interface WineDetailView : UITableViewCell {
 	
@@ -15,11 +16,22 @@
 	UILabel		*mWineProductPlace;
 	UILabel		*mWineKind;
 	UILabel		*mWinePrice;
+    
+    WineDetailInfo  *wineDetailInfo;
 }
+
+@property(nonatomic, retain)WineDetailInfo  *wineDetailInfo;
 
 #pragma mark -
 #pragma mark Public
 
--(void)setWineDetailRecord;
+-(void)setWineDetailRecord:(WineDetailInfo *)wineDetail;
+-(void)setPlaceDetailRecord;
+
+#pragma mark -
+#pragma mark Private
+
+// 四舍五入
+- (NSInteger)roundingFloat:(CGFloat)floatNum;
 
 @end

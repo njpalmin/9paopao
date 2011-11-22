@@ -17,7 +17,6 @@
 #import "UserDetailViewController.h"
 #import "AppDelegate.h"
 #import "MainSegmentViewController.h"
-#import "SearchManager.h"
 
 #define SearchBarAndKindPadding     10
 
@@ -340,8 +339,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
 	if (mCurSearchKind == SearchKindWine) {
-		//return [mWineResult count];
-		return 5;
+		return [mWineResult count];
 	}
 	else if (mCurSearchKind == SearchKindPlace)
 	{
@@ -384,7 +382,7 @@
 		accessView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-arrow.png"]];
 		cell.accessoryView = accessView;
 		
-		[cell setWineDetailRecord];
+		[cell setWineDetailRecord:[mWineResult objectAtIndex:indexPath.section]];
 		
 		[accessView release];
 		accessView = nil;
@@ -409,7 +407,7 @@
 		accessView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-arrow.png"]];
 		cell.accessoryView = accessView;
 		
-		[cell setWineDetailRecord];
+		[cell setPlaceDetailRecord];
 		
 		[accessView release];
 		accessView = nil;
@@ -539,12 +537,38 @@
 
 - (void)searchManagerDidFinish:(SearchManager *)manager
 {
+    SearchManager   *defaultManager = nil;
     
+    do{
+        defaultManager= [SearchManager defaultSearchManager];
+        break_if(defaultManager == nil)
+        
+        if (mCurSearchKind == SearchKindWine) {
+            
+            if (defaultManager.searchType == SearchType_WineList) {
+                [mWineResult removeAllObjects];
+                [mWineResult addObjectsFromArray:defaultManager.wineListResults];
+            }
+        }
+        else if (mCurSearchKind == SearchKindPlace)
+        {
+            defaultManager.searchType = SearchType_WineryList;
+        }
+        else if (mCurSearchKind == SearchKindUser)
+        {
+            
+        }
+        
+        [mTableView reloadData];
+        
+    }while(0);
+    
+    [self procProgressViewCancel:nil];
 }
 
 - (void)searchManager:(SearchManager *)manager didFailWithError:(NSError*)error
 {
-    
+    [self procProgressViewCancel:nil];
 }
 
 #pragma mark -
@@ -665,6 +689,8 @@
     do{
         defaultManager= [SearchManager defaultSearchManager];
         break_if(defaultManager == nil)
+        
+        defaultManager.delegate = self;
         
         keyWord = mSearchBar.text;
         break_if(keyWord == nil);

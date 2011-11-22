@@ -10,10 +10,11 @@
 #import "PopoverPickerViewController.h"
 #import "UserResultViewCell.h"
 #import "PaoPaoProgressView.h"
+#import "SearchManager.h"
 
 @interface SearchNearbyViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate, 
 UITableViewDataSource, PopoverPickerViewControllerDelegate, UserResultViewCellDelegate, 
-UISearchBarDelegate> {
+UISearchBarDelegate, SearchManagerDelegate> {
     
     UISearchBar     *mSearchBar;
     UITextField     *mTextField;

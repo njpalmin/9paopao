@@ -26,7 +26,7 @@ enum SearchType {
 
 @interface SearchManager : NSObject<SearchCoreDelegate> {
 
-    id<SearchCoreDelegate>  mDelegate;
+    id<SearchManagerDelegate>  mDelegate;
 	SearchCore              *mSearchCore;
     enum SearchType         mSearchType;
     NSInteger               mRequestPage;
@@ -34,7 +34,7 @@ enum SearchType {
 	
 	NSArray					*mWineListResults;
 }
-@property(nonatomic, assign)id<SearchCoreDelegate>  delegate;
+@property(nonatomic, assign)id<SearchManagerDelegate>  delegate;
 @property(nonatomic, assign)enum SearchType         searchType;
 @property(nonatomic, retain)NSDictionary            *searchResultDic;
 @property(nonatomic, retain)NSArray					*wineListResults;

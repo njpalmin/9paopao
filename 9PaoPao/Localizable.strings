@@ -8,6 +8,7 @@
 
 "Cancel" = "取消";
 "Ok" = "确定";
+"Alert" = "提示";
 
 // gateway page
 "MostLoveDrinkWine"="我最喜欢喝的酒";
@@ -23,6 +24,10 @@
 "SearchUser Page Title" = "用户搜索";
 "SearchRange" = "%d公里";
 "Searching...,wait a moment" = "检索中...请稍候";
+"Kind:" = "类别：";
+"Wine Degree:" = "酒精度数：";
+"Expert Mark:" = "专家评分：";
+"Comment Number:" = "评论次数：";
 
 //barDetail
 "barName: %@" = "酒吧名称：%@";
@@ -49,3 +54,5 @@
 "Http Error Title" = "提示";
 "Http Net Error" = "網路連線錯誤!";
 "Http Other Error" = "系統繁忙中，請稍候再試!";
+
+"No Result For Search" = "没有检索到符合条件的结果";

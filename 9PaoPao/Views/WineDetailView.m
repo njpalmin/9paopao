@@ -17,6 +17,8 @@
 
 @implementation WineDetailView
 
+@synthesize wineDetailInfo;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -69,7 +71,6 @@
     return self;
 }
 
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     [super setSelected:selected animated:animated];
@@ -109,8 +110,10 @@
 #pragma mark -
 #pragma mark Public
 
--(void)setWineDetailRecord
+-(void)setWineDetailRecord:(WineDetailInfo *)wineDetail
 {
+    self.wineDetailInfo = wineDetail;
+    
 	[[self.contentView viewWithTag:CellLeftImageTag] removeFromSuperview];
 	[[self.contentView viewWithTag:CellStarMarkViewTag] removeFromSuperview];
 	[[self.contentView viewWithTag:CellThumbMarkViewTag] removeFromSuperview];
@@ -128,7 +131,10 @@
 	[leftImageView release];
 	leftImageView = nil;
 	
-	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:3];
+    CGFloat score = wineDetail.wineScore;
+    
+    
+	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:[self roundingFloat:score]];
 	markView.tag = CellStarMarkViewTag;
 	[self.contentView addSubview:markView];
 	
@@ -143,12 +149,68 @@
 	thumbView = nil;
 	
 	//------------label detail info-----------
-	[mWineName setText:@"Regment"];
-	[mWineProductDay setText:[NSString stringWithFormat:NSLocalizedString(@"Product Day", nil), @"2011年"]];
-	[mWineProductPlace setText:[NSString stringWithFormat:NSLocalizedString(@"Product Place", nil), @"中国"]];
+    CountryInfo *wineCountry = wineDetail.wineCountry;
+	[mWineName setText:wineDetail.wineTitle];
+	[mWineProductDay setText:[NSString stringWithFormat:NSLocalizedString(@"Product Day", nil), wineDetail.wineYear]];
+	[mWineProductPlace setText:[NSString stringWithFormat:NSLocalizedString(@"Product Place", nil), wineCountry.countryTitle]];
 	[mWineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Wine Kind", nil), @"红葡萄酒"]];
 	[mWinePrice setText:[NSString stringWithFormat:NSLocalizedString(@"Price", nil), @"350元"]];
 }
 
+-(void)setPlaceDetailRecord
+{    
+	[[self.contentView viewWithTag:CellLeftImageTag] removeFromSuperview];
+	[[self.contentView viewWithTag:CellStarMarkViewTag] removeFromSuperview];
+	[[self.contentView viewWithTag:CellThumbMarkViewTag] removeFromSuperview];
+    
+	UIImage     *image = nil;
+	UIImageView *leftImageView = nil;
+	
+	image = [UIImage imageNamed:@"bar-icon-bg.png"];
+	leftImageView = [[UIImageView alloc] initWithImage:image];
+	leftImageView.frame = CGRectMake(8, 10, image.size.width, image.size.height);
+	leftImageView.tag = CellLeftImageTag;
+	
+	[self.contentView addSubview:leftImageView];
+	
+	[leftImageView release];
+	leftImageView = nil;
+    
+	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:[self roundingFloat:3]];
+	markView.tag = CellStarMarkViewTag;
+	[self.contentView addSubview:markView];
+	
+	ThumbMarkView	*thumbView = [[ThumbMarkView alloc] initWithFrame:CGRectMake(180, 65, 0, 0) withGoodNum:10 withBadNum:0];
+	thumbView.tag = CellThumbMarkViewTag;
+	[self.contentView addSubview:thumbView];
+	
+	[markView release];
+	markView = nil;
+	
+	[thumbView release];
+	thumbView = nil;
+	
+	//------------label detail info-----------
+    
+	[mWineName setText:@"Regment"];
+	[mWineProductDay setText:[NSString stringWithFormat:NSLocalizedString(@"Product Day", nil), @"Regment"]];
+	[mWineProductPlace setText:[NSString stringWithFormat:NSLocalizedString(@"Product Place", nil), @"china"]];
+	[mWineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Wine Kind", nil), @"红葡萄酒"]];
+	[mWinePrice setText:[NSString stringWithFormat:NSLocalizedString(@"Price", nil), @"350元"]];
+}
+
+#pragma mark -
+#pragma mark Private
+
+// 四舍五入
+- (NSInteger)roundingFloat:(CGFloat)floatNum
+{
+    NSInteger   intNum = floatNum;
+    
+    if ((floatNum - intNum) >= 0.5) {
+        intNum++;
+    }
+    return intNum;
+}
 
 @end

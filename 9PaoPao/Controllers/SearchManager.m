@@ -111,13 +111,22 @@ static	SearchManager	*sDefaultManager = nil;
     NSLog(@"jsonReturnStr = %@", jsonReturnStr);
     
     reDic = [jsonReturnStr JSONValue];
-    if (reDic == nil) {
+    if ((reDic == nil) || ([reDic count] == 0)) {
         failed = YES;
     }
     
     if (failed) {
         // search result number 0
-        return;
+        UIAlertView *alert = nil;
+        NSString *title = NSLocalizedString(@"Alert", nil);
+        NSString *message = NSLocalizedString(@"No Result For Search", nil);  
+        
+        alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        alert = nil;
+        
+        [mDelegate searchManager:self didFailWithError:nil];
     }
     
     self.searchResultDic = reDic;
@@ -138,11 +147,12 @@ static	SearchManager	*sDefaultManager = nil;
         default:
             break;
     }
+    [mDelegate searchManagerDidFinish:self];
 }
 
 - (void)searchCore:(SearchCore *)searchCore didFailWithError:(NSError*)error
 {
-	
+    [mDelegate searchManager:self didFailWithError:error];
 }
 
 #pragma mark -
@@ -216,9 +226,9 @@ static	SearchManager	*sDefaultManager = nil;
         
         wineInfo = [[WineDetailInfo alloc] initWithCache:cache wineId:wineid score:score type:type refid:refid title:title year:year];
         
-        wineryDic = [dictionary valueForKey:PPWineryKey];
-        countryDic = [dictionary valueForKey:PPCountryKey];
-        regionDic = [dictionary valueForKey:PPRegionKey];
+        wineryDic = [wineResult valueForKey:PPWineryKey];
+        countryDic = [wineResult valueForKey:PPCountryKey];
+        regionDic = [wineResult valueForKey:PPRegionKey];
         
         if (wineryDic) {
             winery = [self analysisWineryResult:wineryDic];
@@ -265,7 +275,7 @@ static	SearchManager	*sDefaultManager = nil;
     refid = [dictionary valueForKey:PPRefidKey];
     
     country = [[CountryInfo alloc] initWithCache:cache countryId:countryid type:type refid:refid title:title];
-    return [CountryInfo autorelease];
+    return [country autorelease];
 }
 
 - (WineryInfo *)analysisWineryResult:(NSDictionary *)dictionary
@@ -306,7 +316,7 @@ static	SearchManager	*sDefaultManager = nil;
         winery.wineryRegion = region;
     }
     
-    return [region autorelease];
+    return [winery autorelease];
 }
 
 - (RegionInfo *)analysisRegionResult:(NSDictionary *)dictionary
