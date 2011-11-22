@@ -6,6 +6,8 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#define PaoPaoFont            @"HelveticaNeue-Bold"
+
 #define PageWithoutSegementHeight   410
 
 #define SearchKindBtnWidth          89

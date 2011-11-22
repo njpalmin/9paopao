@@ -175,7 +175,7 @@
 		
 		wineName = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight+4)];
         [wineName setTextColor:[UIColor redColor]];
-        [wineName setFont:[UIFont systemFontOfSize:14.0]];
+        [wineName setFont:[UIFont fontWithName:PaoPaoFont size:14.0]];
         [wineName setBackgroundColor:[UIColor clearColor]];
 		wineName.tag = CellWineNameLabelTag;
         [cell.contentView addSubview:wineName];
@@ -183,7 +183,7 @@
 		
 		wineKind = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
         [wineKind setTextColor:[UIColor blackColor]];
-        [wineKind setFont:[UIFont systemFontOfSize:13.0]];
+        [wineKind setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
         [wineKind setBackgroundColor:[UIColor clearColor]];
 		wineKind.tag = CellWineKindLabelTag;
         [cell.contentView addSubview:wineKind];
@@ -191,7 +191,7 @@
 		
 		wineDegree = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
         [wineDegree setTextColor:[UIColor blackColor]];
-        [wineDegree setFont:[UIFont systemFontOfSize:13.0]];
+        [wineDegree setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
         [wineDegree setBackgroundColor:[UIColor clearColor]];
 		wineDegree.tag = CellWineDegreeLabelTag;
         [cell.contentView addSubview:wineDegree];
@@ -199,7 +199,7 @@
 		
 		wineMark = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
         [wineMark setTextColor:[UIColor blackColor]];
-        [wineMark setFont:[UIFont systemFontOfSize:13.0]];
+        [wineMark setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
         [wineMark setBackgroundColor:[UIColor clearColor]];
 		wineMark.tag = CellWineMarkLabelTag;
         [cell.contentView addSubview:wineMark];
@@ -207,7 +207,7 @@
 		
 		wineComment = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
         [wineComment setTextColor:[UIColor blackColor]];
-        [wineComment setFont:[UIFont systemFontOfSize:13.0]];
+        [wineComment setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
         //[wineComment setBackgroundColor:[UIColor clearColor]];
 		wineComment.tag = CellWineCommentLabelTag;
         [cell.contentView addSubview:wineComment];
@@ -263,11 +263,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    //UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
-//    sectionPaddingView.backgroundColor = [UIColor greenColor];
-//    return [sectionPaddingView autorelease];
-	
+{	
 	return mFooterView;
 }
 
@@ -348,13 +344,13 @@
 	
 	whereWine = [[UILabel alloc] initWithFrame:CGRectMake(xPos, 5, 150, WineDetailInfoLabelHeight)];
 	[whereWine setTextColor:[UIColor redColor]];
-	[whereWine setFont:[UIFont systemFontOfSize:13.0]];
+	[whereWine setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
 	[whereWine setText:NSLocalizedString(@"Where Drink Wine", nil)];
 	[winePlaceView addSubview:whereWine];
 	
 	placeInfo = [[UILabel alloc] initWithFrame:CGRectMake(xPos, 5+WineDetailInfoLabelHeight, 170, 4*WineDetailInfoLabelHeight)];
 	[placeInfo setTextColor:[UIColor blackColor]];
-	[placeInfo setFont:[UIFont systemFontOfSize:13.0]];
+	[placeInfo setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
 	[placeInfo setBackgroundColor:[UIColor clearColor]];
 	[placeInfo setText:@"餐厅/酒吧名称：红酒\n地址：中国\n联系信息：027－88888888"];
 	placeInfo.numberOfLines = 4;
@@ -586,13 +582,17 @@
 	
 }
 
-#pragma mark -  EmojiViewDelegate
+#pragma mark -
+#pragma mark EmojiViewDelegate
+		 
 -(void)showEmojiInMessage:(NSString *)text
 {
     commentsText.text = [commentsText.text stringByAppendingString:text];
 }
 
-#pragma mark -  ToolBarViewDelegate
+#pragma mark -
+#pragma mark ToolBarViewDelegate
+		 
 -(void)locateMySelf
 {
     [self hideEj];
@@ -718,7 +718,6 @@
     
     
 }
-
 
 -(void)showEmotion
 {

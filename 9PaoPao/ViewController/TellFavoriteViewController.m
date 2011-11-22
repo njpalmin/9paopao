@@ -7,7 +7,7 @@
 //
 
 #import "TellFavoriteViewController.h"
-
+#import "PaoPaoConstant.h"
 
 @implementation TellFavoriteViewController
 @synthesize titleLabel;
@@ -62,6 +62,7 @@
     self.view = view;
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
     titleLabel.text = navTitle;
+	titleLabel.font = [UIFont fontWithName:PaoPaoFont size:16.0];
     self.title = @"9paopao";
     [self.view addSubview:titleLabel];
     favoriteTable = [[UITableView alloc] initWithFrame:CGRectMake(0, titleLabel.frame.size.height, width, height - titleLabel.frame.size.height)];
@@ -178,6 +179,7 @@
     [accessView release];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = [array objectAtIndex:[indexPath row]];
+	cell.textLabel.font = [UIFont fontWithName:PaoPaoFont size:16.0];
     return cell;
 }
 
@@ -202,6 +204,7 @@
     NSArray *keyArray = [dic allKeys];
     UILabel *tabel = [[UILabel alloc] initWithFrame:view.frame];
     tabel.backgroundColor = [UIColor clearColor];
+	tabel.font = [UIFont fontWithName:PaoPaoFont size:17.0];
     tabel.text = [keyArray objectAtIndex:0];
     [view addSubview:tabel];
     [tabel release];

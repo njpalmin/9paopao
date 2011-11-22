@@ -119,7 +119,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.textLabel.text = [mCategorys objectAtIndex:indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.textLabel.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     
     if (indexPath.row % 2) {
         cell.backgroundColor = [UIColor lightGrayColor];

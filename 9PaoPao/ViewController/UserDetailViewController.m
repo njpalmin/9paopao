@@ -121,7 +121,7 @@
             break_if(cell == nil);
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		[cell setWineDetailRecord];
+		[cell setPlaceDetailRecord];
 
 	} while (0);
     

@@ -13,6 +13,7 @@
 #define BUTTON_HEIGHT 60
 
 #import "MainViewCell.h"
+#import "PaoPaoConstant.h"
 
 @implementation MainViewCell
 @synthesize delegate;
@@ -59,7 +60,7 @@
     [tempBtn release];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 82, 80, 16)];
-    label.font = [UIFont systemFontOfSize:14.0];
+    label.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     label.text = title;
     label.textAlignment = UITextAlignmentCenter;
     [self addSubview:label];

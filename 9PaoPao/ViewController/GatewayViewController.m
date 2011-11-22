@@ -57,13 +57,14 @@
     UILabel *topText = [[UILabel alloc] initWithFrame:CGRectMake(48, 30, 120, 20)];
     topText.text = NSLocalizedString(@"Now, let's go...",nil);
     [topText sizeToFit];
+	topText.font = [UIFont fontWithName:PaoPaoFont size:16.0];
     [self.view addSubview:topText];
     [topText release];
     
-    UITextView *midText = [[UITextView alloc] initWithFrame:CGRectMake(40, 74, 240, 60)];
+    UITextView *midText = [[UITextView alloc] initWithFrame:CGRectMake(30, 74, 240, 70)];
     midText.text = NSLocalizedString(@"Here, in 9paopao, you can find red wine, beer, cocktail, bar and so on which is most suitable for you...but, firstly, let me know what's your favorite!",nil);
     [self.view addSubview:midText];
-    midText.font = [UIFont systemFontOfSize:14.0];
+    midText.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     midText.editable = NO;
     midText.scrollEnabled = NO;
     [midText release];
@@ -71,6 +72,7 @@
     UILabel *buttomText = [[UILabel alloc] initWithFrame:CGRectMake(44, 220, 220, 20)];
     buttomText.text =NSLocalizedString(@"All I want is that you will search your favorite",nil);
     buttomText.textAlignment = UITextAlignmentLeft;
+	buttomText.font = [UIFont fontWithName:PaoPaoFont size:18.0];
     [self.view addSubview:buttomText];
     [buttomText release];
     

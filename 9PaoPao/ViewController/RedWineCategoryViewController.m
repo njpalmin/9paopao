@@ -154,7 +154,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.textLabel.text = [contentArray objectAtIndex:indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.textLabel.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     
     if (indexPath.row % 2) {
         cell.backgroundColor = [UIColor lightGrayColor];
@@ -199,6 +199,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = UITextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
+	label.font = [UIFont fontWithName:PaoPaoFont size:16.0];
     label.text = [[mCategorys objectAtIndex:section] valueForKey:kRedWineCategoryNameKey];
     [headerView addSubview:label];
 
