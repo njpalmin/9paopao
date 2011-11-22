@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BarComment;
 @interface BarCommentDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *barCommentTableView;
-    id object;
+    BarComment * commentObject;
 }
 
-- (id)initControllerWithBarCommentObject:(id)object;
+- (id)initControllerWithBarCommentObject:(BarComment *)object;
 
 @end
