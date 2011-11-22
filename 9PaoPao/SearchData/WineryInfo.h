@@ -28,4 +28,8 @@
 @property(nonatomic, retain)NSString	*wineryTitle;
 @property(nonatomic, retain)CountryInfo	*wineryCountry;
 @property(nonatomic, retain)RegionInfo	*wineryRegion;
+
+-(id)initWithCache:(NSInteger)cache wineryId:(NSString *)wineryid type:(NSString *)type 
+			 refid:(NSString *)refid title:(NSString *)title;
+
 @end

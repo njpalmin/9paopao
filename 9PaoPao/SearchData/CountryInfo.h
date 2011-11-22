@@ -23,4 +23,7 @@
 @property(nonatomic, retain)NSString	*countryRefid;
 @property(nonatomic, retain)NSString	*countryTitle;
 
+-(id)initWithCache:(NSInteger)cache countryId:(NSString *)countryid type:(NSString *)type 
+			 refid:(NSString *)refid title:(NSString *)title;
+
 @end

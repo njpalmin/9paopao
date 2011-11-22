@@ -10,6 +10,10 @@
 #import "SearchCore.h"
 #import "JSON.h"
 
+@class CountryInfo;
+@class WineryInfo;
+@class RegionInfo;
+
 enum SearchType {
     SearchType_None         = 0,
     SearchType_WineList     = 1,
@@ -36,6 +40,14 @@ enum SearchType {
 @property(nonatomic, retain)NSArray					*wineListResults;
 
 + (SearchManager *)defaultSearchManager;
+
+#pragma mark -
+#pragma mark Private
+
+- (void)analysisWineResultList:(NSDictionary *)dictionary;
+- (CountryInfo *)analysisCountryResult:(NSDictionary *)dictionary;
+- (WineryInfo *)analysisWineryResult:(NSDictionary *)dictionary;
+- (RegionInfo *)analysisRegionResult:(NSDictionary *)dictionary;
 
 @end
 

@@ -20,3 +20,15 @@
 #define RightContentXOrigin			90
 #define WineDetailInfoLabelHeight	14
 #define WineDetailInfoLabelWidth	180
+
+// wine search result key
+#define PPCachedKey                 @"_cached"
+#define PPIdKey                     @"_id"
+#define PPScoreKey                  @"_score"
+#define PPTypeKey                   @"_typ"
+#define PPRefidKey                  @"refid"
+#define PPTitleKey                  @"title"
+#define PPYearKey                   @"year"
+#define PPWineryKey                 @"winery"
+#define PPCountryKey                @"country"
+#define PPRegionKey                 @"region"

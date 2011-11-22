@@ -117,7 +117,7 @@
         for (int i = 0; i < [mButtonArray count]; i++) {
             
             imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav-gap.png"]];
-            imageView.frame = CGRectMake(xOrigin, 0.5, 1, 50);
+            imageView.frame = CGRectMake(xOrigin, 0.5, 2, 48);
 			
             [mSegementView addSubview:imageView];
             [mSegementView addSubview:[mButtonArray objectAtIndex:i]];

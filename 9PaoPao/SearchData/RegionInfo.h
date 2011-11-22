@@ -25,4 +25,7 @@
 @property(nonatomic, retain)NSString	*regionTitle;
 @property(nonatomic, retain)CountryInfo	*regionCountry;
 
+-(id)initWithCache:(NSInteger)cache regionId:(NSString *)regionid type:(NSString *)type 
+			 refid:(NSString *)refid title:(NSString *)title;
+
 @end
