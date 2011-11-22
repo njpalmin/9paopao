@@ -21,6 +21,7 @@
 		2089E00614700565006581C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E00514700565006581C3 /* CoreLocation.framework */; };
 		2089E009147005A5006581C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E008147005A5006581C3 /* MapKit.framework */; };
 		208BFFBF147BD1980066D8CC /* BarCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208BFFBE147BD1980066D8CC /* BarCommentDetailViewController.m */; };
+		208BFFC3147BD94D0066D8CC /* BarComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 208BFFC2147BD94D0066D8CC /* BarComment.m */; };
 		310707E31470BD970076C096 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E21470BD970076C096 /* CommentViewController.m */; };
 		310707E91470BDAD0076C096 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E61470BDAD0076C096 /* ScoreView.m */; };
 		310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E81470BDAD0076C096 /* ToolBarView.m */; };
@@ -229,6 +230,8 @@
 		2089E008147005A5006581C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		208BFFBD147BD1980066D8CC /* BarCommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCommentDetailViewController.h; sourceTree = "<group>"; };
 		208BFFBE147BD1980066D8CC /* BarCommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCommentDetailViewController.m; sourceTree = "<group>"; };
+		208BFFC1147BD94C0066D8CC /* BarComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarComment.h; sourceTree = "<group>"; };
+		208BFFC2147BD94D0066D8CC /* BarComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarComment.m; sourceTree = "<group>"; };
 		310707E11470BD970076C096 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		310707E21470BD970076C096 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		310707E51470BDAD0076C096 /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreView.h; sourceTree = "<group>"; };
@@ -963,6 +966,8 @@
 				4B3932E9147A94F6000027CF /* RegionInfo.m */,
 				4B3932EB147A9520000027CF /* CountryInfo.h */,
 				4B3932EC147A9520000027CF /* CountryInfo.m */,
+				208BFFC1147BD94C0066D8CC /* BarComment.h */,
+				208BFFC2147BD94D0066D8CC /* BarComment.m */,
 			);
 			path = SearchData;
 			sourceTree = "<group>";
@@ -1252,6 +1257,7 @@
 				4B3932EA147A94F6000027CF /* RegionInfo.m in Sources */,
 				4B3932ED147A9520000027CF /* CountryInfo.m in Sources */,
 				208BFFBF147BD1980066D8CC /* BarCommentDetailViewController.m in Sources */,
+				208BFFC3147BD94D0066D8CC /* BarComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
