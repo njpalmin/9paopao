@@ -568,6 +568,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		31A824A8147B698200B40642 /* search-nearby */ = {
+			isa = PBXGroup;
+			children = (
+				310707E11470BD970076C096 /* CommentViewController.h */,
+				310707E21470BD970076C096 /* CommentViewController.m */,
+			);
+			name = "search-nearby";
+			sourceTree = "<group>";
+		};
 		3316CDDE1479EC1200C3501B /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,14 +879,13 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				31A824A8147B698200B40642 /* search-nearby */,
 				3316CE7E1479EC3200C3501B /* LatestOfferViewController.h */,
 				3316CE7F1479EC3200C3501B /* LatestOfferViewController.m */,
 				3316CE801479EC3200C3501B /* MapViewController.h */,
 				3316CE811479EC3200C3501B /* MapViewController.m */,
 				333709221470EA410027CE89 /* UserDetailViewController.h */,
 				333709231470EA410027CE89 /* UserDetailViewController.m */,
-				310707E11470BD970076C096 /* CommentViewController.h */,
-				310707E21470BD970076C096 /* CommentViewController.m */,
 				930EC52E146A8526000A675D /* TellFavoriteViewController.h */,
 				930EC52F146A8526000A675D /* TellFavoriteViewController.m */,
 				3395E6BF146A68F100733469 /* MainViewController.h */,

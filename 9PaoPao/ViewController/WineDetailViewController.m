@@ -25,6 +25,8 @@
 #define WinePlaceViewHeight		80
 #define FooterViewPadding		5
 
+#define EMOJI_HEIGHT 158
+
 @implementation WineDetailViewController
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -98,8 +100,18 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
 
 - (void)dealloc {
+    [scoreView release];
+    [toolBarView release];
+    [emojiView release];
+    [commentsText release];
+    
     [super dealloc];
 }
 
@@ -247,7 +259,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 400;
+    return 366*2 - (TableViewRowHeight-5) -15;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -399,6 +411,16 @@
 	//------------
 	mUploadImage = [[UIImageView alloc] initWithFrame:CGRectMake(xPos, yPos, 0, 0)];
 	//------------
+    
+    //--------comment View start-------------
+    [self prepareCommentViewOnView:footView withHeight:yPos];
+//    CommentViewController *com = [[CommentViewController alloc] init];
+//    com.view.frame = CGRectMake(0, yPos, 320, 366);
+//    [footView addSubview:com.view];
+//    [com release];
+//    com =nil;
+    //--------comment View end-------------
+
 	[footView addSubview:winePlaceView];
 	[footView addSubview:userView];
 	[footView addSubview:markView];
@@ -415,6 +437,49 @@
 
 	//mFooterHeight += 
     return YES;
+}
+
+-(void)prepareCommentViewOnView:(UIView *)footView withHeight:(CGFloat)yPos
+{
+    commentsHeight = yPos;
+    
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, yPos+14, 50, 18)];
+    scoreLabel.text = @"评分";
+    scoreLabel.backgroundColor = [UIColor clearColor];
+    [footView addSubview:scoreLabel];
+    [scoreLabel release];
+    
+    scoreView = [[ScoreView alloc] initWithFrame:CGRectMake(60, yPos+28, 196, 187)];
+    scoreView.backgroundColor = [UIColor clearColor];
+
+    [footView addSubview:scoreView];
+    
+    UILabel *commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, yPos+221, 140, 18)];
+    commentsLabel.text = @"用户评论";
+    commentsLabel.backgroundColor = [UIColor clearColor];
+    [footView addSubview:commentsLabel];
+    [commentsLabel release];
+    
+    commentsText = [[UITextView alloc] initWithFrame:CGRectMake(40, yPos+243, 240, 90)];
+    commentsText.backgroundColor = [UIColor clearColor];
+    commentsText.text = @"fhsajfsamflsamflsafmlsafslfmsfmlsmflasmfslmflsmflsamflsmflsf";
+    commentsText.scrollEnabled = YES;
+    commentsText.delegate = self;
+    commentsText.keyboardType = UIReturnKeyDone;
+    commentsText.contentInset = UIEdgeInsetsZero;
+    [self addTooBarOnKeyboard];
+    [footView addSubview:commentsText];
+    
+    toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(0, yPos+340, 320, 30)];
+    toolBarView.backgroundColor = [UIColor clearColor];
+    toolBarView.delegate = self;
+    [footView addSubview:toolBarView];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark -
@@ -454,6 +519,220 @@
 	
     [comm release];
 	comm = nil;
+}
+-(void)addTooBarOnKeyboard
+{
+    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 30)];  
+    [topView setBarStyle:UIBarStyleBlack];  
+    
+    //UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"Hello" style:UIBarButtonItemStyleBordered target:self action:nil];  
+    
+    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];  
+    
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];  
+    
+    
+    NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneButton,nil];  
+    [doneButton release];  
+    [btnSpace release];  
+    
+    [topView setItems:buttonsArray];  
+    [commentsText setInputAccessoryView:topView];  
+}
+
+-(void)dismissKeyBoard  
+{  
+    [commentsText resignFirstResponder];  
+} 
+
+-(void)goBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)keyboardWillShow:(NSNotification *)noti
+{
+    [self showKeyBoard];
+}
+
+- (void)keyboardWillHide:(NSNotification *)noti
+{
+    [self hideKeyBoard];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [commentsText resignFirstResponder];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark LocationManagerDelegate
+
+- (void)locationManagerUpdateHeading:(LocationManager*)controller
+{
+	CLLocation	*location = nil;
+	
+	location = controller.newLocation;
+}
+
+- (void)locationManager:(LocationManager*)controller didReceiveError:(NSError*)error
+{
+	
+}
+
+#pragma mark -  EmojiViewDelegate
+-(void)showEmojiInMessage:(NSString *)text
+{
+    commentsText.text = [commentsText.text stringByAppendingString:text];
+}
+
+#pragma mark -  ToolBarViewDelegate
+-(void)locateMySelf
+{
+    [self hideEj];
+    
+	if (mLocationManager == nil) {
+		mLocationManager = [[LocationManager alloc] init];
+	}
+	
+	if (mLocationManager == nil) {
+        
+		NSString    *message = @"Location service not Support";
+		NSString    *title = @"Alert";
+		UIAlertView *noCompassAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		
+		[noCompassAlert show];
+		[noCompassAlert release];
+		noCompassAlert = nil;
+		
+	}else{
+		mLocationManager.delegate = self;
+		[mLocationManager stopUpdate];
+		[mLocationManager startUpdate];
+	}	
+}
+
+-(void)takePhoto
+{
+    [self hideEj];
+    
+	UIImagePickerController	*imagePicker = nil;
+	
+	imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	imagePicker.delegate = self;
+	
+	[self presentModalViewController:imagePicker animated:YES];
+	
+	[imagePicker release];
+	imagePicker = nil;	
+}
+
+-(void)inputPoundSign
+{
+    [self hideEj];
+    commentsText.text = [commentsText.text stringByAppendingString:@"#"];
+}
+
+-(void)follow
+{
+    [self hideEj];
+    commentsText.text = [commentsText.text stringByAppendingString:@"@"];
+}
+
+-(void)showKeyBoard
+{
+    NSLog(@"keyboard shows");
+    //keybord show
+    mTableView.scrollEnabled = YES;
+    
+    //emojiview hide if poped
+    if (isEmojiPoped) {
+        NSLog(@"emoji hide in keyboard show ");
+        mTableView.scrollEnabled = NO;
+        
+        [UIView beginAnimations:@"hideEmojiView" context:nil];
+        [UIView setAnimationBeginsFromCurrentState:YES]; 
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.3];
+        [emojiView setFrame:CGRectMake(0, 480-20-44, 320, EMOJI_HEIGHT)];
+        [UIView commitAnimations];
+        
+        isEmojiPoped = NO;
+    }
+    
+    [mTableView setContentOffset:CGPointMake(mTableView.contentOffset.x,commentsHeight+ 216+88) animated:YES];
+    mTableView.scrollEnabled = NO;
+}
+
+-(void)hideKeyBoard
+{
+    NSLog(@"keyboard hides");
+    //keybord hide
+    mTableView.scrollEnabled = YES;
+    if (!isEmojiPoped){
+        [mTableView setContentOffset:CGPointMake(0, 366) animated:YES];
+    }
+}
+
+-(void)hideEj
+{
+    mTableView.scrollEnabled = YES;
+    isEmojiPoped = NO;
+    
+    NSLog(@"emoji hides");
+    [UIView beginAnimations:@"hideEmojiView" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES]; 
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.3];
+    [mTableView setContentOffset:CGPointMake(0, 366) animated:YES];
+    [emojiView setFrame:CGRectMake(0, 480-20-44, 320, EMOJI_HEIGHT)];
+    [UIView commitAnimations];
+}
+
+-(void)showEj
+{
+    
+    isEmojiPoped = YES;
+    mTableView.scrollEnabled = YES;
+    
+    NSLog(@"emoji shows");
+    [UIView beginAnimations:@"popEmojiView" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES]; 
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.3];
+    [emojiView setFrame:CGRectMake(0, 480-EMOJI_HEIGHT-44-20, 320, EMOJI_HEIGHT)];
+    [mTableView setContentOffset:CGPointMake(mTableView.contentOffset.x, commentsHeight+ EMOJI_HEIGHT+60) animated:YES];
+    [UIView commitAnimations];
+    
+    mTableView.scrollEnabled = NO;
+    
+    //hide keyborad if keyboard showing
+    [commentsText resignFirstResponder];
+    
+    
+}
+
+
+-(void)showEmotion
+{
+    if (!emojiView) {
+        emojiView = [[EmojiView alloc] initWithFrame:CGRectMake(0, 480-20-44, 320, 134)];
+        emojiView.delegate = self;
+        [self.view addSubview:emojiView];
+    }
+    
+    if (isEmojiPoped) {
+        [self hideEj];
+    }else{
+        [self showEj];
+    }
 }
 
 @end

@@ -17,25 +17,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        UILabel *firstLabel  = [[UILabel alloc] initWithFrame:CGRectMake(78, 0, 80, 23)];
-        UILabel *secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(78, 2*23, 80, 23)];
-        UILabel *thirdlabel  = [[UILabel alloc] initWithFrame:CGRectMake(78, 4*23, 80, 23)];
-        UILabel *fourthLabel = [[UILabel alloc] initWithFrame:CGRectMake(78, 6*23, 80, 23)];
         
-        firstLabel.text = @"1 外观";
-        secondLabel.text = @"2 香味";
-        thirdlabel.text = @"3 味道";
-        fourthLabel.text = @"4 口感";
+        NSMutableArray *textArray = [NSMutableArray arrayWithObjects:@"1 外观",@"2 香味",@"3 味道",@"4 口感", nil];
         
-        [self addSubview:firstLabel];
-        [self addSubview:secondLabel];
-        [self addSubview:thirdlabel];
-        [self addSubview:fourthLabel];
-        
-        [firstLabel release];
-        [secondLabel release];
-        [thirdlabel release];
-        [fourthLabel release];
+        for (int i=0; i<4; i++) {
+            UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(78, i*2*23, 80, 23)];
+            label.text = [textArray objectAtIndex:i];
+            label.backgroundColor = [UIColor clearColor];
+            [self addSubview:label];
+            [label release];
+            label = nil;
+        }
         
         int x = 0;
         int y = 23;
