@@ -20,6 +20,7 @@
 		18A004CC1464CF110015EC68 /* _PaoPaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A004CB1464CF110015EC68 /* _PaoPaoTests.m */; };
 		2089E00614700565006581C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E00514700565006581C3 /* CoreLocation.framework */; };
 		2089E009147005A5006581C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E008147005A5006581C3 /* MapKit.framework */; };
+		208BFFBF147BD1980066D8CC /* BarCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208BFFBE147BD1980066D8CC /* BarCommentDetailViewController.m */; };
 		310707E31470BD970076C096 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E21470BD970076C096 /* CommentViewController.m */; };
 		310707E91470BDAD0076C096 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E61470BDAD0076C096 /* ScoreView.m */; };
 		310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E81470BDAD0076C096 /* ToolBarView.m */; };
@@ -226,6 +227,8 @@
 		18A004CB1464CF110015EC68 /* _PaoPaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _PaoPaoTests.m; sourceTree = "<group>"; };
 		2089E00514700565006581C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2089E008147005A5006581C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		208BFFBD147BD1980066D8CC /* BarCommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCommentDetailViewController.h; sourceTree = "<group>"; };
+		208BFFBE147BD1980066D8CC /* BarCommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCommentDetailViewController.m; sourceTree = "<group>"; };
 		310707E11470BD970076C096 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		310707E21470BD970076C096 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		310707E51470BDAD0076C096 /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreView.h; sourceTree = "<group>"; };
@@ -906,6 +909,8 @@
 				33CA34F714726F0E00EDEAD0 /* RedWineViewController.m */,
 				33CA34F91472807500EDEAD0 /* RedWineCategoryViewController.h */,
 				33CA34FA1472807800EDEAD0 /* RedWineCategoryViewController.m */,
+				208BFFBD147BD1980066D8CC /* BarCommentDetailViewController.h */,
+				208BFFBE147BD1980066D8CC /* BarCommentDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1246,6 +1251,7 @@
 				4B3932E7147A94C9000027CF /* WineryInfo.m in Sources */,
 				4B3932EA147A94F6000027CF /* RegionInfo.m in Sources */,
 				4B3932ED147A9520000027CF /* CountryInfo.m in Sources */,
+				208BFFBF147BD1980066D8CC /* BarCommentDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
