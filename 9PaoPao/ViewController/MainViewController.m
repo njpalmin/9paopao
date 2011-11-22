@@ -10,6 +10,7 @@
 #import "QuartzCore/QuartzCore.h"
 #import "MainViewCell.h"
 #import "RedWineViewController.h"
+#import "PaoPaoCommon.h"
 
 @implementation MainViewController
 @synthesize  _table;
@@ -54,40 +55,34 @@
     
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
-    UIButton *backBtn =[[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-    [backBtn setFrame:CGRectMake(5, 9, 60, 26)];
-    [backBtn setTitle:@"Invite" forState:UIControlStateNormal];
-    [backBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goToInvite) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.rightBarButtonItem = right;
-    [right release];
-    [backBtn release];
+    UIBarButtonItem *inviteBtn = [[UIBarButtonItem alloc] initWithTitle:@"邀请" style:UIBarButtonItemStylePlain target:self action:@selector(goToInvite)];
+    self.navigationItem.rightBarButtonItem = inviteBtn;
+    [inviteBtn release];
     
-    self.navigationItem.title = @"9 paopao";
+    self.navigationItem.title = @"9 泡泡";
     
-    UIImageView *backgroundOfSearchBar=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_bg.png"]];
-    [backgroundOfSearchBar setFrame:CGRectMake(0, 0, 320, 44)];
-    backgroundOfSearchBar.userInteractionEnabled = YES;
+//    UIImageView *backgroundOfSearchBar=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_bg.png"]];
+//    [backgroundOfSearchBar setFrame:CGRectMake(0, 0, 320, 44)];
+//    backgroundOfSearchBar.userInteractionEnabled = YES;
+//    
+//    UISearchBar *searchBar =[[UISearchBar alloc] initWithFrame:CGRectMake(0, 8, 320, 28)];
+//    searchBar.backgroundColor = [UIColor clearColor];
+//    searchBar.barStyle=UIBarStyleBlackTranslucent;
+//    searchBar.searchResultsButtonSelected = YES;
+//    searchBar.placeholder = @"输入葡萄酒、就把名称、地址等";
+//    searchBar.delegate = self;
+//    for (id cc in searchBar.subviews) {
+//        if ([cc isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+//            [cc removeFromSuperview];
+//        }
+//    }
+//    [backgroundOfSearchBar addSubview:searchBar];
+//    [self.view addSubview:backgroundOfSearchBar];
+//    
+//    [backgroundOfSearchBar release];
+//    [searchBar release];
     
-    UISearchBar *searchBar =[[UISearchBar alloc] initWithFrame:CGRectMake(0, 8, 320, 28)];
-    searchBar.backgroundColor = [UIColor clearColor];
-    searchBar.barStyle=UIBarStyleBlackTranslucent;
-    searchBar.searchResultsButtonSelected = YES;
-    searchBar.placeholder = @"输入葡萄酒、就把名称、地址等";
-    searchBar.delegate = self;
-    for (id cc in searchBar.subviews) {
-        if ([cc isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-            [cc removeFromSuperview];
-        }
-    }
-    [backgroundOfSearchBar addSubview:searchBar];
-    [self.view addSubview:backgroundOfSearchBar];
-    
-    [backgroundOfSearchBar release];
-    [searchBar release];
-    
-    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 320, 400) style:UITableViewStylePlain];
+    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 366) style:UITableViewStylePlain];
     _table.delegate = self;
     _table.dataSource = self;
     _table.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -159,9 +154,9 @@
 - (CGFloat)tableView:(UITableView *)atableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 2) {
-        return 114;
+        return 126;//114;
     }
-	return 104;
+	return 120;//104;
 	
 }
 

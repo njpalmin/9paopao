@@ -214,6 +214,8 @@
 #pragma mark -  ToolBarViewDelegate
 -(void)locateMySelf
 {
+    [self hideEj];
+
 	if (mLocationManager == nil) {
 		mLocationManager = [[LocationManager alloc] init];
 	}
@@ -237,6 +239,8 @@
 
 -(void)takePhoto
 {
+    [self hideEj];
+
 	UIImagePickerController	*imagePicker = nil;
 	
 	imagePicker = [[UIImagePickerController alloc] init];
@@ -251,11 +255,13 @@
 
 -(void)inputPoundSign
 {
+    [self hideEj];
      commentsText.text = [commentsText.text stringByAppendingString:@"#"];
 }
 
 -(void)follow
 {
+    [self hideEj];
     commentsText.text = [commentsText.text stringByAppendingString:@"@"];
 }
 
