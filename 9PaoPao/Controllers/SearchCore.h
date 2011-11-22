@@ -29,6 +29,19 @@
 @property(nonatomic, assign)id<SearchCoreDelegate>  delegate;
 @property(nonatomic, retain)NSMutableData           *responseData;
 
+#pragma mark -
+#pragma mark Public
+
+- (BOOL)sendRequestWithServerURL:(NSString *)serverURL SearchString:(NSString *)searchString;
+- (void)cancel;
+
+#pragma mark -
+#pragma mark Private
+
+- (NSString *)ChineseCharactor2UTF8String:(NSString *)aString;
+- (NSString*)analyseErrorCode:(NSString*)errorMessage;
+- (void)clear;
+
 @end
 
 @protocol SearchCoreDelegate

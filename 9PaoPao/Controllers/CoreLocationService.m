@@ -132,7 +132,7 @@ static CoreLocationService *singleInstance = nil;
     if (newHeading.headingAccuracy < 0) {
         return;
     }
-    CLLocationDirection theHeading = ((newHeading.trueHeading > 0) ? newHeading.trueHeading : newHeading.magneticHeading);
+    //CLLocationDirection theHeading = ((newHeading.trueHeading > 0) ? newHeading.trueHeading : newHeading.magneticHeading);
 }
 
 

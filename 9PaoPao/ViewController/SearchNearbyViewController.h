@@ -41,11 +41,15 @@ UISearchBarDelegate> {
 
 - (BOOL)prepareNavigationBar;
 - (BOOL)prepareSearchKindView;
+- (void)prepareProgressView;
+- (void)startSearching;
 
 #pragma mark -
 #pragma mark Action
 
 - (void)procReturn:(id)sender;
 - (void)procChooseRange:(id)sender;
+- (void)procSearchKindBtn:(id)sender;
+- (void)procProgressViewCancel:(id)sender;
 
 @end

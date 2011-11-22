@@ -42,6 +42,11 @@ enum SearchType {
 + (SearchManager *)defaultSearchManager;
 
 #pragma mark -
+#pragma mark Public
+
+- (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages;
+
+#pragma mark -
 #pragma mark Private
 
 - (void)analysisWineResultList:(NSDictionary *)dictionary;

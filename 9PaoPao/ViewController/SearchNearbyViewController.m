@@ -86,6 +86,12 @@
 		[mRangeArray release];
 		mRangeArray = nil;
 	}
+    
+    if (mProgressView) {
+        [mProgressView removeFromSuperview];
+        [mProgressView release];
+        mProgressView = nil;
+    }
     [super dealloc];
 }
 
@@ -304,34 +310,8 @@
     [self startSearching];
 }
 
-- (void)startSearching
-{
-    SearchManager   *defaultManager = nil;
-    NSString        *keyWord = nil;
-    
-    do{
-        defaultManager= [SearchManager defaultSearchManager];
-        break_if(defaultManager == nil)
-        
-        keyWord = mSearchBar.text;
-        break_if(keyWord == nil);
-        
-        if (mCurSearchKind == SearchKindWine) {
-            defaultManager.searchType = SearchType_WineList;
-            [defaultManager startSearchWithKeyword:keyWord withType:SearchType_WineList withPage:2];
-        }
-        else if (mCurSearchKind == SearchKindPlace)
-        {
-            defaultManager.searchType = SearchType_WineryList;
-        }
-        else if (mCurSearchKind == SearchKindUser)
-        {
-            
-        }
-        
-
-    }while(0);
-}
+#pragma mark -
+#pragma mark Animation
 
 - (void)removeSearchCancelView:(NSString*)animationID finished:(NSNumber*)finished context:(void*)context
 {
@@ -555,6 +535,19 @@
 }
 
 #pragma mark -
+#pragma mark SearchManagerDelegate
+
+- (void)searchManagerDidFinish:(SearchManager *)manager
+{
+    
+}
+
+- (void)searchManager:(SearchManager *)manager didFailWithError:(NSError*)error
+{
+    
+}
+
+#pragma mark -
 #pragma mark UserResultViewCellDelegate
 
 - (void)userResultViewCellSelectUser
@@ -662,6 +655,35 @@
     if (mProgressView.superview != nil) {
         [mProgressView removeFromSuperview];
     }
+}
+
+- (void)startSearching
+{
+    SearchManager   *defaultManager = nil;
+    NSString        *keyWord = nil;
+    
+    do{
+        defaultManager= [SearchManager defaultSearchManager];
+        break_if(defaultManager == nil)
+        
+        keyWord = mSearchBar.text;
+        break_if(keyWord == nil);
+        
+        if (mCurSearchKind == SearchKindWine) {
+            defaultManager.searchType = SearchType_WineList;
+            [defaultManager startSearchWithKeyword:keyWord withType:SearchType_WineList withPage:2];
+        }
+        else if (mCurSearchKind == SearchKindPlace)
+        {
+            defaultManager.searchType = SearchType_WineryList;
+        }
+        else if (mCurSearchKind == SearchKindUser)
+        {
+            
+        }
+        
+        
+    }while(0);
 }
 
 #pragma mark -

@@ -43,7 +43,12 @@
 }
 
 #pragma mark -
-#pragma mark NSURLConnection
+#pragma mark Public
+
+- (void)cancel
+{
+	[self clear];
+}
 
 - (BOOL)sendRequestWithServerURL:(NSString *)serverURL SearchString:(NSString *)searchString 
 {
@@ -81,6 +86,9 @@
     
 	return iProessSucess;
 }
+
+#pragma mark -
+#pragma mark NSURLConnection
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -202,14 +210,6 @@
 	
 	[pool release];
 	pool = nil;
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)cancel
-{
-	[self clear];
 }
 
 #pragma mark -
