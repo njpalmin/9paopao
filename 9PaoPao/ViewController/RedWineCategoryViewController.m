@@ -75,7 +75,7 @@
         // ---------------tableView-------------
         tableviewFrame = bounds;
         
-        mTableView = [[UITableView alloc] initWithFrame:tableviewFrame style:UITableViewStyleGrouped];       
+        mTableView = [[UITableView alloc] initWithFrame:tableviewFrame style:UITableViewStylePlain];       
         mTableView.autoresizesSubviews = YES;
         mTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		mTableView.backgroundColor = [UIColor clearColor];
@@ -156,11 +156,16 @@
     cell.textLabel.text = [contentArray objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     
+    UIImageView *backgroundView = nil;
     if (indexPath.row % 2) {
-        cell.backgroundColor = [UIColor lightGrayColor];
+        //cell.backgroundColor = [UIColor lightGrayColor];
+        backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grey-bg.png"]] autorelease];
     }else{
-        cell.backgroundColor = [UIColor colorWithRed:190.0 green:190.0 blue:190.0 alpha:1.0];
+        //cell.backgroundColor = [UIColor colorWithRed:190.0 green:190.0 blue:190.0 alpha:1.0];
+        backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"white-bg.png"]] autorelease];
     }
+    backgroundView.frame = CGRectMake(-5, 0, 330, RedWineCategoryRowHeight);
+    cell.backgroundView = backgroundView;
     
     return cell;
 }
