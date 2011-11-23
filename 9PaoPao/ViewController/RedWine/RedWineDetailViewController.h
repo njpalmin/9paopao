@@ -11,12 +11,18 @@
 
 @interface RedWineDetailViewController : UIViewController {
 
+	UITableView     *mTableView;
+    UIView          *mHeaderView;
+	UIView			*mFooterView;
+    UIButton        *mCollectionBtn;
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar;
+- (BOOL)prepareHeaderView;
+- (BOOL)prepareFooterView;
 
 #pragma mark -
 #pragma mark Action
