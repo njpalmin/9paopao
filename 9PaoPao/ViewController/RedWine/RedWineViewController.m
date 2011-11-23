@@ -166,14 +166,21 @@
     
     leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
     
-    //self.navigationItem.leftBarButtonItem = leftItem;
-    
+    self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.title = NSLocalizedString(@"Red Wine Area Title", nil);
     
     [leftItem release];
     leftItem = nil;
     
     return YES;
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

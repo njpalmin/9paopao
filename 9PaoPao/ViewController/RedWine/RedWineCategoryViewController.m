@@ -8,6 +8,7 @@
 
 #import "RedWineCategoryViewController.h"
 #import "PaoPaoCommon.h"
+#import "RedWineListViewController.h"
 
 #define RedWineCategoryRowHeight        30
 #define RedWineCategoryHeaderHeight     30
@@ -181,6 +182,14 @@
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+	
+	RedWineListViewController	*controller = nil;
+	
+	controller = [[RedWineListViewController alloc] init];
+	[self.navigationController pushViewController:controller animated:YES];
+	
+	[controller release];
+	controller = nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -225,14 +234,21 @@
     
     leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
     
-    //self.navigationItem.leftBarButtonItem = leftItem;
-    
+    self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.title = NSLocalizedString(@"Red Wine Area Title", nil);
     
     [leftItem release];
     leftItem = nil;
     
     return YES;
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

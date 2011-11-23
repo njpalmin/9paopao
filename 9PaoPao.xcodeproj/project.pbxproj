@@ -200,6 +200,8 @@
 		4B3932E7147A94C9000027CF /* WineryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932E6147A94C9000027CF /* WineryInfo.m */; };
 		4B3932EA147A94F6000027CF /* RegionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932E9147A94F6000027CF /* RegionInfo.m */; };
 		4B3932ED147A9520000027CF /* CountryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932EC147A9520000027CF /* CountryInfo.m */; };
+		4B6BA136147D43A400117B93 /* RedWineListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BA135147D43A400117B93 /* RedWineListViewController.m */; };
+		4B6BA14B147D493900117B93 /* RedWineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BA14A147D493900117B93 /* RedWineDetailViewController.m */; };
 		4BE89359147033A000E351B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE89358147033A000E351B4 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -465,6 +467,10 @@
 		4B3932E9147A94F6000027CF /* RegionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionInfo.m; sourceTree = "<group>"; };
 		4B3932EB147A9520000027CF /* CountryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryInfo.h; sourceTree = "<group>"; };
 		4B3932EC147A9520000027CF /* CountryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryInfo.m; sourceTree = "<group>"; };
+		4B6BA134147D43A400117B93 /* RedWineListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedWineListViewController.h; sourceTree = "<group>"; };
+		4B6BA135147D43A400117B93 /* RedWineListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedWineListViewController.m; sourceTree = "<group>"; };
+		4B6BA149147D493900117B93 /* RedWineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedWineDetailViewController.h; sourceTree = "<group>"; };
+		4B6BA14A147D493900117B93 /* RedWineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedWineDetailViewController.m; sourceTree = "<group>"; };
 		4BE89358147033A000E351B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -804,6 +810,10 @@
 				3396CE5D147D0C2F0035EF28 /* RedWineCategoryViewController.m */,
 				3396CE5E147D0C2F0035EF28 /* RedWineViewController.h */,
 				3396CE5F147D0C2F0035EF28 /* RedWineViewController.m */,
+				4B6BA134147D43A400117B93 /* RedWineListViewController.h */,
+				4B6BA135147D43A400117B93 /* RedWineListViewController.m */,
+				4B6BA149147D493900117B93 /* RedWineDetailViewController.h */,
+				4B6BA14A147D493900117B93 /* RedWineDetailViewController.m */,
 			);
 			path = RedWine;
 			sourceTree = "<group>";
@@ -1320,6 +1330,8 @@
 				3396CEC4147D0CCB0035EF28 /* MainViewCell.m in Sources */,
 				3396CEC5147D0CCB0035EF28 /* UserResultViewCell.m in Sources */,
 				3396CEC6147D0CCB0035EF28 /* WineDetailView.m in Sources */,
+				4B6BA136147D43A400117B93 /* RedWineListViewController.m in Sources */,
+				4B6BA14B147D493900117B93 /* RedWineDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
