@@ -25,6 +25,7 @@
 		310707E31470BD970076C096 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E21470BD970076C096 /* CommentViewController.m */; };
 		310707E91470BDAD0076C096 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E61470BDAD0076C096 /* ScoreView.m */; };
 		310707EA1470BDAD0076C096 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 310707E81470BDAD0076C096 /* ToolBarView.m */; };
+		31A89FB2147D0A0D004943CD /* DrinkTrackerRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A89FB1147D0A0D004943CD /* DrinkTrackerRecordViewController.m */; };
 		3316CDDB1479EBCF00C3501B /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDD61479EBCF00C3501B /* CoreLocationService.m */; };
 		3316CDDC1479EBCF00C3501B /* SearchCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDD81479EBCF00C3501B /* SearchCore.m */; };
 		3316CDDD1479EBCF00C3501B /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDDA1479EBCF00C3501B /* SearchManager.m */; };
@@ -238,6 +239,8 @@
 		310707E61470BDAD0076C096 /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreView.m; sourceTree = "<group>"; };
 		310707E71470BDAD0076C096 /* ToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarView.h; sourceTree = "<group>"; };
 		310707E81470BDAD0076C096 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
+		31A89FB0147D0A0D004943CD /* DrinkTrackerRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkTrackerRecordViewController.h; sourceTree = "<group>"; };
+		31A89FB1147D0A0D004943CD /* DrinkTrackerRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkTrackerRecordViewController.m; sourceTree = "<group>"; };
 		3316CDD51479EBCF00C3501B /* CoreLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationService.h; sourceTree = "<group>"; };
 		3316CDD61479EBCF00C3501B /* CoreLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationService.m; sourceTree = "<group>"; };
 		3316CDD71479EBCF00C3501B /* SearchCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCore.h; sourceTree = "<group>"; };
@@ -583,6 +586,15 @@
 			name = "search-nearby";
 			sourceTree = "<group>";
 		};
+		31A89FAE147D09EF004943CD /* drink-tracker */ = {
+			isa = PBXGroup;
+			children = (
+				31A89FB0147D0A0D004943CD /* DrinkTrackerRecordViewController.h */,
+				31A89FB1147D0A0D004943CD /* DrinkTrackerRecordViewController.m */,
+			);
+			name = "drink-tracker";
+			sourceTree = "<group>";
+		};
 		3316CDDE1479EC1200C3501B /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -885,6 +897,7 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				31A89FAE147D09EF004943CD /* drink-tracker */,
 				31A824A8147B698200B40642 /* search-nearby */,
 				3316CE7E1479EC3200C3501B /* LatestOfferViewController.h */,
 				3316CE7F1479EC3200C3501B /* LatestOfferViewController.m */,
@@ -1258,6 +1271,7 @@
 				4B3932ED147A9520000027CF /* CountryInfo.m in Sources */,
 				208BFFBF147BD1980066D8CC /* BarCommentDetailViewController.m in Sources */,
 				208BFFC3147BD94D0066D8CC /* BarComment.m in Sources */,
+				31A89FB2147D0A0D004943CD /* DrinkTrackerRecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
