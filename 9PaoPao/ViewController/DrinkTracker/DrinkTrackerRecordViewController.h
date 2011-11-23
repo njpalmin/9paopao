@@ -12,6 +12,8 @@
 #import "LocationManager.h"
 #import "ScoreView.h"
 
+@class SearchNearbyViewController;
+
 @interface DrinkTrackerRecordViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,
 UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerControllerDelegate> {
     UIScrollView		*scrollView;
@@ -27,6 +29,11 @@ UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerCo
     UIButton            *drinkBtn;
     
     CGFloat             yHeight;
+    
+    UIImageView *leftWineView;
+    
+    SearchNearbyViewController *wineViewController;
+    SearchNearbyViewController *placeViewController;
 }
 -(void)addTooBarOnKeyboard;
 -(void)hideEj;

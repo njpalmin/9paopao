@@ -9,7 +9,7 @@
 
 #import "DrinkTrackerRecordViewController.h"
 #import "PaoPaoCommon.h"
-
+#import "SearchNearbyViewController.h"
 
 @implementation DrinkTrackerRecordViewController
 
@@ -24,13 +24,14 @@
 
 - (void)dealloc
 {
+    [wineViewController release];
+    [placeViewController release];
     [scoreView release];
     [toolBarView release];
     [emojiView release];
     [commentsText release];
     [scrollView release];
     [placeBtn release];
-    [drinkBtn release];
     [super dealloc];
 }
 
@@ -75,7 +76,7 @@
     self.navigationItem.title = @"品酒记录";
     
     drinkBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-    [drinkBtn setFrame:CGRectMake(3, 5, 314, 30)];
+    [drinkBtn setFrame:CGRectMake(3, 3, 314, 30)];
     [drinkBtn setTitle:@"你最喜欢喝什么酒" forState:UIControlStateNormal];
     drinkBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     [drinkBtn addTarget:self action:@selector(clickFavoriteDrink:) forControlEvents:UIControlEventTouchUpInside];
@@ -83,7 +84,7 @@
     [scrollView addSubview:drinkBtn];
     
     placeBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-    [placeBtn setFrame:CGRectMake(3, 40, 314, 30)];    
+    [placeBtn setFrame:CGRectMake(3, 37, 314, 30)];    
     [placeBtn setTitle:@"你最喜欢喝什么酒" forState:UIControlStateNormal];
     placeBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     [placeBtn addTarget:self action:@selector(clickFavoritePlace:) forControlEvents:UIControlEventTouchUpInside];
@@ -107,7 +108,7 @@
 
 -(void)presentSearchViewWithTitle:(NSString *)title
 {
-    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 30)];  
+    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 480-216-30, 320, 30)];  
     [topView setBarStyle:UIBarStyleBlack];  
     
     UISearchBar *searchbar = [[UISearchBar alloc] initWithFrame:topView.frame];
@@ -118,6 +119,123 @@
     [self.view addSubview:topView];
     [topView release];
     topView = nil;
+    if ([title isEqualToString:@"search my favorite wine"]) {
+        wineViewController = [[SearchNearbyViewController alloc] init];
+        wineViewController.view.frame = CGRectMake(0, 480, 320, 216);
+        [self.view addSubview:wineViewController.view];
+        
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        wineViewController.view.frame = CGRectMake(0, 480 -216, 320, 216);
+        [UIView commitAnimations];
+    }
+    if ([title isEqualToString:@"search my favorite place"]) {
+        placeViewController = [[SearchNearbyViewController alloc] init];
+        placeViewController.view.frame = CGRectMake(0, 480, 320, 216);
+        [self.view addSubview:wineViewController.view];
+        
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        placeViewController.view.frame = CGRectMake(0, 480 -216, 320, 216);
+        [UIView commitAnimations];
+    }
+   
+}
+
+#pragma mark -
+#pragma mark - wineViewController Delegate
+-(void)drawWineViewWithDictionary:(NSDictionary *)dic
+{
+    NSString *imageName = [dic objectForKey:@"imageName"];
+    NSString *wineName  = [dic objectForKey:@"wineName"];
+    NSString *originePlace = [dic objectForKey:@"originPlace"];
+    NSString *price = [dic objectForKey:@"price"];
+    
+    leftWineView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    leftWineView.frame = CGRectMake(3, 3, 74, 72);
+    
+    UILabel *winelabel = [[UILabel alloc] initWithFrame:CGRectMake(leftWineView.frame.origin.x+leftWineView.frame.size.width +10, leftWineView.frame.origin.y, 320 - (leftWineView.frame.origin.x+leftWineView.frame.size.width +10), leftWineView.frame.size.height/3)];
+    winelabel.textAlignment = UITextAlignmentLeft;
+    winelabel.text = wineName;
+    
+    UILabel *placelabel = [[UILabel alloc] initWithFrame:CGRectMake(winelabel.frame.origin.x, winelabel.frame.origin.y + winelabel.frame.size.height, 320 - winelabel.frame.origin.x, 2*leftWineView.frame.size.height/3)];
+    placelabel.textAlignment = UITextAlignmentLeft;
+    placelabel.text = originePlace;
+    
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(placelabel.frame.origin.x, placelabel.frame.origin.y + placelabel.frame.size.height, 320 - placelabel.frame.origin.x, 3*leftWineView.frame.size.height/3)];
+    priceLabel.textAlignment = UITextAlignmentLeft;
+    priceLabel.text = price;
+    
+    [drinkBtn removeFromSuperview];
+    [drinkBtn release];
+    drinkBtn = nil;
+    
+    [scrollView addSubview:winelabel];
+    [scrollView addSubview:placelabel];
+    [scrollView addSubview:priceLabel];
+    [scrollView addSubview:leftWineView];
+    
+    [self prepareCommentViewWithHeight:(leftWineView.frame.origin.y+leftWineView.frame.size.height)];
+    
+    [winelabel release];
+    winelabel = nil;
+    [placelabel release];
+    winelabel = nil;
+    [priceLabel release];
+    placelabel = nil;
+    [leftWineView release];
+    leftWineView = nil;
+    
+ 
+}
+
+#pragma mark -
+#pragma mark - placeViewController Delegate
+-(void)drawPlaceViewWithDictionary:(NSDictionary *)dic
+{
+    NSString *imageName = [dic objectForKey:@"imageName"];
+    NSString *wineName  = [dic objectForKey:@"wineName"];
+    NSString *originePlace = [dic objectForKey:@"originPlace"];
+    NSString *price = [dic objectForKey:@"price"];
+    
+    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    
+    if (drinkBtn) {
+        leftImageView.frame = CGRectMake(3,drinkBtn.frame.origin.y+drinkBtn.frame.size.height+ 3, 74, 72);
+    }else if(leftWineView){
+        leftImageView.frame = CGRectMake(3,leftWineView.frame.origin.y+leftWineView.frame.size.height+ 3, 74, 72);
+    }
+    
+    UILabel *winelabel = [[UILabel alloc] initWithFrame:CGRectMake(leftImageView.frame.origin.x+leftImageView.frame.size.width +10, leftImageView.frame.origin.y, 320 - (leftImageView.frame.origin.x+leftImageView.frame.size.width +10), leftImageView.frame.size.height/3)];
+    winelabel.textAlignment = UITextAlignmentLeft;
+    winelabel.text = wineName;
+    
+    UILabel *placelabel = [[UILabel alloc] initWithFrame:CGRectMake(winelabel.frame.origin.x, winelabel.frame.origin.y + winelabel.frame.size.height, 320 - winelabel.frame.origin.x, 2*leftImageView.frame.size.height/3)];
+    placelabel.textAlignment = UITextAlignmentLeft;
+    placelabel.text = originePlace;
+    
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(placelabel.frame.origin.x, placelabel.frame.origin.y + placelabel.frame.size.height, 320 - placelabel.frame.origin.x, 3*leftImageView.frame.size.height/3)];
+    priceLabel.textAlignment = UITextAlignmentLeft;
+    priceLabel.text = price;
+    
+    [placeBtn removeFromSuperview];
+    [scrollView addSubview:winelabel];
+    [scrollView addSubview:placelabel];
+    [scrollView addSubview:priceLabel];
+    [scrollView addSubview:leftImageView];
+    
+    [self prepareCommentViewWithHeight:(leftImageView.frame.origin.y+leftImageView.frame.size.height)];
+    
+    [winelabel release];
+    winelabel = nil;
+    [placelabel release];
+    winelabel = nil;
+    [priceLabel release];
+    placelabel = nil;
+    [leftImageView release];
+    leftImageView = nil;
 }
 
 -(void)prepareCommentViewWithHeight:(CGFloat)yPosition
@@ -159,7 +277,7 @@
 
 -(void)addTooBarOnKeyboard
 {
-    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 30)];  
+    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 480-216, 320, 30)];  
     [topView setBarStyle:UIBarStyleBlack];  
     
     //UIBarButtonItem * helloButton = [[UIBarButtonItem alloc]initWithTitle:@"Hello" style:UIBarButtonItemStyleBordered target:self action:nil];  
