@@ -1417,7 +1417,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1453,7 +1453,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.3;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
