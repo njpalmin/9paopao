@@ -22,6 +22,7 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)setStarNum:(NSInteger)starNum;
+- (void)setDisplayScoreNumStarNum:(NSInteger)starNum;
+- (void)setOnlyLightStar:(NSInteger)starNum;
 
 @end

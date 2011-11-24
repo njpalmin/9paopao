@@ -49,6 +49,10 @@
 
 - (void)dealloc
 {
+    if(mUserInfos){
+        [mUserInfos release];
+        mUserInfos = nil;
+    }
     [super dealloc];
 }
 

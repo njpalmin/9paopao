@@ -111,6 +111,7 @@
 		3316CEBD147A306300C3501B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEB6147A306300C3501B /* SBJsonParser.m */; };
 		3316CEBE147A306300C3501B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CEB8147A306300C3501B /* SBJsonWriter.m */; };
 		333709281471099A0027CE89 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 333709271471099A0027CE89 /* LocationManager.m */; };
+		3359509F147E15B100BC7395 /* RedWineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3359509E147E15B100BC7395 /* RedWineInfoView.m */; };
 		33708193146938CD004B2645 /* PaoPaoCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 33708192146938CD004B2645 /* PaoPaoCommon.m */; };
 		3396CE78147D0C2F0035EF28 /* DrinkTrackerRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3396CE54147D0C2F0035EF28 /* DrinkTrackerRecordViewController.m */; };
 		3396CE79147D0C2F0035EF28 /* LatestOfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3396CE57147D0C2F0035EF28 /* LatestOfferViewController.m */; };
@@ -338,6 +339,8 @@
 		3316CEB8147A306300C3501B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		333709261471099A0027CE89 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		333709271471099A0027CE89 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		3359509D147E15B100BC7395 /* RedWineInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedWineInfoView.h; sourceTree = "<group>"; };
+		3359509E147E15B100BC7395 /* RedWineInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedWineInfoView.m; sourceTree = "<group>"; };
 		33708191146938CD004B2645 /* PaoPaoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoCommon.h; sourceTree = "<group>"; };
 		33708192146938CD004B2645 /* PaoPaoCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaoPaoCommon.m; sourceTree = "<group>"; };
 		3370819414693997004B2645 /* PaoPaoConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaoPaoConstant.h; sourceTree = "<group>"; };
@@ -873,6 +876,8 @@
 				3396CEAC147D0CCB0035EF28 /* ToolBarView.m */,
 				3396CEAD147D0CCB0035EF28 /* UserInfoView.h */,
 				3396CEAE147D0CCB0035EF28 /* UserInfoView.m */,
+				3359509D147E15B100BC7395 /* RedWineInfoView.h */,
+				3359509E147E15B100BC7395 /* RedWineInfoView.m */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -1332,6 +1337,7 @@
 				3396CEC6147D0CCB0035EF28 /* WineDetailView.m in Sources */,
 				4B6BA136147D43A400117B93 /* RedWineListViewController.m in Sources */,
 				4B6BA14B147D493900117B93 /* RedWineDetailViewController.m in Sources */,
+				3359509F147E15B100BC7395 /* RedWineInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

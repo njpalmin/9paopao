@@ -9,6 +9,9 @@
 #import "RedWineDetailViewController.h"
 #import "PaoPaoCommon.h"
 
+#define DetailDescriptionTitleTag   133
+#define WhereEnjoyWineTitleTag      134
+
 @implementation RedWineDetailViewController
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -85,6 +88,42 @@
 
 
 - (void)dealloc {
+
+    if (mTableView) {
+        [mTableView release];
+        mTableView = nil;
+    }
+    
+    if (mHeaderView) {
+        [mHeaderView release];
+        mHeaderView = nil;
+    }
+    
+    if (mFooterView) {
+        [mFooterView release];
+        mFooterView = nil;
+    }
+    
+    if (mCollectionBtn) {
+        [mCollectionBtn release];
+        mCollectionBtn = nil;
+    }
+    
+    if (mRedWineBasicInfo) {
+        [mRedWineBasicInfo release];
+        mRedWineBasicInfo = nil;
+    }
+    
+    if (mToolBarView) {
+        [mToolBarView release];
+        mToolBarView = nil;
+    }
+    
+    if (mMapView) {
+        [mMapView release];
+        mMapView = nil;
+    }
+    
     [super dealloc];
 }
 
@@ -93,7 +132,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section
@@ -115,7 +154,47 @@
             break_if(cell == nil);
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		
+        
+        if (indexPath.section == 0) {
+            
+            [[cell viewWithTag:DetailDescriptionTitleTag] removeFromSuperview];
+            
+            CGFloat     xPos = 10;
+            CGFloat     yPos = 5;
+            UILabel     *detailDescrip = nil;
+            
+            detailDescrip = [[UILabel alloc] initWithFrame:CGRectMake(xPos, yPos, 250, 2*WineDetailInfoLabelHeight)];
+            detailDescrip.textColor = [UIColor blackColor];
+            detailDescrip.backgroundColor = [UIColor clearColor];
+            detailDescrip.text = NSLocalizedString(@"Detail Description:", nil);
+            detailDescrip.tag = DetailDescriptionTitleTag;
+            
+            [cell.contentView addSubview:detailDescrip];
+            
+            [detailDescrip release];
+            detailDescrip = nil;
+        }
+        
+        if (indexPath.section == 1) {
+            
+            [[cell viewWithTag:WhereEnjoyWineTitleTag] removeFromSuperview];
+
+            CGFloat     xPos = 10;
+            CGFloat     yPos = 5;
+            UILabel     *whereEnjoy = nil;
+            
+            whereEnjoy = [[UILabel alloc] initWithFrame:CGRectMake(xPos, yPos, 250, 2*WineDetailInfoLabelHeight)];
+            whereEnjoy.textColor = [UIColor blackColor];
+            whereEnjoy.backgroundColor = [UIColor clearColor];
+            whereEnjoy.text = NSLocalizedString(@"Where enjoy this wine:", nil);
+            whereEnjoy.tag = WhereEnjoyWineTitleTag;
+            
+            [cell.contentView addSubview:whereEnjoy];
+            
+            [whereEnjoy release];
+            whereEnjoy = nil;
+        }
+        
 	} while (0);
     
     return cell;
@@ -133,28 +212,76 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 500;
+	return 200;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return mHeaderView.frame.size.height;
+    if (section == 0) {
+        return mHeaderView.frame.size.height;
+    }
+    return 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	return mHeaderView;
+    if (section == 0) {
+        return mHeaderView;
+    }
+	return nil;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 500;
+    if (section == 1) {
+        return mFooterView.frame.size.height;
+    }
+    return 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {	
-	return mFooterView;
+    if (section == 1) {
+        return mFooterView;
+    }
+	return nil;
+}
+
+#pragma mark -
+#pragma mark MapIconViewDelegate
+
+- (void)mapIconViewDisplayDetailMap:(MapIconView *)mapView;
+{
+    
+}
+
+#pragma mark -
+#pragma mark ToolBarViewDelegate
+
+-(void)locateMySelf
+{
+    
+}
+
+-(void)takePhoto
+{
+    
+}
+
+-(void)inputPoundSign
+{
+    
+}
+
+-(void)follow
+{
+    
+}
+
+-(void)showEmotion
+{
+    
 }
 
 #pragma mark -
@@ -189,130 +316,56 @@
 - (BOOL)prepareHeaderView
 {
 	UIView			*headerView = nil;
-	UILabel			*markRecord = nil;
-	CGFloat			xPos = 10;
+	CGFloat			xPos = 0;
     
 	headerView = [[UIView alloc] init];
     
-    mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"follow.png" highlightName:nil action:@selector(procAttentionBtn:) target:self] retain];
+    mRedWineBasicInfo = [[RedWineInfoView alloc] init];
+    mRedWineBasicInfo.frame = CGRectMake(xPos, 0, 320, 17*WineDetailInfoLabelHeight);
+    [headerView addSubview:mRedWineBasicInfo];
+    
+    mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"follow.png" highlightName:nil action:@selector(procCollectionBtn:) target:self] retain];
     mCollectionBtn.frame = CGRectMake(220, 40, SearchKindBtnWidth, SearchKindBtnHeight);
     [headerView addSubview:mCollectionBtn];
 	
-    headerView.frame = CGRectMake(0, 0, 320, WineDetailInfoLabelHeight);
+    headerView.frame = CGRectMake(0, 0, 320, 17*WineDetailInfoLabelHeight);
 	
 	mHeaderView = [headerView retain];
 	mHeaderView.backgroundColor = [UIColor clearColor];
+    
+    [headerView release];
+    headerView = nil;
     
     return YES;
 }
 
 - (BOOL)prepareFooterView
 {
-	/*
 	UIView			*footView = nil;
-	UIImageView		*winePlaceView = nil;
-	UILabel			*whereWine = nil;
-	UILabel			*placeInfo = nil;
 	CGFloat			yPos = 5;
 	CGFloat			xPos = 10;
 	
 	footView = [[UIView alloc] init];
+		
+	mMapView = [[MapIconView alloc] initWithFrame:CGRectMake(xPos, yPos, 300, 200)];
+	mMapView.delegate = self;
+    	
+	yPos += 200;
+    mToolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(xPos, yPos, 300, 30)];
+    mToolBarView.delegate = self;
+	    
+    yPos += 30;
 	
-	//----------place info-----------
-	winePlaceView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar-info-bg.png"]] autorelease];
-	winePlaceView.frame = CGRectMake(xPos, yPos, 180, WinePlaceViewHeight);
-	
-	whereWine = [[UILabel alloc] initWithFrame:CGRectMake(xPos, 5, 150, WineDetailInfoLabelHeight)];
-	[whereWine setTextColor:[UIColor redColor]];
-	[whereWine setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
-	[whereWine setText:NSLocalizedString(@"Where Drink Wine", nil)];
-	[winePlaceView addSubview:whereWine];
-	
-	placeInfo = [[UILabel alloc] initWithFrame:CGRectMake(xPos, 5+WineDetailInfoLabelHeight, 170, 4*WineDetailInfoLabelHeight)];
-	[placeInfo setTextColor:[UIColor blackColor]];
-	[placeInfo setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
-	[placeInfo setBackgroundColor:[UIColor clearColor]];
-	[placeInfo setText:@"餐厅/酒吧名称：红酒\n地址：中国\n联系信息：027－88888888"];
-	placeInfo.numberOfLines = 4;
-	[winePlaceView addSubview:placeInfo];
-	
-	[whereWine release];
-	whereWine = nil;
-	
-	[placeInfo release];
-	placeInfo = nil;
-	//----------place info-----------
-	
-	//----------map view-------------
-	MapIconView		*mapView = nil;
-	
-	mapView = [[[MapIconView alloc] initWithFrame:CGRectMake(210, yPos, WinePlaceViewHeight, WinePlaceViewHeight)] autorelease];
-	mapView.delegate = self;
-	//----------map view-------------
-	
-	yPos += WinePlaceViewHeight + FooterViewPadding;
-	
-	//----------user view-------------
-    
-    UserInfoView    *userView = nil;
-    
-    userView = [[[UserInfoView alloc] init] autorelease];
-    userView.frame = CGRectMake(xPos, yPos, 300, 0);
-    [userView setUserInfos:nil];
-    //----------user view-------------
-	
-	yPos += userView.frame.size.height + FooterViewPadding;
-	
-	//--------
-	StarMarkView *markView = [[[StarMarkView alloc] initWithFrame:CGRectMake(xPos+30, yPos+12, 0, 0) withStarNum:3] autorelease];
-	ThumbMarkView	*thumbView = [[[ThumbMarkView alloc] initWithFrame:CGRectMake(150, yPos, 0, 0) withGoodNum:10 withBadNum:0] autorelease];
-	//--------
-	
-	yPos += 50;
-	
-	//----------
-	UIButton	*button = nil;
-	UIButton	*commentBtn = nil;
-	
-	button = [PaoPaoCommon getBarButtonWithTitle:@"上传照片1" imageName:@"upload.png" highlightedImageName:nil action:@selector(procUploadBtn:) target:self];
-    button.frame = CGRectMake(xPos, yPos, SearchKindBtnWidth, SearchKindBtnHeight);
-	
-	commentBtn = [PaoPaoCommon getBarButtonWithTitle:@"编辑评论" imageName:@"upload.png" highlightedImageName:nil action:@selector(procEditCommentBtn:) target:self];
-    commentBtn.frame = CGRectMake(xPos+SearchKindBtnWidth+10, yPos, SearchKindBtnWidth, SearchKindBtnHeight);
-	
-	//----------
-	
-	yPos += 30;
-	
-	//------------
-	mUploadImage = [[UIImageView alloc] initWithFrame:CGRectMake(xPos, yPos, 0, 0)];
-	//------------
-    
-    //--------comment View start-------------
-    [self prepareCommentViewOnView:footView withHeight:yPos];
-	//    CommentViewController *com = [[CommentViewController alloc] init];
-	//    com.view.frame = CGRectMake(0, yPos, 320, 366);
-	//    [footView addSubview:com.view];
-	//    [com release];
-	//    com =nil;
-    //--------comment View end-------------
-	
-	[footView addSubview:winePlaceView];
-	[footView addSubview:userView];
-	[footView addSubview:markView];
-	[footView addSubview:mapView];
-    [footView addSubview:userView];
-	[footView addSubview:thumbView];
-	[footView addSubview:button];
-	[footView addSubview:commentBtn];
-	[footView addSubview:mUploadImage];
+    [footView addSubview:mMapView];
+	[footView addSubview:mToolBarView];
 	
 	mFooterView = [footView retain];
-	mFooterView.frame = CGRectMake(10, 5, 300, 400);
+	mFooterView.frame = CGRectMake(0, 0, 320, yPos);
 	mFooterView.backgroundColor = [UIColor clearColor];
 	
-	//mFooterHeight += 
-	 */
+    [footView release];
+    footView = nil;
+    
     return YES;
 }
 
@@ -322,6 +375,11 @@
 - (void)procReturn:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)procCollectionBtn:(id)sender
+{
+    
 }
 
 @end

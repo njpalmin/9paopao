@@ -59,6 +59,8 @@
     [locationMapView release];
     locationMapView = nil;
     
+    mDelegate = nil;
+    
     [super dealloc];
 }
 

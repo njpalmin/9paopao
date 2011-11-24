@@ -49,6 +49,9 @@
 
 // red wine area
 "Red Wine Area Title" = "红酒区";
+"Quote Recommend:" = "引用推荐：";
+"Detail Description:" = "细节描述：";
+"Where enjoy this wine:" = "哪里可以享用这款酒：";
 
 // Http Error
 "Http Error Title" = "提示";

@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RedWineInfoView.h"
+#import "ToolBarView.h"
+#import "MapIconView.h"
 
-
-@interface RedWineDetailViewController : UIViewController {
+@interface RedWineDetailViewController : UIViewController <MapIconViewDelegate, ToolBarViewDelegate, 
+UITableViewDelegate, UITableViewDataSource>{
 
 	UITableView     *mTableView;
     UIView          *mHeaderView;
 	UIView			*mFooterView;
     UIButton        *mCollectionBtn;
+    
+    RedWineInfoView *mRedWineBasicInfo;
+    ToolBarView     *mToolBarView;
+    MapIconView     *mMapView;
 }
 
 #pragma mark -

@@ -10,6 +10,7 @@
 #import "PaoPaoCommon.h"
 #import "PaoPaoConstant.h"
 #import "WineDetailView.h"
+#import "RedWineDetailViewController.h"
 
 @implementation RedWineListViewController
 
@@ -150,7 +151,14 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-
+    RedWineDetailViewController *controller = nil;
+    
+    controller = [[RedWineDetailViewController alloc] init];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    [controller release];
+    controller = nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
