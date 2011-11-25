@@ -9,6 +9,7 @@
 "Cancel" = "取消";
 "Ok" = "确定";
 "Alert" = "提示";
+"Edit" = "编辑";
 
 // gateway page
 "MostLoveDrinkWine"="我最喜欢喝的酒";
@@ -59,3 +60,6 @@
 "Http Other Error" = "系統繁忙中，請稍候再試!";
 
 "No Result For Search" = "没有检索到符合条件的结果";
+
+// my profile
+"My Profile Title" = "我的资料";
