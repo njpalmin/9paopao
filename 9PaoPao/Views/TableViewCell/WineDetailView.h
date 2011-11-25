@@ -21,7 +21,11 @@
 }
 
 @property(nonatomic, retain)WineDetailInfo  *wineDetailInfo;
-
+@property(nonatomic, retain)UILabel		*mWineName;
+@property(nonatomic, retain)UILabel		*mWineProductDay;
+@property(nonatomic, retain)UILabel		*mWineProductPlace;
+@property(nonatomic, retain)UILabel		*mWineKind;
+@property(nonatomic, retain)UILabel		*mWinePrice;
 #pragma mark -
 #pragma mark Public
 

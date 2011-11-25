@@ -17,7 +17,7 @@
 
 @implementation WineDetailView
 
-@synthesize wineDetailInfo;
+@synthesize wineDetailInfo,mWineKind,mWineName,mWinePrice,mWineProductDay,mWineProductPlace;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     

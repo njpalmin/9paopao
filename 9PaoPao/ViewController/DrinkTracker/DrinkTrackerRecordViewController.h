@@ -11,11 +11,11 @@
 #import "EmojiView.h"
 #import "LocationManager.h"
 #import "ScoreView.h"
-
-@class SearchNearbyViewController;
+#import "RedWineListViewController.h"
+#import "SearchManager.h"
 
 @interface DrinkTrackerRecordViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,
-UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerControllerDelegate> {
+UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerControllerDelegate,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,SearchManagerDelegate> {
     UIScrollView		*scrollView;
     UITextView			*commentsText;
     
@@ -29,11 +29,23 @@ UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerCo
     UIButton            *drinkBtn;
     
     CGFloat             yHeight;
+    UIImageView         *firstWineView;
+    UIImageView         *secondImageView;
+        
+    UILabel     *scoreLabel;
+    UILabel     *commentsLabel;
+    UISearchBar *searchbar;
     
-    UIImageView *leftWineView;
+    UILabel *sWinelabel;
+    UILabel *sPlacelabel;
+    UILabel *sPriceLabel;
     
-    SearchNearbyViewController *wineViewController;
-    SearchNearbyViewController *placeViewController;
+    UIView          *touchView;
+    BOOL            isKeyBoardUp;
+    
+    UITableView     *_table;
+    NSMutableArray  *searchWineResult;
+    NSMutableArray  *searchPlaceResult;
 }
 -(void)addTooBarOnKeyboard;
 -(void)hideEj;
@@ -42,15 +54,18 @@ UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerCo
 -(void)hideKeyBoard;
 -(void)prepareCommentViewWithHeight:(CGFloat)yPosition;
 
--(void)presentSearchViewWithTitle:(NSString *)title;
+-(void)presentSearchViewWithTag:(int)tag;
+-(void)dismissSearchViewWithTag:(int)tag;
 
--(UIView *)initWineInfoWithImageName:(NSString *)imageName 
-                         andWineName:(NSString *)wineName 
-                      andOriginPlace:(NSString *)place 
-                            andPrice:(NSString *)price;
+- (void)startSearching;
 
--(UIView *)initWineInfoWithImageName:(NSString *)imageName 
-                          andBarName:(NSString *)wineName 
-                            andPlace:(NSString *)place 
-                      andPhoneNumber:(NSString *)number;
+//-(UIView *)initWineInfoWithImageName:(NSString *)imageName 
+//                         andWineName:(NSString *)wineName 
+//                      andOriginPlace:(NSString *)place 
+//                            andPrice:(NSString *)price;
+//
+//-(UIView *)initWineInfoWithImageName:(NSString *)imageName 
+//                          andBarName:(NSString *)wineName 
+//                            andPlace:(NSString *)place 
+//                      andPhoneNumber:(NSString *)number;
 @end

@@ -134,8 +134,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    MainViewCell *cell = [[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    static NSString *identifier = @"homeCell";
+    MainViewCell *cell = nil;
+    cell = (MainViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
     cell.delegate = self;
     for (int i = 0; i<3; i++) {
         position ++;
