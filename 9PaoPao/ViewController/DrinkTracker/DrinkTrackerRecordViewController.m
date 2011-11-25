@@ -106,6 +106,12 @@
     leftItem = nil;
     
     self.navigationItem.title = @"品酒记录";
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif 
     
     drinkBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [drinkBtn setFrame:CGRectMake(3, 3, 314, 30)];

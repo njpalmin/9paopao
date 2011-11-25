@@ -45,6 +45,13 @@
         [[CoreLocationService shareLocationService] startStandardUpdates];
         [CoreLocationService shareLocationService].delegate = self;
     }
+	
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif 
 }
 
 - (void)updateLocationMap:(CLLocationCoordinate2D )location

@@ -67,6 +67,13 @@
     scrollView.userInteractionEnabled = YES;
     [self.view addSubview:scrollView];
     
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif 
+	
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
     self.navigationItem.leftBarButtonItem = leftItem;
     [leftItem release];

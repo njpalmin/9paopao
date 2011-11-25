@@ -71,6 +71,12 @@
     favoriteTable.dataSource = self;
     [self.view addSubview:favoriteTable];
     self.titleLabel.text =  @"告诉9泡泡，我最喜欢...";
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif 
 }
 
 

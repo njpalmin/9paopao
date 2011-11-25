@@ -25,6 +25,13 @@
 {
     self = [super init];
     if (self) {
+		
+#ifdef __IPHONE_5_0 
+		if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+		{
+			[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+		}
+#endif 
         barCommentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
         barCommentTableView.delegate = self;
         barCommentTableView.dataSource = self;

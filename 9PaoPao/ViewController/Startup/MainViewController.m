@@ -55,6 +55,13 @@
     
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif 
+	
     UIBarButtonItem *inviteBtn = [[UIBarButtonItem alloc] initWithTitle:@"邀请" style:UIBarButtonItemStylePlain target:self action:@selector(goToInvite)];
     self.navigationItem.rightBarButtonItem = inviteBtn;
     [inviteBtn release];
