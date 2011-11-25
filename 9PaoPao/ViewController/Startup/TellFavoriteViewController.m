@@ -14,6 +14,7 @@
 @synthesize favoriteTable;
 @synthesize navTitle;
 @synthesize contentArray;
+@synthesize delegate = mDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,7 +58,7 @@
 - (void)loadView
 {
     float width = [[UIScreen  mainScreen] bounds].size.width;
-    float height = [[UIScreen mainScreen] bounds].size.height - 20-44;
+    float height = [[UIScreen mainScreen] bounds].size.height - 20;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     self.view = view;
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
@@ -82,8 +83,11 @@
     [finishBtn setFrame:CGRectMake(5, 9, 60, 26)];
     [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
     [finishBtn addTarget:self action:@selector(procFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
+    //UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
+    UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(procFinishBtn:)];
+
     self.navigationItem.rightBarButtonItem = rItem;
+    self.navigationItem.leftBarButtonItem = nil;
     [rItem release];
     self.titleLabel = titleLabel;
     self.favoriteTable = favoriteTable;
@@ -216,7 +220,7 @@
 
 - (void)procFinishBtn:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:NO];
+    [mDelegate tellFavoriteViewControllerDidFinish:self];
 }
 
 @end

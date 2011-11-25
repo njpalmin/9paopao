@@ -27,6 +27,10 @@
     [mMostLoveBtn release];
     [mSearchBtn release];
     
+    if (mNavigationController) {
+        [mNavigationController release];
+        mNavigationController = nil;
+    }
     [super dealloc];
 }
 
@@ -104,20 +108,66 @@
 }
 
 #pragma mark -
+#pragma mark TellFavoriteViewControllerDelegate
+
+- (void)tellFavoriteViewControllerDidFinish:(TellFavoriteViewController *)controller
+{    
+    [mNavigationController.view removeFromSuperview];
+    [mNavigationController release];
+    mNavigationController = nil;
+    
+    MainSegmentViewController   *mainController = nil;
+    id<AppDelegate>             delegate = nil;
+
+    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
+    mainController = [delegate mainSegmentViewController];
+
+    mainController.view.frame = CGRectMake(0, 0, 320, 460);
+
+    [mainController displayViewControllerWithIndex:0];
+    [self presentModalViewController:mainController animated:NO]; 
+}
+
+#pragma mark -
 #pragma mark Action
 
 - (void)findMostLove:(id)sender
 {
-    MainSegmentViewController   *controller = nil;
-    id<AppDelegate>             delegate = nil;
+    CGRect                      bound;
+    TellFavoriteViewController  *controller = nil;
     
-    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
-    controller = [delegate mainSegmentViewController];
+    bound = [[UIScreen mainScreen] bounds];
     
-    controller.view.frame = CGRectMake(0, 0, 320, 460);
+    // -----init navigationController------
     
-	[controller displayViewControllerWithIndex:0];
-    [self presentModalViewController:controller animated:YES];   
+    if (mNavigationController == nil) {
+        mNavigationController = [[UINavigationController alloc] init];
+        mNavigationController.view.frame = CGRectMake(0, 0, 320, 460);
+    }
+        
+    NSMutableDictionary *beardDic = [[[NSMutableDictionary alloc] init] autorelease];
+    NSMutableDictionary *readWineDic = [[[NSMutableDictionary alloc] init] autorelease];
+    NSMutableDictionary *wine2dDic = [[[NSMutableDictionary alloc] init] autorelease];
+    NSMutableArray      *dicArray = [[[NSMutableArray alloc] init] autorelease];
+    NSArray             *bear = [[[NSArray alloc] initWithObjects:@"啤酒1", @"啤酒2",nil] autorelease];
+    NSArray             *blaceWine = [[[NSArray alloc] initWithObjects:@"红酒1", @"红酒2",nil] autorelease];
+    NSArray             *wine2 = [[[NSArray alloc] initWithObjects:@"鸡尾酒1", @"鸡尾酒2",nil] autorelease];
+
+    [beardDic setObject:bear forKey:@"啤酒"];
+    [readWineDic setObject:blaceWine forKey:@"红酒"];
+    [wine2dDic setObject:wine2 forKey:@"鸡尾酒"];
+    [dicArray addObject:beardDic];
+    [dicArray addObject:readWineDic];
+    [dicArray addObject:wine2dDic];
+    
+    controller = [[TellFavoriteViewController alloc] initWithContentDic:dicArray];
+    controller.delegate = self;
+    [mNavigationController pushViewController:controller animated:NO];
+
+    [self.view addSubview:mNavigationController.view];
+    
+    [controller release];
+    controller = nil;
 }
 
 - (void)searchMostLove:(id)sender

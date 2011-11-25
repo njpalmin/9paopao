@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TellFavoriteViewController.h"
 
-@interface GatewayViewController : UIViewController {
+@interface GatewayViewController : UIViewController<TellFavoriteViewControllerDelegate> {
     
     UIButton                    *mMostLoveBtn;
     UIButton                    *mSearchBtn;
+    UINavigationController      *mNavigationController;
 }
 
 @end
