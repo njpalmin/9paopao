@@ -13,7 +13,8 @@
 #import "PaoPaoCommon.h"
 #import "ThumbMarkView.h"
 
-
+#import "BarCommentDetailViewController.h"
+#import "BarComment.h"
 @implementation BarDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -176,6 +177,18 @@
     return [sectionPaddingView autorelease];
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BarComment *object = [[BarComment alloc] init];
+    object.barName = @"名称：红酒吧";
+    object.barLocation = @"地址：中国北关";
+    object.barContact = @"联系信息：027－888888888";
+    object.barCommentTimes = @"评论次数：15次";
+    object.barCommentScore = @"4";
+    BarCommentDetailViewController *vc = [[BarCommentDetailViewController alloc] initControllerWithBarCommentObject:object];
+    [self.navigationController pushViewController:vc animated:YES];
+    [object release];
+    [vc release];
+}
 
 @end

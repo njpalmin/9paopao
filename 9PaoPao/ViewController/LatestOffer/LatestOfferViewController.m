@@ -10,6 +10,7 @@
 #import "PaoPaoCommon.h"
 #import "LatestOfferObject.h"
 #import "LatestOfferViewCell.h"
+
 @implementation LatestOfferViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -134,6 +135,7 @@
 
 
     LatestOfferObject *object = [latestOfferArray objectAtIndex:[indexPath section]];
+    cell.latestOfferTitleLabel.text = object.latestOfferTitle;
     cell.latestOfferLocationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"latestOfferTitle", nil),object.latestOfferTitle];
     cell.latestOfferLocationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"latestOfferLocation:%@ ", nil),object.latestOfferLocation];
     cell.latestOfferHostLabel.text = [NSString stringWithFormat:NSLocalizedString(@"latestOfferHost:%@", nil),object.latestOfferHost];
@@ -170,6 +172,11 @@
     UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
     sectionPaddingView.backgroundColor = [UIColor clearColor];
     return [sectionPaddingView autorelease];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
 }
 
 @end

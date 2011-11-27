@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class BarComment;
+@class MapViewController;
 @interface BarCommentDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *barCommentTableView;
     BarComment * commentObject;
+    MapViewController *mVC;
 }
 
 - (id)initControllerWithBarCommentObject:(BarComment *)object;

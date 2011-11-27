@@ -11,6 +11,8 @@
 #import "MainViewCell.h"
 #import "RedWineViewController.h"
 #import "PaoPaoCommon.h"
+#import "LatestOfferViewController.h"
+#import "LatestOfferObject.h"
 
 @implementation MainViewController
 @synthesize  _table;
@@ -123,7 +125,7 @@
                                                   [RedWineViewController class],
                                                   [RedWineViewController class],
                                                   [RedWineViewController class],
-                                                  [RedWineViewController class],
+                                                  [LatestOfferViewController class],
                                                   [RedWineViewController class], nil] ];
 
     
@@ -176,11 +178,26 @@
     NSLog(@"click the position: %i",pos);
     
 //    push the controller you need
+    if (pos == 8) {
+        LatestOfferObject *object = [[LatestOfferObject alloc] init];
+        object.latestOfferTitle = @"红酒大促销";
+        object.latestOfferHost = @"波尔多";
+        object.latestOfferLocation = @"波尔多";
+        object.latestOfferComment = @"促销时间2011／9／25";
+        NSArray *array = [[NSArray alloc] initWithObjects:object,object,object,object,object, nil];
+        LatestOfferViewController *latestVC = [[LatestOfferViewController alloc] initControllerWithArray:array];
+        [self.navigationController pushViewController:latestVC animated:YES];
+        [array release];
+        [latestVC release];
+        
+    }else
+    {
     id aClass = [viewControllers objectAtIndex:(pos-1)];
     UIViewController *vCForPush = [[aClass alloc] init];
     [self.navigationController pushViewController:vCForPush animated:YES];
     [vCForPush release];
     vCForPush = nil;
+    }
 }
 
 -(void)goToInvite
