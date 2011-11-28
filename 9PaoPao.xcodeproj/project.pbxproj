@@ -620,6 +620,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		20F257F51483D2A5008DDF7D /* MBProgress */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MBProgress;
+			sourceTree = "<group>";
+		};
 		3316CDDE1479EC1200C3501B /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,6 +1112,7 @@
 		33D4DF7A1467CD5900CFE105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20F257F51483D2A5008DDF7D /* MBProgress */,
 				3396CE9E147D0CCB0035EF28 /* CommonViews */,
 				3396CEAF147D0CCB0035EF28 /* TableViewCell */,
 			);
