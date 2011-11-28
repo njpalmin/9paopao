@@ -206,7 +206,7 @@
     headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, RedWineCategoryHeaderHeight)];
 
     imageView = [[[UIImageView alloc] initWithFrame:headerView.frame] autorelease];
-    imageView.image = [UIImage imageNamed:@"header-bg.png"];
+    imageView.image = [UIImage imageNamed:@"wineheader-bg.png"];
     [headerView addSubview:imageView];
     
     label = [[[UILabel alloc] initWithFrame:headerView.frame] autorelease];
@@ -243,7 +243,7 @@
 #ifdef __IPHONE_5_0 
     if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
     {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header-bg.png"] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"wineheader-bg.png"] forBarMetrics:UIBarMetricsDefault];
     }
 #endif 
 	

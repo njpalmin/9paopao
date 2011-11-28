@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SearchNearbyViewController.h"
 #import "MainViewController.h"
+#import "MyProfileViewController.h"
 
 @interface MainSegmentViewController : UIViewController {
 
@@ -26,6 +27,7 @@
 
     SearchNearbyViewController  *mSearchNearbyViewController;
     MainViewController          *mMainViewController;
+    MyProfileViewController     *mMyProfileViewController;
 
 }
 

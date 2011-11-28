@@ -34,3 +34,13 @@
 #define PPWineryKey                 @"winery"
 #define PPCountryKey                @"country"
 #define PPRegionKey                 @"region"
+
+// wine kind flag
+#define PPRedWineFlag               170
+#define PPBeerFlag                  171
+#define PPCocktailFlag              172
+
+// collection wine key
+#define PPWineKindName              @"PPWineKindName"
+#define PPWineKindFlag              @"PPWineKindFlag"
+#define PPWineKindContent           @"PPWineKindContent"

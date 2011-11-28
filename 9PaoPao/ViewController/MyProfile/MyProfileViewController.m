@@ -11,7 +11,7 @@
 #import "PaoPaoCommon.h"
 #import "WineDetailView.h"
 
-#define UserInfoViewHeight  150
+#define UserInfoViewHeight  85
 
 @implementation MyProfileViewController
 
@@ -62,9 +62,10 @@
         
         break_if(![self prepareNavigationBar]);
         
-        userInfoframe = CGRectMake(0, 0, bounds.size.width, 0);
+        userInfoframe = CGRectMake(10, 0, bounds.size.width, 0);
         mUserInfoView = [[UserInfoView alloc] initWithFrame:userInfoframe];
         [mUserInfoView setUserInfos:nil];
+        [containerView addSubview:mUserInfoView];
         
         [self prepareTabSelectView];
         if (mTabSelectView) {
@@ -90,6 +91,40 @@
         // ---------------tableView-------------
         
         self.view = containerView;
+        
+        // prepare data
+        NSMutableDictionary     *dictionary = nil;
+        NSArray                 *wineData = nil;
+        
+        mCollections = [[NSMutableArray alloc] init];
+        
+        wineData = [[NSArray alloc] initWithObjects:@"鸡尾酒1", @"鸡尾酒2", nil];
+        dictionary = [[NSMutableDictionary alloc] init];
+        [dictionary setObject:@"鸡尾酒" forKey:PPWineKindName];
+        [dictionary setObject:[NSNumber numberWithInt:PPCocktailFlag] forKey:PPWineKindFlag];
+        [dictionary setObject:wineData forKey:PPWineKindContent];
+
+        [mCollections addObject:dictionary];
+        
+        [dictionary release];
+        dictionary = nil;
+        
+        [wineData release];
+        wineData = nil;
+        
+        wineData = [[NSArray alloc] initWithObjects:@"红酒1", @"红酒2", nil];
+        dictionary = [[NSMutableDictionary alloc] init];
+        [dictionary setObject:@"红酒" forKey:PPWineKindName];
+        [dictionary setObject:[NSNumber numberWithInt:PPRedWineFlag] forKey:PPWineKindFlag];
+        [dictionary setObject:wineData forKey:PPWineKindContent];
+
+        [mCollections addObject:dictionary];
+
+        [dictionary release];
+        dictionary = nil;
+        
+        [wineData release];
+        wineData = nil;
         
     }while (0);
 }
@@ -129,21 +164,32 @@
 	}
 	else if (mCurSelectTab == SelectTabCollection)
 	{
-        return 3;
+        return [mCollections count];
 	}
 	return 0;
 }
 
 - (NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if (mCurSelectTab == SelectTabDrinkTracker) {
+		return 1;
+	}
+	else if (mCurSelectTab == SelectTabComment)
+	{
+		return 1;
+	}
+	else if (mCurSelectTab == SelectTabCollection)
+	{
+        return [[[mCollections objectAtIndex:section] objectForKey:PPWineKindContent] count];
+	}
+    return 0;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {	
 	if (mCurSelectTab == SelectTabDrinkTracker) {
 		
-		static NSString		*WineCellIdentifier = @"WineCell";
+		static NSString		*WineCellIdentifier = @"DrinkTracterCell";
 		UIImageView			*accessView = nil;
 		WineDetailView		*cell = nil;
 		
@@ -167,7 +213,7 @@
 	}
 	else if (mCurSelectTab == SelectTabComment)
 	{
-		static NSString		*PlaceCellIdentifier = @"PlaceCell";
+		static NSString		*PlaceCellIdentifier = @"CommentCell";
 		UIImageView			*accessView = nil;
 		// temp test 
 		WineDetailView		*cell = nil;
@@ -192,27 +238,38 @@
 	}
 	else if (mCurSelectTab == SelectTabCollection)
 	{
-		static NSString		*PlaceCellIdentifier = @"PlaceCell";
-		UIImageView			*accessView = nil;
-		// temp test 
-		WineDetailView		*cell = nil;
+		static NSString		*PlaceCellIdentifier = @"CollectionCell";
+		UITableViewCell		*cell = nil;
+        NSArray             *contents = nil;
+        NSNumber            *wineKindFlag = nil;
 		
-		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:PlaceCellIdentifier];
+		cell = [tableView dequeueReusableCellWithIdentifier:PlaceCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:PlaceCellIdentifier] autorelease];
+			cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:PlaceCellIdentifier] autorelease];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
-		accessView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-arrow.png"]];
-		cell.accessoryView = accessView;
-		
-		[cell setPlaceDetailRecord];
-		
-		[accessView release];
-		accessView = nil;
-		
+    
+        contents = [[mCollections objectAtIndex:indexPath.section] valueForKey:PPWineKindContent];
+        cell.textLabel.text = [contents objectAtIndex:indexPath.row];
+        
+        wineKindFlag = [[mCollections objectAtIndex:indexPath.section] valueForKey:PPWineKindFlag];
+        switch ([wineKindFlag intValue]) {
+            case PPRedWineFlag:
+                cell.imageView.image = [UIImage imageNamed:@"redwine-icon.png"];
+                break;
+                
+            case PPBeerFlag:
+                cell.imageView.image = [UIImage imageNamed:@"beer-icon.png"];
+                break;
+                
+            case PPCocktailFlag:
+                cell.imageView.image = [UIImage imageNamed:@"cocktail-icon.png"];
+                break;
+                
+            default:
+                break;
+        }
 		return cell;		
 	}
     
@@ -238,12 +295,35 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return TableViewRowHeight;
+    if (mCurSelectTab == SelectTabDrinkTracker) {
+        return TableViewRowHeight;
+	}
+	else if (mCurSelectTab == SelectTabComment)
+	{
+        return TableViewRowHeight;
+	}
+	else if (mCurSelectTab == SelectTabCollection)
+	{
+        return 35;
+    }
+
+	return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return TableViewSectionPadding;
+    if (mCurSelectTab == SelectTabDrinkTracker) {
+        return TableViewSectionPadding;
+	}
+	else if (mCurSelectTab == SelectTabComment)
+	{
+        return TableViewSectionPadding;
+	}
+	else if (mCurSelectTab == SelectTabCollection)
+	{
+        return 30+TableViewSectionPadding;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -253,9 +333,40 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
-    sectionPaddingView.backgroundColor = [UIColor clearColor];
-    return [sectionPaddingView autorelease];
+    if (mCurSelectTab == SelectTabDrinkTracker) {
+        UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
+        sectionPaddingView.backgroundColor = [UIColor clearColor];
+        return [sectionPaddingView autorelease];
+	}
+	else if (mCurSelectTab == SelectTabComment)
+	{
+        UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
+        sectionPaddingView.backgroundColor = [UIColor clearColor];
+        return [sectionPaddingView autorelease];
+	}
+	else if (mCurSelectTab == SelectTabCollection)
+	{
+        UIView          *headerView = nil;
+        UIImageView     *imageView = nil;
+        UILabel         *label = nil;
+        
+        headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+        
+        imageView = [[[UIImageView alloc] initWithFrame:headerView.frame] autorelease];
+        imageView.image = [UIImage imageNamed:@"wineheader-bg.png"];
+        [headerView addSubview:imageView];
+        
+        label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width, 30)] autorelease];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = UITextAlignmentLeft;
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont fontWithName:PaoPaoFont size:16.0];
+        label.text = [[mCollections objectAtIndex:section] valueForKey:PPWineKindName];
+        [headerView addSubview:label];
+        
+        return [headerView autorelease];
+    }
+    return nil;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -360,26 +471,20 @@
             drinkTrackerImage = [UIImage imageNamed:@"search-alcohol-selected.png"];
             commentImage = [UIImage imageNamed:@"search-place.png"];;
             collectionImage = [UIImage imageNamed:@"search-friends.png"];;
-            self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
             
-			mTableView.separatorColor = [UIColor lightGrayColor];
 			break;
         case SelectTabComment:
             
             drinkTrackerImage = [UIImage imageNamed:@"search-alcohol.png"];
             commentImage = [UIImage imageNamed:@"search-place-selected.png"];;
             collectionImage = [UIImage imageNamed:@"search-friends.png"];;
-            self.navigationItem.title = NSLocalizedString(@"SearchPlace Page Title", nil);
             
-			mTableView.separatorColor = [UIColor lightGrayColor];
 			break;
         case SelectTabCollection:
             
             drinkTrackerImage = [UIImage imageNamed:@"search-alcohol.png"];
             commentImage = [UIImage imageNamed:@"search-place.png"];;
             collectionImage = [UIImage imageNamed:@"search-friends-selected.png"];;
-            self.navigationItem.title = NSLocalizedString(@"SearchUser Page Title", nil);
-			mTableView.separatorColor = [UIColor clearColor];
             
 			break;
         default:

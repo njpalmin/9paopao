@@ -150,17 +150,17 @@
     NSString *key = [keyArray objectAtIndex:0];
     NSArray *array = [dic objectForKey:key];
     if ([indexPath section] == 0) {
-        UIImage *beerImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"beer" ofType:@"png"]];
+        UIImage *beerImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"beer-icon" ofType:@"png"]];
         cell.imageView.image = beerImage;
         [beerImage release];
     }else if([indexPath section] == 1)
     {
-        UIImage *cocktailImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cocktail" ofType:@"png"]];
+        UIImage *cocktailImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cocktail-icon" ofType:@"png"]];
         cell.imageView.image = cocktailImage;
         [cocktailImage release];
     }else if([indexPath section] == 2)
     {
-        UIImage *beerImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"beer" ofType:@"png"]];
+        UIImage *beerImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"redwine-icon" ofType:@"png"]];
         cell.imageView.image = beerImage;
         [beerImage release];
     }
@@ -203,7 +203,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    UIImage *bgImage =  [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"header-bg" ofType:@"png"]];
+    UIImage *bgImage =  [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"wineheader-bg" ofType:@"png"]];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:view.frame];
     imageView.image = bgImage;
     [view addSubview:imageView];

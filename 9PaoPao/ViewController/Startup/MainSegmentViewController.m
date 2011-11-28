@@ -224,6 +224,10 @@
 		mMainViewController = nil;
 	}
 	
+    if (mMyProfileViewController) {
+        [mMyProfileViewController release];
+        mMyProfileViewController = nil;
+    }
     [super dealloc];
 }
 
@@ -261,32 +265,13 @@
             break;
         case 1:
         {
-            /*
-            //add by mqh begin 2011-11-9
-            if (tFVC == nil) {
-                NSMutableDictionary *beardDic = [[NSMutableDictionary alloc] init];
-                NSMutableDictionary *readWineDic = [[NSMutableDictionary alloc] init];
-                NSMutableDictionary *wine2dDic = [[NSMutableDictionary alloc] init];
-                NSMutableArray *dicArray = [[NSMutableArray alloc] init];
-                NSArray *bear = [[NSArray alloc] initWithObjects:@"啤酒1", @"啤酒2",nil];
-                [beardDic setObject:bear forKey:@"啤酒"];
-                NSArray *blaceWine = [[NSArray alloc] initWithObjects:@"红酒1", @"红酒2",nil];
-                [readWineDic setObject:blaceWine forKey:@"红酒"];
-                NSArray *wine2 = [[NSArray alloc] initWithObjects:@"鸡尾酒1", @"鸡尾酒2",nil];
-                [wine2dDic setObject:wine2 forKey:@"鸡尾酒"];
-                [dicArray addObject:beardDic];
-                [dicArray addObject:readWineDic];
-                [dicArray addObject:wine2dDic];
-                tFVC = [[TellFavoriteViewController alloc] initWithContentDic:dicArray];
-                [beardDic release];
-                [readWineDic release];
-                [wine2 release];
-				
-				[mLiveNavigationController pushViewController:tFVC animated:NO];
+            if (mMyProfileViewController == nil) {
+                mMyProfileViewController = [[MyProfileViewController alloc] init];
+                [mProfileNavigationController pushViewController:mMyProfileViewController animated:NO];
             }
-            [self.view addSubview:mLiveNavigationController.view];           
-            //add by mqh end 2011-11-6
-             */
+            
+            [self.view addSubview:mProfileNavigationController.view];
+            
             break;
         }
         case 2:

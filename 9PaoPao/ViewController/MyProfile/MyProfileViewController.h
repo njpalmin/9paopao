@@ -23,6 +23,8 @@
     UIButton        *mCommentBtn;
     UIButton        *mCollectionBtn;
     NSInteger       mCurSelectTab;
+    
+    NSMutableArray  *mCollections;
 }
 
 #pragma mark -
