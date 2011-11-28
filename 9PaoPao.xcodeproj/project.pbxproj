@@ -200,6 +200,16 @@
 		4B6BA136147D43A400117B93 /* RedWineListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BA135147D43A400117B93 /* RedWineListViewController.m */; };
 		4B6BA14B147D493900117B93 /* RedWineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BA14A147D493900117B93 /* RedWineDetailViewController.m */; };
 		4BE89359147033A000E351B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE89358147033A000E351B4 /* QuartzCore.framework */; };
+		A533BC821483269B00556C25 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC811483269B00556C25 /* InviteViewController.m */; };
+		A533BC94148326AA00556C25 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC85148326AA00556C25 /* AccountViewController.m */; };
+		A533BC96148326AA00556C25 /* LoadHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC89148326AA00556C25 /* LoadHomePageViewController.m */; };
+		A533BC97148326AA00556C25 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC8B148326AA00556C25 /* PrivacyViewController.m */; };
+		A533BC98148326AA00556C25 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC8D148326AA00556C25 /* RegisterViewController.m */; };
+		A533BC99148326AA00556C25 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC8F148326AA00556C25 /* SettingViewController.m */; };
+		A533BC9A148326AA00556C25 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC91148326AA00556C25 /* SignUpViewController.m */; };
+		A533BC9B148326AA00556C25 /* TermViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC93148326AA00556C25 /* TermViewController.m */; };
+		A533BC9D1483277800556C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9C1483277800556C25 /* AddressBookUI.framework */; };
+		A533BC9F148327A100556C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9E148327A100556C25 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -468,6 +478,24 @@
 		4B6BA149147D493900117B93 /* RedWineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedWineDetailViewController.h; sourceTree = "<group>"; };
 		4B6BA14A147D493900117B93 /* RedWineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedWineDetailViewController.m; sourceTree = "<group>"; };
 		4BE89358147033A000E351B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A533BC801483269B00556C25 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
+		A533BC811483269B00556C25 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
+		A533BC84148326AA00556C25 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = 9PaoPao/ViewController/Account/AccountViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC85148326AA00556C25 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = 9PaoPao/ViewController/Account/AccountViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC88148326AA00556C25 /* LoadHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadHomePageViewController.h; path = 9PaoPao/ViewController/Account/LoadHomePageViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC89148326AA00556C25 /* LoadHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadHomePageViewController.m; path = 9PaoPao/ViewController/Account/LoadHomePageViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC8A148326AA00556C25 /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivacyViewController.h; path = 9PaoPao/ViewController/Account/PrivacyViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC8B148326AA00556C25 /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrivacyViewController.m; path = 9PaoPao/ViewController/Account/PrivacyViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC8C148326AA00556C25 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = 9PaoPao/ViewController/Account/RegisterViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC8D148326AA00556C25 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = 9PaoPao/ViewController/Account/RegisterViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC8E148326AA00556C25 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = 9PaoPao/ViewController/Account/SettingViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC8F148326AA00556C25 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = 9PaoPao/ViewController/Account/SettingViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC90148326AA00556C25 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = 9PaoPao/ViewController/Account/SignUpViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC91148326AA00556C25 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = 9PaoPao/ViewController/Account/SignUpViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC92148326AA00556C25 /* TermViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermViewController.h; path = 9PaoPao/ViewController/Account/TermViewController.h; sourceTree = SOURCE_ROOT; };
+		A533BC93148326AA00556C25 /* TermViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermViewController.m; path = 9PaoPao/ViewController/Account/TermViewController.m; sourceTree = SOURCE_ROOT; };
+		A533BC9C1483277800556C25 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		A533BC9E148327A100556C25 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +503,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A533BC9F148327A100556C25 /* AddressBook.framework in Frameworks */,
+				A533BC9D1483277800556C25 /* AddressBookUI.framework in Frameworks */,
 				2089E009147005A5006581C3 /* MapKit.framework in Frameworks */,
 				2089E00614700565006581C3 /* CoreLocation.framework in Frameworks */,
 				18A004931464CF100015EC68 /* UIKit.framework in Frameworks */,
@@ -519,6 +549,8 @@
 		18A004911464CF100015EC68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A533BC9E148327A100556C25 /* AddressBook.framework */,
+				A533BC9C1483277800556C25 /* AddressBookUI.framework */,
 				2089E008147005A5006581C3 /* MapKit.framework */,
 				2089E00514700565006581C3 /* CoreLocation.framework */,
 				18A004921464CF100015EC68 /* UIKit.framework */,
@@ -762,6 +794,20 @@
 		3354F0C7147F731500C20D67 /* AccountSignup */ = {
 			isa = PBXGroup;
 			children = (
+				A533BC84148326AA00556C25 /* AccountViewController.h */,
+				A533BC85148326AA00556C25 /* AccountViewController.m */,
+				A533BC88148326AA00556C25 /* LoadHomePageViewController.h */,
+				A533BC89148326AA00556C25 /* LoadHomePageViewController.m */,
+				A533BC8A148326AA00556C25 /* PrivacyViewController.h */,
+				A533BC8B148326AA00556C25 /* PrivacyViewController.m */,
+				A533BC8C148326AA00556C25 /* RegisterViewController.h */,
+				A533BC8D148326AA00556C25 /* RegisterViewController.m */,
+				A533BC8E148326AA00556C25 /* SettingViewController.h */,
+				A533BC8F148326AA00556C25 /* SettingViewController.m */,
+				A533BC90148326AA00556C25 /* SignUpViewController.h */,
+				A533BC91148326AA00556C25 /* SignUpViewController.m */,
+				A533BC92148326AA00556C25 /* TermViewController.h */,
+				A533BC93148326AA00556C25 /* TermViewController.m */,
 			);
 			path = AccountSignup;
 			sourceTree = "<group>";
@@ -769,6 +815,8 @@
 		3354F0C8147F731500C20D67 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				A533BC801483269B00556C25 /* InviteViewController.h */,
+				A533BC811483269B00556C25 /* InviteViewController.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -1356,6 +1404,14 @@
 				4B6BA14B147D493900117B93 /* RedWineDetailViewController.m in Sources */,
 				3359509F147E15B100BC7395 /* RedWineInfoView.m in Sources */,
 				3354F0C4147F699C00C20D67 /* MyProfileViewController.m in Sources */,
+				A533BC821483269B00556C25 /* InviteViewController.m in Sources */,
+				A533BC94148326AA00556C25 /* AccountViewController.m in Sources */,
+				A533BC96148326AA00556C25 /* LoadHomePageViewController.m in Sources */,
+				A533BC97148326AA00556C25 /* PrivacyViewController.m in Sources */,
+				A533BC98148326AA00556C25 /* RegisterViewController.m in Sources */,
+				A533BC99148326AA00556C25 /* SettingViewController.m in Sources */,
+				A533BC9A148326AA00556C25 /* SignUpViewController.m in Sources */,
+				A533BC9B148326AA00556C25 /* TermViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
