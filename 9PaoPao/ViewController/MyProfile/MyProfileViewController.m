@@ -26,6 +26,51 @@
 
 - (void)dealloc
 {
+    if (mUserInfoView) {
+        [mUserInfoView release];
+        mUserInfoView = nil;
+    }
+    
+    if (mTableView) {
+        [mTableView release];
+        mTableView = nil;
+    }
+    
+    if (mTabSelectView) {
+        [mTabSelectView release];
+        mTabSelectView = nil;
+    }
+    
+    if (mDrinkTrackerBtn) {
+        [mDrinkTrackerBtn release];
+        mDrinkTrackerBtn = nil;
+    }
+    
+    if (mCommentBtn) {
+        [mCommentBtn release];
+        mCommentBtn = nil;
+    }
+
+    if (mCollectionBtn) {
+        [mCollectionBtn release];
+        mCollectionBtn = nil;
+    }
+    
+    if (mCollections) {
+        [mCollections release];
+        mCollections = nil;
+    }
+    
+    if (mFootView) {
+        [mFootView release];
+        mFootView = nil;
+    }
+    
+    if (mAddMoreBtn) {
+        [mAddMoreBtn release];
+        mAddMoreBtn = nil;
+    }
+    
     [super dealloc];
 }
 
@@ -61,6 +106,7 @@
         [containerView addSubview:backgroundView];
         
         break_if(![self prepareNavigationBar]);
+        break_if(![self prepareFootView]);
         
         userInfoframe = CGRectMake(10, 0, bounds.size.width, 0);
         mUserInfoView = [[UserInfoView alloc] initWithFrame:userInfoframe];
@@ -328,6 +374,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (mCurSelectTab == SelectTabDrinkTracker) {
+        return TableViewSectionPadding;
+	}
+	else if (mCurSelectTab == SelectTabComment)
+	{
+        return TableViewSectionPadding;
+	}
+	else if (mCurSelectTab == SelectTabCollection)
+	{
+        if (section == ([mCollections count]-1)) {
+            return (SearchKindBtnHeight + TableViewSectionPadding*2);
+        }else{
+            return TableViewSectionPadding;
+        }
+    }
+
     return TableViewSectionPadding;
 }
 
@@ -371,9 +433,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
-    sectionPaddingView.backgroundColor = [UIColor clearColor];
-    return [sectionPaddingView autorelease];
+    if ((mCurSelectTab == SelectTabCollection) && (section == ([mCollections count]-1))) {
+        return mFootView;
+    }else{
+        UIView  *sectionPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TableViewSectionPadding, TableViewSectionPadding)];
+        sectionPaddingView.backgroundColor = [UIColor clearColor];
+        return [sectionPaddingView autorelease];
+    }
 }
 
 #pragma mark -
@@ -445,6 +511,18 @@
 	return YES;
 }
 
+- (BOOL)prepareFootView
+{
+    mFootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, (SearchKindBtnHeight + TableViewSectionPadding*2))];
+    
+    mAddMoreBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procAddMore:) target:self];
+    mAddMoreBtn.frame = CGRectMake((320-SearchKindBtnWidth)/2, TableViewSectionPadding, SearchKindBtnWidth, SearchKindBtnHeight);
+    
+    [mFootView addSubview:mAddMoreBtn];
+    
+    return YES;
+}
+
 #pragma mark -
 #pragma mark Action
 
@@ -497,4 +575,8 @@
 	[mTableView reloadData];
 }
 
+- (void)procAddMore:(id)sender
+{
+    
+}
 @end

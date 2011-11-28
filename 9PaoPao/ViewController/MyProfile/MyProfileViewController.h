@@ -25,6 +25,8 @@
     NSInteger       mCurSelectTab;
     
     NSMutableArray  *mCollections;
+    UIView          *mFootView;
+    UIButton        *mAddMoreBtn;
 }
 
 #pragma mark -
@@ -32,11 +34,13 @@
 
 - (BOOL)prepareNavigationBar;
 - (BOOL)prepareTabSelectView;
+- (BOOL)prepareFootView;
 
 #pragma mark -
 #pragma mark Action
 
 - (void)procEdit:(id)sender;
 - (void)procSearchTabBtn:(id)sender;
+- (void)procAddMore:(id)sender;
 
 @end
