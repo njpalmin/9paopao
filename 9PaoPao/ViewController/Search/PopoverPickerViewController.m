@@ -65,7 +65,7 @@
     
     pickerFrame.origin.x = 0;
     pickerFrame.origin.y = 0;
-    pickerFrame.size.width = 240;
+    pickerFrame.size.width = 320;
     pickerFrame.size.height = 220;
     
     UIActionSheet  *actionSheet;
