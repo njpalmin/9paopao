@@ -264,18 +264,16 @@
 			[self.view addSubview:mHomeNavigationController.view];
             break;
         case 1:
-        {
+        {            
+            break;
+        }
+        case 2:
             if (mMyProfileViewController == nil) {
                 mMyProfileViewController = [[MyProfileViewController alloc] init];
                 [mProfileNavigationController pushViewController:mMyProfileViewController animated:NO];
             }
             
             [self.view addSubview:mProfileNavigationController.view];
-            
-            break;
-        }
-        case 2:
-            
             break;
         case 3:
             break;
