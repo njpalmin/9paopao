@@ -374,7 +374,7 @@
 		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:WineCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:WineCellIdentifier] autorelease];
+			cell = [[[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WineCellIdentifier] autorelease];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -399,7 +399,7 @@
 		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:PlaceCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:PlaceCellIdentifier] autorelease];
+			cell = [[[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlaceCellIdentifier] autorelease];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -424,7 +424,7 @@
 		cell = (UserResultViewCell*)[tableView dequeueReusableCellWithIdentifier:UserCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[[UserResultViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:UserCellIdentifier] autorelease];
+			cell = [[[UserResultViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UserCellIdentifier] autorelease];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryNone;

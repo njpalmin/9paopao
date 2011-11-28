@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate,UITextFieldDelegate> {
+@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate,UITextFieldDelegate,UINavigationControllerDelegate> {
     UIScrollView *scrollView;
     
     UITextField  *mail;

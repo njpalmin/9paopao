@@ -15,7 +15,7 @@
 
 @interface WineDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource
 , UIImagePickerControllerDelegate, MapIconViewDelegate,ToolBarViewDelegate,EmojiViewDelegate,
-UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate> {
+UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UINavigationControllerDelegate> {
 
 	UITableView		*mTableView;
 	UIView			*mFooterView;

@@ -10,14 +10,14 @@
 @protocol MainViewCellDelegate <NSObject>
 -(void)clickButtonWithTag:(NSInteger)pos;
 @end
- 
+
 @interface MainViewCell : UITableViewCell {
     UIButton *firstBtn;
     UIButton *secondBtn;
     UIButton *thirdBtn;
     
-    id<MainViewCellDelegate>       delegate;
+    id       delegate;
 }
-@property (nonatomic, retain) id<MainViewCellDelegate>  delegate; 
+@property (nonatomic, retain) id  delegate; 
 -(void)addButtonWithTitle:(NSString *)title andImageName:(NSString *)imageName andPosition:(NSInteger)position andButtonTag:(NSInteger)tag; 
 @end

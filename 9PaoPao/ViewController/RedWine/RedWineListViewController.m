@@ -130,7 +130,7 @@
 	cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:PlaceCellIdentifier];
 	if (cell == nil)
 	{
-		cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:PlaceCellIdentifier] autorelease];
+		cell = [[[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlaceCellIdentifier] autorelease];
 	}
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

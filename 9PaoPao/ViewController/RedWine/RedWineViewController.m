@@ -115,7 +115,7 @@
     cell = [tableView dequeueReusableCellWithIdentifier:WineCellIdentifier];
     if (cell == nil)
     {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:WineCellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WineCellIdentifier] autorelease];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.textLabel.text = [mCategorys objectAtIndex:indexPath.row];
