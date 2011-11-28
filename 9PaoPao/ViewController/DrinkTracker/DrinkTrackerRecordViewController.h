@@ -15,7 +15,7 @@
 #import "SearchManager.h"
 
 @interface DrinkTrackerRecordViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,
-UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerControllerDelegate,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,SearchManagerDelegate> {
+UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UIImagePickerControllerDelegate,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,SearchManagerDelegate,UINavigationControllerDelegate> {
     UIScrollView		*scrollView;
     UITextView			*commentsText;
     

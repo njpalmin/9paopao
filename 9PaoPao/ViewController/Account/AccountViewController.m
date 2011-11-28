@@ -5,6 +5,9 @@
 //  Created by yi xiaoluo on 11-11-25.
 //  Copyright 2011年 MI2. All rights reserved.
 //
+#define HEAD_HEIGHT  5.0
+#define FOOT_HEIGHT  5.0
+#define CELL_HEIGHT  40.0
 
 #import "AccountViewController.h"
 #import "MyProfileViewController.h"
@@ -38,7 +41,8 @@
     imageArray = nil;
     [titleArray release];
     titleArray = nil;
-    
+    [viewControllers release];
+    viewControllers = nil;
     [super dealloc];
 }
 
@@ -66,14 +70,14 @@
     [super viewDidLoad];
     self.navigationItem.title = @"我的账户";
     
-    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320 , 460 -44 -50) style:UITableViewStylePlain];
+    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320 , 460 -44 -50) style:UITableViewStyleGrouped];
     _table.contentSize = _table.frame.size;
     _table.delegate = self;
     _table.dataSource = self;
     
     [self.view addSubview:_table];
     
-    imageArray = [[NSMutableArray alloc] initWithObjects:@"login-account.png",@"register-account.png",@"my-profile.png",@"setting.png",@"search.png",@"terms.png",@"privacy.png", nil];
+    imageArray = [[NSMutableArray alloc] initWithObjects:@"Accountlogin.png",@"AccountRegister.png",@"AccountMyprofile.png",@"AccountSetting.png",@"AccountSearch.png",@"AccountTerms.png",@"AccountPrivacy.png", nil];
     titleArray = [[NSMutableArray alloc] initWithObjects:@"登陆与登出",@"注册",@"我的资料",@"设置",@"访问9paopao.com",@"条款与备注",@"隐私权声明", nil];
 
     viewControllers = [[NSMutableArray alloc] initWithObjects:[SignUpViewController class],
@@ -104,7 +108,20 @@
 #pragma mark - UitableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40.0;
+    return CELL_HEIGHT;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section > 0) {
+        return 1.0;
+    }
+    return HEAD_HEIGHT;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return FOOT_HEIGHT;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,23 +132,45 @@
     [viewController release];
     viewController = nil;
 }
+
 #pragma mark -
 #pragma mark - UitableViewDatasource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 7;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 1;
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headView = [[UIView alloc] init];
+    if (section > 0) {
+        [headView setFrame:CGRectMake(0, 0, 320, 1.0)];
+    }else{
+        [headView setFrame:CGRectMake(0, 0, 320, HEAD_HEIGHT)];
+    }
+    headView.backgroundColor = [UIColor clearColor];
+    return [headView autorelease];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, FOOT_HEIGHT)];
+    footView.backgroundColor = [UIColor clearColor];
+    return [footView autorelease];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"accountIdentifier";
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewStylePlain reuseIdentifier:identifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     }
     NSString *imageName = [imageArray objectAtIndex:indexPath.section];
     cell.imageView.image = [UIImage imageNamed:imageName];
@@ -140,9 +179,11 @@
     cell.textLabel.text = title;
     cell.textLabel.textAlignment = UITextAlignmentLeft;
     if ((indexPath.section +1 )%2 == 0) {
-        cell.backgroundColor = [UIColor grayColor];
+        cell.backgroundColor = [UIColor lightGrayColor];
     }
     return cell;
 }
+
+
 
 @end

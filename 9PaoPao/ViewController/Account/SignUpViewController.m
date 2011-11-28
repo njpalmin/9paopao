@@ -82,7 +82,7 @@
 
     UIButton *btnlogUp = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     btnlogUp.frame = CGRectMake(185, btnRegister.frame.origin.y, 80, 25);
-    [btnlogUp setTitle:@"马上注册" forState:UIControlStateNormal];
+    [btnlogUp setTitle:@"马上登陆" forState:UIControlStateNormal];
     [btnlogUp addTarget:self action:@selector(logUpNow:) forControlEvents:UIControlEventTouchUpInside];
 
     UILabel *forgetlabel = [[UILabel alloc] initWithFrame:CGRectMake(password.frame.origin.x, btnRegister.frame.origin.y + btnRegister.frame.size.height + password.frame.size.height, 100, 20)];

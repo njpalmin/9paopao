@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate> {
+@interface SettingViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate> {
     UIScrollView     *scrollView;
     
     NSMutableArray  *sectionNames;

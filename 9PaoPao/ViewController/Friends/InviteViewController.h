@@ -20,6 +20,6 @@
     NSMutableArray  *phoneNumbers;
 }
 
-- (void)drawLineWithMinX:(CGFloat)minX MinY:(CGFloat)minY MaxX:(CGFloat)maxX MaxY:(CGFloat)maxY;
+//- (void)drawLineWithMinX:(CGFloat)minX MinY:(CGFloat)minY MaxX:(CGFloat)maxX MaxY:(CGFloat)maxY;
 
 @end

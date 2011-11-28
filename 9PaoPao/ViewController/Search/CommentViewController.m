@@ -97,7 +97,6 @@
     commentsText.text = @"fhsajfsamflsamflsafmlsafslfmsfmlsmflasmfslmflsmflsamflsmflsf";
     commentsText.scrollEnabled = YES;
     commentsText.delegate = self;
-    commentsText.keyboardType = UIReturnKeyDone;
     commentsText.contentInset = UIEdgeInsetsZero;
     [self addTooBarOnKeyboard];
     [scrollView addSubview:commentsText];

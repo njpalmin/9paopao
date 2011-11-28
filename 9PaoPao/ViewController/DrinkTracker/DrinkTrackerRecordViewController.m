@@ -152,7 +152,6 @@
     commentsText.scrollEnabled = YES;
     commentsText.delegate = self;
     commentsText.backgroundColor = [UIColor clearColor];
-    commentsText.keyboardType = UIReturnKeyDone;
     commentsText.contentInset = UIEdgeInsetsZero;
     [self addTooBarOnKeyboard];
     [scrollView addSubview:commentsText];
@@ -522,13 +521,13 @@
 {
     if (searchbar.tag == SEARECH_FAVORITE_WINE && [searchWineResult count] > 0) {
 		
-		static NSString		*WineCellIdentifier = @"WineCell";
+		static NSString		*wineCellIdentifier = @"WineCell";
 		WineDetailView		*cell = nil;
 		
-		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:WineCellIdentifier];
+		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:wineCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:WineCellIdentifier] autorelease];
+			cell = [[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wineCellIdentifier];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -539,14 +538,14 @@
 	}
 	else if (searchbar.tag == SEARECH_FAVORITE_PLACE && [searchPlaceResult count] > 0)
 	{
-		static NSString		*PlaceCellIdentifier = @"PlaceCell";
+		static NSString		*placeCellIdentifier = @"PlaceCell";
 		// temp test 
 		WineDetailView		*cell = nil;
 		
-		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:PlaceCellIdentifier];
+		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:placeCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[[WineDetailView alloc] initWithFrame:CGRectZero reuseIdentifier:PlaceCellIdentifier] autorelease];
+			cell = [[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:placeCellIdentifier];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

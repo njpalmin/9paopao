@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface MainViewController : UIViewController<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>{
     IBOutlet UITableView *_table;
     NSArray *imageNames;

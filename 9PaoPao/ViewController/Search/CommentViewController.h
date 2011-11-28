@@ -12,7 +12,7 @@
 #import "LocationManager.h"
 
 @interface CommentViewController : UIViewController <ToolBarViewDelegate,EmojiViewDelegate,
-UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate> {
+UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate> {
     UIScrollView		*scrollView;
     UITextView			*commentsText;
     
