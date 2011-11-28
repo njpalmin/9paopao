@@ -22,6 +22,7 @@
 		2089E009147005A5006581C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E008147005A5006581C3 /* MapKit.framework */; };
 		208BFFC3147BD94D0066D8CC /* BarComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 208BFFC2147BD94D0066D8CC /* BarComment.m */; };
 		20F257F91483D3B0008DDF7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F257F81483D3B0008DDF7D /* MBProgressHUD.m */; };
+		20F258021483E892008DDF7D /* DrinkWineRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F258011483E892008DDF7D /* DrinkWineRecordViewController.m */; };
 		3316CDDB1479EBCF00C3501B /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDD61479EBCF00C3501B /* CoreLocationService.m */; };
 		3316CDDC1479EBCF00C3501B /* SearchCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDD81479EBCF00C3501B /* SearchCore.m */; };
 		3316CDDD1479EBCF00C3501B /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDDA1479EBCF00C3501B /* SearchManager.m */; };
@@ -247,6 +248,8 @@
 		208BFFC2147BD94D0066D8CC /* BarComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarComment.m; sourceTree = "<group>"; };
 		20F257F71483D3B0008DDF7D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		20F257F81483D3B0008DDF7D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		20F258001483E892008DDF7D /* DrinkWineRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkWineRecordViewController.h; sourceTree = "<group>"; };
+		20F258011483E892008DDF7D /* DrinkWineRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkWineRecordViewController.m; sourceTree = "<group>"; };
 		3316CDD51479EBCF00C3501B /* CoreLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationService.h; sourceTree = "<group>"; };
 		3316CDD61479EBCF00C3501B /* CoreLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationService.m; sourceTree = "<group>"; };
 		3316CDD71479EBCF00C3501B /* SearchCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCore.h; sourceTree = "<group>"; };
@@ -630,6 +633,15 @@
 				20F257F81483D3B0008DDF7D /* MBProgressHUD.m */,
 			);
 			path = MBProgress;
+			sourceTree = "<group>";
+		};
+		20F257FE1483E814008DDF7D /* SocialFunction */ = {
+			isa = PBXGroup;
+			children = (
+				20F258001483E892008DDF7D /* DrinkWineRecordViewController.h */,
+				20F258011483E892008DDF7D /* DrinkWineRecordViewController.m */,
+			);
+			path = SocialFunction;
 			sourceTree = "<group>";
 		};
 		3316CDDE1479EC1200C3501B /* Account */ = {
@@ -1100,6 +1112,7 @@
 		33D4DF791467CD5900CFE105 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				20F257FE1483E814008DDF7D /* SocialFunction */,
 				3354F0C7147F731500C20D67 /* AccountSignup */,
 				3354F0C8147F731500C20D67 /* Friends */,
 				3354F0C9147F731500C20D67 /* LiveFeed */,
@@ -1444,6 +1457,7 @@
 				A533BC9B148326AA00556C25 /* TermViewController.m in Sources */,
 				A5A141A1148388FF00BD0181 /* LineView.m in Sources */,
 				20F257F91483D3B0008DDF7D /* MBProgressHUD.m in Sources */,
+				20F258021483E892008DDF7D /* DrinkWineRecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
