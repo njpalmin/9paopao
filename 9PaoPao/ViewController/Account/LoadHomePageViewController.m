@@ -7,7 +7,7 @@
 //
 
 #import "LoadHomePageViewController.h"
-
+#import "PaoPaoConstant.h"
 @implementation LoadHomePageViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,6 +58,7 @@
     if (!waitingLabel) {
         waitingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 44-50)/2 -30, 320, 30)];
         waitingLabel.backgroundColor = [UIColor clearColor];
+        waitingLabel.font = [UIFont fontWithName:PaoPaoFont size:16];
         waitingLabel.text = @"界面加载中···";
         waitingLabel.textAlignment = UITextAlignmentCenter;
         [self.view addSubview:waitingLabel];

@@ -213,6 +213,7 @@
 		A533BC9B148326AA00556C25 /* TermViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC93148326AA00556C25 /* TermViewController.m */; };
 		A533BC9D1483277800556C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9C1483277800556C25 /* AddressBookUI.framework */; };
 		A533BC9F148327A100556C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9E148327A100556C25 /* AddressBook.framework */; };
+		A5A141A1148388FF00BD0181 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A141A0148388FF00BD0181 /* LineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -502,6 +503,8 @@
 		A533BC93148326AA00556C25 /* TermViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermViewController.m; path = 9PaoPao/ViewController/Account/TermViewController.m; sourceTree = SOURCE_ROOT; };
 		A533BC9C1483277800556C25 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A533BC9E148327A100556C25 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		A5A1419F148388FF00BD0181 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
+		A5A141A0148388FF00BD0181 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -951,6 +954,8 @@
 				3396CEAE147D0CCB0035EF28 /* UserInfoView.m */,
 				3359509D147E15B100BC7395 /* RedWineInfoView.h */,
 				3359509E147E15B100BC7395 /* RedWineInfoView.m */,
+				A5A1419F148388FF00BD0181 /* LineView.h */,
+				A5A141A0148388FF00BD0181 /* LineView.m */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -1424,6 +1429,7 @@
 				A533BC99148326AA00556C25 /* SettingViewController.m in Sources */,
 				A533BC9A148326AA00556C25 /* SignUpViewController.m in Sources */,
 				A533BC9B148326AA00556C25 /* TermViewController.m in Sources */,
+				A5A141A1148388FF00BD0181 /* LineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1540,6 +1546,7 @@
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos4.3;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1553,6 +1560,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

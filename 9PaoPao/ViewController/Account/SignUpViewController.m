@@ -8,7 +8,7 @@
 #define HEIGHT_INTERVAL 15
 
 #import "SignUpViewController.h"
-
+#import "PaoPaoConstant.h"
 
 @implementation SignUpViewController
 
@@ -67,11 +67,13 @@
     emailTop = [[UITextField alloc] initWithFrame:CGRectMake(10, 30, 300, 30)];
     emailTop.borderStyle = UITextBorderStyleRoundedRect;
     emailTop.delegate = self;
+    emailTop.font = [UIFont fontWithName:PaoPaoFont size:14];
     emailTop.placeholder = @"邮箱地址";
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(10, emailTop.frame.origin.y+emailTop.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     password.borderStyle = UITextBorderStyleRoundedRect;
     password.delegate = self;
+    password.font = [UIFont fontWithName:PaoPaoFont size:14];
     password.secureTextEntry = YES;
     password.placeholder = @"密码";
 
@@ -87,11 +89,13 @@
 
     UILabel *forgetlabel = [[UILabel alloc] initWithFrame:CGRectMake(password.frame.origin.x, btnRegister.frame.origin.y + btnRegister.frame.size.height + password.frame.size.height, 100, 20)];
     forgetlabel.text = @"忘记密码？";
+    forgetlabel.font = [UIFont fontWithName:PaoPaoFont size:14];
     forgetlabel.backgroundColor = [UIColor clearColor];
     
     emailBottom = [[UITextField alloc] initWithFrame:CGRectMake(10, forgetlabel.frame.origin.y+forgetlabel.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     emailBottom.borderStyle = UITextBorderStyleRoundedRect;
     emailBottom.delegate =self;
+    emailBottom.font = [UIFont fontWithName:PaoPaoFont size:14];
     emailBottom.tag = 101;
     emailBottom.placeholder = @"邮箱地址";
     

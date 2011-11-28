@@ -7,7 +7,8 @@
 //
 
 #import "SettingViewController.h"
-
+#import "PaoPaoConstant.h"
+#import "QuartzCore/QuartzCore.h"
 
 @implementation SettingViewController
 @synthesize sectionNames,placeHolds;
@@ -93,6 +94,7 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 15 + i*60 , 320, 15)];
         label.text = [sectionNames objectAtIndex:i];
         label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont fontWithName:PaoPaoFont size:14];
         [scrollView addSubview:label];
         [label release];
         label = nil;
@@ -101,12 +103,14 @@
     email = [[UITextField alloc] initWithFrame:CGRectMake(15, 32, 300, 30)];
     email.placeholder = [placeHolds objectAtIndex:0];
     email.delegate = self;
+    email.font = [UIFont fontWithName:PaoPaoFont size:14];
     email.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:email];
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(15, 32 +60, 300, 30)];
     password.placeholder = [placeHolds objectAtIndex:1];
     password.delegate = self;
+    password.font = [UIFont fontWithName:PaoPaoFont size:14];
     password.secureTextEntry = YES;
     password.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:password];
@@ -114,6 +118,7 @@
     user = [[UITextField alloc] initWithFrame:CGRectMake(15, 32+60*2, 300, 30)];
     user.placeholder = [placeHolds objectAtIndex:2];
     user.delegate = self;
+    user.font = [UIFont fontWithName:PaoPaoFont size:14];
     user.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:user];
     
@@ -121,11 +126,13 @@
     number.placeholder = [placeHolds objectAtIndex:3];
     number.delegate = self;
     number.tag = 101;
+    number.font = [UIFont fontWithName:PaoPaoFont size:14];
     number.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:number];
     
     imageButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [imageButton setFrame:CGRectMake(15, 32+60*4, 64, 64)];
+    imageButton.layer.cornerRadius = 3.0;
     [imageButton setTitle:@"你的头像" forState:UIControlStateNormal];
     [imageButton addTarget:self action:@selector(uploadImage:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:imageButton];
@@ -189,6 +196,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
 	[imageButton setImage:image forState:UIControlStateNormal];
+    imageButton.layer.cornerRadius = 3.0;
     [self dismissModalViewControllerAnimated:YES];
 }
 

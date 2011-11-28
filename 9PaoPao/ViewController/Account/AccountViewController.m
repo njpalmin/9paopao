@@ -11,6 +11,7 @@
 
 #import "AccountViewController.h"
 #import "MyProfileViewController.h"
+
 #import "RegisterViewController.h"
 #import "MyProfileViewController.h"
 #import "SettingViewController.h"
@@ -18,7 +19,7 @@
 #import "TermViewController.h"
 #import "PrivacyViewController.h"
 #import "SignUpViewController.h"
-
+#import "PaoPaoConstant.h"
 //test
 #import "InviteViewController.h"
 
@@ -177,6 +178,8 @@
     
     NSString *title = [titleArray objectAtIndex:indexPath.section];
     cell.textLabel.text = title;
+    
+    cell.textLabel.font = [UIFont fontWithName:PaoPaoFont size:16];
     cell.textLabel.textAlignment = UITextAlignmentLeft;
     if ((indexPath.section +1 )%2 == 0) {
         cell.backgroundColor = [UIColor lightGrayColor];

@@ -7,7 +7,8 @@
 //
 #define HEIGHT_INTERVAL  15 
 #import "RegisterViewController.h"
-
+#import "PaoPaoConstant.h"
+#import "QuartzCore/QuartzCore.h"
 
 @implementation RegisterViewController
 
@@ -73,12 +74,14 @@
     mail = [[UITextField alloc] initWithFrame:CGRectMake(10, HEIGHT_INTERVAL, 300, 30)];
     mail.borderStyle = UITextBorderStyleRoundedRect;
     mail.delegate = self;
+    mail.font = [UIFont fontWithName:PaoPaoFont size:16];
     mail.placeholder = @"你的邮箱地址";
     [scrollView addSubview:mail];
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(10, mail.frame.origin.y+mail.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     password.borderStyle = UITextBorderStyleRoundedRect;
     password.secureTextEntry = YES;
+    password.font = [UIFont fontWithName:PaoPaoFont size:16];
     password.delegate = self;
     password.placeholder = @"密码（6-8个字符）";
     [scrollView addSubview:password];
@@ -86,12 +89,14 @@
     nibname = [[UITextField alloc] initWithFrame:CGRectMake(10, password.frame.origin.y+password.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     nibname.borderStyle = UITextBorderStyleRoundedRect;
     nibname.delegate = self;
+    nibname.font = [UIFont fontWithName:PaoPaoFont size:16];
     nibname.placeholder = @"你的昵称";
     [scrollView addSubview:nibname];
     
     phone = [[UITextField alloc] initWithFrame:CGRectMake(10, nibname.frame.origin.y+nibname.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     phone.borderStyle = UITextBorderStyleRoundedRect;
     phone.delegate = self;
+    phone.font = [UIFont fontWithName:PaoPaoFont size:16];
     phone.placeholder = @"你的手机号码";
     [scrollView addSubview:phone];
 
@@ -105,8 +110,10 @@
     
     registerButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     registerButton.frame = CGRectMake((320-80)/2, picButton.frame.origin.y+picButton.frame.size.height + HEIGHT_INTERVAL, 80, 25);
+    
     [registerButton setTitle:@"马上注册" forState:UIControlStateNormal];
     [registerButton addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
+    registerButton.layer.cornerRadius = 3.0;
     [scrollView addSubview:registerButton];
 
 }
