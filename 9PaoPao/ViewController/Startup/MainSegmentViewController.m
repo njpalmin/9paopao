@@ -224,9 +224,15 @@
 		mMainViewController = nil;
 	}
 	
-    if (mMyProfileViewController) {
-        [mMyProfileViewController release];
-        mMyProfileViewController = nil;
+    if (mAccountViewController) {
+        [mAccountViewController release];
+        mAccountViewController = nil;
+    }
+    
+    if (mFriendNavigationController)
+    {
+        [mFriendNavigationController release];
+        mFriendNavigationController = nil;
     }
     [super dealloc];
 }
@@ -268,14 +274,19 @@
             break;
         }
         case 2:
-            if (mMyProfileViewController == nil) {
-                mMyProfileViewController = [[MyProfileViewController alloc] init];
-                [mProfileNavigationController pushViewController:mMyProfileViewController animated:NO];
+            if (mAccountViewController == nil) {
+                mAccountViewController = [[AccountViewController alloc] init];
+                [mProfileNavigationController pushViewController:mAccountViewController animated:NO];
             }
             
             [self.view addSubview:mProfileNavigationController.view];
             break;
         case 3:
+            if (mMyFriendsViewController == nil) {
+                mMyFriendsViewController = [[MyFriendsViewController alloc] init];
+                [mFriendNavigationController pushViewController:mMyFriendsViewController animated:NO];
+            }
+            [self.view addSubview:mFriendNavigationController.view];
             break;
         case 4:
             

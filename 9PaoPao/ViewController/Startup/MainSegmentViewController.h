@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SearchNearbyViewController.h"
 #import "MainViewController.h"
-#import "MyProfileViewController.h"
+#import "AccountViewController.h"
+#import "MyFriendsViewController.h"
 
 @interface MainSegmentViewController : UIViewController {
 
@@ -27,7 +28,8 @@
 
     SearchNearbyViewController  *mSearchNearbyViewController;
     MainViewController          *mMainViewController;
-    MyProfileViewController     *mMyProfileViewController;
+    AccountViewController       *mAccountViewController;
+    MyFriendsViewController     *mMyFriendsViewController;
 
 }
 

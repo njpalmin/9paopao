@@ -163,7 +163,7 @@
         mTableView.autoresizesSubviews = YES;
         mTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		mTableView.backgroundColor = [UIColor clearColor];
-		mTableView.separatorColor = [UIColor lightGrayColor];
+		mTableView.separatorColor = [UIColor clearColor];
 		
         [containerView addSubview:mTableView];
         mTableView.delegate = self;
