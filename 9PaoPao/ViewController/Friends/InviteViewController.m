@@ -10,6 +10,7 @@
 #import "LineView.h"
 #import "PaoPaoConstant.h"
 @implementation InviteViewController
+@synthesize phoneNumbers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -191,7 +192,6 @@
 {
     ABPeoplePickerNavigationController *people = [[ABPeoplePickerNavigationController alloc] init];
     people.peoplePickerDelegate = self;
-    people.addressBook = ABAddressBookCreate();
     people.displayedProperties = [NSArray arrayWithObjects:[NSNumber numberWithInt:kABPersonPhoneProperty ], nil];
     [self.navigationController presentModalViewController:people animated:YES];
     [people release];
@@ -264,12 +264,22 @@
 // Return NO  to do nothing (the delegate is responsible for dismissing the peoplePicker).
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
-    NSString *num = (NSString *)ABRecordCopyValue(person, kABPersonLastNamePhoneticProperty);
-    //[phoneNumbers addObject:num];
-    toEmail.text = [toEmail.text stringByAppendingFormat:@"%@;",num];
-    [num release];
-    [peoplePicker dismissModalViewControllerAnimated:YES];
-    return YES;
+    NSLog(@"person:\n %@",person);
+    //get person name
+    NSString *string = (NSString *)ABRecordCopyCompositeName(person);
+    
+    //get person phoneNumbers
+    CFTypeRef theProperty = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    NSArray *items = (NSArray *)ABMultiValueCopyArrayOfAllValues(theProperty);
+    CFRelease(theProperty);
+    NSLog(@"his phone number:\n %@",items);
+    self.phoneNumbers = items;
+    
+    //show his name
+    toEmail.text = [toEmail.text stringByAppendingFormat:@"%@;",string];
+    [string release];
+    //[peoplePicker dismissModalViewControllerAnimated:YES];
+    return NO;
 }
 
 // Called after a value has been selected by the user.
