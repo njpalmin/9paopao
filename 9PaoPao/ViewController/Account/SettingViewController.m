@@ -44,8 +44,8 @@
     [number release];
     number = nil;
     
-    [imageButton release];
-    imageButton = nil;
+    [imageView release];
+    imageView = nil;
     [super dealloc];
 }
 
@@ -71,6 +71,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"设置";
     
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460-44-50)];
     scrollView.contentSize = scrollView.frame.size;
@@ -78,19 +79,18 @@
     scrollView.scrollEnabled = YES;
     scrollView.userInteractionEnabled = YES;
     scrollView.alwaysBounceVertical = YES;
+    scrollView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     [self.view addSubview:scrollView];
     
-    self.placeHolds = [NSMutableArray arrayWithObjects:@"请输入你的邮箱地址",
-                   @"**********",
+    self.placeHolds = [NSMutableArray arrayWithObjects:@"你的邮箱地址",
+                   @"密码",
                    @"你的用户名",
-                   @"你的手机号码",
-                   @"修改我的头像",nil];
-    self.sectionNames = [NSMutableArray arrayWithObjects:@"邮箱地址",
-                    @"密码",
-                    @"昵称",
-                    @"手机号码",
-                    @"用户照片",nil];
-    for (int i = 0; i<5; i++) {
+                   @"你的手机号码",nil];
+    self.sectionNames = [NSMutableArray arrayWithObjects:@"邮箱地址:",
+                    @"密码:",
+                    @"昵称:",
+                    @"手机号码:",nil];
+    for (int i = 0; i<4; i++) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 15 + i*60 , 320, 15)];
         label.text = [sectionNames objectAtIndex:i];
         label.backgroundColor = [UIColor clearColor];
@@ -103,6 +103,8 @@
     email = [[UITextField alloc] initWithFrame:CGRectMake(15, 32, 300, 30)];
     email.placeholder = [placeHolds objectAtIndex:0];
     email.delegate = self;
+    email.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     email.font = [UIFont fontWithName:PaoPaoFont size:14];
     email.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:email];
@@ -110,6 +112,7 @@
     password = [[UITextField alloc] initWithFrame:CGRectMake(15, 32 +60, 300, 30)];
     password.placeholder = [placeHolds objectAtIndex:1];
     password.delegate = self;
+    password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     password.font = [UIFont fontWithName:PaoPaoFont size:14];
     password.secureTextEntry = YES;
     password.borderStyle = UITextBorderStyleRoundedRect;
@@ -118,6 +121,8 @@
     user = [[UITextField alloc] initWithFrame:CGRectMake(15, 32+60*2, 300, 30)];
     user.placeholder = [placeHolds objectAtIndex:2];
     user.delegate = self;
+    user.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    user.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     user.font = [UIFont fontWithName:PaoPaoFont size:14];
     user.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:user];
@@ -126,16 +131,26 @@
     number.placeholder = [placeHolds objectAtIndex:3];
     number.delegate = self;
     number.tag = 101;
+    number.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     number.font = [UIFont fontWithName:PaoPaoFont size:14];
     number.borderStyle = UITextBorderStyleRoundedRect;
     [scrollView addSubview:number];
     
-    imageButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-    [imageButton setFrame:CGRectMake(15, 32+60*4, 64, 64)];
-    imageButton.layer.cornerRadius = 3.0;
-    [imageButton setTitle:@"你的头像" forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(uploadImage:) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:imageButton];
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 12+60*4, 64, 64)];
+    [imageView setImage:[UIImage imageNamed:@"female-icon.png"]];
+    [imageView.layer setCornerRadius:3.0];
+    [scrollView addSubview:imageView];
+    
+    UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    [sendButton setFrame:CGRectMake(15+64+20, 2+60*4+32, 110, 30)];
+    [sendButton addTarget:self action:@selector(uploadImage:) forControlEvents:UIControlEventTouchUpInside];
+    [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
+    [sendButton setTitle:@"修改我的头像" forState:UIControlStateNormal];
+    [scrollView addSubview:sendButton];
+    [sendButton release];
+    sendButton = nil;
+    
 }
 
 
@@ -195,8 +210,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-	[imageButton setImage:image forState:UIControlStateNormal];
-    imageButton.layer.cornerRadius = 3.0;
+    imageView.image = image;
     [self dismissModalViewControllerAnimated:YES];
 }
 

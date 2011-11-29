@@ -69,18 +69,23 @@
     scrollView.scrollEnabled = YES;
     scrollView.userInteractionEnabled = YES;
     scrollView.alwaysBounceVertical = YES;
+    scrollView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+
     [self.view addSubview:scrollView];
     
     mail = [[UITextField alloc] initWithFrame:CGRectMake(10, HEIGHT_INTERVAL, 300, 30)];
     mail.borderStyle = UITextBorderStyleRoundedRect;
     mail.delegate = self;
+    mail.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     mail.font = [UIFont fontWithName:PaoPaoFont size:16];
+    mail.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     mail.placeholder = @"你的邮箱地址";
     [scrollView addSubview:mail];
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(10, mail.frame.origin.y+mail.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     password.borderStyle = UITextBorderStyleRoundedRect;
     password.secureTextEntry = YES;
+    password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     password.font = [UIFont fontWithName:PaoPaoFont size:16];
     password.delegate = self;
     password.placeholder = @"密码（6-8个字符）";
@@ -89,6 +94,8 @@
     nibname = [[UITextField alloc] initWithFrame:CGRectMake(10, password.frame.origin.y+password.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     nibname.borderStyle = UITextBorderStyleRoundedRect;
     nibname.delegate = self;
+    nibname.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    nibname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     nibname.font = [UIFont fontWithName:PaoPaoFont size:16];
     nibname.placeholder = @"你的昵称";
     [scrollView addSubview:nibname];
@@ -96,28 +103,34 @@
     phone = [[UITextField alloc] initWithFrame:CGRectMake(10, nibname.frame.origin.y+nibname.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     phone.borderStyle = UITextBorderStyleRoundedRect;
     phone.delegate = self;
+    phone.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     phone.font = [UIFont fontWithName:PaoPaoFont size:16];
     phone.placeholder = @"你的手机号码";
     [scrollView addSubview:phone];
 
     //[self addToolbarAboveKeyboard];
     
-    picButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-    picButton.frame = CGRectMake(10, phone.frame.origin.y+phone.frame.size.height + HEIGHT_INTERVAL, 65, 65);
-    [picButton setTitle:@"你的相片" forState:UIControlStateNormal];
-    [picButton addTarget:self action:@selector(upLoadPicture:) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:picButton];
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, phone.frame.origin.y+phone.frame.size.height + HEIGHT_INTERVAL, 65, 65)];
+    [imageView setImage:[UIImage imageNamed:@"female-icon.png"]];
+    [imageView.layer setCornerRadius:3.0];
+    [scrollView addSubview:imageView];
     
-    registerButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
-    registerButton.frame = CGRectMake((320-80)/2, picButton.frame.origin.y+picButton.frame.size.height + HEIGHT_INTERVAL, 80, 25);
-    
-    [registerButton setTitle:@"马上注册" forState:UIControlStateNormal];
-    [registerButton addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
-    registerButton.layer.cornerRadius = 3.0;
-    [scrollView addSubview:registerButton];
+    UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    [sendButton setFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height + HEIGHT_INTERVAL, 80, 25)];
+    [sendButton addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
+    [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
+    [sendButton setTitle:@"马上注册" forState:UIControlStateNormal];
+    [scrollView addSubview:sendButton];
+    [sendButton release];
+    sendButton = nil;
 
 }
 
+//- (CGRect)placeholderRectForBounds:(CGRect)bounds
+//{
+//    return CGRectOffset(bounds, 0, 10);
+//}
 //-(void)addToolbarAboveKeyboard
 //{
 //    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];

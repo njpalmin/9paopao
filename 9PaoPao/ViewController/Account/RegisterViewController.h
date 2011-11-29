@@ -19,6 +19,7 @@
     
     UIButton     *picButton;
     UIButton     *registerButton;
+    UIImageView  *imageView;
 }
 
 //-(void) addToolbarAboveKeyboard;

@@ -61,46 +61,61 @@
     scrollView.userInteractionEnabled = YES;
     scrollView.scrollEnabled =YES;
     scrollView.alwaysBounceVertical = YES;
+    scrollView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     [self.view addSubview:scrollView];
     
     self.navigationItem.title = @"登陆";
+    
     emailTop = [[UITextField alloc] initWithFrame:CGRectMake(10, 30, 300, 30)];
     emailTop.borderStyle = UITextBorderStyleRoundedRect;
     emailTop.delegate = self;
+    emailTop.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    emailTop.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     emailTop.font = [UIFont fontWithName:PaoPaoFont size:14];
-    emailTop.placeholder = @"邮箱地址";
+    emailTop.placeholder = @"你的邮箱地址";
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(10, emailTop.frame.origin.y+emailTop.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     password.borderStyle = UITextBorderStyleRoundedRect;
     password.delegate = self;
+    password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     password.font = [UIFont fontWithName:PaoPaoFont size:14];
     password.secureTextEntry = YES;
     password.placeholder = @"密码";
 
-    UIButton *btnRegister = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    UIButton *btnRegister = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     btnRegister.frame = CGRectMake(55, password.frame.origin.y+password.frame.size.height + HEIGHT_INTERVAL, 80, 25);
+    [btnRegister setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [btnRegister setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [btnRegister setTitle:@"立即注册" forState:UIControlStateNormal];
+    
     [btnRegister addTarget:self action:@selector(registNow:) forControlEvents:UIControlEventTouchUpInside];
 
-    UIButton *btnlogUp = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    UIButton *btnlogUp = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     btnlogUp.frame = CGRectMake(185, btnRegister.frame.origin.y, 80, 25);
     [btnlogUp setTitle:@"马上登陆" forState:UIControlStateNormal];
+    [btnlogUp setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [btnlogUp setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [btnlogUp addTarget:self action:@selector(logUpNow:) forControlEvents:UIControlEventTouchUpInside];
 
     UILabel *forgetlabel = [[UILabel alloc] initWithFrame:CGRectMake(password.frame.origin.x, btnRegister.frame.origin.y + btnRegister.frame.size.height + password.frame.size.height, 100, 20)];
     forgetlabel.text = @"忘记密码？";
+    forgetlabel.textColor = [UIColor redColor];
     forgetlabel.font = [UIFont fontWithName:PaoPaoFont size:14];
     forgetlabel.backgroundColor = [UIColor clearColor];
     
-    emailBottom = [[UITextField alloc] initWithFrame:CGRectMake(10, forgetlabel.frame.origin.y+forgetlabel.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
+    emailBottom = [[UITextField alloc] initWithFrame:CGRectMake(10, forgetlabel.frame.origin.y+forgetlabel.frame.size.height + HEIGHT_INTERVAL -5, 300, 30)];
     emailBottom.borderStyle = UITextBorderStyleRoundedRect;
     emailBottom.delegate =self;
     emailBottom.font = [UIFont fontWithName:PaoPaoFont size:14];
     emailBottom.tag = 101;
+    emailBottom.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    emailBottom.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     emailBottom.placeholder = @"邮箱地址";
     
-    UIButton *btnSend = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    UIButton *btnSend = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     btnSend.frame = CGRectMake(320-80-10, emailBottom.frame.origin.y+emailBottom.frame.size.height + HEIGHT_INTERVAL, 80, 25);
+    [btnSend setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [btnSend setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [btnSend setTitle:@"发送" forState:UIControlStateNormal];
     [btnSend addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
 

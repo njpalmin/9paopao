@@ -20,7 +20,7 @@
     UITextField     *user;
     UITextField     *number;
     
-    UIButton        *imageButton;
+    UIImageView     *imageView;
 }
 @property(nonatomic,retain) NSMutableArray  *sectionNames;
 @property(nonatomic,retain) NSMutableArray  *placeHolds;

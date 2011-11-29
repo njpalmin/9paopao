@@ -25,7 +25,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    [self drawLineWithMinX:0.0 MinY:0.0 MaxX:320.0 MaxY:0.0];
+    [self drawLineWithMinX:0.0 MinY:0.0 MaxX:300.0 MaxY:0.0];
     
 }
 /*******************************************************************************
@@ -41,7 +41,7 @@
 {
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
 	
-    CGContextSetRGBStrokeColor(ctx, 0.5, 0.5, 0.5, 0.5);
+    CGContextSetRGBStrokeColor(ctx, 0.95, 0.95, 0.95, 1.0);
     CGContextSetLineWidth(ctx, 1.0);
 	CGContextMoveToPoint	(ctx, minX, minY);
 	CGContextAddLineToPoint	(ctx, maxX, maxY);

@@ -515,7 +515,7 @@
 {
     mFootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, (SearchKindBtnHeight + TableViewSectionPadding*2))];
     
-    mAddMoreBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procAddMore:) target:self];
+    mAddMoreBtn = [[PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procAddMore:) target:self] retain] ;
     mAddMoreBtn.frame = CGRectMake((320-SearchKindBtnWidth)/2, TableViewSectionPadding, SearchKindBtnWidth, SearchKindBtnHeight);
     
     [mFootView addSubview:mAddMoreBtn];

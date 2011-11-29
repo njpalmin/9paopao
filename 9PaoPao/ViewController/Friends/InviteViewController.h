@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AddressBookUI/AddressBookUI.h"
 
-@interface InviteViewController : UIViewController <UITextFieldDelegate,ABPeoplePickerNavigationControllerDelegate>{
+@interface InviteViewController : UIViewController <UITextFieldDelegate,ABPeoplePickerNavigationControllerDelegate,UITextViewDelegate>{
     UIScrollView   *scrollView;
     
     UITextField     *toEmail;
@@ -19,4 +19,5 @@
      
     NSMutableArray  *phoneNumbers;
 }
+-(void) addToolbarAboveKeyboard;
 @end
