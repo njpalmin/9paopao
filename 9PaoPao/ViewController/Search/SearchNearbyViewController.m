@@ -722,40 +722,35 @@
 
 - (void)procChooseRange:(id)sender
 {
-    //for test 
-    AccountViewController *accountController = [[AccountViewController alloc] init];
-    [self.navigationController pushViewController:accountController animated:YES];
-    [accountController release];
-    accountController = nil;
-//    NSString                        *pickerString = nil;
-//    NSMutableArray                  *pickerContents = nil;
-//    NSNumber                        *number = nil;
-//    
-//    pickerContents = [[NSMutableArray alloc] initWithCapacity:0];
-//    
-//    for (int i = 0; i < [mRangeArray count]; i++) {
-//        
-//        number = [mRangeArray objectAtIndex:i];
-//        pickerString = [NSString stringWithFormat:NSLocalizedString(@"SearchRange", nil), [number intValue]];
-//        if (pickerString) {
-//            [pickerContents addObject:pickerString];
-//        }
-//    }
-//    
-//    if (mPickerViewController) {
-//        [mPickerViewController.view removeFromSuperview];
-//        [mPickerViewController release];
-//        mPickerViewController = nil;
-//    }
-//    mPickerViewController = [[PopoverPickerViewController alloc] init];
-//    mPickerViewController.chooseIndex = mSearchRange;
-//    mPickerViewController.pickerContent = pickerContents;
-//    mPickerViewController.delegate = self;
-//    
-//    [self.view addSubview:mPickerViewController.view];
-//    
-//    [pickerContents release];
-//    pickerContents = nil;
+    NSString                        *pickerString = nil;
+    NSMutableArray                  *pickerContents = nil;
+    NSNumber                        *number = nil;
+    
+    pickerContents = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    for (int i = 0; i < [mRangeArray count]; i++) {
+        
+        number = [mRangeArray objectAtIndex:i];
+        pickerString = [NSString stringWithFormat:NSLocalizedString(@"SearchRange", nil), [number intValue]];
+        if (pickerString) {
+            [pickerContents addObject:pickerString];
+        }
+    }
+    
+    if (mPickerViewController) {
+        [mPickerViewController.view removeFromSuperview];
+        [mPickerViewController release];
+        mPickerViewController = nil;
+    }
+    mPickerViewController = [[PopoverPickerViewController alloc] init];
+    mPickerViewController.chooseIndex = mSearchRange;
+    mPickerViewController.pickerContent = pickerContents;
+    mPickerViewController.delegate = self;
+    
+    [self.view addSubview:mPickerViewController.view];
+    
+    [pickerContents release];
+    pickerContents = nil;
 }                             
 
 - (void)procSearchKindBtn:(id)sender
