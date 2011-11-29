@@ -63,3 +63,14 @@
 
 // my profile
 "My Profile Title" = "我的资料";
+
+// my friends
+"My Friends Page Title" = "我的好友";
+"Gmail" = "Gmail";
+"Share to Sina Weibo" = "分享到sina微博";
+"Share to renren" = "分享到人人网";
+"Share to kaixin" = "分享到开心网";
+"Share to Google" = "分享到谷歌网";
+"Share to Baidu Collection" = "分享到百度收藏";
+
+

@@ -643,17 +643,17 @@
     
     xPos = (bounds.size.width - 3*SearchKindBtnWidth - 2*SearchKindBtnPadding)/2;
 	
-    mSearchWineBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchWineBtn = [[PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self] retain];
     mSearchWineBtn.tag = SearchKindWine;
     mSearchWineBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
     
-    mSearchPlaceBtn = [PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchPlaceBtn = [[PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self] retain];
     mSearchPlaceBtn.tag = SearchKindPlace;
     mSearchPlaceBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 	
-    mSearchUserBtn = [PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self];
+    mSearchUserBtn = [[PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self] retain];
     mSearchUserBtn.tag = SearchKindUser;
     mSearchUserBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
