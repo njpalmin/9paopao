@@ -489,17 +489,17 @@
     
     xPos = (bounds.size.width - 3*SearchKindBtnWidth - 2*SearchKindBtnPadding)/2;
 	
-    mDrinkTrackerBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self];
+    mDrinkTrackerBtn = [[PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mDrinkTrackerBtn.tag = SelectTabDrinkTracker;
     mDrinkTrackerBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
     
-    mCommentBtn = [PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self];
+    mCommentBtn = [[PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCommentBtn.tag = SelectTabComment;
     mCommentBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 	
-    mCollectionBtn = [PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self];
+    mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCollectionBtn.tag = SelectTabCollection;
     mCollectionBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
@@ -515,7 +515,7 @@
 {
     mFootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, (SearchKindBtnHeight + TableViewSectionPadding*2))];
     
-    mAddMoreBtn = [PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procAddMore:) target:self];
+    mAddMoreBtn = [[PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procAddMore:) target:self] retain];
     mAddMoreBtn.frame = CGRectMake((320-SearchKindBtnWidth)/2, TableViewSectionPadding, SearchKindBtnWidth, SearchKindBtnHeight);
     
     [mFootView addSubview:mAddMoreBtn];
