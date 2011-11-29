@@ -147,7 +147,7 @@
     MainViewCell *cell = nil;
     cell = (MainViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     }
     cell.delegate = self;
     for (int i = 0; i<3; i++) {

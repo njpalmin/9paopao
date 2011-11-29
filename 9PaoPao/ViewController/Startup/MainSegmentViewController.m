@@ -72,6 +72,10 @@
 		mSearchNavigationController = [[UINavigationController alloc] init];
         mSearchNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
         mSearchNavigationController.view.tag = 104;
+        
+        mFriendNavigationController = [[UINavigationController alloc] init];
+        mFriendNavigationController.view.frame = CGRectMake(0, 0, bound.size.width, PageWithoutSegementHeight);
+        mFriendNavigationController.view.tag = 105;
 		// ------init navigationController------
 		
 		// -----bottom button-----
@@ -213,7 +217,7 @@
 		[mSearchNavigationController release];
 		mSearchNavigationController = nil;
 	}
-	
+    
 	if (mSearchNearbyViewController) {
 		[mSearchNearbyViewController release];
 		mSearchNearbyViewController = nil;
@@ -233,6 +237,11 @@
     {
         [mFriendNavigationController release];
         mFriendNavigationController = nil;
+    }
+    
+    if (mLiveFeedViewController) {
+        [mLiveFeedViewController release];
+        mLiveFeedViewController = nil;
     }
     [super dealloc];
 }
@@ -270,7 +279,13 @@
 			[self.view addSubview:mHomeNavigationController.view];
             break;
         case 1:
-        {            
+        { 
+            if (mLiveFeedViewController == nil) {
+                mLiveFeedViewController = [[LiveFeedViewController alloc] init];
+                [mLiveNavigationController pushViewController:mLiveFeedViewController animated:YES];
+            }
+            
+            [self.view addSubview:mLiveNavigationController.view];
             break;
         }
         case 2:

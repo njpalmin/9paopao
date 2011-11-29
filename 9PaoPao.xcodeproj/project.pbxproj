@@ -216,6 +216,7 @@
 		A533BC9B148326AA00556C25 /* TermViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A533BC93148326AA00556C25 /* TermViewController.m */; };
 		A533BC9D1483277800556C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9C1483277800556C25 /* AddressBookUI.framework */; };
 		A533BC9F148327A100556C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9E148327A100556C25 /* AddressBook.framework */; };
+		A59FAF371484DE3000E80BEB /* LiveFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59FAF361484DE3000E80BEB /* LiveFeedViewController.m */; };
 		A5A141A1148388FF00BD0181 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A141A0148388FF00BD0181 /* LineView.m */; };
 /* End PBXBuildFile section */
 
@@ -512,6 +513,8 @@
 		A533BC93148326AA00556C25 /* TermViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermViewController.m; path = 9PaoPao/ViewController/Account/TermViewController.m; sourceTree = SOURCE_ROOT; };
 		A533BC9C1483277800556C25 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A533BC9E148327A100556C25 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		A59FAF351484DE3000E80BEB /* LiveFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveFeedViewController.h; sourceTree = "<group>"; };
+		A59FAF361484DE3000E80BEB /* LiveFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveFeedViewController.m; sourceTree = "<group>"; };
 		A5A1419F148388FF00BD0181 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
 		A5A141A0148388FF00BD0181 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -862,6 +865,8 @@
 		3354F0C9147F731500C20D67 /* LiveFeed */ = {
 			isa = PBXGroup;
 			children = (
+				A59FAF351484DE3000E80BEB /* LiveFeedViewController.h */,
+				A59FAF361484DE3000E80BEB /* LiveFeedViewController.m */,
 			);
 			path = LiveFeed;
 			sourceTree = "<group>";
@@ -1464,6 +1469,7 @@
 				20F257F91483D3B0008DDF7D /* MBProgressHUD.m in Sources */,
 				20F258021483E892008DDF7D /* DrinkWineRecordViewController.m in Sources */,
 				33BEBB5514846F0300010BCA /* MyFriendsViewController.m in Sources */,
+				A59FAF371484DE3000E80BEB /* LiveFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
