@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToolBarView.h"
+@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *insertArray;
+    UITableView *drinkWineTableView;
+    ToolBarView *toolBar;
+    NSString *withFood;
+}
 
-@interface DrinkWineRecordViewController : UIViewController
+- (id)initWithFood:(NSString *)food;
 
 @end
