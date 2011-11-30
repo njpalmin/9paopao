@@ -12,6 +12,8 @@
 #import "StarMarkView.h"
 #import "MapViewController.h"
 
+#import "DrinkWineRecordViewController.h"
+
 @implementation BarCommentDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -173,7 +175,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{}
+{
+    DrinkWineRecordViewController *dVC = [[DrinkWineRecordViewController alloc] initWithFood:@"鸡肉，梨子派"];
+    [self.navigationController pushViewController:dVC animated:YES];
+    [dVC release];
+}
 
 #pragma mark - View lifecycle
 
