@@ -21,6 +21,8 @@
 		2089E00614700565006581C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E00514700565006581C3 /* CoreLocation.framework */; };
 		2089E009147005A5006581C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089E008147005A5006581C3 /* MapKit.framework */; };
 		208BFFC3147BD94D0066D8CC /* BarComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 208BFFC2147BD94D0066D8CC /* BarComment.m */; };
+		20D36034148B6EE400087572 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D36033148B6EE300087572 /* LocationTableViewController.m */; };
+		20D36038148B7C1900087572 /* LocationDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D36037148B7C1900087572 /* LocationDetail.m */; };
 		20F257F91483D3B0008DDF7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F257F81483D3B0008DDF7D /* MBProgressHUD.m */; };
 		20F258021483E892008DDF7D /* DrinkWineRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F258011483E892008DDF7D /* DrinkWineRecordViewController.m */; };
 		3316CDDB1479EBCF00C3501B /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDD61479EBCF00C3501B /* CoreLocationService.m */; };
@@ -291,6 +293,10 @@
 		2089E008147005A5006581C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		208BFFC1147BD94C0066D8CC /* BarComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarComment.h; sourceTree = "<group>"; };
 		208BFFC2147BD94D0066D8CC /* BarComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarComment.m; sourceTree = "<group>"; };
+		20D36032148B6EE300087572 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
+		20D36033148B6EE300087572 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
+		20D36036148B7C1900087572 /* LocationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetail.h; sourceTree = "<group>"; };
+		20D36037148B7C1900087572 /* LocationDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetail.m; sourceTree = "<group>"; };
 		20F257F71483D3B0008DDF7D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		20F257F81483D3B0008DDF7D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		20F258001483E892008DDF7D /* DrinkWineRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkWineRecordViewController.h; sourceTree = "<group>"; };
@@ -732,6 +738,8 @@
 			children = (
 				20F258001483E892008DDF7D /* DrinkWineRecordViewController.h */,
 				20F258011483E892008DDF7D /* DrinkWineRecordViewController.m */,
+				20D36032148B6EE300087572 /* LocationTableViewController.h */,
+				20D36033148B6EE300087572 /* LocationTableViewController.m */,
 			);
 			path = SocialFunction;
 			sourceTree = "<group>";
@@ -976,6 +984,8 @@
 				3316CEA5147A147100C3501B /* PaoPaoRoundButton.m */,
 				3316CEA7147A15F900C3501B /* PaoPaoTouchPoint.h */,
 				3316CEA8147A15F900C3501B /* PaoPaoTouchPoint.m */,
+				20D36036148B7C1900087572 /* LocationDetail.h */,
+				20D36037148B7C1900087572 /* LocationDetail.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1642,6 +1652,8 @@
 				20F258021483E892008DDF7D /* DrinkWineRecordViewController.m in Sources */,
 				33BEBB5514846F0300010BCA /* MyFriendsViewController.m in Sources */,
 				A59FAF371484DE3000E80BEB /* LiveFeedViewController.m in Sources */,
+				20D36034148B6EE400087572 /* LocationTableViewController.m in Sources */,
+				20D36038148B7C1900087572 /* LocationDetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

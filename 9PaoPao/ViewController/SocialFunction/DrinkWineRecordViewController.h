@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "ToolBarView.h"
-@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
+#import "MapViewController.h"
+@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 {
-    NSMutableArray *insertArray;
+    
     UITableView *drinkWineTableView;
     ToolBarView *toolBar;
     NSString *withFood;
+    BOOL hasLocated;
+    UILabel *foodLable;
+    UILabel *locationLable;
+    MapViewController *mapVC;
+    UIActionSheet *sheetView;
+    NSInteger totalSection;
 }
 
 - (id)initWithFood:(NSString *)food;

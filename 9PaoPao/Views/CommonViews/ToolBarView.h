@@ -22,6 +22,7 @@
     UIButton *followButton;
     UIButton *emotionButton;
     id       delegate;
+    
 }
 @property (nonatomic, retain) id delegate;
 @end
