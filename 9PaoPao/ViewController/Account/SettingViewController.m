@@ -103,6 +103,7 @@
     email = [[UITextField alloc] initWithFrame:CGRectMake(15, 32, 300, 30)];
     email.placeholder = [placeHolds objectAtIndex:0];
     email.delegate = self;
+    email.keyboardType = UIKeyboardTypeEmailAddress;
     email.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     email.font = [UIFont fontWithName:PaoPaoFont size:14];
@@ -131,6 +132,7 @@
     number.placeholder = [placeHolds objectAtIndex:3];
     number.delegate = self;
     number.tag = 101;
+    number.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     number.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     number.font = [UIFont fontWithName:PaoPaoFont size:14];
     number.borderStyle = UITextBorderStyleRoundedRect;
@@ -138,7 +140,8 @@
     
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 12+60*4, 64, 64)];
     [imageView setImage:[UIImage imageNamed:@"female-icon.png"]];
-    [imageView.layer setCornerRadius:3.0];
+    [imageView.layer setMasksToBounds:YES];
+    [imageView.layer setCornerRadius:10.0];
     [scrollView addSubview:imageView];
     
     UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
@@ -147,6 +150,7 @@
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [sendButton setTitle:@"修改我的头像" forState:UIControlStateNormal];
+    sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
     [scrollView addSubview:sendButton];
     [sendButton release];
     sendButton = nil;

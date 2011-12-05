@@ -421,10 +421,14 @@
     
     NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneButton,nil];  
     [doneButton release];  
+    doneButton = nil;
     [btnSpace release];  
+    btnSpace = nil;
     
     [topView setItems:buttonsArray];  
-    [commentsText setInputAccessoryView:topView];  
+    [commentsText setInputAccessoryView:topView]; 
+    [topView release];
+    topView = nil;
 }
 
 -(void)dismissKeyBoard  
@@ -527,7 +531,7 @@
 		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:wineCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wineCellIdentifier];
+			cell = [[[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wineCellIdentifier] autorelease];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -545,7 +549,7 @@
 		cell = (WineDetailView*)[tableView dequeueReusableCellWithIdentifier:placeCellIdentifier];
 		if (cell == nil)
 		{
-			cell = [[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:placeCellIdentifier];
+			cell = [[[WineDetailView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:placeCellIdentifier] autorelease];
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -648,9 +652,9 @@
 
 - (void)locationManagerUpdateHeading:(LocationManager*)controller
 {
-	CLLocation	*location = nil;
-	
-	location = controller.newLocation;
+//	CLLocation	*location = nil;
+//	
+//	location = controller.newLocation;
 }
 
 - (void)locationManager:(LocationManager*)controller didReceiveError:(NSError*)error

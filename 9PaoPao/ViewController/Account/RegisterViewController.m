@@ -80,6 +80,7 @@
     mail.font = [UIFont fontWithName:PaoPaoFont size:16];
     mail.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     mail.placeholder = @"你的邮箱地址";
+    mail.keyboardType = UIKeyboardTypeEmailAddress;
     [scrollView addSubview:mail];
     
     password = [[UITextField alloc] initWithFrame:CGRectMake(10, mail.frame.origin.y+mail.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
@@ -103,6 +104,7 @@
     phone = [[UITextField alloc] initWithFrame:CGRectMake(10, nibname.frame.origin.y+nibname.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     phone.borderStyle = UITextBorderStyleRoundedRect;
     phone.delegate = self;
+    phone.keyboardType = UIKeyboardTypeNumberPad;
     phone.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     phone.font = [UIFont fontWithName:PaoPaoFont size:16];
     phone.placeholder = @"你的手机号码";
@@ -112,7 +114,10 @@
     
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, phone.frame.origin.y+phone.frame.size.height + HEIGHT_INTERVAL, 65, 65)];
     [imageView setImage:[UIImage imageNamed:@"female-icon.png"]];
-    [imageView.layer setCornerRadius:3.0];
+    imageView.backgroundColor = [UIColor clearColor];
+    [imageView.layer setMasksToBounds:YES];
+    [imageView.layer setCornerRadius:10.0];
+    
     [scrollView addSubview:imageView];
     
     UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
@@ -121,6 +126,7 @@
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [sendButton setTitle:@"马上注册" forState:UIControlStateNormal];
+    sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
     [scrollView addSubview:sendButton];
     [sendButton release];
     sendButton = nil;

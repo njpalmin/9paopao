@@ -502,7 +502,7 @@
     mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCollectionBtn.tag = SelectTabCollection;
     mCollectionBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    //xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 	
     [mTabSelectView addSubview:mDrinkTrackerBtn];
     [mTabSelectView addSubview:mCommentBtn];

@@ -36,7 +36,7 @@
 
 -(void)addButtonWithTitle:(NSString *)title andImageName:(NSString *)imageName andPosition:(NSInteger)position andButtonTag:(NSInteger)tag
 {
-    CGFloat x;
+    CGFloat x = 0.0;
     switch (tag) {
         case FIRST:
             x = 18;

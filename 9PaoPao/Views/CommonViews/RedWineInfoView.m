@@ -78,7 +78,7 @@
         [self addSubview:mRecommendTitle];
         [self addSubview:mRecommendContent];
 
-        yPos += 5*WineDetailInfoLabelHeight;
+        //yPos += 5*WineDetailInfoLabelHeight;
     }
     return self;
 }

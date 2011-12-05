@@ -136,7 +136,7 @@
     CGRect                      bound;
     TellFavoriteViewController  *controller = nil;
     
-    bound = [[UIScreen mainScreen] bounds];
+    //bound = [[UIScreen mainScreen] bounds];
     
     // -----init navigationController------
     

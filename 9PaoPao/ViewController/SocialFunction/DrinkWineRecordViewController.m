@@ -182,7 +182,8 @@
             LocationTableViewController *locationVC = [[LocationTableViewController alloc] initWithShowContentArray:array];
             [self.navigationController pushViewController:locationVC animated:YES];
             [locationVC release];
-            
+            [object release];
+            object = nil;
         }
     }
 }
@@ -203,7 +204,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
     if ([indexPath section ] == 0) {
         
         foodLable.text = withFood;

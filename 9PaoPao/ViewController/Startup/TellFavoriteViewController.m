@@ -61,6 +61,9 @@
     float height = [[UIScreen mainScreen] bounds].size.height - 20;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     self.view = view;
+    [view release];
+    view = nil;
+    
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
     titleLabel.text = navTitle;
 	titleLabel.font = [UIFont fontWithName:PaoPaoFont size:16.0];
@@ -142,7 +145,7 @@
     static NSString *cellIdentify = @"cellIdentify";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify] autorelease];
         //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     NSDictionary *dic = [contentArray objectAtIndex:[indexPath section]];

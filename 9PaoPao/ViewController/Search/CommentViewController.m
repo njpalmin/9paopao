@@ -126,10 +126,14 @@
     
     NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneButton,nil];  
     [doneButton release];  
+    doneButton = nil;
     [btnSpace release];  
+    btnSpace = nil;
     
     [topView setItems:buttonsArray];  
     [commentsText setInputAccessoryView:topView];  
+    [topView release];
+    topView = nil;
 }
 
 -(void)dismissKeyBoard  
@@ -201,9 +205,9 @@
 
 - (void)locationManagerUpdateHeading:(LocationManager*)controller
 {
-	CLLocation	*location = nil;
-	
-	location = controller.newLocation;
+//	CLLocation	*location = nil;
+//	
+//	location = controller.newLocation;
 }
 
 - (void)locationManager:(LocationManager*)controller didReceiveError:(NSError*)error

@@ -17,10 +17,10 @@
     
     UITextView      *content;
      
-    NSArray  *phoneNumbers;
+    NSMutableArray  *phoneNumbers;
 }
 
-@property(nonatomic,retain) NSArray  *phoneNumbers;
+@property(nonatomic,retain) NSMutableArray  *phoneNumbers;
 
 -(void) addToolbarAboveKeyboard;
 

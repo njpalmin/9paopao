@@ -29,7 +29,8 @@
     subject = nil;
     [content release];
     content = nil;
-
+    [phoneNumbers release];
+    phoneNumbers = nil;
     [super dealloc];
 }
 
@@ -69,6 +70,8 @@
     [sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlStateNormal];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
+    sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
+    sendButton.titleLabel.textAlignment = UITextAlignmentRight;
     [sendButton setTitle:@"发送" forState:UIControlStateNormal];
     
     UIButton *cancelButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
@@ -76,6 +79,8 @@
     [cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlStateNormal];
     [cancelButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [cancelButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
+    cancelButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
+    cancelButton.titleLabel.textAlignment = UITextAlignmentRight;
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     
     CGFloat yPos = cancelButton.frame.origin.y + cancelButton.frame.size.height;
@@ -96,16 +101,17 @@
     addButton.frame = CGRectMake(320-30, toLabel.frame.origin.y, 25, 25);
     [addButton addTarget:self action:@selector(addFriends:) forControlEvents:UIControlEventTouchUpInside];
     
-    LineView *line1 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, toLabel.frame.origin.y +toLabel.frame.size.height +1.5, 320, 1)];
+    LineView *line1 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, toLabel.frame.origin.y +toLabel.frame.size.height +1.5, 300, 1)];
         
-    UILabel *fromLabel = [[UILabel alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, line1.frame.origin.y +line1.frame.size.height +15, 320, 25)];
+    UILabel *fromLabel = [[UILabel alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, line1.frame.origin.y +line1.frame.size.height +15, 300, 25)];
     fromLabel.backgroundColor = [UIColor clearColor];
+    fromLabel.lineBreakMode = UILineBreakModeTailTruncation;
     fromLabel.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     fromLabel.lineBreakMode = UILineBreakModeTailTruncation;
     fromLabel.text = @"Cc/Bcc,From: samsfnsakfk@slsamdlskfsdmfk.com";
     fromLabel.textColor = [UIColor lightGrayColor];
     
-    LineView *line2 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, fromLabel.frame.origin.y +fromLabel.frame.size.height +1.5, 320, 1)];
+    LineView *line2 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, fromLabel.frame.origin.y +fromLabel.frame.size.height +1.5, 300, 1)];
     
     UILabel *subjectLabel = [[UILabel alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, line2.frame.origin.y +line2.frame.size.height +15, 80, 25)];
     subjectLabel.font = [UIFont fontWithName:PaoPaoFont size:14.0];
@@ -119,7 +125,7 @@
     subject.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     subject.text = @"好酒";
     
-    LineView *line3 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, subjectLabel.frame.origin.y +subjectLabel.frame.size.height +1.5, 320, 1)];
+    LineView *line3 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, subjectLabel.frame.origin.y +subjectLabel.frame.size.height +1.5, 300, 1)];
     
     content = [[UITextView alloc] initWithFrame:CGRectMake(0, line3.frame.origin.y +line3.frame.size.height +5, 320, 460-44-216-60)];
     content.contentInset = UIEdgeInsetsZero;
@@ -185,7 +191,7 @@
 
 -(void)cancel:(id)sender
 {
-
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)addFriends:(id)sender
@@ -273,12 +279,15 @@
     NSArray *items = (NSArray *)ABMultiValueCopyArrayOfAllValues(theProperty);
     CFRelease(theProperty);
     NSLog(@"his phone number:\n %@",items);
-    self.phoneNumbers = items;
     
+    [self.phoneNumbers addObjectsFromArray:items];
+    NSLog(@"all phone numbers:\n %@",phoneNumbers);
+    [items release];
+    items = nil;
     //show his name
     toEmail.text = [toEmail.text stringByAppendingFormat:@"%@;",string];
     [string release];
-    //[peoplePicker dismissModalViewControllerAnimated:YES];
+    [peoplePicker dismissModalViewControllerAnimated:YES];
     return NO;
 }
 

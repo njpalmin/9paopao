@@ -211,7 +211,7 @@
         //[wineComment setBackgroundColor:[UIColor clearColor]];
 		wineComment.tag = CellWineCommentLabelTag;
         [cell.contentView addSubview:wineComment];
-		yPos += WineDetailInfoLabelHeight;
+		//yPos += WineDetailInfoLabelHeight;
 		
 		//-----------
 		[wineName setText:@"红酒1"];
@@ -536,10 +536,14 @@
     
     NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneButton,nil];  
     [doneButton release];  
+    doneButton = nil;
     [btnSpace release];  
+    btnSpace = nil;
     
     [topView setItems:buttonsArray];  
-    [commentsText setInputAccessoryView:topView];  
+    [commentsText setInputAccessoryView:topView]; 
+    [topView release];
+    topView = nil;
 }
 
 -(void)dismissKeyBoard  
@@ -578,9 +582,9 @@
 
 - (void)locationManagerUpdateHeading:(LocationManager*)controller
 {
-	CLLocation	*location = nil;
-	
-	location = controller.newLocation;
+//	CLLocation	*location = nil;
+//	
+//	location = controller.newLocation;
 }
 
 - (void)locationManager:(LocationManager*)controller didReceiveError:(NSError*)error

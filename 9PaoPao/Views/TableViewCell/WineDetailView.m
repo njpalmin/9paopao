@@ -66,7 +66,7 @@
         [mWinePrice setBackgroundColor:[UIColor clearColor]];
         [self.contentView addSubview:mWinePrice];
 		
-		yPos += WineDetailInfoLabelHeight;
+		//yPos += WineDetailInfoLabelHeight;
 	}
     return self;
 }

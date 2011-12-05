@@ -526,7 +526,7 @@
     mAddBtn = [[PaoPaoCommon getImageButtonWithName:@"frineds-add.png" highlightName:nil action:@selector(procFuncKindBtn:) target:self] retain];
     mAddBtn.tag = AddFuncKind;
     mAddBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    //xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 	
     [mFuncKindView addSubview:mSearchBtn];
     [mFuncKindView addSubview:mAddBtn];

@@ -656,7 +656,7 @@
     mSearchUserBtn = [[PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchKindBtn:) target:self] retain];
     mSearchUserBtn.tag = SearchKindUser;
     mSearchUserBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    //xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 	
     [mSearchKindView addSubview:mSearchWineBtn];
     [mSearchKindView addSubview:mSearchPlaceBtn];

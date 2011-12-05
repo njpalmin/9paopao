@@ -13,6 +13,7 @@
 #import "PaoPaoCommon.h"
 #import "LatestOfferViewController.h"
 #import "LatestOfferObject.h"
+#import "InviteViewController.h"
 
 @implementation MainViewController
 @synthesize  _table;
@@ -189,7 +190,8 @@
         [self.navigationController pushViewController:latestVC animated:YES];
         [array release];
         [latestVC release];
-        
+        [object release];
+        object = nil;
     }else
     {
     id aClass = [viewControllers objectAtIndex:(pos-1)];
@@ -203,6 +205,10 @@
 -(void)goToInvite
 {
     NSLog(@"invite");
+    InviteViewController *inviteViewController = [[InviteViewController alloc] init];
+    [self.navigationController pushViewController:inviteViewController animated:YES];
+    [inviteViewController release];
+    inviteViewController = nil;
 }
 - (void)viewDidUnload
 {

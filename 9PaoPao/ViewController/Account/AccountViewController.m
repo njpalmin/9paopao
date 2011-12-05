@@ -20,8 +20,6 @@
 #import "PrivacyViewController.h"
 #import "SignUpViewController.h"
 #import "PaoPaoConstant.h"
-//test
-#import "InviteViewController.h"
 
 @implementation AccountViewController
 
@@ -71,7 +69,16 @@
     [super viewDidLoad];
     self.navigationItem.title = @"我的账户";
     
-    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320 , 460 -44 -50) style:UITableViewStyleGrouped];
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header-bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+
+    _table = [[UITableView alloc] initWithFrame:bounds style:UITableViewStyleGrouped];
     _table.contentSize = _table.frame.size;
     _table.delegate = self;
     _table.dataSource = self;
@@ -86,8 +93,7 @@
                   [MyProfileViewController class],
                   [SettingViewController class],
                   [LoadHomePageViewController class],
-                  //[TermViewController class],
-                  [InviteViewController class],
+                  [TermViewController class],
                   [PrivacyViewController class], nil];
 }
 

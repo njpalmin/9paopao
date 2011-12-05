@@ -45,6 +45,13 @@
     [super viewDidLoad];
     self.navigationItem.title = @"最新动态";
     
+#ifdef __IPHONE_5_0 
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header-bg.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+#endif
+    
     _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 460-44-50) style:UITableViewStyleGrouped];
     _table.delegate = self;
     _table.dataSource = self;

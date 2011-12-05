@@ -98,14 +98,14 @@ static	SearchManager	*sDefaultManager = nil;
     if ((resultData == nil) || ([resultData length] == 0)) {
         
         failed = YES;
+        goto ErrorLabel;
     }
     
     jsonReturnStr = [[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding];
     if(jsonReturnStr == nil || [jsonReturnStr compare:@""] == NSOrderedSame) {
-        [jsonReturnStr release];
-        jsonReturnStr = nil;
         
         failed = YES;
+        goto ErrorLabel;
     }
     
     NSLog(@"jsonReturnStr = %@", jsonReturnStr);
@@ -113,8 +113,10 @@ static	SearchManager	*sDefaultManager = nil;
     reDic = [jsonReturnStr JSONValue];
     if ((reDic == nil) || ([reDic count] == 0)) {
         failed = YES;
+        goto ErrorLabel;
     }
-    
+  
+ErrorLabel:
     if (failed) {
         // search result number 0
         UIAlertView *alert = nil;
@@ -148,6 +150,11 @@ static	SearchManager	*sDefaultManager = nil;
             break;
     }
     [mDelegate searchManagerDidFinish:self];
+    
+    if (jsonReturnStr) {
+        [jsonReturnStr release];
+        jsonReturnStr = nil;
+    }
 }
 
 - (void)searchCore:(SearchCore *)searchCore didFailWithError:(NSError*)error
@@ -246,6 +253,8 @@ static	SearchManager	*sDefaultManager = nil;
         }
         
         [wineInfoLists addObject:wineInfo];
+        [wineInfo release];
+        wineInfo = nil;
 	}
     
     self.wineListResults = wineInfoLists;
