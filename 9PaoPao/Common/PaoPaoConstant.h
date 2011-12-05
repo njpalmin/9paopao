@@ -8,7 +8,7 @@
 
 #define PaoPaoFont            @"HelveticaNeue-Bold"
 
-#define PageWithoutSegementHeight   410
+#define PageWithoutSegementHeight   413
 
 #define SearchKindBtnWidth          89
 #define SearchKindBtnHeight         29
