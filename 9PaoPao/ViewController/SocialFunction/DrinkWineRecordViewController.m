@@ -291,15 +291,57 @@
 {
     if (buttonIndex == 0) {
         NSLog(@"ggggg");
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.delegate = self;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentModalViewController:imagePicker animated:YES];
+            [imagePicker release];
+            
+        }else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"相机不可用" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alertView show];
+            [alertView release];
+            
+        }
         
     }else if(buttonIndex == 1)
     {
         NSLog(@"ffffff");
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.delegate = self;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            [self presentModalViewController:imagePicker animated:YES];
+            [imagePicker release];
+            
+        }else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"相册不可用" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alertView show];
+            [alertView release];
+            
+        }
+
     }
     else if(buttonIndex == 2)
     {
         NSLog(@"dddddd");
     }
+}
+
+#pragma mark ------
+#pragma mark UIImagePickerControllerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    [picker dismissModalViewControllerAnimated:YES];
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ToolBarView.h"
 #import "MapViewController.h"
-@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate>
+@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     
     UITableView *drinkWineTableView;
