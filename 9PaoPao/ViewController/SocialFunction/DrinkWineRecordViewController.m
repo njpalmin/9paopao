@@ -32,6 +32,7 @@
         withFood = [food retain];
         totalSection = 2;
         hasLocated = NO;
+        hasFollowed = NO;
     }
     return self;
 }
@@ -68,6 +69,13 @@
     
     sheetView = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"用户相册", nil];
     sheetView.frame = CGRectMake(0, 213, 320, 300);
+    
+    commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    commentLabel.backgroundColor = [UIColor clearColor];
+    commentLabel.text = @"评论";
+    
+    commentView = [[UITextView alloc] initWithFrame:CGRectMake(50, 0, 260, 50)];
+    commentView.delegate = self;
     [view release];
 }
 
@@ -119,6 +127,14 @@
     if (sheetView) {
         [sheetView release];
         sheetView = nil;
+    }
+    if (commentLabel) {
+        [commentLabel release];
+        commentLabel = nil;
+    }
+    if (commentView) {
+        [commentView release];
+        commentView = nil;
     }
     [super dealloc];
 }
@@ -216,11 +232,23 @@
         }
     }else if([indexPath section] == 2)
     {
-        if ([mapVC.view superview] != nil) {
-            [mapVC.view removeFromSuperview];
+        if (hasFollowed) {
+            if ([commentLabel superview] != nil) {
+                [commentLabel removeFromSuperview];
+            }
+            if ([commentView superview] != nil) {
+                [commentView removeFromSuperview];
+            }
+            [cell.contentView addSubview:commentLabel];
+            [cell.contentView addSubview:commentView];
+        }else
+        {
+            if ([mapVC.view superview] != nil) {
+                [mapVC.view removeFromSuperview];
+            }
+            mapVC.view.frame = CGRectMake(0, 0, 320, 30);
+            [cell.contentView addSubview:mapVC.view];
         }
-        mapVC.view.frame = CGRectMake(0, 0, 320, 30);
-        [cell.contentView addSubview:mapVC.view];
     }else if([indexPath section] == 3)
     {
         if ([toolBar superview] != nil) {
@@ -235,6 +263,18 @@
 #pragma mark ToolBarViewDelegate
 - (void)locateMySelf
 {
+    if (hasFollowed) {
+        hasFollowed = NO;
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:2];
+        NSMutableIndexSet *insertSet = [[NSMutableIndexSet alloc] init];
+        [insertSet addIndexes:indexSet];
+        totalSection -= 1;
+        [drinkWineTableView beginUpdates];
+        [drinkWineTableView deleteSections:insertSet withRowAnimation:UITableViewRowAnimationFade];
+        [drinkWineTableView endUpdates];
+        [insertSet release];
+    }
+
     if (![[CoreLocationService shareLocationService] locationServiceEnabled]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"本机的定位服务不可用" message:@"您无法启用设备上的定位服务" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
@@ -281,6 +321,50 @@
        // [drinkWineTableView reloadData];
        
        
+    }
+    if (hasFollowed) {
+        hasFollowed = NO;
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:2];
+        NSMutableIndexSet *insertSet = [[NSMutableIndexSet alloc] init];
+        [insertSet addIndexes:indexSet];
+        totalSection -= 1;
+        [drinkWineTableView beginUpdates];
+        [drinkWineTableView deleteSections:insertSet withRowAnimation:UITableViewRowAnimationFade];
+        [drinkWineTableView endUpdates];
+        [insertSet release];
+    }
+   
+}
+
+- (void)inputPoundSign
+{
+    if (hasLocated) {
+        hasLocated = NO;
+        NSIndexSet *indexSet1 = [NSIndexSet indexSetWithIndex:1];
+        NSIndexSet *indexSet2 = [NSIndexSet indexSetWithIndex:2];
+        NSMutableIndexSet *insertSet = [[NSMutableIndexSet alloc] init];
+        
+        [insertSet addIndexes:indexSet1];
+        [insertSet addIndexes:indexSet2];
+        totalSection -= 2;
+        [drinkWineTableView beginUpdates];
+        [drinkWineTableView deleteSections:insertSet withRowAnimation:UITableViewRowAnimationFade];
+        [drinkWineTableView endUpdates];
+        [insertSet release];
+        // [drinkWineTableView reloadData];
+        
+        
+    }
+    if (!hasFollowed) {
+        hasFollowed = YES;
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:2];
+        NSMutableIndexSet *insertSet = [[NSMutableIndexSet alloc] init];
+        [insertSet addIndexes:indexSet];
+        totalSection += 1;
+        [drinkWineTableView beginUpdates];
+        [drinkWineTableView insertSections:insertSet withRowAnimation:UITableViewRowAnimationFade];
+        [drinkWineTableView endUpdates];
+        [insertSet release];
     }
    
 }

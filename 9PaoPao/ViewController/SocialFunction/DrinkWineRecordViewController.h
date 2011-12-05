@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ToolBarView.h"
 #import "MapViewController.h"
-@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface DrinkWineRecordViewController : UIViewController<ToolBarViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 {
     
     UITableView *drinkWineTableView;
@@ -21,6 +21,9 @@
     MapViewController *mapVC;
     UIActionSheet *sheetView;
     NSInteger totalSection;
+    BOOL hasFollowed;
+    UITextView *commentView;
+    UILabel *commentLabel;
 }
 
 - (id)initWithFood:(NSString *)food;
