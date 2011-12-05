@@ -263,7 +263,8 @@
 
 - (void)takePhoto
 {
-
+    sheetView.actionSheetStyle = UIActionSheetStyleBlackTranslucent;    
+    [sheetView showInView:self.view.superview];
     if (hasLocated) {
         hasLocated = NO;
         NSIndexSet *indexSet1 = [NSIndexSet indexSetWithIndex:1];
@@ -279,12 +280,26 @@
         [insertSet release];
        // [drinkWineTableView reloadData];
        
-        sheetView.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-        
-        [sheetView showInView:self.view.superview];
-
+       
     }
    
+}
+
+#pragma mark -------------
+#pragma mark UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        NSLog(@"ggggg");
+        
+    }else if(buttonIndex == 1)
+    {
+        NSLog(@"ffffff");
+    }
+    else if(buttonIndex == 2)
+    {
+        NSLog(@"dddddd");
+    }
 }
 
 @end
