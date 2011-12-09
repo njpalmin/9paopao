@@ -100,8 +100,14 @@
     
     [self.view addSubview:scrollView];
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(goBack:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
     [leftItem release];
     leftItem = nil;
     

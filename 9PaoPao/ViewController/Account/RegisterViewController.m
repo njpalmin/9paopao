@@ -78,7 +78,7 @@
     mail.delegate = self;
     mail.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     mail.font = [UIFont fontWithName:PaoPaoFont size:16];
-    mail.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    mail.backgroundColor = [UIColor clearColor];
     mail.placeholder = @"你的邮箱地址";
     mail.keyboardType = UIKeyboardTypeEmailAddress;
     [scrollView addSubview:mail];
@@ -95,7 +95,7 @@
     nibname = [[UITextField alloc] initWithFrame:CGRectMake(10, password.frame.origin.y+password.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     nibname.borderStyle = UITextBorderStyleRoundedRect;
     nibname.delegate = self;
-    nibname.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    nibname.backgroundColor = [UIColor clearColor];
     nibname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     nibname.font = [UIFont fontWithName:PaoPaoFont size:16];
     nibname.placeholder = @"你的昵称";
@@ -121,12 +121,12 @@
     [scrollView addSubview:imageView];
     
     UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [sendButton setFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height + HEIGHT_INTERVAL, 80, 25)];
+    [sendButton setFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height + HEIGHT_INTERVAL, 90, 30)];
     [sendButton addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
     [sendButton setTitle:@"马上注册" forState:UIControlStateNormal];
-    sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
+    sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:14];
     [scrollView addSubview:sendButton];
     [sendButton release];
     sendButton = nil;

@@ -115,7 +115,6 @@
     email.placeholder = [placeHolds objectAtIndex:0];
     email.delegate = self;
     email.keyboardType = UIKeyboardTypeEmailAddress;
-    email.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     email.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     email.font = [UIFont fontWithName:PaoPaoFont size:14];
     email.borderStyle = UITextBorderStyleRoundedRect;
@@ -133,7 +132,6 @@
     user = [[UITextField alloc] initWithFrame:CGRectMake(15, 32+60*2, 300, 30)];
     user.placeholder = [placeHolds objectAtIndex:2];
     user.delegate = self;
-    user.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     user.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     user.font = [UIFont fontWithName:PaoPaoFont size:14];
     user.borderStyle = UITextBorderStyleRoundedRect;

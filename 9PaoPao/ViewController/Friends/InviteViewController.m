@@ -76,24 +76,15 @@
     scrollView.alwaysBounceVertical = YES;
     [self.view addSubview:scrollView];
     
-    
     UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [sendButton setFrame:CGRectMake(70, 5, 80, 30)];
+    [sendButton setFrame:CGRectMake(60, 5, 90, 30)];
     [sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlStateNormal];
-    [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
-    [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
-    sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
-    sendButton.titleLabel.textAlignment = UITextAlignmentRight;
-    [sendButton setTitle:@"发送" forState:UIControlStateNormal];
+    [sendButton setImage:[UIImage imageNamed:@"send-button.png"] forState:UIControlStateNormal];
     
     UIButton *cancelButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [cancelButton setFrame:CGRectMake(sendButton.frame.origin.x +sendButton.frame.size.width+20, sendButton.frame.origin.y, 80, 30)];
+    [cancelButton setFrame:CGRectMake(170, sendButton.frame.origin.y, 90, 30)];
     [cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlStateNormal];
-    [cancelButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
-    [cancelButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
-    cancelButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
-    cancelButton.titleLabel.textAlignment = UITextAlignmentRight;
-    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelButton setImage:[UIImage imageNamed:@"cancel-send-button.png"] forState:UIControlStateNormal];
     
     CGFloat yPos = cancelButton.frame.origin.y + cancelButton.frame.size.height;
     
@@ -109,9 +100,11 @@
     toEmail.font = [UIFont fontWithName:PaoPaoFont size:14.0];
     toEmail.text =@"";
     
-    UIButton *addButton = [[UIButton buttonWithType:UIButtonTypeContactAdd] retain];
-    addButton.frame = CGRectMake(320-30, toLabel.frame.origin.y, 25, 25);
+    UIButton *addButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    addButton.frame = CGRectMake(320-35, toLabel.frame.origin.y, 19, 19);
+    [addButton setImage:[UIImage imageNamed:@"add-symbol-button.png"] forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(addFriends:) forControlEvents:UIControlEventTouchUpInside];
+        
     
     LineView *line1 = [[LineView alloc] initWithFrame:CGRectMake(toLabel.frame.origin.x, toLabel.frame.origin.y +toLabel.frame.size.height +1.5, 300, 1)];
         

@@ -14,7 +14,7 @@
 #import "LatestOfferViewController.h"
 #import "LatestOfferObject.h"
 #import "InviteViewController.h"
-
+#import "DrinkTrackerRecordViewController.h"
 @implementation MainViewController
 @synthesize  _table;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -125,7 +125,7 @@
                                                   [RedWineViewController class],
                                                   [RedWineViewController class],
                                                   [RedWineViewController class],
-                                                  [RedWineViewController class],
+                                                  [DrinkTrackerRecordViewController class],
                                                   [LatestOfferViewController class],
                                                   [RedWineViewController class], nil] ];
 
