@@ -487,19 +487,19 @@
     mTabSelectView = [[UIView alloc] initWithFrame:kindFrame];
     mTabSelectView.backgroundColor = [UIColor clearColor];
     
-    xPos = (bounds.size.width - 3*SearchKindBtnWidth - 2*SearchKindBtnPadding)/2;
+    xPos = (bounds.size.width - 2*92 - 114 - 2*SearchKindBtnPadding)/2;
 	
-    mDrinkTrackerBtn = [[PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
+    mDrinkTrackerBtn = [[PaoPaoCommon getImageButtonWithName:@"drink-tracker-selected.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mDrinkTrackerBtn.tag = SelectTabDrinkTracker;
-    mDrinkTrackerBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
+    mDrinkTrackerBtn.frame = CGRectMake(xPos, 0, 114, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
     
-    mCommentBtn = [[PaoPaoCommon getImageButtonWithName:@"search-place.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
+    mCommentBtn = [[PaoPaoCommon getImageButtonWithName:@"comments-button.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCommentBtn.tag = SelectTabComment;
     mCommentBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     xPos += SearchKindBtnWidth + SearchKindBtnPadding;
 	
-    mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"search-friends.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
+    mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"collection-button.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCollectionBtn.tag = SelectTabCollection;
     mCollectionBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
     //xPos += SearchKindBtnWidth + SearchKindBtnPadding;
@@ -513,10 +513,16 @@
 
 - (BOOL)prepareFootView
 {
-    mFootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, (SearchKindBtnHeight + TableViewSectionPadding*2))];
+    CGRect  frame;
     
-    mAddMoreBtn = [[PaoPaoCommon getImageButtonWithName:@"search-alcohol-selected.png" highlightName:nil action:@selector(procAddMore:) target:self] retain] ;
-    mAddMoreBtn.frame = CGRectMake((320-SearchKindBtnWidth)/2, TableViewSectionPadding, SearchKindBtnWidth, SearchKindBtnHeight);
+    mFootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, (SearchKindBtnHeight + TableViewSectionPadding*2))];
+    mAddMoreBtn = [[PaoPaoCommon getImageButtonWithName:@"addmore-button.png" highlightName:nil action:@selector(procAddMore:) target:self] retain];
+    
+    frame = mAddMoreBtn.frame;
+    frame.origin.x = (320-frame.size.width)/2;
+    frame.origin.y = TableViewSectionPadding;
+
+    mAddMoreBtn.frame = frame;
     
     [mFootView addSubview:mAddMoreBtn];
     
@@ -546,23 +552,23 @@
     switch (button.tag) {
         case SelectTabDrinkTracker:
             
-            drinkTrackerImage = [UIImage imageNamed:@"search-alcohol-selected.png"];
-            commentImage = [UIImage imageNamed:@"search-place.png"];;
-            collectionImage = [UIImage imageNamed:@"search-friends.png"];;
+            drinkTrackerImage = [UIImage imageNamed:@"drink-tracker-selected.png"];
+            commentImage = [UIImage imageNamed:@"comments-button.png"];;
+            collectionImage = [UIImage imageNamed:@"collection-button.png"];;
             
 			break;
         case SelectTabComment:
             
-            drinkTrackerImage = [UIImage imageNamed:@"search-alcohol.png"];
-            commentImage = [UIImage imageNamed:@"search-place-selected.png"];;
-            collectionImage = [UIImage imageNamed:@"search-friends.png"];;
+            drinkTrackerImage = [UIImage imageNamed:@"drink-tracker-selected.png"];
+            commentImage = [UIImage imageNamed:@"comments-button-selected.png"];;
+            collectionImage = [UIImage imageNamed:@"collection-button.png"];;
             
 			break;
         case SelectTabCollection:
             
-            drinkTrackerImage = [UIImage imageNamed:@"search-alcohol.png"];
-            commentImage = [UIImage imageNamed:@"search-place.png"];;
-            collectionImage = [UIImage imageNamed:@"search-friends-selected.png"];;
+            drinkTrackerImage = [UIImage imageNamed:@"drink-tracker-selected.png"];
+            commentImage = [UIImage imageNamed:@"comments-button.png"];;
+            collectionImage = [UIImage imageNamed:@"collection-button-selected.png"];;
             
 			break;
         default:
