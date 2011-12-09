@@ -8,7 +8,7 @@
 #define HEIGHT_INTERVAL 15
 
 #import "SignUpViewController.h"
-#import "PaoPaoConstant.h"
+#import "PaoPaoCommon.h"
 
 @implementation SignUpViewController
 
@@ -65,7 +65,17 @@
     [self.view addSubview:scrollView];
     
     self.navigationItem.title = @"登陆";
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
     
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
+
     emailTop = [[UITextField alloc] initWithFrame:CGRectMake(10, 30, 300, 30)];
     emailTop.borderStyle = UITextBorderStyleRoundedRect;
     emailTop.delegate = self;
@@ -196,5 +206,12 @@
     return NO;
 }
 
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

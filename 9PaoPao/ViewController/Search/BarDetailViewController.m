@@ -81,6 +81,18 @@
     barTable.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     barTable.backgroundColor = [UIColor clearColor];
     [view release];
+    
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
+
 }
 
 
@@ -191,4 +203,11 @@
     [vc release];
 }
 
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

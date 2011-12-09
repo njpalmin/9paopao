@@ -17,27 +17,27 @@
     if (self) {
         // Initialization code
         locationButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 0, 32, 30)];
-        [locationButton setImage:[UIImage imageNamed:@"friends-button.png"] forState:UIControlStateNormal];
+        [locationButton setImage:[UIImage imageNamed:@"icon_location.png"] forState:UIControlStateNormal];
         [locationButton addTarget:self action:@selector(loacte:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:locationButton];
         
         photoButton = [[UIButton alloc]initWithFrame:CGRectMake(20+(32+30), 0, 32, 30)];
-        [photoButton setImage:[UIImage imageNamed:@"friends-button.png"] forState:UIControlStateNormal];
+        [photoButton setImage:[UIImage imageNamed:@"icon_camera.png"] forState:UIControlStateNormal];
         [photoButton addTarget:self action:@selector(takePhoto:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:photoButton];
         
         poundSignButton = [[UIButton alloc]initWithFrame:CGRectMake(20+2*(32+30), 0, 32, 30)];
-        [poundSignButton setImage:[UIImage imageNamed:@"friends-button.png"] forState:UIControlStateNormal];
+        [poundSignButton setImage:[UIImage imageNamed:@"icon_quote.png"] forState:UIControlStateNormal];
         [poundSignButton addTarget:self action:@selector(inputPound:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:poundSignButton];
         
         followButton = [[UIButton alloc]initWithFrame:CGRectMake(20+3*(32+30), 0, 32, 30)];
-        [followButton setImage:[UIImage imageNamed:@"friends-button.png"] forState:UIControlStateNormal];
+        [followButton setImage:[UIImage imageNamed:@"icon_at.png"] forState:UIControlStateNormal];
         [followButton addTarget:self action:@selector(follow:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:followButton];
         
         emotionButton = [[UIButton alloc]initWithFrame:CGRectMake(20+4*(32+30), 0, 32, 30)];
-        [emotionButton setImage:[UIImage imageNamed:@"friends-button.png"] forState:UIControlStateNormal];
+        [emotionButton setImage:[UIImage imageNamed:@"icon_emotion.png"] forState:UIControlStateNormal];
         [emotionButton addTarget:self action:@selector(emoji:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:emotionButton];
         

@@ -8,7 +8,7 @@
 
 #import "InviteViewController.h"
 #import "LineView.h"
-#import "PaoPaoConstant.h"
+#import "PaoPaoCommon.h"
 @implementation InviteViewController
 @synthesize phoneNumbers;
 
@@ -56,6 +56,18 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"邀请好友";
+    
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
+    
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460-44-50)];
     scrollView.contentSize = scrollView.frame.size;
     [scrollView setBounces:YES];
@@ -263,6 +275,7 @@
 {
     NSLog(@"peoplePicker:\n%@",peoplePicker);
     [peoplePicker dismissModalViewControllerAnimated:YES];
+    [self.navigationController.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, PageWithoutSegementHeight)];
 }
 
 // Called after a person has been selected by the user.
@@ -297,6 +310,14 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
 {
     return YES;
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

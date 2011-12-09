@@ -58,6 +58,17 @@
     self.navigationItem.title = @"高级搜索";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
+    
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
     scrollView.contentSize = scrollView.frame.size;
     scrollView.delegate = self;
@@ -73,11 +84,6 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header-bg.png"] forBarMetrics:UIBarMetricsDefault];
     }
 #endif 
-	
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    [leftItem release];
-    leftItem = nil;
     
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 14, 50, 18)];
     scoreLabel.text = @"评分";
@@ -359,5 +365,13 @@
     }else{
         [self showEj];
     }
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

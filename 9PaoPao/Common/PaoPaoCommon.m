@@ -38,12 +38,25 @@
 + (UIButton *)getBarButtonWithTitle:(NSString *)title imageName:(NSString *)imageName highlightedImageName:(NSString *)highlightedImageName action:(SEL)action target:(id)target
 {
     UIButton    *button = [[UIButton alloc] init];
+    NSString    *normalPath = nil;
+    NSString    *highlightPath = nil;
+    UIImage     *normalImage = nil;
+    UIImage     *highlightImage = nil;
+    CGRect		buttonFrame = CGRectZero;
     
-    [button.titleLabel setFont:[UIFont systemFontOfSize:15.0]];
+    normalPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],imageName];
+    highlightPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],highlightedImageName];
+
+    normalImage = [UIImage imageWithContentsOfFile:normalPath];
+    highlightImage = [UIImage imageWithContentsOfFile:highlightPath];
+    
+    buttonFrame.size = normalImage.size;
+
+    //[button.titleLabel setFont:[UIFont systemFontOfSize:15.0]];
     [button setTitle:title forState:UIControlStateNormal];
-    button.frame = [self buttonFrameForText:title font:[UIFont systemFontOfSize:15.0]];
-    [button setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:highlightedImageName] forState:UIControlStateHighlighted];
+    button.frame = buttonFrame;
+    [button setBackgroundImage:normalImage forState:UIControlStateNormal];
+    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     return [button autorelease];
@@ -52,13 +65,22 @@
 + (UIButton *)getImageButtonWithName:(NSString *)imageName highlightName:(NSString *)highlightedImageName action:(SEL)action target:(id)target
 {
     UIButton    *button = [[UIButton alloc] init];
-	UIImage		*image = [UIImage imageNamed:imageName];
 	CGRect		buttonFrame = CGRectZero;
-	
-	buttonFrame.size = image.size;
+    NSString    *normalPath = nil;
+    NSString    *highlightPath = nil;
+    UIImage     *normalImage = nil;
+    UIImage     *highlightImage = nil;
+    
+    normalPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],imageName];
+    highlightPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],highlightedImageName];
+    
+    normalImage = [UIImage imageWithContentsOfFile:normalPath];
+    highlightImage = [UIImage imageWithContentsOfFile:highlightPath];
+
+	buttonFrame.size = normalImage.size;
     button.frame = buttonFrame;
-    [button setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:highlightedImageName] forState:UIControlStateHighlighted];
+    [button setBackgroundImage:normalImage forState:UIControlStateNormal];
+    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     return [button autorelease];

@@ -8,6 +8,7 @@
 
 #import "TellFavoriteViewController.h"
 #import "PaoPaoConstant.h"
+#import "PaoPaoCommon.h"
 
 @implementation TellFavoriteViewController
 @synthesize titleLabel;
@@ -79,7 +80,8 @@
     {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header-bg.png"] forBarMetrics:UIBarMetricsDefault];
     }
-#endif 
+#endif
+    
 }
 
 
@@ -88,12 +90,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [finishBtn setFrame:CGRectMake(5, 9, 60, 26)];
-    [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
-    [finishBtn addTarget:self action:@selector(procFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
-    //UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
-    UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(procFinishBtn:)];
+    
+    UIButton *finishBtn = [PaoPaoCommon getImageButtonWithName:@"finish-button.png" highlightName:nil action:@selector(procFinishBtn:) target:self];
+    //[finishBtn setFrame:CGRectMake(5, 9, 60, 26)];
+    //[finishBtn setTitle:@"完成" forState:UIControlStateNormal];
+    //[finishBtn addTarget:self action:@selector(procFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
 
     self.navigationItem.rightBarButtonItem = rItem;
     self.navigationItem.leftBarButtonItem = nil;

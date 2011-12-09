@@ -449,13 +449,16 @@
 {
     UIBarButtonItem     *rightItem = nil;
     UIButton            *rightButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    UIButton            *leftButton = nil;
     
-    rightButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"" highlightedImageName:@"" action:@selector(procChooseRange:) target:self];
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    rightButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"edit_button.png" highlightedImageName:@"" action:@selector(procEdit:) target:self];
     
-    //rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
-    rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithString:NSLocalizedString(@"Edit", nil)] style:UIBarButtonItemStylePlain target:self action:@selector(procEdit:)];
-    
+    self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.rightBarButtonItem = rightItem;
     self.navigationItem.title = NSLocalizedString(@"My Profile Title", nil);
 #ifdef __IPHONE_5_0 
@@ -468,6 +471,9 @@
 
     [rightItem release];
     rightItem = nil;
+    
+    [leftItem release];
+    leftItem = nil;
     
     return YES;
 }
@@ -492,17 +498,17 @@
     mDrinkTrackerBtn = [[PaoPaoCommon getImageButtonWithName:@"drink-tracker-selected.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mDrinkTrackerBtn.tag = SelectTabDrinkTracker;
     mDrinkTrackerBtn.frame = CGRectMake(xPos, 0, 114, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    xPos += 114 + SearchKindBtnPadding;
     
     mCommentBtn = [[PaoPaoCommon getImageButtonWithName:@"comments-button.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCommentBtn.tag = SelectTabComment;
     mCommentBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    xPos += 92 + SearchKindBtnPadding;
 	
     mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"collection-button.png" highlightName:nil action:@selector(procSearchTabBtn:) target:self] retain];
     mCollectionBtn.tag = SelectTabCollection;
     mCollectionBtn.frame = CGRectMake(xPos, 0, SearchKindBtnWidth, SearchKindBtnHeight);
-    //xPos += SearchKindBtnWidth + SearchKindBtnPadding;
+    //xPos += 92 + SearchKindBtnPadding;
 	
     [mTabSelectView addSubview:mDrinkTrackerBtn];
     [mTabSelectView addSubview:mCommentBtn];
@@ -531,6 +537,11 @@
 
 #pragma mark -
 #pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)procEdit:(id)sender
 {

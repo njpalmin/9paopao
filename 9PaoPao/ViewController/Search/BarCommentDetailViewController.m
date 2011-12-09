@@ -11,7 +11,7 @@
 #import "ThumbMarkView.h"
 #import "StarMarkView.h"
 #import "MapViewController.h"
-
+#import "PaoPaoCommon.h"
 #import "DrinkWineRecordViewController.h"
 
 @implementation BarCommentDetailViewController
@@ -192,6 +192,18 @@
     self.view = view;
     [self.view addSubview:barCommentTableView];
     [view release];
+    
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
+
 }
 
 
@@ -225,6 +237,14 @@
     [commentObject release];
      [mVC release];
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

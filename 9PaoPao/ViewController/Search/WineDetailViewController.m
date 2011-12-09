@@ -313,10 +313,9 @@
     UIBarButtonItem     *leftItem = nil;
     UIButton            *leftButton = nil;
     
-    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"" highlightedImageName:@"" action:@selector(procReturn:) target:self];
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:@"" action:@selector(procReturn:) target:self];
     
-    //leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(procReturn:)];
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
     self.navigationItem.leftBarButtonItem = leftItem;    
     self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);

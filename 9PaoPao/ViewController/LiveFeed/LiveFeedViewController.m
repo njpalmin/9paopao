@@ -52,7 +52,11 @@
     }
 #endif
     
-    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 460-44-50) style:UITableViewStyleGrouped];
+    CGRect  bounds = [[UIScreen mainScreen] bounds];
+    self.view.frame = bounds;
+    _table = [[UITableView alloc] initWithFrame:bounds style:UITableViewStyleGrouped];
+    _table.autoresizesSubviews = YES;
+    _table.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     _table.delegate = self;
     _table.dataSource = self;
     [self.view addSubview:_table];

@@ -7,7 +7,7 @@
 //
 #define HEIGHT_INTERVAL  15 
 #import "RegisterViewController.h"
-#import "PaoPaoConstant.h"
+#import "PaoPaoCommon.h"
 #import "QuartzCore/QuartzCore.h"
 
 @implementation RegisterViewController
@@ -131,6 +131,16 @@
     [sendButton release];
     sendButton = nil;
 
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
 }
 
 //- (CGRect)placeholderRectForBounds:(CGRect)bounds
@@ -224,6 +234,14 @@
 {
     [textField resignFirstResponder];
     return  NO;
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

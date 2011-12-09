@@ -133,7 +133,6 @@
 
 - (void)findMostLove:(id)sender
 {
-    CGRect                      bound;
     TellFavoriteViewController  *controller = nil;
     
     //bound = [[UIScreen mainScreen] bounds];

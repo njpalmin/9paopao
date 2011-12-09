@@ -255,6 +255,9 @@
 		33C71AE714919D6800EE499B /* wine-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71A3014919D6800EE499B /* wine-button@2x.png */; };
 		33C71AE814919D6800EE499B /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71A3214919D6800EE499B /* default.png */; };
 		33C71AE914919D6800EE499B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71A3314919D6800EE499B /* icon.png */; };
+		33C71AF31491B64300EE499B /* edit_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71AF21491B64300EE499B /* edit_button.png */; };
+		33C71AFE1491CA5C00EE499B /* cancel-send-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71AFC1491CA5C00EE499B /* cancel-send-button@2x.png */; };
+		33C71AFF1491CA5D00EE499B /* send-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71AFD1491CA5C00EE499B /* send-button@2x.png */; };
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
 		4B3932DD147A9331000027CF /* BarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932DA147A9331000027CF /* BarDetail.m */; };
@@ -595,6 +598,9 @@
 		33C71A3014919D6800EE499B /* wine-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine-button@2x.png"; sourceTree = "<group>"; };
 		33C71A3214919D6800EE499B /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		33C71A3314919D6800EE499B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		33C71AF21491B64300EE499B /* edit_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_button.png; sourceTree = "<group>"; };
+		33C71AFC1491CA5C00EE499B /* cancel-send-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-send-button@2x.png"; sourceTree = "<group>"; };
+		33C71AFD1491CA5C00EE499B /* send-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send-button@2x.png"; sourceTree = "<group>"; };
 		33D4DF651467CD0D00CFE105 /* 9PaoPao-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "9PaoPao-Prefix.pch"; path = "Application Classes/9PaoPao-Prefix.pch"; sourceTree = "<group>"; };
 		33D4DF661467CD0D00CFE105 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Application Classes/main.m"; sourceTree = "<group>"; };
 		33D4DF6C1467CD3400CFE105 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1048,6 +1054,7 @@
 		33C7197914919D6800EE499B /* CommonNavi */ = {
 			isa = PBXGroup;
 			children = (
+				33C71AF21491B64300EE499B /* edit_button.png */,
 				33C7197A14919D6800EE499B /* edit_button@2x.png */,
 				33C7197B14919D6800EE499B /* finish-button.png */,
 				33C7197C14919D6800EE499B /* grey-bg.png */,
@@ -1115,6 +1122,8 @@
 		33C719B014919D6800EE499B /* friends */ = {
 			isa = PBXGroup;
 			children = (
+				33C71AFC1491CA5C00EE499B /* cancel-send-button@2x.png */,
+				33C71AFD1491CA5C00EE499B /* send-button@2x.png */,
 				33C719B114919D6800EE499B /* add-symbol-button.png */,
 				33C719B214919D6800EE499B /* baidu-icon.png */,
 				33C719B314919D6800EE499B /* boy-icon.png */,
@@ -1632,6 +1641,9 @@
 				33C71AE714919D6800EE499B /* wine-button@2x.png in Resources */,
 				33C71AE814919D6800EE499B /* default.png in Resources */,
 				33C71AE914919D6800EE499B /* icon.png in Resources */,
+				33C71AF31491B64300EE499B /* edit_button.png in Resources */,
+				33C71AFE1491CA5C00EE499B /* cancel-send-button@2x.png in Resources */,
+				33C71AFF1491CA5D00EE499B /* send-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

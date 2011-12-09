@@ -7,7 +7,7 @@
 //
 
 #import "LoadHomePageViewController.h"
-#import "PaoPaoConstant.h"
+#import "PaoPaoCommon.h"
 @implementation LoadHomePageViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,6 +63,18 @@
         waitingLabel.textAlignment = UITextAlignmentCenter;
         [self.view addSubview:waitingLabel];
     }
+    
+    UIButton            *leftButton = nil;
+    UIBarButtonItem     *leftItem = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:nil action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [leftItem release];
+    leftItem = nil;
+
 }
 
 - (void)viewDidUnload
@@ -90,4 +102,11 @@
     }
 }
 
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
