@@ -281,6 +281,12 @@
 		A533BC9F148327A100556C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A533BC9E148327A100556C25 /* AddressBook.framework */; };
 		A59FAF371484DE3000E80BEB /* LiveFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59FAF361484DE3000E80BEB /* LiveFeedViewController.m */; };
 		A5A141A1148388FF00BD0181 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A141A0148388FF00BD0181 /* LineView.m */; };
+		F623BA1B149334BF00EB0724 /* Accountlogin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA15149334BA00EB0724 /* Accountlogin@2x.png */; };
+		F623BA1C149334BF00EB0724 /* AccountMyprofile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA16149334BB00EB0724 /* AccountMyprofile@2x.png */; };
+		F623BA1D149334BF00EB0724 /* AccountPrivacy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA17149334BC00EB0724 /* AccountPrivacy@2x.png */; };
+		F623BA1E149334BF00EB0724 /* AccountRegister@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA18149334BC00EB0724 /* AccountRegister@2x.png */; };
+		F623BA1F149334BF00EB0724 /* AccountSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA19149334BE00EB0724 /* AccountSearch@2x.png */; };
+		F623BA20149334BF00EB0724 /* AccountSetting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA1A149334BE00EB0724 /* AccountSetting@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -645,6 +651,12 @@
 		A59FAF361484DE3000E80BEB /* LiveFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveFeedViewController.m; sourceTree = "<group>"; };
 		A5A1419F148388FF00BD0181 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
 		A5A141A0148388FF00BD0181 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
+		F623BA15149334BA00EB0724 /* Accountlogin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Accountlogin@2x.png"; sourceTree = "<group>"; };
+		F623BA16149334BB00EB0724 /* AccountMyprofile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountMyprofile@2x.png"; sourceTree = "<group>"; };
+		F623BA17149334BC00EB0724 /* AccountPrivacy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountPrivacy@2x.png"; sourceTree = "<group>"; };
+		F623BA18149334BC00EB0724 /* AccountRegister@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountRegister@2x.png"; sourceTree = "<group>"; };
+		F623BA19149334BE00EB0724 /* AccountSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountSearch@2x.png"; sourceTree = "<group>"; };
+		F623BA1A149334BE00EB0724 /* AccountSetting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountSetting@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1039,6 +1051,12 @@
 		33C7197014919D6800EE499B /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				F623BA15149334BA00EB0724 /* Accountlogin@2x.png */,
+				F623BA16149334BB00EB0724 /* AccountMyprofile@2x.png */,
+				F623BA17149334BC00EB0724 /* AccountPrivacy@2x.png */,
+				F623BA18149334BC00EB0724 /* AccountRegister@2x.png */,
+				F623BA19149334BE00EB0724 /* AccountSearch@2x.png */,
+				F623BA1A149334BE00EB0724 /* AccountSetting@2x.png */,
 				33C7197114919D6800EE499B /* Accountlogin.png */,
 				33C7197214919D6800EE499B /* AccountMyprofile.png */,
 				33C7197314919D6800EE499B /* AccountPrivacy.png */,
@@ -1644,6 +1662,12 @@
 				33C71AF31491B64300EE499B /* edit_button.png in Resources */,
 				33C71AFE1491CA5C00EE499B /* cancel-send-button@2x.png in Resources */,
 				33C71AFF1491CA5D00EE499B /* send-button@2x.png in Resources */,
+				F623BA1B149334BF00EB0724 /* Accountlogin@2x.png in Resources */,
+				F623BA1C149334BF00EB0724 /* AccountMyprofile@2x.png in Resources */,
+				F623BA1D149334BF00EB0724 /* AccountPrivacy@2x.png in Resources */,
+				F623BA1E149334BF00EB0724 /* AccountRegister@2x.png in Resources */,
+				F623BA1F149334BF00EB0724 /* AccountSearch@2x.png in Resources */,
+				F623BA20149334BF00EB0724 /* AccountSetting@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,7 +1853,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1850,7 +1874,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1874,12 +1898,14 @@
 		18A004D11464CF110015EC68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shaun mc whortor";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "9PaoPao/Application Classes/9PaoPao-Prefix.pch";
 				INFOPLIST_FILE = "9PaoPao/Application Classes/9PaoPao-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/9PaoPao/BaiduMapApiLib/libs/Release-iphonesimulator\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A5728F9-CEC3-4598-816D-1F05A7B8F3FA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
