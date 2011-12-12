@@ -121,7 +121,7 @@
     
     drinkBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [drinkBtn setFrame:CGRectMake(3, 3, 314, 30)];
-    [drinkBtn setTitle:@"你最喜欢喝什么酒" forState:UIControlStateNormal];
+    [drinkBtn setTitle:@"我最喜欢喝什么酒？" forState:UIControlStateNormal];
     drinkBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     drinkBtn.tag = SEARECH_FAVORITE_WINE;
     [drinkBtn addTarget:self action:@selector(clickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -130,7 +130,7 @@
     
     placeBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [placeBtn setFrame:CGRectMake(3, 37, 314, 30)];    
-    [placeBtn setTitle:@"你最喜欢喝什么酒" forState:UIControlStateNormal];
+    [placeBtn setTitle:@"我最喜欢去哪里喝？" forState:UIControlStateNormal];
     placeBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     placeBtn.tag = SEARECH_FAVORITE_PLACE;
     [placeBtn addTarget:self action:@selector(clickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
