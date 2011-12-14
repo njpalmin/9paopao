@@ -44,3 +44,7 @@
 #define PPWineKindName              @"PPWineKindName"
 #define PPWineKindFlag              @"PPWineKindFlag"
 #define PPWineKindContent           @"PPWineKindContent"
+
+// redwine color
+#define kRedWineCategoryNameKey         @"kRedWineCategoryNameKey"
+#define kRedWineCatagoryContentKey      @"kRedWineCatagoryContentKey"

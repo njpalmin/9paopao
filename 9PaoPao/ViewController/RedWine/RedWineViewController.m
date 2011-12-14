@@ -9,6 +9,7 @@
 #import "RedWineViewController.h"
 #import "PaoPaoCommon.h"
 #import "RedWineCategoryViewController.h"
+#import "RedWineListViewController.h"
 
 #define RedWineCategoryRowHeight    30
 
@@ -142,18 +143,87 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    RedWineCategoryViewController   *categoryController = nil;
+    id          controller = nil;
+    NSArray     *datesArray = nil;
     
-    categoryController = [[RedWineCategoryViewController alloc] init];
+    switch (indexPath.row) {
+        case 2:
+            datesArray = [self prepareRedWineColorData];
+            controller = [[RedWineCategoryViewController alloc] init];
+            [controller setContents:datesArray];
+            
+            break;
+            
+        case 3:
+        case 4:
+            
+            datesArray = [self prepareRedWinePlaceData];
+            controller = [[RedWineCategoryViewController alloc] init];
+            [controller setContents:datesArray];
+            break;
+            
+        default:
+            
+            controller = [[RedWineListViewController alloc] init];
+            break;
+    }
     
-    [self.navigationController pushViewController:categoryController animated:YES];
-    
-    [categoryController release];
-    categoryController = nil;
+    if (controller != nil) {
+        [self.navigationController pushViewController:controller animated:YES];
+        
+        [controller release];
+        controller = nil;
+    }
 }
 
 #pragma mark -
 #pragma mark Private
+
+- (NSArray *)prepareRedWineColorData
+{
+    NSMutableDictionary    *dictionary = nil;
+    NSMutableArray         *arrarys = nil;
+    
+    dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:@"色泽" forKey:kRedWineCategoryNameKey];
+    [dictionary setValue:[NSArray arrayWithObjects:@"红葡萄酒", @"白葡萄酒", @"桃红酒", @"香槟", @"甜酒", nil] forKey:kRedWineCatagoryContentKey];
+    
+    arrarys = [[NSMutableArray alloc] init];
+    [arrarys addObject:dictionary];
+    [arrarys addObject:dictionary];
+    [arrarys addObject:dictionary];
+    
+    [dictionary release];
+    dictionary = nil;
+
+    return arrarys;
+}
+
+- (NSArray *)prepareRedWinePlaceData
+{
+    NSMutableDictionary    *dictionary = nil;
+    NSMutableArray         *arrarys = nil;
+    
+    arrarys = [[NSMutableArray alloc] init];
+    
+    dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:@"国家" forKey:kRedWineCategoryNameKey];
+    [dictionary setValue:[NSArray arrayWithObjects:@"法国", @"美国", @"澳大利亚", @"西班牙", @"中国", nil] forKey:kRedWineCatagoryContentKey];
+    
+    [arrarys addObject:dictionary];
+    [dictionary release];
+    dictionary = nil;
+    
+    dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:@"产区" forKey:kRedWineCategoryNameKey];
+    [dictionary setValue:[NSArray arrayWithObjects:@"纳帕谷", @"香槟区", @"波尔多", @"勃艮第", nil] forKey:kRedWineCatagoryContentKey];
+    
+    [arrarys addObject:dictionary];
+    [dictionary release];
+    dictionary = nil;
+    
+    return arrarys;
+}
 
 - (BOOL)prepareNavigationBar
 {

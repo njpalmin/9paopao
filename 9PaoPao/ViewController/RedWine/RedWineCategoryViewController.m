@@ -13,10 +13,9 @@
 #define RedWineCategoryRowHeight        30
 #define RedWineCategoryHeaderHeight     30
 
-#define kRedWineCategoryNameKey         @"kRedWineCategoryNameKey"
-#define kRedWineCatagoryContentKey      @"kRedWineCatagoryContentKey"
-
 @implementation RedWineCategoryViewController
+
+@synthesize contents = mContents;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,9 +33,9 @@
         mTableView = nil;
     }
     
-    if (mCategorys) {
-        [mCategorys release];
-        mCategorys = nil;
+    if (mContents) {
+        [mContents release];
+        mContents = nil;
     }
     [super dealloc];
 }
@@ -87,20 +86,6 @@
 		mTableView.dataSource = self;
         // ---------------tableView-------------
         
-        NSMutableDictionary    *dictionary = nil;
-        
-        dictionary = [[NSMutableDictionary alloc] init];
-        [dictionary setValue:@"色泽" forKey:kRedWineCategoryNameKey];
-        [dictionary setValue:[NSArray arrayWithObjects:@"红葡萄酒", @"白葡萄酒", @"桃红酒", @"香槟", @"甜酒", nil] forKey:kRedWineCatagoryContentKey];
-
-        mCategorys = [[NSMutableArray alloc] init];
-        [mCategorys addObject:dictionary];
-        [mCategorys addObject:dictionary];
-        [mCategorys addObject:dictionary];
-
-        [dictionary release];
-        dictionary = nil;
-        
         self.view = containerView;
         
     }while (0);
@@ -132,12 +117,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    return [mCategorys count];
+    return [mContents count];
 }
 
 - (NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section
 {
-    return [[[mCategorys objectAtIndex:section] valueForKey:kRedWineCatagoryContentKey] count];
+    return [[[mContents objectAtIndex:section] valueForKey:kRedWineCatagoryContentKey] count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -146,7 +131,7 @@
     UITableViewCell		*cell = nil;
     NSArray             *contentArray = nil;
     
-    contentArray = [[mCategorys objectAtIndex:indexPath.section] valueForKey:kRedWineCatagoryContentKey];
+    contentArray = [[mContents objectAtIndex:indexPath.section] valueForKey:kRedWineCatagoryContentKey];
     
     cell = [tableView dequeueReusableCellWithIdentifier:WineCellIdentifier];
     if (cell == nil)
@@ -214,7 +199,7 @@
     label.textAlignment = UITextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
 	label.font = [UIFont fontWithName:PaoPaoFont size:16.0];
-    label.text = [[mCategorys objectAtIndex:section] valueForKey:kRedWineCategoryNameKey];
+    label.text = [[mContents objectAtIndex:section] valueForKey:kRedWineCategoryNameKey];
     [headerView addSubview:label];
 
     return [headerView autorelease];

@@ -12,8 +12,10 @@
 @interface RedWineCategoryViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
     
     UITableView         *mTableView;
-    NSMutableArray      *mCategorys;
+    NSArray             *mContents;
 }
+
+@property(nonatomic, retain)NSArray  *contents;
 
 #pragma mark -
 #pragma mark Private

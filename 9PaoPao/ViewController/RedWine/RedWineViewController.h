@@ -19,6 +19,8 @@
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar;
+- (NSArray *)prepareRedWineColorData;
+- (NSArray *)prepareRedWinePlaceData;
 
 #pragma mark -
 #pragma mark Action
