@@ -13,13 +13,15 @@
 @class CountryInfo;
 @class WineryInfo;
 @class RegionInfo;
+@class WineDetailInfo;
 
 enum SearchType {
     SearchType_None         = 0,
     SearchType_WineList     = 1,
     SearchType_WineryList   = 2,
     SearchType_BeerList     = 3,
-    SearchType_BreweryList  = 4
+    SearchType_BreweryList  = 4,
+    SearchType_WineDetail   = 5
 };
 
 @protocol SearchManagerDelegate;
@@ -33,11 +35,13 @@ enum SearchType {
     NSDictionary            *mSearchResultDic;
 	
 	NSArray					*mWineListResults;
+    WineDetailInfo          *mWineDetailInfo;
 }
 @property(nonatomic, assign)id<SearchManagerDelegate>  delegate;
 @property(nonatomic, assign)enum SearchType         searchType;
 @property(nonatomic, retain)NSDictionary            *searchResultDic;
 @property(nonatomic, retain)NSArray					*wineListResults;
+@property(nonatomic, retain)WineDetailInfo          *wineDetailInfo;
 
 + (SearchManager *)defaultSearchManager;
 

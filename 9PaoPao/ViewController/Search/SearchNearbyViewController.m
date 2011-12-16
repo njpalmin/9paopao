@@ -292,20 +292,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
 	[mSearchBar resignFirstResponder];
-    
-    MainSegmentViewController   *controller = nil;
-    id<AppDelegate>             delegate = nil;
-    
-    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
-    controller = [delegate mainSegmentViewController];
-    
-    [self prepareProgressView];
-    mProgressView.alpha = 1.0;
-    mProgressView.label.text = NSLocalizedString(@"Searching...,wait a moment", nil);
-    [mProgressView.indicator startAnimating];
-    
-    [controller.view addSubview:mProgressView];
-    
+    [self displayProgressView];
     [self startSearching];
 }
 
@@ -447,16 +434,11 @@
 	}
 	else if (mCurSearchKind == SearchKindWine)
 	{
-		WineDetailViewController	*controller = nil;
-		
-		controller = [[WineDetailViewController alloc] init];
-		[self.navigationController pushViewController:controller animated:YES];
-		
-		if (controller) {
-			[controller release];
-			controller = nil;
-		}
-	}
+        WineDetailInfo  *wineInfo = nil;
+        
+        wineInfo = [mWineResult objectAtIndex:indexPath.section];
+        [self startSearchWineDetailInfoWithId:wineInfo.wineId];
+    }
 	else if (mCurSearchKind == SearchKindPlace)
 	{
 		BarDetailViewController	*controller = nil;
@@ -548,6 +530,22 @@
             if (defaultManager.searchType == SearchType_WineList) {
                 [mWineResult removeAllObjects];
                 [mWineResult addObjectsFromArray:defaultManager.wineListResults];
+            }
+            else if (defaultManager.searchType == SearchType_WineDetail)
+            {
+                WineDetailViewController	*controller = nil;
+                WineDetailInfo              *searchResult = nil;
+                
+                searchResult = defaultManager.wineDetailInfo;
+                controller = [[WineDetailViewController alloc] init];
+                controller.wineDetailInfo = searchResult;
+                
+                [self.navigationController pushViewController:controller animated:YES];
+                
+                if (controller) {
+                    [controller release];
+                    controller = nil;
+                }
             }
         }
         else if (mCurSearchKind == SearchKindPlace)
@@ -681,6 +679,22 @@
     }
 }
 
+- (void)displayProgressView
+{
+    MainSegmentViewController   *controller = nil;
+    id<AppDelegate>             delegate = nil;
+    
+    delegate = (id<AppDelegate>)[[UIApplication sharedApplication] delegate];
+    controller = [delegate mainSegmentViewController];
+    
+    [self prepareProgressView];
+    mProgressView.alpha = 1.0;
+    mProgressView.label.text = NSLocalizedString(@"Searching...,wait a moment", nil);
+    [mProgressView.indicator startAnimating];
+    
+    [controller.view addSubview:mProgressView];
+}
+
 - (void)startSearching
 {
     SearchManager   *defaultManager = nil;
@@ -709,6 +723,31 @@
         }
         
         
+    }while(0);
+}
+
+- (void)startSearchWineDetailInfoWithId:(NSString *)wineId
+{
+    SearchManager   *defaultManager = nil;
+    NSString        *keyWord = nil;
+    
+    do{
+        defaultManager= [SearchManager defaultSearchManager];
+        break_if(defaultManager == nil)
+        
+        defaultManager.delegate = self;
+        
+        if (mCurSearchKind == SearchKindWine) {
+            defaultManager.searchType = SearchType_WineDetail;
+            [defaultManager startSearchWineDetailWithId:wineId withType:SearchType_WineDetail];
+        }
+        else if (mCurSearchKind == SearchKindPlace)
+        {
+        }
+        else if (mCurSearchKind == SearchKindUser)
+        {
+            
+        }
     }while(0);
 }
 

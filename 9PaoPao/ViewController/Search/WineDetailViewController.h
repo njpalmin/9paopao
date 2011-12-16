@@ -12,6 +12,7 @@
 #import "EmojiView.h"
 #import "LocationManager.h"
 #import "ScoreView.h"
+#import "WineDetailInfo.h"
 
 @interface WineDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource
 , UIImagePickerControllerDelegate, MapIconViewDelegate,ToolBarViewDelegate,EmojiViewDelegate,
@@ -30,7 +31,10 @@ UIScrollViewDelegate,UITextViewDelegate, LocationManagerDelegate,UINavigationCon
 	LocationManager		*mLocationManager;
     
     CGFloat             commentsHeight;
+    WineDetailInfo      *mWineDetailInfo;
 }
+
+@property(nonatomic, retain)WineDetailInfo      *wineDetailInfo;
 
 #pragma mark -
 #pragma mark Private

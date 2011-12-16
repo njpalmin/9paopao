@@ -10,8 +10,9 @@
 #import "WineDetailInfo.h"
 #import "PaoPaoConstant.h"
 
-#define SearchHostUrl   @"http://api.9paopao.com/"
-#define SearchTypeUrl   @"1/search/result?"
+#define SearchHostUrl       @"http://api.9paopao.com/"
+#define SearchTypeUrl       @"1/search/result?"
+#define SearchWineInfoUrl   @"1/wine/info/"
 
 static	SearchManager	*sDefaultManager = nil;
 
@@ -21,6 +22,7 @@ static	SearchManager	*sDefaultManager = nil;
 @synthesize searchType = mSearchType;
 @synthesize searchResultDic = mSearchResultDic;
 @synthesize wineListResults = mWineListResults;
+@synthesize wineDetailInfo = mWineDetailInfo;
 
 + (SearchManager *)defaultSearchManager
 {
@@ -146,6 +148,9 @@ ErrorLabel:
         case SearchType_BreweryList:
             
             break;
+        case SearchType_WineDetail:
+            [self analysisWineDetailInfo:reDic];
+            break;
         default:
             break;
     }
@@ -196,10 +201,96 @@ ErrorLabel:
     }
 }
 
+- (void)startSearchWineDetailWithId:(NSString *)wineId withType:(NSInteger)type
+{
+    NSMutableString     *searchStr = nil;
+    
+    searchStr = [NSMutableString stringWithCapacity:0];
+    mSearchType = type;
+    
+    switch (mSearchType) {
+        case SearchType_WineDetail:
+            [searchStr appendString:SearchWineInfoUrl];
+            [searchStr appendFormat:@"id/%@", wineId];
+            break;
+
+        default:
+            break;
+    }
+    
+    if (searchStr) {
+        [mSearchCore sendRequestWithServerURL:SearchHostUrl SearchString:searchStr];
+    }
+}
+
 #pragma mark -
 #pragma mark Private
 
 - (void)analysisWineResultList:(NSDictionary *)dictionary
+{
+	NSArray         *wineList = (NSArray *)dictionary;
+	NSMutableArray  *wineInfoLists = nil;
+    
+    wineInfoLists = [[NSMutableArray alloc] initWithCapacity:0];
+	for (int i = 0; i < [wineList count]; i++) {
+        
+		NSDictionary    *wineResult = [wineList objectAtIndex:i];
+        WineDetailInfo  *wineInfo = nil;
+        NSString        *wineid = nil;
+        NSString        *type = nil;
+        NSString        *refid = nil;
+        NSString        *title = nil;
+        NSString        *year = nil;
+        NSInteger       cache = -1;
+        CGFloat         score = 0.0;
+        WineryInfo      *winery = nil;
+        CountryInfo     *country = nil;
+        RegionInfo      *region = nil;
+        NSDictionary    *wineryDic = nil;
+        NSDictionary    *countryDic = nil;
+        NSDictionary    *regionDic = nil;
+        
+        cache = [[wineResult valueForKey:PPCachedKey] intValue];
+        score = [[wineResult valueForKey:PPScoreKey] floatValue];
+        wineid = [wineResult valueForKey:PPIdKey];
+        type = [wineResult valueForKey:PPTypeKey];
+        title = [wineResult valueForKey:PPTitleKey];
+        year = [wineResult valueForKey:PPYearKey];
+        refid = [wineResult valueForKey:PPRefidKey];
+        
+        wineInfo = [[WineDetailInfo alloc] initWithCache:cache wineId:wineid score:score type:type refid:refid title:title year:year];
+        
+        wineryDic = [wineResult valueForKey:PPWineryKey];
+        countryDic = [wineResult valueForKey:PPCountryKey];
+        regionDic = [wineResult valueForKey:PPRegionKey];
+        
+        if (wineryDic) {
+            winery = [self analysisWineryResult:wineryDic];
+            wineInfo.wineWinery = winery;
+        }
+        
+        if (countryDic) {
+            country = [self analysisCountryResult:countryDic];
+            wineInfo.wineCountry = country;
+        }
+        
+        if (regionDic) {
+            region = [self analysisRegionResult:regionDic];
+            wineInfo.wineRegion = region;
+        }
+        
+        [wineInfoLists addObject:wineInfo];
+        [wineInfo release];
+        wineInfo = nil;
+	}
+    
+    self.wineListResults = wineInfoLists;
+    
+    [wineInfoLists release];
+    wineInfoLists = nil;
+}
+
+- (void)analysisWineDetailInfo:(NSDictionary *)dictionary
 {
 	NSArray         *wineList = (NSArray *)dictionary;
 	NSMutableArray  *wineInfoLists = nil;
