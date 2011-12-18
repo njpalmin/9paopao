@@ -11,8 +11,7 @@
 #import "MainViewCell.h"
 #import "RedWineViewController.h"
 #import "PaoPaoCommon.h"
-#import "LatestOfferViewController.h"
-#import "LatestOfferObject.h"
+#import "LatestOfferController.h"
 #import "InviteViewController.h"
 #import "DrinkTrackerRecordViewController.h"
 @implementation MainViewController
@@ -126,7 +125,7 @@
                                                   [RedWineViewController class],
                                                   [RedWineViewController class],
                                                   [DrinkTrackerRecordViewController class],
-                                                  [LatestOfferViewController class],
+                                                  [LatestOfferController class],
                                                   [RedWineViewController class], nil] ];
 
     
@@ -180,18 +179,12 @@
     
 //    push the controller you need
     if (pos == 8) {
-        LatestOfferObject *object = [[LatestOfferObject alloc] init];
-        object.latestOfferTitle = @"红酒大促销";
-        object.latestOfferHost = @"波尔多";
-        object.latestOfferLocation = @"波尔多";
-        object.latestOfferComment = @"促销时间2011／9／25";
-        NSArray *array = [[NSArray alloc] initWithObjects:object,object,object,object,object, nil];
-        LatestOfferViewController *latestVC = [[LatestOfferViewController alloc] initControllerWithArray:array];
+        
+        LatestOfferController *latestVC = [[LatestOfferController alloc] init];
         [self.navigationController pushViewController:latestVC animated:YES];
-        [array release];
+       
         [latestVC release];
-        [object release];
-        object = nil;
+       
     }else
     {
     id aClass = [viewControllers objectAtIndex:(pos-1)];

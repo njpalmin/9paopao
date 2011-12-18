@@ -23,6 +23,8 @@
 		208BFFC3147BD94D0066D8CC /* BarComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 208BFFC2147BD94D0066D8CC /* BarComment.m */; };
 		20D36034148B6EE400087572 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D36033148B6EE300087572 /* LocationTableViewController.m */; };
 		20D36038148B7C1900087572 /* LocationDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D36037148B7C1900087572 /* LocationDetail.m */; };
+		20E0CE0E149E1B9D003F5331 /* LatestOfferController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E0CE0D149E1B9D003F5331 /* LatestOfferController.m */; };
+		20E0CE12149E3C2C003F5331 /* CurrentLatestOfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E0CE11149E3C2C003F5331 /* CurrentLatestOfferViewController.m */; };
 		20F257F91483D3B0008DDF7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F257F81483D3B0008DDF7D /* MBProgressHUD.m */; };
 		20F258021483E892008DDF7D /* DrinkWineRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F258011483E892008DDF7D /* DrinkWineRecordViewController.m */; };
 		3316CDDB1479EBCF00C3501B /* CoreLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316CDD61479EBCF00C3501B /* CoreLocationService.m */; };
@@ -321,6 +323,10 @@
 		20D36033148B6EE300087572 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
 		20D36036148B7C1900087572 /* LocationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetail.h; sourceTree = "<group>"; };
 		20D36037148B7C1900087572 /* LocationDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetail.m; sourceTree = "<group>"; };
+		20E0CE0C149E1B9D003F5331 /* LatestOfferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestOfferController.h; sourceTree = "<group>"; };
+		20E0CE0D149E1B9D003F5331 /* LatestOfferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestOfferController.m; sourceTree = "<group>"; };
+		20E0CE10149E3C2C003F5331 /* CurrentLatestOfferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLatestOfferViewController.h; sourceTree = "<group>"; };
+		20E0CE11149E3C2C003F5331 /* CurrentLatestOfferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLatestOfferViewController.m; sourceTree = "<group>"; };
 		20F257F71483D3B0008DDF7D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		20F257F81483D3B0008DDF7D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		20F258001483E892008DDF7D /* DrinkWineRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkWineRecordViewController.h; sourceTree = "<group>"; };
@@ -919,6 +925,10 @@
 			children = (
 				3396CE56147D0C2F0035EF28 /* LatestOfferViewController.h */,
 				3396CE57147D0C2F0035EF28 /* LatestOfferViewController.m */,
+				20E0CE0C149E1B9D003F5331 /* LatestOfferController.h */,
+				20E0CE0D149E1B9D003F5331 /* LatestOfferController.m */,
+				20E0CE10149E3C2C003F5331 /* CurrentLatestOfferViewController.h */,
+				20E0CE11149E3C2C003F5331 /* CurrentLatestOfferViewController.m */,
 			);
 			path = LatestOffer;
 			sourceTree = "<group>";
@@ -1774,6 +1784,8 @@
 				A59FAF371484DE3000E80BEB /* LiveFeedViewController.m in Sources */,
 				20D36034148B6EE400087572 /* LocationTableViewController.m in Sources */,
 				20D36038148B7C1900087572 /* LocationDetail.m in Sources */,
+				20E0CE0E149E1B9D003F5331 /* LatestOfferController.m in Sources */,
+				20E0CE12149E3C2C003F5331 /* CurrentLatestOfferViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
