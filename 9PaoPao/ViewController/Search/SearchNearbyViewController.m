@@ -844,7 +844,12 @@
 }
 
 - (void)procProgressViewCancel:(id)sender
-{
+{    
+    SearchManager   *defaultManager = nil;
+    
+    defaultManager = [SearchManager defaultSearchManager];
+    [defaultManager cancelSearch];
+    
     [mProgressView removeFromSuperview];
 }
 @end

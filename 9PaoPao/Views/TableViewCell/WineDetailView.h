@@ -32,10 +32,4 @@
 -(void)setWineDetailRecord:(WineDetailInfo *)wineDetail;
 -(void)setPlaceDetailRecord;
 
-#pragma mark -
-#pragma mark Private
-
-// 四舍五入
-- (NSInteger)roundingFloat:(CGFloat)floatNum;
-
 @end

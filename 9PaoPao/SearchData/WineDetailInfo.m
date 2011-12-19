@@ -12,7 +12,7 @@
 @implementation WineDetailInfo
 
 @synthesize wineCache, wineId, wineScore, wineType, wineRefid, wineTitle, wineYear, 
-wineCountry, wineWinery, wineRegion;
+wineCreatDate, wineCountry, wineWinery, wineRegion;
 
 - (void)dealloc
 {
@@ -31,6 +31,9 @@ wineCountry, wineWinery, wineRegion;
 	[wineYear release];
 	wineYear = nil;
 	
+    [wineCreatDate release];
+    wineCreatDate = nil;
+    
 	[wineCountry release];
 	wineCountry = nil;
 	

@@ -146,7 +146,7 @@ ErrorLabel:
             
             break;
         case SearchType_BreweryList:
-            
+            [self analysisRedWineResultList:reDic];
             break;
         case SearchType_WineDetail:
             [self analysisWineDetailInfo:reDic];
@@ -170,6 +170,11 @@ ErrorLabel:
 #pragma mark -
 #pragma mark Public
 
+- (void)cancelSearch
+{
+    [mSearchCore cancel];
+}
+
 - (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages
 {
     NSMutableString     *searchStr = nil;
@@ -190,7 +195,8 @@ ErrorLabel:
             
             break;
         case SearchType_BreweryList:
-            
+            [searchStr appendString:SearchTypeUrl];
+            [searchStr appendFormat:@"kw=%@&page=%d&type=4", keyword, mRequestPage];
             break;
         default:
             break;
@@ -259,6 +265,73 @@ ErrorLabel:
         refid = [wineResult valueForKey:PPRefidKey];
         
         wineInfo = [[WineDetailInfo alloc] initWithCache:cache wineId:wineid score:score type:type refid:refid title:title year:year];
+        
+        wineryDic = [wineResult valueForKey:PPWineryKey];
+        countryDic = [wineResult valueForKey:PPCountryKey];
+        regionDic = [wineResult valueForKey:PPRegionKey];
+        
+        if (wineryDic) {
+            winery = [self analysisWineryResult:wineryDic];
+            wineInfo.wineWinery = winery;
+        }
+        
+        if (countryDic) {
+            country = [self analysisCountryResult:countryDic];
+            wineInfo.wineCountry = country;
+        }
+        
+        if (regionDic) {
+            region = [self analysisRegionResult:regionDic];
+            wineInfo.wineRegion = region;
+        }
+        
+        [wineInfoLists addObject:wineInfo];
+        [wineInfo release];
+        wineInfo = nil;
+	}
+    
+    self.wineListResults = wineInfoLists;
+    
+    [wineInfoLists release];
+    wineInfoLists = nil;
+}
+
+- (void)analysisRedWineResultList:(NSDictionary *)dictionary
+{
+	NSArray         *wineList = (NSArray *)dictionary;
+	NSMutableArray  *wineInfoLists = nil;
+    
+    wineInfoLists = [[NSMutableArray alloc] initWithCapacity:0];
+	for (int i = 0; i < [wineList count]; i++) {
+        
+		NSDictionary    *wineResult = [wineList objectAtIndex:i];
+        WineDetailInfo  *wineInfo = nil;
+        NSString        *wineid = nil;
+        NSString        *type = nil;
+        NSString        *refid = nil;
+        NSString        *title = nil;
+        NSString        *year = nil;
+        NSString        *creatDate = nil;
+        NSInteger       cache = -1;
+        CGFloat         score = 0.0;
+        WineryInfo      *winery = nil;
+        CountryInfo     *country = nil;
+        RegionInfo      *region = nil;
+        NSDictionary    *wineryDic = nil;
+        NSDictionary    *countryDic = nil;
+        NSDictionary    *regionDic = nil;
+        
+        cache = [[wineResult valueForKey:PPCachedKey] intValue];
+        score = [[wineResult valueForKey:PPScoreKey] floatValue];
+        wineid = [wineResult valueForKey:PPIdKey];
+        type = [wineResult valueForKey:PPTypeKey];
+        title = [wineResult valueForKey:PPTitleKey];
+        year = [wineResult valueForKey:PPYearKey];
+        refid = [wineResult valueForKey:PPRefidKey];
+        creatDate = [wineResult valueForKey:PPCreatDate];
+
+        wineInfo = [[WineDetailInfo alloc] initWithCache:cache wineId:wineid score:score type:type refid:refid title:title year:year];
+        wineInfo.wineCreatDate = creatDate;
         
         wineryDic = [wineResult valueForKey:PPWineryKey];
         countryDic = [wineResult valueForKey:PPCountryKey];

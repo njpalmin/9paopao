@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PaoPaoProgressView.h"
+#import "SearchManager.h"
 
 @interface RedWineListViewController : UIViewController <UITableViewDelegate, 
-UITableViewDataSource>{
+UITableViewDataSource, UISearchBarDelegate, SearchManagerDelegate>{
 
-	UITableView     *mTableView;
-	NSMutableArray  *mRedWineResult;
+    UISearchBar         *mSearchBar;
+	UITableView         *mTableView;
+	NSMutableArray      *mRedWineResult;
+    UIView              *mSearchCancelView;
+    PaoPaoProgressView  *mProgressView;
 
 }
 
@@ -21,10 +25,15 @@ UITableViewDataSource>{
 #pragma mark Private
 
 - (BOOL)prepareNavigationBar;
+- (void)prepareProgressView;
+- (void)displayProgressView;
+- (void)startRedWineSearching;
+- (void)startSearchRedWineDetailInfoWithId:(NSString *)wineId;
 
 #pragma mark -
 #pragma mark Action
 
 - (void)procReturn:(id)sender;
+- (void)procProgressViewCancel:(id)sender;
 
 @end

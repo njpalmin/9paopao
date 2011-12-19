@@ -20,6 +20,7 @@
 	NSString	*wineRefid;
 	NSString	*wineTitle;
 	NSString	*wineYear;
+    NSString    *wineCreatDate;
 	CountryInfo	*wineCountry;
 	WineryInfo	*wineWinery;
 	RegionInfo	*wineRegion;
@@ -32,6 +33,7 @@
 @property(nonatomic, retain)NSString	*wineRefid;
 @property(nonatomic, retain)NSString	*wineTitle;
 @property(nonatomic, retain)NSString	*wineYear;
+@property(nonatomic, retain)NSString    *wineCreatDate;
 @property(nonatomic, retain)CountryInfo	*wineCountry;
 @property(nonatomic, retain)WineryInfo	*wineWinery;
 @property(nonatomic, retain)RegionInfo	*wineRegion;

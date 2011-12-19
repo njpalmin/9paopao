@@ -134,7 +134,7 @@
     CGFloat score = wineDetail.wineScore;
     
     
-	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:[self roundingFloat:score]];
+	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:[PaoPaoCommon roundingFloat:score]];
 	markView.tag = CellStarMarkViewTag;
 	[self.contentView addSubview:markView];
 	
@@ -176,7 +176,7 @@
 	[leftImageView release];
 	leftImageView = nil;
     
-	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:[self roundingFloat:3]];
+	StarMarkView *markView = [[StarMarkView alloc] initWithFrame:CGRectMake(RightContentXOrigin, 77, 0, 0) withStarNum:[PaoPaoCommon roundingFloat:3]];
 	markView.tag = CellStarMarkViewTag;
 	[self.contentView addSubview:markView];
 	
@@ -197,20 +197,6 @@
 	[mWineProductPlace setText:[NSString stringWithFormat:NSLocalizedString(@"Product Place", nil), @"china"]];
 	[mWineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Wine Kind", nil), @"红葡萄酒"]];
 	[mWinePrice setText:[NSString stringWithFormat:NSLocalizedString(@"Price", nil), @"350元"]];
-}
-
-#pragma mark -
-#pragma mark Private
-
-// 四舍五入
-- (NSInteger)roundingFloat:(CGFloat)floatNum
-{
-    NSInteger   intNum = floatNum;
-    
-    if ((floatNum - intNum) >= 0.5) {
-        intNum++;
-    }
-    return intNum;
 }
 
 @end

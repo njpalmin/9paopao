@@ -34,6 +34,7 @@
 #define PPWineryKey                 @"winery"
 #define PPCountryKey                @"country"
 #define PPRegionKey                 @"region"
+#define PPCreatDate                 @"c_dt"
 
 // wine kind flag
 #define PPRedWineFlag               170

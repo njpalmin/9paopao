@@ -14,6 +14,8 @@
 
 @implementation RedWineDetailViewController
 
+@synthesize redWineInfo = mRedWineInfo;
+
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 	
@@ -320,6 +322,8 @@
     
     mRedWineBasicInfo = [[RedWineInfoView alloc] init];
     mRedWineBasicInfo.frame = CGRectMake(xPos, 0, 320, 17*WineDetailInfoLabelHeight);
+    mRedWineBasicInfo.redWineInfo = mRedWineInfo;
+    
     [headerView addSubview:mRedWineBasicInfo];
     
     mCollectionBtn = [[PaoPaoCommon getImageButtonWithName:@"follow.png" highlightName:nil action:@selector(procCollectionBtn:) target:self] retain];

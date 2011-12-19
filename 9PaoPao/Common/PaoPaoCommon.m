@@ -85,4 +85,16 @@
     
     return [button autorelease];
 }
+
+// 四舍五入
++ (NSInteger)roundingFloat:(CGFloat)floatNum
+{
+    NSInteger   intNum = floatNum;
+    
+    if ((floatNum - intNum) >= 0.5) {
+        intNum++;
+    }
+    return intNum;
+}
+
 @end

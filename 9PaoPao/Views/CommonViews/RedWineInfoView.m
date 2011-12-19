@@ -8,8 +8,11 @@
 
 #import "RedWineInfoView.h"
 #import "PaoPaoConstant.h"
+#import "PaoPaoCommon.h"
 
 @implementation RedWineInfoView
+
+@synthesize redWineInfo = mRedWineInfo;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,7 +34,6 @@
         [mBasicInfoLabel setTextColor:[UIColor blackColor]];
         [mBasicInfoLabel setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
         [mBasicInfoLabel setBackgroundColor:[UIColor clearColor]];
-        [mBasicInfoLabel setText:[NSString stringWithFormat:@"红酒名称：%@\n参考年份：%@\n产地：%@\n酒精含量：%@\n价格：%@", @"红酒", @"2002年", @"美国", @"20%", @"350元"]];
         mBasicInfoLabel.numberOfLines = 5;
         
         xPos = 15;
@@ -48,7 +50,7 @@
         [mExpertMarkView setOnlyLightStar:4];
         
         yPos += mExpertMarkView.frame.size.height;
-        mOverallMarkView = [[StarMarkView alloc] initWithFrame:CGRectMake(xPos, yPos+7, 0, 0) withStarNum:4];
+        mOverallMarkView = [[StarMarkView alloc] initWithFrame:CGRectMake(xPos, yPos+7, 0, 0) withStarNum:[PaoPaoCommon roundingFloat:mRedWineInfo.wineScore]];
 
         xPos += mOverallMarkView.frame.size.width;
         mThumbMarkView = [[ThumbMarkView alloc] initWithFrame:CGRectMake(xPos, yPos-5, 0, 0) withGoodNum:10 withBadNum:0];
@@ -134,7 +136,27 @@
         mRecommendContent = nil;
     }
     
+    if (mRedWineInfo) {
+        [mRedWineInfo release];
+        mRedWineInfo = nil;
+    }
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)setRedWineInfo:(WineDetailInfo *)redWineInfo
+{
+    if (mRedWineInfo) {
+        [mRedWineInfo release];
+        mRedWineInfo = nil;
+    }
+    
+    mRedWineInfo = [redWineInfo retain];
+    
+    [mBasicInfoLabel setText:[NSString stringWithFormat:@"红酒名称：%@\n参考年份：%@\n产地：%@\n酒精含量：%@\n价格：%@", mRedWineInfo.wineTitle, mRedWineInfo.wineYear, mRedWineInfo.wineCountry.countryTitle, @"20%", @"350元"]];
+
 }
 
 @end

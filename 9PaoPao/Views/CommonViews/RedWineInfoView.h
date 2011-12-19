@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "StarMarkView.h"
 #import "ThumbMarkView.h"
+#import "WineDetailInfo.h"
 
 @interface RedWineInfoView : UIView {
     
@@ -20,6 +21,9 @@
     ThumbMarkView   *mThumbMarkView;
     UILabel         *mRecommendTitle;
     UILabel         *mRecommendContent;
+    
+    WineDetailInfo  *mRedWineInfo;
 }
+@property(nonatomic, retain)WineDetailInfo  *redWineInfo;
 
 @end

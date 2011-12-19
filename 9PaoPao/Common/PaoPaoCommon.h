@@ -17,4 +17,7 @@
 + (UIButton *)getBarButtonWithTitle:(NSString *)title imageName:(NSString *)imageName highlightedImageName:(NSString *)highlightedImageName action:(SEL)action target:(id)target;
 + (UIButton *)getImageButtonWithName:(NSString *)imageName highlightName:(NSString *)highlightedImageName action:(SEL)action target:(id)target;
 
+// 四舍五入
++ (NSInteger)roundingFloat:(CGFloat)floatNum;
+
 @end

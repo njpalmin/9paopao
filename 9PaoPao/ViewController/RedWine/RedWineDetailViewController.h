@@ -10,6 +10,7 @@
 #import "RedWineInfoView.h"
 #import "ToolBarView.h"
 #import "MapIconView.h"
+#import "WineDetailInfo.h"
 
 @interface RedWineDetailViewController : UIViewController <MapIconViewDelegate, ToolBarViewDelegate, 
 UITableViewDelegate, UITableViewDataSource>{
@@ -22,7 +23,11 @@ UITableViewDelegate, UITableViewDataSource>{
     RedWineInfoView *mRedWineBasicInfo;
     ToolBarView     *mToolBarView;
     MapIconView     *mMapView;
+    
+    WineDetailInfo  *mRedWineInfo;
 }
+
+@property(nonatomic, retain)WineDetailInfo  *redWineInfo;
 
 #pragma mark -
 #pragma mark Private
