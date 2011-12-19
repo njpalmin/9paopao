@@ -43,7 +43,9 @@ UISearchBarDelegate, SearchManagerDelegate> {
 - (BOOL)prepareNavigationBar;
 - (BOOL)prepareSearchKindView;
 - (void)prepareProgressView;
+- (void)displayProgressView;
 - (void)startSearching;
+- (void)startSearchWineDetailInfoWithId:(NSString *)wineId;
 
 #pragma mark -
 #pragma mark Action

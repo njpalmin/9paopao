@@ -49,11 +49,13 @@ enum SearchType {
 #pragma mark Public
 
 - (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages;
+- (void)startSearchWineDetailWithId:(NSString *)wineId withType:(NSInteger)type;
 
 #pragma mark -
 #pragma mark Private
 
 - (void)analysisWineResultList:(NSDictionary *)dictionary;
+- (void)analysisWineDetailInfo:(NSDictionary *)dictionary;
 - (CountryInfo *)analysisCountryResult:(NSDictionary *)dictionary;
 - (WineryInfo *)analysisWineryResult:(NSDictionary *)dictionary;
 - (RegionInfo *)analysisRegionResult:(NSDictionary *)dictionary;

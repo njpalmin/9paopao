@@ -114,6 +114,10 @@
     [emojiView release];
     [commentsText release];
     
+	if (mWineDetailInfo) {
+		[mWineDetailInfo release];
+		mWineDetailInfo = nil;
+	}
     [super dealloc];
 }
 
@@ -216,10 +220,10 @@
 		//yPos += WineDetailInfoLabelHeight;
 		
 		//-----------
-		[wineName setText:@"红酒1"];
-		[wineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Kind:", nil), @"葡萄酒"]];
+		[wineName setText:mWineDetailInfo.wineTitle];
+		[wineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Kind:", nil), mWineDetailInfo.wineType]];
 		[wineDegree setText:[NSString stringWithFormat:NSLocalizedString(@"Wine Degree:", nil), @"20%"]];
-		[wineMark setText:[NSString stringWithFormat:NSLocalizedString(@"Expert Mark:", nil), @"1/100"]];
+		[wineMark setText:[NSString stringWithFormat:NSLocalizedString(@"Expert Mark:", nil), mWineDetailInfo.wineScore]];
 		[wineComment setText:[NSString stringWithFormat:NSLocalizedString(@"Comment Number:", nil), @"15"]];
 		//-----------
 		
@@ -360,7 +364,8 @@
 	[placeInfo setTextColor:[UIColor blackColor]];
 	[placeInfo setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
 	[placeInfo setBackgroundColor:[UIColor clearColor]];
-	[placeInfo setText:@"餐厅/酒吧名称：红酒\n地址：中国\n联系信息：027－88888888"];
+	[placeInfo setText:[NSString stringWithFormat:@"餐厅/酒吧名称：%@\n地址：%@\n联系信息：88888888", mWineDetailInfo.wineWinery.wineryTitle, mWineDetailInfo.wineCountry.countryTitle]];
+	//[placeInfo setText:@"È§êÂéÖ/ÈÖíÂêßÂêçÁß∞ÔºöÁ∫¢ÈÖí\nÂú∞ÂùÄÔºö‰∏≠ÂõΩ\nËÅîÁ≥ª‰ø°ÊÅØÔºö027Ôºç88888888"];
 	placeInfo.numberOfLines = 4;
 	[winePlaceView addSubview:placeInfo];
 	

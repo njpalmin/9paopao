@@ -729,7 +729,6 @@
 - (void)startSearchWineDetailInfoWithId:(NSString *)wineId
 {
     SearchManager   *defaultManager = nil;
-    NSString        *keyWord = nil;
     
     do{
         defaultManager= [SearchManager defaultSearchManager];
@@ -739,6 +738,7 @@
         
         if (mCurSearchKind == SearchKindWine) {
             defaultManager.searchType = SearchType_WineDetail;
+			[self displayProgressView];
             [defaultManager startSearchWineDetailWithId:wineId withType:SearchType_WineDetail];
         }
         else if (mCurSearchKind == SearchKindPlace)

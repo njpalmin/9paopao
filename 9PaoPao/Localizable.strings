@@ -25,10 +25,11 @@
 "SearchUser Page Title" = "用户搜索";
 "SearchRange" = "%d公里";
 "Searching...,wait a moment" = "检索中...请稍候";
-"Kind:" = "类别：";
-"Wine Degree:" = "酒精度数：";
-"Expert Mark:" = "专家评分：";
+"Kind:" = "类别：%@";
+"Wine Degree:" = "酒精度数：%@";
+"Expert Mark:" = "专家评分：%d";
 "Comment Number:" = "评论次数：";
+"Where Drink Wine" = "在哪里品酒？";
 
 //barDetail
 "barName: %@" = "酒吧名称：%@";
