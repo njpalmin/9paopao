@@ -38,6 +38,8 @@
 "commentMark: " = "评论分数：";
 
 //latestoffer
+"latestOffer Page Title" = "最新促销";
+"latestOffer Activity Page Title" = "促销活动";
 "latestOfferTitle" = "红酒大促销";
 "latestOfferLocation:%@ " = "促销地点：%@";
 "latestOfferHost:%@" = "主办方／发起人:%@";

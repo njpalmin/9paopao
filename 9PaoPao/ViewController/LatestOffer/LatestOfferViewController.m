@@ -75,8 +75,8 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header-bg.png"] forBarMetrics:UIBarMetricsDefault];
     }
 #endif 
-}
 
+}
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

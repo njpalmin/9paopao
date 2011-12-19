@@ -7,6 +7,7 @@
 //
 
 #import "LatestOfferController.h"
+#import "PaoPaoCommon.h"
 
 @implementation LatestOfferController
 
@@ -44,14 +45,15 @@
 {
     [super loadView];
     searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    searchBar.barStyle = UIBarStyleBlackTranslucent;
     [self.view addSubview:searchBar];
     
-    currentLatestOfferBtn = [[UIButton alloc] initWithFrame:CGRectMake(80, 45, 60, 30)];
+    currentLatestOfferBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 45, 109, 30)];
     [currentLatestOfferBtn setBackgroundImage:[UIImage imageNamed:@"current-offer-selected.png"] forState:UIControlStateNormal];
     [currentLatestOfferBtn addTarget:self action:@selector(currentLatestOffer:) forControlEvents:UIControlEventTouchUpInside];
     //[currentLatestOfferBtn setBackgroundImage:nil forState:UIControlStateNormal];
     [self.view addSubview:currentLatestOfferBtn];
-    allLatestOfferBtn = [[UIButton alloc] initWithFrame:CGRectMake(145, 45, 60, 30)];
+    allLatestOfferBtn = [[UIButton alloc] initWithFrame:CGRectMake(160, 45, 109, 30)];
     [allLatestOfferBtn setBackgroundImage:[UIImage imageNamed:@"all-offers-selected.png"] forState:UIControlStateSelected];
     [allLatestOfferBtn setBackgroundImage:[UIImage imageNamed:@"all-offers.png"] forState:UIControlStateNormal];
     [allLatestOfferBtn setSelected:YES];
@@ -70,6 +72,18 @@
     [object release];
     object = nil;
 
+    UIBarButtonItem     *leftItem = nil;
+    UIButton            *leftButton = nil;
+    
+    leftButton = [PaoPaoCommon getBarButtonWithTitle:nil imageName:@"return-button.png" highlightedImageName:@"" action:@selector(procReturn:) target:self];
+    
+    leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    
+    self.navigationItem.leftBarButtonItem = leftItem;    
+    self.navigationItem.title = NSLocalizedString(@"latestOffer Page Title", nil);
+    
+    [leftItem release];
+    leftItem = nil;
 }
 
 - (void)allLatestOffer:(id)sender
@@ -117,6 +131,14 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark Action
+
+- (void)procReturn:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
