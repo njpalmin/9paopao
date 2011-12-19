@@ -66,8 +66,10 @@
     object.latestOfferComment = @"促销时间2011／9／25";
     NSArray *array = [[NSArray alloc] initWithObjects:object,object,object,object,object, nil];
     allLatestOfferVC = [[LatestOfferViewController alloc] initControllerWithArray:array];
+    currentLatestOfferVC = [[CurrentLatestOfferViewController alloc] initControllerWithCurrentLatestOffer:nil];
     [self.view addSubview:allLatestOfferVC.view];
     allLatestOfferVC.view.frame = CGRectMake(0, 80, 320, 296);
+    currentLatestOfferVC.view.frame = CGRectMake(0, 80, 320, 296);
     [array release];
     [object release];
     object = nil;
@@ -92,7 +94,7 @@
     if (btn.selected) {
         return;
     }else
-    {
+    {   [currentLatestOfferVC.view removeFromSuperview];
          [self.view addSubview:allLatestOfferVC.view];
         [btn setSelected:YES];
         [currentLatestOfferBtn setSelected:NO];
@@ -106,6 +108,7 @@
     }else
     {
         [allLatestOfferVC.view removeFromSuperview];
+        [self.view addSubview:currentLatestOfferVC.view];
         [currentLatestOfferBtn setSelected:YES];
         [allLatestOfferBtn setSelected:NO];
     }

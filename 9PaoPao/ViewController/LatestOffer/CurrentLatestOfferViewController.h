@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class MapViewController;
+@class LatestOfferObject;
 @interface CurrentLatestOfferViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
-    
+    UITableView *currentLatestOfferTableView;
+    LatestOfferObject *currentLatestOffer;
+    MapViewController *mVC;
 }
-
+- (id)initControllerWithCurrentLatestOffer:(LatestOfferObject *)object;
 @end
