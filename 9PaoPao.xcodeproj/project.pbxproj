@@ -74,6 +74,10 @@
 		3396CEC5147D0CCB0035EF28 /* UserResultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3396CEB7147D0CCB0035EF28 /* UserResultViewCell.m */; };
 		3396CEC6147D0CCB0035EF28 /* WineDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3396CEB9147D0CCB0035EF28 /* WineDetailView.m */; };
 		339E66DF1467DA260097747E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339E66DE1467DA260097747E /* Localizable.strings */; };
+		33BB8BBC14A01E5B0000BAD9 /* all-offers-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33BB8BB814A01E5B0000BAD9 /* all-offers-selected@2x.png */; };
+		33BB8BBD14A01E5B0000BAD9 /* all-offers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33BB8BB914A01E5B0000BAD9 /* all-offers@2x.png */; };
+		33BB8BBE14A01E5B0000BAD9 /* current-offer-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33BB8BBA14A01E5B0000BAD9 /* current-offer-selected@2x.png */; };
+		33BB8BBF14A01E5B0000BAD9 /* current-offers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33BB8BBB14A01E5B0000BAD9 /* current-offers@2x.png */; };
 		33BEBB5514846F0300010BCA /* MyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BEBB5414846F0300010BCA /* MyFriendsViewController.m */; };
 		33C71A3414919D6800EE499B /* Accountlogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C7197114919D6800EE499B /* Accountlogin.png */; };
 		33C71A3514919D6800EE499B /* AccountMyprofile.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C7197214919D6800EE499B /* AccountMyprofile.png */; };
@@ -426,6 +430,10 @@
 		3396CEB8147D0CCB0035EF28 /* WineDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineDetailView.h; sourceTree = "<group>"; };
 		3396CEB9147D0CCB0035EF28 /* WineDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineDetailView.m; sourceTree = "<group>"; };
 		339E66DE1467DA260097747E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		33BB8BB814A01E5B0000BAD9 /* all-offers-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-offers-selected@2x.png"; sourceTree = "<group>"; };
+		33BB8BB914A01E5B0000BAD9 /* all-offers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-offers@2x.png"; sourceTree = "<group>"; };
+		33BB8BBA14A01E5B0000BAD9 /* current-offer-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "current-offer-selected@2x.png"; sourceTree = "<group>"; };
+		33BB8BBB14A01E5B0000BAD9 /* current-offers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "current-offers@2x.png"; sourceTree = "<group>"; };
 		33BEBB5314846F0300010BCA /* MyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFriendsViewController.h; sourceTree = "<group>"; };
 		33BEBB5414846F0300010BCA /* MyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFriendsViewController.m; sourceTree = "<group>"; };
 		33C7197114919D6800EE499B /* Accountlogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accountlogin.png; sourceTree = "<group>"; };
@@ -1230,6 +1238,10 @@
 		33C719E614919D6800EE499B /* latest-offers */ = {
 			isa = PBXGroup;
 			children = (
+				33BB8BB814A01E5B0000BAD9 /* all-offers-selected@2x.png */,
+				33BB8BB914A01E5B0000BAD9 /* all-offers@2x.png */,
+				33BB8BBA14A01E5B0000BAD9 /* current-offer-selected@2x.png */,
+				33BB8BBB14A01E5B0000BAD9 /* current-offers@2x.png */,
 				33C719E714919D6800EE499B /* all-offers-selected.png */,
 				33C719E814919D6800EE499B /* all-offers.png */,
 				33C719E914919D6800EE499B /* current-offer-selected.png */,
@@ -1678,6 +1690,10 @@
 				F623BA1E149334BF00EB0724 /* AccountRegister@2x.png in Resources */,
 				F623BA1F149334BF00EB0724 /* AccountSearch@2x.png in Resources */,
 				F623BA20149334BF00EB0724 /* AccountSetting@2x.png in Resources */,
+				33BB8BBC14A01E5B0000BAD9 /* all-offers-selected@2x.png in Resources */,
+				33BB8BBD14A01E5B0000BAD9 /* all-offers@2x.png in Resources */,
+				33BB8BBE14A01E5B0000BAD9 /* current-offer-selected@2x.png in Resources */,
+				33BB8BBF14A01E5B0000BAD9 /* current-offers@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
