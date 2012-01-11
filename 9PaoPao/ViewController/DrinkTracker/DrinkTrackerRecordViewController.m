@@ -111,6 +111,17 @@
     [leftItem release];
     leftItem = nil;
     
+    UIButton *rightBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    [rightBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(saveRecord:) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setFrame:CGRectMake(0, 0, 60, 30)];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [rightBtn release];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    [rightBtn release];
+    
+    
     self.navigationItem.title = @"品酒记录";
 #ifdef __IPHONE_5_0 
     if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
@@ -121,7 +132,7 @@
     
     drinkBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [drinkBtn setFrame:CGRectMake(3, 3, 314, 30)];
-    [drinkBtn setTitle:@"我最喜欢喝什么酒？" forState:UIControlStateNormal];
+    [drinkBtn setTitle:@"你喝什么？" forState:UIControlStateNormal];
     drinkBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     drinkBtn.tag = SEARECH_FAVORITE_WINE;
     [drinkBtn addTarget:self action:@selector(clickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -130,7 +141,7 @@
     
     placeBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [placeBtn setFrame:CGRectMake(3, 37, 314, 30)];    
-    [placeBtn setTitle:@"我最喜欢去哪里喝？" forState:UIControlStateNormal];
+    [placeBtn setTitle:@"你在哪里喝？" forState:UIControlStateNormal];
     placeBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     placeBtn.tag = SEARECH_FAVORITE_PLACE;
     [placeBtn addTarget:self action:@selector(clickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -151,7 +162,7 @@
     commentsLabel.backgroundColor = [UIColor clearColor];
     commentsLabel.text = @"用户评论";
     [scrollView addSubview:commentsLabel];
-    
+
     
     commentsText = [[UITextView alloc] init];
     commentsText.text = @"fhsajfsamflsamflsafmlsafslfmsfmlsmflasmfslmflsmflsamflsmflsf";
@@ -441,6 +452,12 @@
 {  
     [commentsText resignFirstResponder];  
 } 
+
+- (void)saveRecord:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"品酒记录已存储" delegate:nil cancelButtonTitle:@"完成" otherButtonTitles:nil, nil];
+    [alert show];
+}
 
 -(void)goBack:(id)sender
 {

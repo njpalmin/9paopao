@@ -22,5 +22,5 @@
     UIImageView  *imageView;
 }
 
-//-(void) addToolbarAboveKeyboard;
+-(void) addToolbarAboveKeyboard;
 @end

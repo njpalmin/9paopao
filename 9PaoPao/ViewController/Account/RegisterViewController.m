@@ -33,8 +33,8 @@
     nibname = nil;
     [phone release];
     phone = nil;
-    [picButton release];
-    picButton = nil;
+    [imageView release];
+    imageView = nil;
     [registerButton release];
     registerButton =nil;
     [super dealloc];
@@ -104,7 +104,7 @@
     phone = [[UITextField alloc] initWithFrame:CGRectMake(10, nibname.frame.origin.y+nibname.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
     phone.borderStyle = UITextBorderStyleRoundedRect;
     phone.delegate = self;
-    phone.keyboardType = UIKeyboardTypeNumberPad;
+    phone.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     phone.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     phone.font = [UIFont fontWithName:PaoPaoFont size:16];
     phone.placeholder = @"你的手机号码";
@@ -119,6 +119,18 @@
     [imageView.layer setCornerRadius:10.0];
     
     [scrollView addSubview:imageView];
+    
+    UIButton *changePicBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    [changePicBtn setFrame:CGRectMake(5+64+20, 60*4-15, 110, 30)];
+    [changePicBtn addTarget:self action:@selector(upLoadPicture:) forControlEvents:UIControlEventTouchUpInside];
+    [changePicBtn setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
+    [changePicBtn setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
+    [changePicBtn setTitle:@"修改我的头像" forState:UIControlStateNormal];
+    changePicBtn.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
+    [scrollView addSubview:changePicBtn];
+    [changePicBtn release];
+    changePicBtn = nil;
+
     
     UIButton *sendButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     [sendButton setFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height + HEIGHT_INTERVAL, 90, 30)];
@@ -141,46 +153,49 @@
     
     [leftItem release];
     leftItem = nil;
+    
+    [self addToolbarAboveKeyboard];
 }
 
-//- (CGRect)placeholderRectForBounds:(CGRect)bounds
-//{
-//    return CGRectOffset(bounds, 0, 10);
-//}
-//-(void)addToolbarAboveKeyboard
-//{
-//    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
-//    toolBar.barStyle = UIBarStyleBlackTranslucent;
-//    
-//    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-//    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];
-//    
-//    [toolBar setItems:[NSArray arrayWithObjects:space,done, nil]];
-//    
-//    mail.inputAccessoryView = toolBar;
-//    password.inputAccessoryView = toolBar;
-//    nibname.inputAccessoryView = toolBar;
-//    phone.inputAccessoryView =toolBar;
-//    
-//    [toolBar release];
-//    toolBar = nil;
-//    [space release];
-//    space = nil;
-//    [done release];
-//    done = nil;
-//}
-//-(void)dismissKeyBoard
-//{
-//    if ([mail isEditing]) {
-//        [mail resignFirstResponder];
-//    }else if ([password isEditing]) {
-//        [password resignFirstResponder];
-//    }else if ([nibname isEditing]) {
-//        [nibname resignFirstResponder];
-//    }else if ([phone isEditing]) {
-//        [phone resignFirstResponder];
-//    }
-//}
+- (CGRect)placeholderRectForBounds:(CGRect)bounds
+{
+    return CGRectOffset(bounds, 0, 10);
+}
+-(void)addToolbarAboveKeyboard
+{
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];
+    
+    [toolBar setItems:[NSArray arrayWithObjects:space,done, nil]];
+    
+    mail.inputAccessoryView = toolBar;
+    password.inputAccessoryView = toolBar;
+    nibname.inputAccessoryView = toolBar;
+    phone.inputAccessoryView =toolBar;
+    
+    [toolBar release];
+    toolBar = nil;
+    [space release];
+    space = nil;
+    [done release];
+    done = nil;
+}
+-(void)dismissKeyBoard
+{
+    if ([mail isEditing]) {
+        [mail resignFirstResponder];
+    }else if ([password isEditing]) {
+        [password resignFirstResponder];
+    }else if ([nibname isEditing]) {
+        [nibname resignFirstResponder];
+    }else if ([phone isEditing]) {
+        [phone resignFirstResponder];
+    }
+}
+
 -(void)upLoadPicture:(id)sender
 {
     UIImagePickerController	*imagePicker = nil;
@@ -218,7 +233,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-	[picButton setImage:image forState:UIControlStateNormal];
+	imageView.image = image;
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -228,8 +243,20 @@
 }
 
 #pragma mark -
-#pragma mark UIImagePickerControllerDelegat
+#pragma mark UITextField
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField == phone) {
+        [scrollView setContentOffset:CGPointMake(0, 50) animated:YES];
+    }
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == phone) {
+        [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
 
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

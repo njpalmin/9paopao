@@ -164,6 +164,16 @@
     [sendButton release];
     sendButton = nil;
     
+    UIButton *rightBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    [rightBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(savechange:) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setFrame:CGRectMake(0, 0, 60, 30)];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [rightBtn release];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    [rightBtn release];
+
 }
 
 
@@ -179,7 +189,12 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+-(void)savechange:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"信息已修改" delegate:nil cancelButtonTitle:@"完成" otherButtonTitles:nil, nil];
+    [alert show];
 
+}
 -(void)uploadImage:(id)sender
 {
     UIImagePickerController	*imagePicker = nil;
