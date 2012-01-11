@@ -324,7 +324,7 @@
     leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
     self.navigationItem.leftBarButtonItem = leftItem;    
-    self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
+    //self.navigationItem.title = NSLocalizedString(@"SearchNearby Page Title", nil);
     
     [leftItem release];
     leftItem = nil;

@@ -11,6 +11,7 @@
 #import "PaoPaoCommon.h"
 #import "UserInfoView.h"
 #import "WineDetailView.h"
+#import "WineDetailViewController.h"
 
 @implementation UserDetailViewController
 
@@ -134,6 +135,25 @@
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	do{
+        WineDetailViewController	*controller = nil;
+        WineDetailInfo              *searchResult = nil;
+        
+        searchResult = [[WineDetailInfo alloc] initWithCache:0 wineId:0 score:3 type:@"2" refid:0 title:@"Regment" year:@"2006年"];
+        controller = [[WineDetailViewController alloc] init];
+        controller.wineDetailInfo = searchResult;
+        controller.title = NSLocalizedString(@"SearchUser Page Title", nil);
+        
+        [self.navigationController pushViewController:controller animated:YES];
+        
+        if (searchResult) {
+            [searchResult release];
+            searchResult = nil;
+        }
+        
+        if (controller) {
+            [controller release];
+            controller = nil;
+        }
 		
 	}while (0);
 }
