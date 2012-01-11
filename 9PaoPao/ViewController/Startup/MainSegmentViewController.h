@@ -13,12 +13,12 @@
 #import "MyFriendsViewController.h"
 #import "LiveFeedViewController.h"
 
-@interface MainSegmentViewController : UIViewController {
+@interface MainSegmentViewController : UIViewController <MainViewControllerDelegate>{
 
 	NSArray                 *normalButtonImage;
 	NSArray                 *chooseButtonImage;
 	NSMutableArray          *mButtonArray;
-	NSInteger               mChoosePageIndex;
+	NSInteger               mChoosePageIndex;   //0~5
     UIView                  *mSegementView;
     
 	UINavigationController		*mHomeNavigationController;

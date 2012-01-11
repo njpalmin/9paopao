@@ -243,6 +243,20 @@
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark MainViewControllerDelegate
+
+- (void)mainViewControllerSelectAroundFriend:(MainViewController *)controller
+{
+    [[self.view viewWithTag:(mChoosePageIndex+100)] removeFromSuperview];		
+    self.choosePageIndex = 3;
+    
+    if (mMyFriendsViewController == nil) {
+        mMyFriendsViewController = [[MyFriendsViewController alloc] init];
+        [mFriendNavigationController pushViewController:mMyFriendsViewController animated:NO];
+    }
+    [self.view addSubview:mFriendNavigationController.view];
+}
 
 #pragma mark -
 #pragma mark Action
@@ -252,13 +266,8 @@
 	UIButton *button = (UIButton *)sender;
 	
 	if ((button.tag >= 0) && (button.tag < BottomButtonCount)) {
-		
-		//if ((button.tag == 2) || (button.tag == 3)) { // for test
-		//	return;
-		//}else {
-			[[self.view viewWithTag:(mChoosePageIndex+100)] removeFromSuperview];
-		//}
-		
+
+        [[self.view viewWithTag:(mChoosePageIndex+100)] removeFromSuperview];		
 		self.choosePageIndex = button.tag;
 	}else {
 		return;
@@ -270,6 +279,7 @@
         case 0:
             if (mMainViewController == nil) {
                 mMainViewController = [[MainViewController alloc] init];
+                mMainViewController.delegate = self;
 				[mHomeNavigationController pushViewController:mMainViewController animated:NO];
             }
 			
@@ -350,6 +360,7 @@
         
         if (mMainViewController == nil) {
             mMainViewController = [[MainViewController alloc] init];
+            mMainViewController.delegate = self;
             [mHomeNavigationController pushViewController:mMainViewController animated:NO];
         }
         

@@ -16,6 +16,8 @@
 #import "DrinkTrackerRecordViewController.h"
 @implementation MainViewController
 @synthesize  _table;
+@synthesize delegate = mDelegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -178,20 +180,17 @@
     NSLog(@"click the position: %i",pos);
     
 //    push the controller you need
-    if (pos == 8) {
+    if (pos == 3) {
         
-        LatestOfferController *latestVC = [[LatestOfferController alloc] init];
-        [self.navigationController pushViewController:latestVC animated:YES];
-       
-        [latestVC release];
-       
+        [mDelegate mainViewControllerSelectAroundFriend:self];
+
     }else
     {
-    id aClass = [viewControllers objectAtIndex:(pos-1)];
-    UIViewController *vCForPush = [[aClass alloc] init];
-    [self.navigationController pushViewController:vCForPush animated:YES];
-    [vCForPush release];
-    vCForPush = nil;
+        id aClass = [viewControllers objectAtIndex:(pos-1)];
+        UIViewController *vCForPush = [[aClass alloc] init];
+        [self.navigationController pushViewController:vCForPush animated:YES];
+        [vCForPush release];
+        vCForPush = nil;
     }
 }
 
