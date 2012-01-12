@@ -291,7 +291,15 @@
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	do{
-		
+        if (indexPath.section == 1) {
+            CommentViewController *comm = [[CommentViewController alloc] init];
+            
+            [self.navigationController pushViewController:comm animated:YES];
+            
+            [comm release];
+            comm = nil;
+        }
+
 	}while (0);
 }
 
