@@ -11,7 +11,6 @@
 #import "UserResultViewCell.h"
 #import "PaoPaoProgressView.h"
 #import "SearchManager.h"
-#import "UserResultViewCell.h"
 
 @interface MyFriendsViewController : UIViewController <UITableViewDelegate, 
 UITableViewDataSource, PopoverPickerViewControllerDelegate, UserResultViewCellDelegate, 

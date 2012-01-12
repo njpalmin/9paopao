@@ -264,6 +264,7 @@
 		33C71AF31491B64300EE499B /* edit_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71AF21491B64300EE499B /* edit_button.png */; };
 		33C71AFE1491CA5C00EE499B /* cancel-send-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71AFC1491CA5C00EE499B /* cancel-send-button@2x.png */; };
 		33C71AFF1491CA5D00EE499B /* send-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C71AFD1491CA5C00EE499B /* send-button@2x.png */; };
+		33D4043014BD99DC004BE810 /* UserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4042F14BD99DC004BE810 /* UserDetailCell.m */; };
 		33D4DF681467CD0D00CFE105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF661467CD0D00CFE105 /* main.m */; };
 		33D4DF701467CD3400CFE105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4DF6D1467CD3400CFE105 /* AppDelegate.m */; };
 		4B3932DD147A9331000027CF /* BarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3932DA147A9331000027CF /* BarDetail.m */; };
@@ -621,6 +622,8 @@
 		33C71AF21491B64300EE499B /* edit_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_button.png; sourceTree = "<group>"; };
 		33C71AFC1491CA5C00EE499B /* cancel-send-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-send-button@2x.png"; sourceTree = "<group>"; };
 		33C71AFD1491CA5C00EE499B /* send-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send-button@2x.png"; sourceTree = "<group>"; };
+		33D4042E14BD99DC004BE810 /* UserDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailCell.h; sourceTree = "<group>"; };
+		33D4042F14BD99DC004BE810 /* UserDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailCell.m; sourceTree = "<group>"; };
 		33D4DF651467CD0D00CFE105 /* 9PaoPao-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "9PaoPao-Prefix.pch"; path = "Application Classes/9PaoPao-Prefix.pch"; sourceTree = "<group>"; };
 		33D4DF661467CD0D00CFE105 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Application Classes/main.m"; sourceTree = "<group>"; };
 		33D4DF6C1467CD3400CFE105 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1041,6 +1044,8 @@
 				3396CEB7147D0CCB0035EF28 /* UserResultViewCell.m */,
 				3396CEB8147D0CCB0035EF28 /* WineDetailView.h */,
 				3396CEB9147D0CCB0035EF28 /* WineDetailView.m */,
+				33D4042E14BD99DC004BE810 /* UserDetailCell.h */,
+				33D4042F14BD99DC004BE810 /* UserDetailCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1802,6 +1807,7 @@
 				20D36038148B7C1900087572 /* LocationDetail.m in Sources */,
 				20E0CE0E149E1B9D003F5331 /* LatestOfferController.m in Sources */,
 				20E0CE12149E3C2C003F5331 /* CurrentLatestOfferViewController.m in Sources */,
+				33D4043014BD99DC004BE810 /* UserDetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -539,6 +539,7 @@
                 searchResult = defaultManager.wineDetailInfo;
                 controller = [[WineDetailViewController alloc] init];
                 controller.wineDetailInfo = searchResult;
+                controller.title = NSLocalizedString(@"SearchNearby Page Title", nil);
                 
                 [self.navigationController pushViewController:controller animated:YES];
                 

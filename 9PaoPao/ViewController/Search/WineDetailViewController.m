@@ -14,6 +14,7 @@
 #import "CommentViewController.h"
 #import "UserInfoView.h"
 #import "MapViewController.h"
+#import "UserDetailCell.h"
 
 #define CellWineImageTag			555
 #define CellWineNameLabelTag		556
@@ -126,126 +127,162 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if (section == 0) {
+        return 1;
+    }
+    else if (section == 1)
+    {
+        return 3;
+    }
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return NSLocalizedString(@"My Focus Friends", nil);
+    }
+    return nil;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	static NSString		*CellIdentifier = @"Cell";
-    UITableViewCell		*cell = nil;
-	
-    do {
-        // 処理
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-            break_if(cell == nil);
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		
-		[[cell.contentView viewWithTag:CellWineImageTag] removeFromSuperview];
-		[[cell.contentView viewWithTag:CellWineNameLabelTag] removeFromSuperview];
-		[[cell.contentView viewWithTag:CellWineKindLabelTag] removeFromSuperview];
-		[[cell.contentView viewWithTag:CellWineDegreeLabelTag] removeFromSuperview];
-		[[cell.contentView viewWithTag:CellWineMarkLabelTag] removeFromSuperview];
-		[[cell.contentView viewWithTag:CellWineCommentLabelTag] removeFromSuperview];
-		
-		//---------wine image label------------
-		UIImage     *image = nil;
-		UIImageView *leftImageView = nil;
-		
-		image = [UIImage imageNamed:@"wine-icon-bg.png"];
-		leftImageView = [[UIImageView alloc] initWithImage:image];
-		leftImageView.frame = CGRectMake(8, 10, image.size.width, image.size.height);
-		leftImageView.tag = CellWineImageTag;
-		
-		[cell.contentView addSubview:leftImageView];
-		
-		[leftImageView release];
-		leftImageView = nil;
-		//---------wine image label------------
-		
-		//---------wine info label-------------
-		UILabel		*wineName = nil;
-		UILabel		*wineKind = nil;
-		UILabel		*wineDegree = nil;
-		UILabel		*wineMark = nil;
-		UILabel		*wineComment = nil;
-		CGFloat		yPos = 5;
-		
-		wineName = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight+4)];
-        [wineName setTextColor:[UIColor redColor]];
-        [wineName setFont:[UIFont fontWithName:PaoPaoFont size:14.0]];
-        [wineName setBackgroundColor:[UIColor clearColor]];
-		wineName.tag = CellWineNameLabelTag;
-        [cell.contentView addSubview:wineName];
-		yPos += WineDetailInfoLabelHeight + 4;
-		
-		wineKind = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
-        [wineKind setTextColor:[UIColor blackColor]];
-        [wineKind setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
-        [wineKind setBackgroundColor:[UIColor clearColor]];
-		wineKind.tag = CellWineKindLabelTag;
-        [cell.contentView addSubview:wineKind];
-		yPos += WineDetailInfoLabelHeight;
-		
-		wineDegree = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
-        [wineDegree setTextColor:[UIColor blackColor]];
-        [wineDegree setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
-        [wineDegree setBackgroundColor:[UIColor clearColor]];
-		wineDegree.tag = CellWineDegreeLabelTag;
-        [cell.contentView addSubview:wineDegree];
-		yPos += WineDetailInfoLabelHeight;
-		
-		wineMark = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
-        [wineMark setTextColor:[UIColor blackColor]];
-        [wineMark setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
-        [wineMark setBackgroundColor:[UIColor clearColor]];
-		wineMark.tag = CellWineMarkLabelTag;
-        [cell.contentView addSubview:wineMark];
-		yPos += WineDetailInfoLabelHeight;
-		
-		wineComment = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
-        [wineComment setTextColor:[UIColor blackColor]];
-        [wineComment setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
-        //[wineComment setBackgroundColor:[UIColor clearColor]];
-		wineComment.tag = CellWineCommentLabelTag;
-        [cell.contentView addSubview:wineComment];
-		//yPos += WineDetailInfoLabelHeight;
-		
-		//-----------
-		[wineName setText:mWineDetailInfo.wineTitle];
-		[wineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Kind:", nil), mWineDetailInfo.wineType]];
-		[wineDegree setText:[NSString stringWithFormat:NSLocalizedString(@"Wine Degree:", nil), @"20%"]];
-		[wineMark setText:[NSString stringWithFormat:NSLocalizedString(@"Expert Mark:", nil), mWineDetailInfo.wineScore]];
-		[wineComment setText:[NSString stringWithFormat:NSLocalizedString(@"Comment Number:", nil), @"15"]];
-		//-----------
-		
-		[wineName release];
-		wineName = nil;
-		
-		[wineKind release];
-		wineKind = nil;
-		
-		[wineDegree release];
-		wineDegree = nil;
-		
-		[wineMark release];
-		wineMark = nil;
-		
-		[wineComment release];
-		wineComment = nil;
-		//---------wine info label-------------
-
-	} while (0);
-    
-    return cell;
+    if (indexPath.section == 0) {
+        static NSString		*CellIdentifier = @"Cell";
+        UITableViewCell		*cell = nil;
+        
+        do {
+            // 処理
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil)
+            {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+                break_if(cell == nil);
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            [[cell.contentView viewWithTag:CellWineImageTag] removeFromSuperview];
+            [[cell.contentView viewWithTag:CellWineNameLabelTag] removeFromSuperview];
+            [[cell.contentView viewWithTag:CellWineKindLabelTag] removeFromSuperview];
+            [[cell.contentView viewWithTag:CellWineDegreeLabelTag] removeFromSuperview];
+            [[cell.contentView viewWithTag:CellWineMarkLabelTag] removeFromSuperview];
+            [[cell.contentView viewWithTag:CellWineCommentLabelTag] removeFromSuperview];
+            
+            //---------wine image label------------
+            UIImage     *image = nil;
+            UIImageView *leftImageView = nil;
+            
+            image = [UIImage imageNamed:@"wine-icon-bg.png"];
+            leftImageView = [[UIImageView alloc] initWithImage:image];
+            leftImageView.frame = CGRectMake(8, 10, image.size.width, image.size.height);
+            leftImageView.tag = CellWineImageTag;
+            
+            [cell.contentView addSubview:leftImageView];
+            
+            [leftImageView release];
+            leftImageView = nil;
+            //---------wine image label------------
+            
+            //---------wine info label-------------
+            UILabel		*wineName = nil;
+            UILabel		*wineKind = nil;
+            UILabel		*wineDegree = nil;
+            UILabel		*wineMark = nil;
+            UILabel		*wineComment = nil;
+            CGFloat		yPos = 5;
+            
+            wineName = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight+4)];
+            [wineName setTextColor:[UIColor redColor]];
+            [wineName setFont:[UIFont fontWithName:PaoPaoFont size:14.0]];
+            [wineName setBackgroundColor:[UIColor clearColor]];
+            wineName.tag = CellWineNameLabelTag;
+            [cell.contentView addSubview:wineName];
+            yPos += WineDetailInfoLabelHeight + 4;
+            
+            wineKind = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
+            [wineKind setTextColor:[UIColor blackColor]];
+            [wineKind setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
+            [wineKind setBackgroundColor:[UIColor clearColor]];
+            wineKind.tag = CellWineKindLabelTag;
+            [cell.contentView addSubview:wineKind];
+            yPos += WineDetailInfoLabelHeight;
+            
+            wineDegree = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
+            [wineDegree setTextColor:[UIColor blackColor]];
+            [wineDegree setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
+            [wineDegree setBackgroundColor:[UIColor clearColor]];
+            wineDegree.tag = CellWineDegreeLabelTag;
+            [cell.contentView addSubview:wineDegree];
+            yPos += WineDetailInfoLabelHeight;
+            
+            wineMark = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
+            [wineMark setTextColor:[UIColor blackColor]];
+            [wineMark setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
+            [wineMark setBackgroundColor:[UIColor clearColor]];
+            wineMark.tag = CellWineMarkLabelTag;
+            [cell.contentView addSubview:wineMark];
+            yPos += WineDetailInfoLabelHeight;
+            
+            wineComment = [[UILabel alloc] initWithFrame:CGRectMake(RightContentXOrigin, yPos, WineDetailInfoLabelWidth, WineDetailInfoLabelHeight)];
+            [wineComment setTextColor:[UIColor blackColor]];
+            [wineComment setFont:[UIFont fontWithName:PaoPaoFont size:13.0]];
+            //[wineComment setBackgroundColor:[UIColor clearColor]];
+            wineComment.tag = CellWineCommentLabelTag;
+            [cell.contentView addSubview:wineComment];
+            //yPos += WineDetailInfoLabelHeight;
+            
+            //-----------
+            [wineName setText:mWineDetailInfo.wineTitle];
+            [wineKind setText:[NSString stringWithFormat:NSLocalizedString(@"Kind:", nil), mWineDetailInfo.wineType]];
+            [wineDegree setText:[NSString stringWithFormat:NSLocalizedString(@"Wine Degree:", nil), @"20%"]];
+            [wineMark setText:[NSString stringWithFormat:NSLocalizedString(@"Expert Mark:", nil), mWineDetailInfo.wineScore]];
+            [wineComment setText:[NSString stringWithFormat:NSLocalizedString(@"Comment Number:", nil), @"15"]];
+            //-----------
+            
+            [wineName release];
+            wineName = nil;
+            
+            [wineKind release];
+            wineKind = nil;
+            
+            [wineDegree release];
+            wineDegree = nil;
+            
+            [wineMark release];
+            wineMark = nil;
+            
+            [wineComment release];
+            wineComment = nil;
+            //---------wine info label-------------
+            
+        } while (0);
+        
+        return cell;
+    }
+    else if (indexPath.section == 1)
+    {
+        static NSString		*CellIdentifier = @"Cell1";
+        UserDetailCell		*cell = nil;
+        
+        do {
+            // 処理
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil)
+            {
+                cell = [[[UserDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+                break_if(cell == nil);
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setUserDetailRecord];
+        }while (0);
+        return cell;
+    }
+    return nil;
 }
 
 #pragma mark -
@@ -265,12 +302,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 366*2 - (TableViewRowHeight-5) -15;
+    if (section == 0) {
+        return 366*2 - (TableViewRowHeight-5) -15 - 50;
+    }
+    return 0.0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {	
-	return mFooterView;
+    if (section == 0) {
+        return mFooterView;
+    }
+    return nil;
 }
 
 #pragma mark -
@@ -410,7 +453,7 @@
 	button = [PaoPaoCommon getBarButtonWithTitle:@"上传照片1" imageName:@"upload.png" highlightedImageName:nil action:@selector(procUploadBtn:) target:self];
     button.frame = CGRectMake(xPos, yPos, SearchKindBtnWidth, SearchKindBtnHeight);
 	
-	commentBtn = [PaoPaoCommon getBarButtonWithTitle:@"编辑评论" imageName:@"upload.png" highlightedImageName:nil action:@selector(procEditCommentBtn:) target:self];
+	commentBtn = [PaoPaoCommon getBarButtonWithTitle:@"打分器" imageName:@"upload.png" highlightedImageName:nil action:@selector(procEditCommentBtn:) target:self];
     commentBtn.frame = CGRectMake(xPos+SearchKindBtnWidth+10, yPos, SearchKindBtnWidth, SearchKindBtnHeight);
 
 	//----------
@@ -481,7 +524,7 @@
     toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(0, yPos+340, 320, 30)];
     toolBarView.backgroundColor = [UIColor clearColor];
     toolBarView.delegate = self;
-    [footView addSubview:toolBarView];
+    //[footView addSubview:toolBarView];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
