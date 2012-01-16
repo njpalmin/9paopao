@@ -16,6 +16,7 @@
 #import "SearchCore.h"
 #import "SearchManager.h"
 #import "SearchCore.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation DrinkTrackerRecordViewController
 
@@ -133,20 +134,31 @@
     drinkBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [drinkBtn setFrame:CGRectMake(3, 3, 314, 30)];
     [drinkBtn setTitle:@"你喝什么？" forState:UIControlStateNormal];
+    drinkBtn.imageView.image = [UIImage imageNamed:@"header-bg.png"];
     drinkBtn.titleLabel.textAlignment = UITextAlignmentLeft;
     drinkBtn.tag = SEARECH_FAVORITE_WINE;
     [drinkBtn addTarget:self action:@selector(clickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
     [drinkBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    UIImageView *fView = [[UIImageView alloc] initWithFrame:CGRectMake(320-30, 7.5, 15, 15)];
+    fView.image = [UIImage imageNamed:@"right_move.png"];
+    [drinkBtn addSubview:fView];
+    [fView release];
     [scrollView addSubview:drinkBtn];
     
     placeBtn = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     [placeBtn setFrame:CGRectMake(3, 37, 314, 30)];    
     [placeBtn setTitle:@"你在哪里喝？" forState:UIControlStateNormal];
     placeBtn.titleLabel.textAlignment = UITextAlignmentLeft;
+    placeBtn.imageView.image = [UIImage imageNamed:@"header-bg.png"];
     placeBtn.tag = SEARECH_FAVORITE_PLACE;
     [placeBtn addTarget:self action:@selector(clickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
     [placeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    //[placeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+    UIImageView *sView = [[UIImageView alloc] initWithFrame:CGRectMake(320-30, 7.5, 15, 15)];
+    sView.image = [UIImage imageNamed:@"right_move.png"];
+    [placeBtn addSubview:sView];
+    [sView release];
     
     [scrollView addSubview:placeBtn];
     
@@ -162,7 +174,6 @@
     commentsLabel.backgroundColor = [UIColor clearColor];
     commentsLabel.text = @"用户评论";
     [scrollView addSubview:commentsLabel];
-
     
     commentsText = [[UITextView alloc] init];
     commentsText.text = @"fhsajfsamflsamflsafmlsafslfmsfmlsmflasmfslmflsmflsamflsmflsf";
@@ -220,6 +231,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (CGRect)imageRectForContentRect:(CGRect)contentRect;
+{
+    return CGRectMake(320-30, 0, 20, 30);
+}
 
 
 #pragma mark -
