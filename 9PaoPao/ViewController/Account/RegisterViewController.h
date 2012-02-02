@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchManager.h"
 
-
-@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate,UITextFieldDelegate,UINavigationControllerDelegate> {
+@interface RegisterViewController : UIViewController<UIImagePickerControllerDelegate,UITextFieldDelegate,UINavigationControllerDelegate,SearchManagerDelegate> {
     UIScrollView *scrollView;
     
     UITextField  *mail;

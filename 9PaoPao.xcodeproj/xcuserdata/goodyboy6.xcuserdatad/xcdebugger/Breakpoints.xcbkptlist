@@ -8,20 +8,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "9PaoPao/ViewController/Account/SignUpViewController.m"
-         timestampString = "347982940.803785"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "9PaoPao/ViewController/DrinkTracker/DrinkTrackerRecordViewController.m"
          timestampString = "348373574.039193"
          startingColumnNumber = "9223372036854775807"
@@ -57,6 +43,20 @@
          startingLineNumber = "116"
          endingLineNumber = "116"
          landmarkName = "-viewForFooterInSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "9PaoPao/Engine/JSON/NSString+SBJSON.m"
+         timestampString = "349782893.23152"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
+         landmarkName = "-JSONValue"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

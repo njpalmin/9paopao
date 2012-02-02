@@ -31,7 +31,7 @@
 
 #pragma mark -
 #pragma mark Public
-
+- (NSDictionary *)postRegisterAndLoginInfoWithJsonString:(NSString *)jsonStr andUrl:(NSURL *)url;//added by yixl 20120201
 - (BOOL)sendRequestWithServerURL:(NSString *)serverURL SearchString:(NSString *)searchString;
 - (void)cancel;
 

@@ -77,3 +77,24 @@
 "Share to Baidu Collection" = "分享到百度收藏";
 "My Focus Friends" = "我关注的朋友";
 
+//account -> register
+"Refister successed" = "注册成功";
+"Nibname is null" = "请输入昵称";
+"Email address is null" = "请输入邮箱地址";
+"Cell phone number is null" = "请输入手机号码";
+"Password must not be null" ="请输入密码";
+"Username already exists" = "用户名已存在";
+"Register" = "注册";
+"Your email address" = "你的邮箱地址";
+"Password (6-8 charactors)" = "密码（6-8个字符）";
+"Password"= "密码";
+"Your nibname" = "你的昵称";
+"Your cell phone number" = "你的手机号码";
+"Change my picture" = "修改我的头像";
+"Register now" = "马上注册";
+//account -> login
+"user not found" = "未找到此用户";
+"Login successed" = "登陆成功";
+"Login" = "登陆";
+"Login now" = "马上登陆";
+"Forget password" ="忘记密码？";

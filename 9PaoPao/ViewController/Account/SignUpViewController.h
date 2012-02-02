@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchManager.h"
 
-
-@interface SignUpViewController : UIViewController<UITextFieldDelegate> {
+@interface SignUpViewController : UIViewController<UITextFieldDelegate,SearchManagerDelegate> {
     UITextField     *emailTop;
     UITextField     *password;
     UITextField     *emailBottom;

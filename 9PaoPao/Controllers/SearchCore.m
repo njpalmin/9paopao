@@ -50,6 +50,28 @@
 	[self clear];
 }
 
+- (NSDictionary *)postRegisterAndLoginInfoWithJsonString:(NSString *)jsonStr andUrl:(NSURL *)url
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+	
+	[request setHTTPMethod:@"POST"];
+	[request setHTTPBody:[jsonStr dataUsingEncoding:NSUTF8StringEncoding]];
+	[request setTimeoutInterval:10];
+    
+	NSData *reData = [NSURLConnection sendSynchronousRequest:request returningResponse: nil error: nil];
+    
+	if(reData == nil) return nil;
+	
+	NSString *jsonReturnStr = [[NSString alloc] initWithData:reData encoding:NSUTF8StringEncoding];
+	if(jsonReturnStr == nil || [jsonReturnStr compare:@""] == NSOrderedSame) {
+        [jsonReturnStr release];
+        return nil;
+    }
+	NSDictionary *reDic = [jsonReturnStr JSONValue];
+	[jsonReturnStr release];
+	return reDic;
+}
+
 - (BOOL)sendRequestWithServerURL:(NSString *)serverURL SearchString:(NSString *)searchString 
 {
 	BOOL			iProessSucess = NO;

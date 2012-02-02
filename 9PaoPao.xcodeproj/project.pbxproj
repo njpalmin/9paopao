@@ -289,6 +289,9 @@
 		A59FAF371484DE3000E80BEB /* LiveFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59FAF361484DE3000E80BEB /* LiveFeedViewController.m */; };
 		A5A141A1148388FF00BD0181 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A141A0148388FF00BD0181 /* LineView.m */; };
 		A5B1605314C3C1EC00B65D95 /* right_move.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B1605214C3C1EC00B65D95 /* right_move.png */; };
+		A5CAAE5714DA1E7000FEEDDA /* StringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CAAE5614DA1E7000FEEDDA /* StringHelper.m */; };
+		A5CAAE5B14DA22CF00FEEDDA /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CAAE5A14DA22CF00FEEDDA /* RegexKitLite.m */; };
+		A5CAAE5D14DA252D00FEEDDA /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CAAE5C14DA252D00FEEDDA /* libicucore.dylib */; };
 		F623BA1B149334BF00EB0724 /* Accountlogin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA15149334BA00EB0724 /* Accountlogin@2x.png */; };
 		F623BA1C149334BF00EB0724 /* AccountMyprofile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA16149334BB00EB0724 /* AccountMyprofile@2x.png */; };
 		F623BA1D149334BF00EB0724 /* AccountPrivacy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F623BA17149334BC00EB0724 /* AccountPrivacy@2x.png */; };
@@ -670,6 +673,11 @@
 		A5A1419F148388FF00BD0181 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
 		A5A141A0148388FF00BD0181 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
 		A5B1605214C3C1EC00B65D95 /* right_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right_move.png; path = DrinkTracker/right_move.png; sourceTree = "<group>"; };
+		A5CAAE5514DA1E7000FEEDDA /* StringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHelper.h; sourceTree = "<group>"; };
+		A5CAAE5614DA1E7000FEEDDA /* StringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHelper.m; sourceTree = "<group>"; };
+		A5CAAE5914DA22CF00FEEDDA /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		A5CAAE5A14DA22CF00FEEDDA /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		A5CAAE5C14DA252D00FEEDDA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		F623BA15149334BA00EB0724 /* Accountlogin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Accountlogin@2x.png"; sourceTree = "<group>"; };
 		F623BA16149334BB00EB0724 /* AccountMyprofile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountMyprofile@2x.png"; sourceTree = "<group>"; };
 		F623BA17149334BC00EB0724 /* AccountPrivacy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AccountPrivacy@2x.png"; sourceTree = "<group>"; };
@@ -683,6 +691,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CAAE5D14DA252D00FEEDDA /* libicucore.dylib in Frameworks */,
 				A533BC9F148327A100556C25 /* AddressBook.framework in Frameworks */,
 				A533BC9D1483277800556C25 /* AddressBookUI.framework in Frameworks */,
 				2089E009147005A5006581C3 /* MapKit.framework in Frameworks */,
@@ -710,6 +719,7 @@
 		18A004831464CF100015EC68 = {
 			isa = PBXGroup;
 			children = (
+				A5CAAE5C14DA252D00FEEDDA /* libicucore.dylib */,
 				18A004981464CF100015EC68 /* 9PaoPao */,
 				18A004C41464CF110015EC68 /* 9PaoPaoTests */,
 				18A004911464CF100015EC68 /* Frameworks */,
@@ -907,6 +917,10 @@
 		33708190146938A0004B2645 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A5CAAE5914DA22CF00FEEDDA /* RegexKitLite.h */,
+				A5CAAE5A14DA22CF00FEEDDA /* RegexKitLite.m */,
+				A5CAAE5514DA1E7000FEEDDA /* StringHelper.h */,
+				A5CAAE5614DA1E7000FEEDDA /* StringHelper.m */,
 				33708191146938CD004B2645 /* PaoPaoCommon.h */,
 				33708192146938CD004B2645 /* PaoPaoCommon.m */,
 				3370819414693997004B2645 /* PaoPaoConstant.h */,
@@ -1820,6 +1834,8 @@
 				20E0CE0E149E1B9D003F5331 /* LatestOfferController.m in Sources */,
 				20E0CE12149E3C2C003F5331 /* CurrentLatestOfferViewController.m in Sources */,
 				33D4043014BD99DC004BE810 /* UserDetailCell.m in Sources */,
+				A5CAAE5714DA1E7000FEEDDA /* StringHelper.m in Sources */,
+				A5CAAE5B14DA22CF00FEEDDA /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

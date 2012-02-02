@@ -175,6 +175,29 @@ ErrorLabel:
     [mSearchCore cancel];
 }
 
+//added by yixl to register 20120201
+- (void)startRegisterWithUserName:(NSString *)name 
+                         andEmail:(NSString *)email 
+                   andPhoneNumber:(NSString *)num 
+                      andPassword:(NSString *)password 
+                     andSessionId:(NSString *)sess
+{
+    NSString *composeInfo = [NSString stringWithFormat:@"username=%@&email=%@&phone=%@&password=%@",name,email,num,password];
+    NSDictionary *dic = [mSearchCore postRegisterAndLoginInfoWithJsonString:composeInfo 
+                                                                     andUrl:[NSURL URLWithString:@"http://api.9paopao.com/1/user/register"]];
+    [self.delegate finishRegisterWithReturnInfo:dic];
+}
+
+- (void)startLoginWithUserName:(NSString *)name 
+                   andPassword:(NSString *)password 
+                  andSessionId:(NSString *)sess
+{
+    NSString *composeInfo = [NSString stringWithFormat:@"username=%@&password=%@",name,password];
+    NSDictionary *dic = [mSearchCore postRegisterAndLoginInfoWithJsonString:composeInfo 
+                                                                     andUrl:[NSURL URLWithString:@"http://api.9paopao.com/1/user/login"]];
+    [self.delegate finishLoginWithReturnInfo:dic];
+}
+
 - (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages
 {
     NSMutableString     *searchStr = nil;
@@ -231,7 +254,6 @@ ErrorLabel:
 
 #pragma mark -
 #pragma mark Private
-
 - (void)analysisWineResultList:(NSDictionary *)dictionary
 {
 	NSArray         *wineList = (NSArray *)dictionary;

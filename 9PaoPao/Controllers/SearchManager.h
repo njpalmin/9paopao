@@ -52,9 +52,18 @@ enum SearchType {
 - (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages;
 - (void)startSearchWineDetailWithId:(NSString *)wineId withType:(NSInteger)type;
 
+//added by yixl 20120201
+- (void)startRegisterWithUserName:(NSString *)name 
+                         andEmail:(NSString *)email 
+                   andPhoneNumber:(NSString *)num 
+                      andPassword:(NSString *)password 
+                     andSessionId:(NSString *)sess;
+- (void)startLoginWithUserName:(NSString *)name 
+                      andPassword:(NSString *)password 
+                     andSessionId:(NSString *)sess;
+
 #pragma mark -
 #pragma mark Private
-
 - (void)analysisWineResultList:(NSDictionary *)dictionary;
 - (void)analysisWineDetailInfo:(NSDictionary *)dictionary;
 - (void)analysisRedWineResultList:(NSDictionary *)dictionary;
@@ -65,6 +74,9 @@ enum SearchType {
 @end
 
 @protocol SearchManagerDelegate <NSObject>
+@optional
+- (void)finishRegisterWithReturnInfo:(NSDictionary *)dic;
+- (void)finishLoginWithReturnInfo:(NSDictionary *)dic;
 
 - (void)searchManagerDidFinish:(SearchManager *)manager;
 - (void)searchManager:(SearchManager *)manager didFailWithError:(NSError*)error;

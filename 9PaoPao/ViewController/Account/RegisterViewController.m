@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 #import "PaoPaoCommon.h"
 #import "QuartzCore/QuartzCore.h"
+#import "StringHelper.h"
 
 @implementation RegisterViewController
 
@@ -62,7 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"注册";
+    self.navigationItem.title =NSLocalizedString(@"Register", nil);
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460-44-50)];
     scrollView.contentSize = scrollView.frame.size;
     [scrollView setBounces:YES];
@@ -79,7 +80,7 @@
     mail.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     mail.font = [UIFont fontWithName:PaoPaoFont size:16];
     mail.backgroundColor = [UIColor clearColor];
-    mail.placeholder = @"你的邮箱地址";
+    mail.placeholder = NSLocalizedString(@"Your email address",nil);
     mail.keyboardType = UIKeyboardTypeEmailAddress;
     [scrollView addSubview:mail];
     
@@ -89,7 +90,7 @@
     password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     password.font = [UIFont fontWithName:PaoPaoFont size:16];
     password.delegate = self;
-    password.placeholder = @"密码（6-8个字符）";
+    password.placeholder = NSLocalizedString(@"Password (6-8 charactors)",nil);
     [scrollView addSubview:password];
     
     nibname = [[UITextField alloc] initWithFrame:CGRectMake(10, password.frame.origin.y+password.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
@@ -98,7 +99,7 @@
     nibname.backgroundColor = [UIColor clearColor];
     nibname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     nibname.font = [UIFont fontWithName:PaoPaoFont size:16];
-    nibname.placeholder = @"你的昵称";
+    nibname.placeholder = NSLocalizedString(@"Your nibname",nil);
     [scrollView addSubview:nibname];
     
     phone = [[UITextField alloc] initWithFrame:CGRectMake(10, nibname.frame.origin.y+nibname.frame.size.height + HEIGHT_INTERVAL, 300, 30)];
@@ -107,7 +108,7 @@
     phone.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     phone.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     phone.font = [UIFont fontWithName:PaoPaoFont size:16];
-    phone.placeholder = @"你的手机号码";
+    phone.placeholder = NSLocalizedString(@"Your cell phone number",nil);
     [scrollView addSubview:phone];
 
     //[self addToolbarAboveKeyboard];
@@ -125,7 +126,7 @@
     [changePicBtn addTarget:self action:@selector(upLoadPicture:) forControlEvents:UIControlEventTouchUpInside];
     [changePicBtn setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [changePicBtn setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
-    [changePicBtn setTitle:@"修改我的头像" forState:UIControlStateNormal];
+    [changePicBtn setTitle:NSLocalizedString(@"Change my picture",nil) forState:UIControlStateNormal];
     changePicBtn.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:13];
     [scrollView addSubview:changePicBtn];
     [changePicBtn release];
@@ -137,7 +138,7 @@
     [sendButton addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchUpInside];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload.png"] forState:UIControlStateNormal];
     [sendButton setBackgroundImage:[UIImage imageNamed:@"upload-selected.png"] forState:UIControlStateHighlighted];
-    [sendButton setTitle:@"马上注册" forState:UIControlStateNormal];
+    [sendButton setTitle:NSLocalizedString(@"Register now",nil) forState:UIControlStateNormal];
     sendButton.titleLabel.font = [UIFont fontWithName:PaoPaoFont size:14];
     [scrollView addSubview:sendButton];
     [sendButton release];
@@ -212,7 +213,44 @@
 
 -(void)registerAccount:(id)sender
 {
-
+    //check the content whether null
+    NSArray *texts = [NSArray arrayWithObjects:nibname.text,mail.text,phone.text, nil];
+    NSArray *popTips = [NSArray arrayWithObjects:NSLocalizedString(@"Nibname is null",nil),
+                        NSLocalizedString(@"Email address is null",nil),
+                        NSLocalizedString(@"Cell phone number is null",nil), nil];
+    
+    for (int i = 0;i<[texts count];i++) {
+        NSString *str = [StringHelper stringByTrimEnds:[texts objectAtIndex:i]];
+        if (!str || [str isEqualToString:@""]) {
+            UIAlertView *alert = nil;
+            NSString *title = NSLocalizedString(@"Alert", nil);
+            NSString *message = [popTips objectAtIndex:i];  
+            
+            alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            alert = nil;
+            return;
+        }
+    }
+    if (!password.text || [password.text isEqualToString:@""]) {
+        UIAlertView *alert = nil;
+        NSString *title = NSLocalizedString(@"Alert", nil);
+        NSString *message = NSLocalizedString(@"Password must not be null",nil);  
+        
+        alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        alert = nil;
+        return;
+    }
+    
+    [SearchManager defaultSearchManager].delegate = self;
+    [[SearchManager defaultSearchManager] startRegisterWithUserName:nibname.text 
+                                                           andEmail:mail.text 
+                                                     andPhoneNumber:phone.text 
+                                                        andPassword:password.text 
+                                                       andSessionId:nil];
 }
 
 - (void)viewDidUnload
@@ -228,6 +266,33 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+// MARK: -
+// MARK: - SearchManagerDelegate
+- (void)finishRegisterWithReturnInfo:(NSDictionary *)dic
+{
+    NSLog(@"register return info: %@",dic);
+
+    if ([dic objectForKey:@"error"]) {
+        UIAlertView *alert = nil;
+        NSString *title = NSLocalizedString(@"Alert", nil);
+        NSString *message = [dic objectForKey:@"error"];  
+        
+        alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        alert = nil;
+    }else{
+        UIAlertView *alert = nil;
+        NSString *title = nil;
+        NSString *message = NSLocalizedString(@"Register successed", nil);  
+        
+        alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        alert = nil;
+
+    }
+}
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegat
 
