@@ -77,6 +77,7 @@ enum SearchType {
 @optional
 - (void)finishRegisterWithReturnInfo:(NSDictionary *)dic;
 - (void)finishLoginWithReturnInfo:(NSDictionary *)dic;
+- (void)finishSearchNearbyUserInfo:(NSDictionary *)dic;
 
 - (void)searchManagerDidFinish:(SearchManager *)manager;
 - (void)searchManager:(SearchManager *)manager didFailWithError:(NSError*)error;

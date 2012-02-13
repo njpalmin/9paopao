@@ -198,6 +198,28 @@ ErrorLabel:
     [self.delegate finishLoginWithReturnInfo:dic];
 }
 
+- (void)updateUserLocationWithLongitude:(NSString *)longitude 
+								withLat:(NSString *)lat 
+						  withSessionId:(NSString *)sessionId
+{
+	NSString *composeInfo = [NSString stringWithFormat:@"long=%@&lat=%@",longitude,lat];
+    NSDictionary *dic = [mSearchCore postSynchronousRequestWithJsonString:composeInfo 
+                                                                     andUrl:[NSURL URLWithString:@"http://api.9paopao.com/1/user/update_location"]];
+
+	// test jiekou
+	//[[SearchManager defaultSearchManager] updateUserLocationWithLongitude:@"114.15777146816254" withLat:@"22.28208143645944" withSessionId:nil];
+
+}	
+
+- (void)searchNearbyUserWithLongitude:(NSString *)longitude 
+							  withLat:(NSString *)lat
+{
+	NSString *composeInfo = [NSString stringWithFormat:@"long=%@&lat=%@",longitude,lat];
+    NSDictionary *dic = [mSearchCore postSynchronousRequestWithJsonString:composeInfo 
+																   andUrl:[NSURL URLWithString:@"http://api.9paopao.com/1/user/near?"]];
+	[mDelegate finishSearchNearbyUserInfo:dic];
+}
+
 - (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages
 {
     NSMutableString     *searchStr = nil;

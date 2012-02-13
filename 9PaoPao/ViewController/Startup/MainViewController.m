@@ -182,7 +182,12 @@
 //    push the controller you need
     if (pos == 3) {
         
-        [mDelegate mainViewControllerSelectAroundFriend:self];
+		SearchManager	*searchManager = nil;
+		
+		searchManager = [SearchManager defaultSearchManager];
+		[searchManager searchNearbyUserWithLongitude:@"114.15777146816254" withLat:@"22.28208143645944"];
+		searchManager.delegate = self;
+
 
     }else
     {
@@ -217,6 +222,14 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark SearchManagerDelegate
+
+- (void)finishSearchNearbyUserInfo:(NSDictionary *)dic
+{
+	[mDelegate mainViewControllerSelectAroundFriend:self];
 }
 
 @end
