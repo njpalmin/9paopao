@@ -22,6 +22,7 @@
 - (void)dealloc
 {
     [_webView release];
+    _webView.delegate = nil;
     _webView = nil;
     [super dealloc];
 }

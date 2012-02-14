@@ -173,6 +173,7 @@ ErrorLabel:
 - (void)cancelSearch
 {
     [mSearchCore cancel];
+    self.delegate = nil;
 }
 
 //added by yixl to register 20120201

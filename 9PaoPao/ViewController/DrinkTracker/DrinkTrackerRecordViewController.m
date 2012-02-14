@@ -477,6 +477,7 @@
 -(void)goBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SearchManager defaultSearchManager] cancelSearch];
 }
 
 -(void)startSearching

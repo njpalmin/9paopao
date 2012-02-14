@@ -86,7 +86,7 @@
     [self.view addSubview:_table];
     
     imageArray = [[NSMutableArray alloc] initWithObjects:@"Accountlogin.png",@"AccountRegister.png",@"AccountMyprofile.png",@"AccountSetting.png",@"AccountSearch.png",@"AccountTerms.png",@"AccountPrivacy.png", nil];
-    titleArray = [[NSMutableArray alloc] initWithObjects:@"登陆与登出",@"注册",@"我的资料",@"设置",@"访问9paopao.com",@"条款与备注",@"隐私权声明", nil];
+    titleArray = [[NSMutableArray alloc] initWithObjects:@"登录与登出",@"注册",@"我的资料",@"设置",@"访问9paopao.com",@"条款与备注",@"隐私权声明", nil];
 
     viewControllers = [[NSMutableArray alloc] initWithObjects:[SignUpViewController class],
                   [RegisterViewController class],

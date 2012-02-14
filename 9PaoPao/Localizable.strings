@@ -94,7 +94,7 @@
 "Register now" = "马上注册";
 //account -> login
 "user not found" = "未找到此用户";
-"Login successed" = "登陆成功";
-"Login" = "登陆";
-"Login now" = "马上登陆";
+"Login successed" = "登录成功";
+"Login" = "登录";
+"Login now" = "马上登录";
 "Forget password" ="忘记密码？";

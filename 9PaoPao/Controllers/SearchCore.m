@@ -336,6 +336,7 @@
 		[mReceiceString release];
 		mReceiceString = nil;
 	}	
+    mDelegate = nil;
 }
 
 @end
