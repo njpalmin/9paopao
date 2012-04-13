@@ -14,6 +14,10 @@
 #define SearchTypeUrl       @"1/search/result?"
 #define SearchWineInfoUrl   @"1/wine/info/"
 
+#define SearchPlaceUrl       @"1/place/search?"
+#define	SearchPlaceInfoUrl   @"1/plcae/info"
+#define SearchUserInfoUrl	 @"1/user/info"
+
 static	SearchManager	*sDefaultManager = nil;
 
 @implementation SearchManager
@@ -140,7 +144,7 @@ ErrorLabel:
 			
             break;
         case SearchType_WineryList:
-            
+            [self analysisPlaceResultList:reDic];
             break;
         case SearchType_BeerList:
             
@@ -151,6 +155,13 @@ ErrorLabel:
         case SearchType_WineDetail:
             [self analysisWineDetailInfo:reDic];
             break;
+		case SearchType_PlaceDetail:
+			[self analysisPlcaeDetailInfo:reDic];
+			break;
+		case SearchType_UserDetail:
+			[self analysisUserDetailInfo:reDic];
+			break;
+
         default:
             break;
     }
@@ -173,7 +184,6 @@ ErrorLabel:
 - (void)cancelSearch
 {
     [mSearchCore cancel];
-    self.delegate = nil;
 }
 
 //added by yixl to register 20120201
@@ -221,6 +231,15 @@ ErrorLabel:
 	[mDelegate finishSearchNearbyUserInfo:dic];
 }
 
+- (void)searchNearbySpotWithLongitude:(NSString *)longitude 
+							  withLat:(NSString *)lat
+{
+	NSString *composeInfo = [NSString stringWithFormat:@"long=%@&lat=%@",longitude,lat];
+    NSDictionary *dic = [mSearchCore postSynchronousRequestWithJsonString:composeInfo 
+																   andUrl:[NSURL URLWithString:@"http://api.9paopao.com/1/place/near?"]];
+	[mDelegate finishSearchNearbySpotInfo:dic];
+}
+
 - (void)startSearchWithKeyword:(NSString *)keyword withType:(NSInteger)type withPage:(NSInteger)pages
 {
     NSMutableString     *searchStr = nil;
@@ -235,7 +254,8 @@ ErrorLabel:
             [searchStr appendFormat:@"kw=%@&page=%d&type=1", keyword, mRequestPage];
             break;
         case SearchType_WineryList:
-            
+            [searchStr appendString:SearchPlaceUrl];
+			[searchStr appendFormat:@"q=%@&page=%d", keyword, mRequestPage];
             break;
         case SearchType_BeerList:
             
@@ -244,6 +264,7 @@ ErrorLabel:
             [searchStr appendString:SearchTypeUrl];
             [searchStr appendFormat:@"kw=%@&page=%d&type=4", keyword, mRequestPage];
             break;
+		
         default:
             break;
     }
@@ -265,7 +286,15 @@ ErrorLabel:
             [searchStr appendString:SearchWineInfoUrl];
             [searchStr appendFormat:@"id/%@", wineId];
             break;
-
+		case SearchType_PlaceDetail:
+			[searchStr appendString:SearchPlaceInfoUrl];
+            [searchStr appendFormat:@"id/%@", wineId];
+			break;
+		case SearchType_UserDetail:
+            [searchStr appendString:SearchUserInfoUrl];
+            [searchStr appendFormat:@"id/%@", wineId];
+            break;
+			
         default:
             break;
     }
@@ -339,6 +368,11 @@ ErrorLabel:
     
     [wineInfoLists release];
     wineInfoLists = nil;
+}
+
+- (void)analysisPlaceResultList:(NSDictionary *)dictionary
+{
+	
 }
 
 - (void)analysisRedWineResultList:(NSDictionary *)dictionary
@@ -459,6 +493,16 @@ ErrorLabel:
 	
 	[wineInfo release];
 	wineInfo = nil;
+}
+
+- (void)analysisPlcaeDetailInfo:(NSDictionary *)dictionary
+{
+	
+}
+
+- (void)analysisUserDetailInfo:(NSDictionary *)dictionary
+{
+	
 }
 
 - (CountryInfo *)analysisCountryResult:(NSDictionary *)dictionary

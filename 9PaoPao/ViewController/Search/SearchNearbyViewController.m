@@ -437,26 +437,11 @@
         WineDetailInfo  *wineInfo = nil;
         
         wineInfo = [mWineResult objectAtIndex:indexPath.section];
-        [self startSearchWineDetailInfoWithId:wineInfo.wineId];
+        [self startSearchDetailInfoWithId:wineInfo.wineId];
     }
 	else if (mCurSearchKind == SearchKindPlace)
 	{
-		BarDetailViewController	*controller = nil;
-		
-		BarDetail *object = [[BarDetail alloc] init];
-		object.barName = @"红酒吧";
-		object.barCommentTime = @"2011.10.12";
-		object.userNickname = @"张三";
-		object.barCommentMark = @"用户评分";
-		NSArray *array = [NSArray arrayWithObjects:object ,object,object,object,object, nil];
-		[object release];
-		controller = [[BarDetailViewController alloc] initControllerWithArray:array];
-		
-		[self.navigationController pushViewController:controller animated:YES];
-		if (controller) {
-			[controller release];
-			controller = nil;
-		}
+		[self startSearchDetailInfoWithId:@"4eb39684e6ce42f467000559"];
 	}
 }
 
@@ -551,11 +536,42 @@
         }
         else if (mCurSearchKind == SearchKindPlace)
         {
-            defaultManager.searchType = SearchType_WineryList;
+			if (defaultManager.searchType == SearchType_WineryList) {
+
+            }
+            else if (defaultManager.searchType == SearchType_PlaceDetail)
+            {
+				BarDetailViewController	*controller = nil;
+				
+				BarDetail *object = [[BarDetail alloc] init];
+				object.barName = @"红酒吧";
+				object.barCommentTime = @"2011.10.12";
+				object.userNickname = @"张三";
+				object.barCommentMark = @"用户评分";
+				NSArray *array = [NSArray arrayWithObjects:object ,object,object,object,object, nil];
+				[object release];
+				controller = [[BarDetailViewController alloc] initControllerWithArray:array];
+				
+				[self.navigationController pushViewController:controller animated:YES];
+				if (controller) {
+					[controller release];
+					controller = nil;
+				}				
+			}				
         }
         else if (mCurSearchKind == SearchKindUser)
         {
-            
+            if (defaultManager.searchType == SearchType_UserDetail) {
+				UserDetailViewController    *controller = nil;
+				
+				controller = [[UserDetailViewController alloc] init];
+				controller.markRecords = [NSArray arrayWithObjects:@"", @"", @"", nil];
+				
+				[self.navigationController pushViewController:controller animated:YES];
+				
+				[controller release];
+				controller = nil;				
+            }
         }
         
         [mTableView reloadData];
@@ -575,15 +591,7 @@
 
 - (void)userResultViewCellSelectUser
 {
-	UserDetailViewController    *controller = nil;
-    
-    controller = [[UserDetailViewController alloc] init];
-    controller.markRecords = [NSArray arrayWithObjects:@"", @"", @"", nil];
-    
-    [self.navigationController pushViewController:controller animated:YES];
-    
-    [controller release];
-    controller = nil;
+	[self startSearchDetailInfoWithId:@"4eb39684e6ce42f467000559"];
 }
 
 #pragma mark -
@@ -717,6 +725,7 @@
         else if (mCurSearchKind == SearchKindPlace)
         {
             defaultManager.searchType = SearchType_WineryList;
+			[defaultManager startSearchWithKeyword:keyWord withType:SearchType_WineryList withPage:2];
         }
         else if (mCurSearchKind == SearchKindUser)
         {
@@ -727,7 +736,7 @@
     }while(0);
 }
 
-- (void)startSearchWineDetailInfoWithId:(NSString *)wineId
+- (void)startSearchDetailInfoWithId:(NSString *)wineId
 {
     SearchManager   *defaultManager = nil;
     
@@ -744,10 +753,15 @@
         }
         else if (mCurSearchKind == SearchKindPlace)
         {
-        }
+			defaultManager.searchType = SearchType_PlaceDetail;
+			[self displayProgressView];
+            [defaultManager startSearchWineDetailWithId:wineId withType:SearchType_PlaceDetail];
+        }		
         else if (mCurSearchKind == SearchKindUser)
         {
-            
+			defaultManager.searchType = SearchType_UserDetail;
+			[self displayProgressView];
+            [defaultManager startSearchWineDetailWithId:wineId withType:SearchType_PlaceDetail];
         }
     }while(0);
 }

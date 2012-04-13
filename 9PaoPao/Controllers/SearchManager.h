@@ -21,7 +21,9 @@ enum SearchType {
     SearchType_WineryList   = 2,
     SearchType_BeerList     = 3,
     SearchType_BreweryList  = 4,
-    SearchType_WineDetail   = 5
+    SearchType_WineDetail   = 5,
+	SearchType_PlaceDetail	= 6,
+	SearchType_UserDetail	= 7
 };
 
 @protocol SearchManagerDelegate;
